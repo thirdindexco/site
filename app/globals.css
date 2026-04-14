@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --canvas: #fafafa;
+  --accent: #f64d00;
+  --neutral: #e8e5e0;
+  --ink: #0b0b0b;
+}
+
+@layer components {
+  .link-underline {
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0 1px;
+    transition: background-size 300ms ease-out;
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
