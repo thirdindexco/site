@@ -118,44 +118,44 @@ export default function HomePage() {
   );
 
   return (
-    <main ref={root} className="mx-auto max-w-[1440px] px-5">
+    <main ref={root} className="mx-auto max-w-[1440px]">
       {/* Top bar */}
-      <header className="reveal reveal-header flex items-center pt-[13px] font-mono font-light text-[9px] uppercase tracking-[-0.01em]">
+      <header className="reveal reveal-header flex items-center pl-5 md:pl-[calc(8.33%+18px)] pr-5 pt-[13px] font-mono font-light text-[9px] uppercase tracking-[-0.01em]">
         <Clock />
         <span className="pl-2">· open for work</span>
       </header>
 
       {/* Logo */}
-      <section className="pt-[80px] md:pt-[120px] overflow-hidden">
+      <section className="overflow-hidden pt-[80px] md:pt-[120px] pl-5 md:pl-[calc(8.33%+18px)]">
         <Image
           src="/logo.svg"
           alt="third index"
           width={750}
           height={142}
           priority
-          className="reveal reveal-logo h-[64px] md:h-[96px] w-auto"
+          className="reveal reveal-logo h-[48px] md:h-[63px] w-auto"
         />
       </section>
 
       {/* Swatch + sub-tagline */}
-      <section className="flex items-start gap-4 md:gap-6 pt-8 md:pt-10">
-        <div className="flex h-[36px] md:h-[40px] shrink-0">
+      <section className="flex items-start gap-5 pt-8 md:pt-[50px] pl-5 md:pl-[calc(8.33%+18px)]">
+        <div className="flex h-[27.125px] shrink-0">
           {toneAlphas.map((a) => (
             <div
               key={a}
               style={{ background: `rgba(11,11,11,${a})` }}
-              className="reveal-swatch h-full w-[36px] md:w-[40px]"
+              className="reveal-swatch h-full w-[27.125px]"
             />
           ))}
         </div>
-        <p className="reveal reveal-subtag font-mono text-[14px] md:text-[16px] leading-[1.16] tracking-[-0.02em] uppercase max-w-[260px] text-balance pt-[2px]">
+        <p className="reveal reveal-subtag font-mono font-light text-[11px] leading-[1.16] tracking-[-0.01em] uppercase max-w-[171px] text-balance pt-[2px]">
           a small software studio based in las vegas, nevada
         </p>
       </section>
 
       {/* Lede */}
-      <section className="pt-10 md:pt-14 pb-10 md:pb-14">
-        <p className="reveal reveal-lede font-ld font-light text-[20px] md:text-[24px] leading-[1.25] tracking-[-0.02em] text-pretty max-w-[1280px]">
+      <section className="pt-10 md:pt-[88px] pb-10 md:pb-[60px] pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
+        <p className="reveal reveal-lede font-ld font-light text-[20px] md:text-[24px] leading-[1.25] tracking-[-0.02em] text-pretty max-w-[1164px]">
           design and engineering for digital products — interfaces, apps,
           websites, design systems. built for clients and increasingly for the
           studio itself. one principal, one or two engagements at a time.
@@ -166,49 +166,53 @@ export default function HomePage() {
       </section>
 
       {/* Currently + contact */}
-      <section className="grid grid-cols-12 gap-6 py-8 md:py-10">
-        <div className="reveal reveal-block col-span-12 md:col-span-4 max-w-[360px]">
-          <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5">
-            currently
+      <section className="grid grid-cols-12 gap-y-8 md:gap-y-0 py-8 md:py-10">
+        <div className="reveal reveal-block col-span-12 col-start-1 px-5 md:col-span-4 md:col-start-2 md:px-0 md:pl-[17px]">
+          <div className="max-w-[336px]">
+            <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5">
+              currently
+            </div>
+            <p className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] tracking-[-0.01em] text-ink text-pretty">
+              working on{" "}
+              <a
+                href="https://bankroll.fyi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-solid underline-offset-[3px] transition-colors duration-200 hover:text-accent"
+              >
+                bankroll.fyi
+              </a>{" "}
+              — bankroll management for poker players and sports bettors. log
+              sessions in natural language, track variance and roi across games,
+              and see where your money actually comes from.
+            </p>
           </div>
-          <p className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] tracking-[-0.01em] text-ink text-pretty">
-            working on{" "}
-            <a
-              href="https://bankroll.fyi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline decoration-solid underline-offset-[3px] transition-colors duration-200 hover:text-accent"
-            >
-              bankroll.fyi
-            </a>{" "}
-            — bankroll management for poker players and sports bettors. log
-            sessions in natural language, track variance and roi across games,
-            and see where your money actually comes from.
-          </p>
         </div>
-        <div className="reveal reveal-block col-span-12 md:col-span-5 md:col-start-6 max-w-[360px]">
-          <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5">
-            get in touch
-          </div>
-          <p className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] tracking-[-0.01em] text-ink text-pretty pb-5">
-            open to new projects, rough ideas, or a conversation. interfaces,
-            marketing sites, design systems. full builds or focused engagements.
-          </p>
-          <div className="flex flex-col gap-1 font-ld font-light text-[15px] md:text-[16px] leading-[1.5]">
-            <a
-              href="https://cal.com/thirdindex/intro"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent"
-            >
-              book a call →
-            </a>
-            <a
-              href="mailto:info@thirdindex.co"
-              className="text-ink transition-colors duration-200 hover:text-accent"
-            >
-              info@thirdindex.co
-            </a>
+        <div className="reveal reveal-block col-span-12 col-start-1 px-5 md:col-span-4 md:col-start-6 md:px-0 md:pl-[12px]">
+          <div className="max-w-[336px]">
+            <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5">
+              get in touch
+            </div>
+            <p className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] tracking-[-0.01em] text-ink text-pretty pb-5">
+              open to new projects, rough ideas, or a conversation. interfaces,
+              marketing sites, design systems. full builds or focused engagements.
+            </p>
+            <div className="flex flex-col gap-1 font-ld font-light text-[15px] md:text-[16px] leading-[1.5]">
+              <a
+                href="https://cal.com/thirdindex/intro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent"
+              >
+                book a call →
+              </a>
+              <a
+                href="mailto:info@thirdindex.co"
+                className="text-ink transition-colors duration-200 hover:text-accent"
+              >
+                info@thirdindex.co
+              </a>
+            </div>
           </div>
         </div>
       </section>
