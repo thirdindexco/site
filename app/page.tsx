@@ -142,29 +142,29 @@ export default function HomePage() {
           width={750}
           height={142}
           priority
-          className="reveal reveal-logo h-[48px] md:h-[63px] w-auto"
+          className="reveal reveal-logo h-[50px] md:h-[63px] w-auto"
         />
       </section>
 
       {/* Swatch + sub-tagline */}
-      <section className="flex items-start gap-[10px] md:gap-5 pt-8 md:pt-[50px] pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
-        <div className="flex h-[16px] md:h-[27.125px] shrink-0">
+      <section className="flex items-center gap-[5px] md:gap-5 pt-8 md:pt-[50px] pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
+        <div className="flex h-[27.125px] shrink-0">
           {toneAlphas.map((a) => (
             <div
               key={a}
               style={{ background: `rgba(11,11,11,${a})` }}
-              className="reveal-swatch h-full w-[16px] md:w-[27.125px]"
+              className="reveal-swatch h-full w-[27.125px]"
             />
           ))}
         </div>
-        <p className="reveal reveal-subtag font-mono font-light text-[10px] md:text-[11px] leading-[1.2] md:leading-[1.16] tracking-[-0.01em] uppercase max-w-[171px] text-balance pt-[1px] md:pt-[2px]">
+        <p className="reveal reveal-subtag font-mono font-light text-[9px] md:text-[11px] leading-[1.2] md:leading-[1.16] tracking-[-0.02em] md:tracking-[-0.01em] uppercase max-w-[137px] md:max-w-[171px] text-balance">
           a small software studio based in las vegas, nevada
         </p>
       </section>
 
       {/* Lede */}
       <section className="pt-10 md:pt-[88px] pb-10 md:pb-[60px] pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
-        <p className="reveal reveal-lede font-ld font-light text-[20px] md:text-[24px] leading-[1.25] tracking-[-0.02em] text-pretty max-w-[1164px]">
+        <p className="reveal reveal-lede font-ld font-light text-[18px] md:text-[24px] leading-[1.25] tracking-[-0.02em] text-pretty max-w-[1164px]">
           design and engineering for digital products — interfaces, apps,
           websites, design systems. built for clients and increasingly for the
           studio itself. one principal, one or two engagements at a time.
