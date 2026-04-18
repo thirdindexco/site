@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
+import Link from "next/link";
 import { Clock } from "./_components/Clock";
 
 gsap.registerPlugin(useGSAP, SplitText);
@@ -120,9 +121,17 @@ export default function HomePage() {
   return (
     <main ref={root} className="mx-auto max-w-[1440px]">
       {/* Top bar */}
-      <header className="reveal reveal-header flex items-center pl-5 md:pl-[calc(8.33%+18px)] pr-5 pt-[13px] font-mono font-light text-[9px] uppercase tracking-[-0.01em]">
+      <header className="reveal reveal-header flex items-center gap-[6px] pl-5 md:pl-[calc(8.33%+18px)] pr-5 pt-[20px] font-mono font-light text-[9px] uppercase tracking-[-0.01em]">
         <Clock />
-        <span className="pl-2">· open for work</span>
+        <span>— open to work.</span>
+        <a
+          href="https://cal.com/thirdindex/intro"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent transition-colors duration-200 hover:text-ink"
+        >
+          book a call →
+        </a>
       </header>
 
       {/* Logo */}
@@ -138,17 +147,17 @@ export default function HomePage() {
       </section>
 
       {/* Swatch + sub-tagline */}
-      <section className="flex items-start gap-5 pt-8 md:pt-[50px] pl-5 md:pl-[calc(8.33%+18px)]">
-        <div className="flex h-[27.125px] shrink-0">
+      <section className="flex items-start gap-[10px] md:gap-5 pt-8 md:pt-[50px] pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
+        <div className="flex h-[26px] md:h-[27.125px] shrink-0">
           {toneAlphas.map((a) => (
             <div
               key={a}
               style={{ background: `rgba(11,11,11,${a})` }}
-              className="reveal-swatch h-full w-[27.125px]"
+              className="reveal-swatch h-full w-[16px] md:w-[27.125px]"
             />
           ))}
         </div>
-        <p className="reveal reveal-subtag font-mono font-light text-[11px] leading-[1.16] tracking-[-0.01em] uppercase max-w-[171px] text-balance pt-[2px]">
+        <p className="reveal reveal-subtag font-mono font-light text-[10px] md:text-[11px] leading-[1.2] md:leading-[1.16] tracking-[-0.01em] uppercase max-w-[171px] text-balance pt-[1px] md:pt-[2px]">
           a small software studio based in las vegas, nevada
         </p>
       </section>
@@ -167,7 +176,7 @@ export default function HomePage() {
 
       {/* Currently + contact */}
       <section className="grid grid-cols-12 gap-y-8 md:gap-y-0 py-8 md:py-10">
-        <div className="reveal reveal-block col-span-12 col-start-1 px-5 md:col-span-4 md:col-start-2 md:px-0 md:pl-[17px]">
+        <div className="reveal reveal-block col-span-12 col-start-1 px-5 md:col-span-4 md:col-start-2 md:row-start-1 md:px-0 md:pl-[17px]">
           <div className="max-w-[336px]">
             <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5">
               currently
@@ -188,7 +197,13 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-        <div className="reveal reveal-block col-span-12 col-start-1 px-5 md:col-span-4 md:col-start-6 md:px-0 md:pl-[12px]">
+        <Link
+          href="/work"
+          className="reveal reveal-block self-start col-span-12 col-start-1 px-5 md:col-span-2 md:col-start-4 md:row-start-1 md:px-0 md:pl-[15px] font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink transition-colors duration-200 hover:text-accent whitespace-nowrap"
+        >
+          selected work →
+        </Link>
+        <div className="reveal reveal-block col-span-12 col-start-1 px-5 md:col-span-4 md:col-start-6 md:row-start-1 md:px-0 md:pl-[12px]">
           <div className="max-w-[336px]">
             <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5">
               get in touch
@@ -197,22 +212,12 @@ export default function HomePage() {
               open to new projects, rough ideas, or a conversation. interfaces,
               marketing sites, design systems. full builds or focused engagements.
             </p>
-            <div className="flex flex-col gap-1 font-ld font-light text-[15px] md:text-[16px] leading-[1.5]">
-              <a
-                href="https://cal.com/thirdindex/intro"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent"
-              >
-                book a call →
-              </a>
-              <a
-                href="mailto:info@thirdindex.co"
-                className="text-ink transition-colors duration-200 hover:text-accent"
-              >
-                info@thirdindex.co
-              </a>
-            </div>
+            <a
+              href="mailto:info@thirdindex.co"
+              className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] text-ink transition-colors duration-200 hover:text-accent"
+            >
+              info@thirdindex.co
+            </a>
           </div>
         </div>
       </section>
