@@ -37,7 +37,7 @@ export default function HomePage() {
           .to(
             ".reveal-logo",
             { autoAlpha: 1, y: 0, duration: 0.75, ease: "power4.out" },
-            "-=0.2"
+            "-=0.2",
           )
           .to(
             ".reveal-swatch",
@@ -47,7 +47,7 @@ export default function HomePage() {
               duration: 0.4,
               stagger: 0.04,
             },
-            "-=0.5"
+            "-=0.5",
           )
           .add("subtagIn", "-=0.25")
           .add("ledeIn", "subtagIn+=0.35")
@@ -59,7 +59,7 @@ export default function HomePage() {
               duration: 0.55,
               stagger: 0.06,
             },
-            "ledeIn+=0.6"
+            "ledeIn+=0.6",
           );
 
         document.fonts.ready.then(() => {
@@ -85,7 +85,7 @@ export default function HomePage() {
               duration: 0.45,
               stagger: 0.06,
             },
-            "subtagIn"
+            "subtagIn",
           );
 
           tl.to(
@@ -96,7 +96,7 @@ export default function HomePage() {
               duration: 0.6,
               stagger: 0.06,
             },
-            "ledeIn"
+            "ledeIn",
           );
 
           tl.play();
@@ -109,13 +109,13 @@ export default function HomePage() {
       });
 
       mm.add("(prefers-reduced-motion: reduce)", () => {
-        gsap.set(
-          ".reveal, .reveal-swatch",
-          { opacity: 1, clearProps: "transform" }
-        );
+        gsap.set(".reveal, .reveal-swatch", {
+          opacity: 1,
+          clearProps: "transform",
+        });
       });
     },
-    { scope: root }
+    { scope: root },
   );
 
   return (
@@ -148,7 +148,7 @@ export default function HomePage() {
 
       {/* Swatch + sub-tagline */}
       <section className="flex items-start gap-[10px] md:gap-5 pt-8 md:pt-[50px] pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
-        <div className="flex h-[26px] md:h-[27.125px] shrink-0">
+        <div className="flex h-[16px] md:h-[27.125px] shrink-0">
           {toneAlphas.map((a) => (
             <div
               key={a}
@@ -169,8 +169,8 @@ export default function HomePage() {
           websites, design systems. built for clients and increasingly for the
           studio itself. one principal, one or two engagements at a time.
           creative agencies, venture-backed startups, fintech and web3,
-          e-commerce, headless publishing, media. teams that know what they
-          want and need someone who can build it.
+          e-commerce, headless publishing, media. teams that know what they want
+          and need someone who can build it.
         </p>
       </section>
 
@@ -210,7 +210,8 @@ export default function HomePage() {
             </div>
             <p className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] tracking-[-0.01em] text-ink text-pretty pb-5">
               open to new projects, rough ideas, or a conversation. interfaces,
-              marketing sites, design systems. full builds or focused engagements.
+              marketing sites, design systems. full builds or focused
+              engagements.
             </p>
             <a
               href="mailto:info@thirdindex.co"

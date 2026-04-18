@@ -35,6 +35,7 @@ export default function WorkPage() {
         gsap.set(".reveal-meta", { y: 8 });
         gsap.set(".reveal-row", { y: 14 });
         gsap.set(".reveal-back", { y: 8 });
+        gsap.set(".reveal-colophon", { y: 8 });
 
         const tl = gsap.timeline({
           defaults: { ease: "power3.out" },
@@ -62,6 +63,11 @@ export default function WorkPage() {
             ".reveal-back",
             { autoAlpha: 1, y: 0, duration: 0.4 },
             "-=0.15"
+          )
+          .to(
+            ".reveal-colophon",
+            { autoAlpha: 1, y: 0, duration: 0.5 },
+            "-=0.2"
           );
 
         document.fonts.ready.then(() => {
@@ -187,13 +193,23 @@ export default function WorkPage() {
       </ol>
 
       {/* Back */}
-      <section className="reveal reveal-back py-12 md:py-16 pl-5 md:pl-[calc(8.33%+18px)]">
+      <section className="reveal reveal-back pt-12 md:pt-16 pl-5 md:pl-[calc(8.33%+18px)]">
         <a
           href="/"
           className="font-ld font-light text-[15px] md:text-[16px] text-accent inline-block"
         >
           ← back to index
         </a>
+      </section>
+
+      {/* Colophon */}
+      <section className="reveal reveal-colophon pt-16 md:pt-24 pb-12 md:pb-16 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-[calc(8.33%+18px)]">
+        <p className="font-ld font-light text-[14px] md:text-[15px] leading-[1.6] tracking-[-0.01em] text-muted max-w-[520px] text-pretty">
+          <span className="font-mono font-medium text-[10px] uppercase tracking-[-0.01em] text-ink pr-[6px]">
+            third index
+          </span>
+          a studio practice by michael ciccarelli. mojave desert, est. 2025.
+        </p>
       </section>
     </main>
   );
