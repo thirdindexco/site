@@ -4,20 +4,85 @@
 
 :root {
   --canvas: #fafafa;
-  --accent: #f64d00;
-  --neutral: #e8e5e0;
   --ink: #0b0b0b;
+  --neutral: #e8e5e0;
+  --accent: #0100ff;
+  --muted: #8a8a86;
+  --hair: rgba(11, 11, 11, 0.12);
+}
+
+html,
+body {
+  background: var(--canvas);
+  color: var(--ink);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
 }
 
 @layer components {
+  .reveal {
+    opacity: 0;
+  }
+  .reveal-swatch {
+    opacity: 0;
+    transform-origin: left center;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-swatch {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .link-underline {
     background-image: linear-gradient(var(--accent), var(--accent));
     background-repeat: no-repeat;
     background-position: 0 100%;
     background-size: 0 1px;
-    transition: background-size 300ms ease-out;
+    transition: background-size 260ms ease-out;
   }
   .link-underline:hover {
     background-size: 100% 1px;
+  }
+
+  .rule {
+    border-top: 1px solid var(--ink);
+  }
+  .rule-soft {
+    border-top: 1px solid var(--hair);
+  }
+  .rule-dots {
+    height: 12px;
+    background-image: radial-gradient(
+      circle,
+      var(--ink) 0.9px,
+      transparent 1.2px
+    );
+    background-size: 4px 4px;
+    background-position: 0 0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .hair-grid {
+    background-image:
+      linear-gradient(to right, var(--hair) 1px, transparent 1px);
+    background-size: calc(100% / 12) 100%;
   }
 }

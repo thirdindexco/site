@@ -1,0 +1,152 @@
+{
+	"services": [
+		{
+			"title": "web platform",
+			"description": "full-stack web platforms on next.js — marketing, content, commerce, and product applications.",
+			"deliverables": [
+				"next.js / typescript",
+				"headless cms",
+				"e-commerce and payments",
+				"performance and seo"
+			],
+			"timeline": "2–6 weeks"
+		},
+		{
+			"title": "ui engineering",
+			"description": "figma to production — component systems, interaction, and motion.",
+			"deliverables": [
+				"react / next.js",
+				"component libraries",
+				"motion and polish",
+				"design systems"
+			]
+		},
+		{
+			"title": "embedded ic",
+			"description": "principal-level frontend, embedded with your team — where engineering rigor and design quality meet.",
+			"deliverables": [
+				"product development",
+				"architecture",
+				"code review",
+				"fractional or full-time"
+			]
+		},
+		{
+			"title": "ai integration",
+			"description": "production-ready ai features — llm integrations, interfaces, and tooling.",
+			"deliverables": [
+				"llm api integration",
+				"chat and assistant interfaces",
+				"streaming and real-time responses",
+				"ai-powered search and workflows"
+			]
+		},
+		{
+			"title": "advisory",
+			"description": "short-term or ongoing — architecture, systems, and product direction.",
+			"deliverables": [
+				"codebase review",
+				"design systems",
+				"performance audits",
+				"ongoing advisory"
+			]
+		}
+	],
+	"process": [
+		"you share context",
+		"i scope and propose",
+		"i build",
+		"you ship",
+		"ongoing support, if needed"
+	],
+	"projects": [
+		{
+			"title": "Legend App",
+			"role": "Frontend Development",
+			"url": "https://legend.xyz",
+			"description": "legend.xyz — marketing site for an embedded smart contract wallet built on open DeFi protocols.",
+			"technologies": "Next.js, Tailwind, WebGL",
+			"image": "/projects/legend.jpg"
+		},
+		{
+			"title": "Amazon: The Bar",
+			"role": "Frontend Development",
+			"url": "https://amazonthe.bar",
+			"description": "creative agency site. custom animations, dynamic layouts, nothing off the shelf.",
+			"technologies": "Next.js, Sanity, Tailwind, Motion",
+			"image": "/projects/the-bar.jpg"
+		},
+		{
+			"title": "bankroll.fyi",
+			"role": "Design & Development",
+			"url": "https://bankroll.fyi",
+			"description": "i built this for myself. sessions, ledger, roi, tools — all in one place.",
+			"technologies": "Next.js, Tailwind, Base UI, Supabase",
+			"image": "/projects/bankrollfyi.jpg"
+		},
+		{
+			"title": "One/Of",
+			"role": "Design & Development",
+			"url": "https://shoponeof.com",
+			"description": "e-commerce site for one/of — custom booking system and shopify checkout.",
+			"technologies": "Shopify (Headless), Next.js, Sanity, Cal.com",
+			"image": "/projects/one-of.jpg"
+		},
+		{
+			"title": "Modern Treasury",
+			"role": "Frontend Development",
+			"url": "https://moderntreasury.com",
+			"description": "ui design system for modern treasury, a fintech platform processing $1b+ in payments annually.",
+			"technologies": "Next.js, Sanity, Tailwind",
+			"image": "/projects/mt.jpg"
+		},
+		{
+			"title": "elara.world",
+			"role": "Fullstack Development",
+			"url": "https://elara.world",
+			"description": "Community hub combining content publishing with integrated merchandise store.",
+			"technologies": "Next.js, Sanity, Shopify",
+			"image": "/projects/elara.jpg"
+		},
+		{
+			"title": "Revolve Law",
+			"role": "Fullstack Development",
+			"url": "https://revolvelawgroup.com",
+			"description": "Professional services site with subtle animations and streamlined contact flows.",
+			"technologies": "Next.js, Tailwind, Sanity",
+			"image": "/projects/revolve.jpg"
+		},
+		{
+			"title": "Kelvon Agee",
+			"role": "Design & Development",
+			"url": "https://kelvonagee.com",
+			"description": "Photography portfolio with optimized image delivery and immersive viewing experience.",
+			"technologies": "Next.js, Cloudinary",
+			"image": "/projects/kelvon.jpg"
+		},
+		{
+			"title": "The Well",
+			"role": "Fullstack Development",
+			"url": "https://the-well.com",
+			"description": "Wellness platform merging e-commerce with appointment booking and member management.",
+			"technologies": "Vue.js, Sanity, Shopify",
+			"image": "/projects/the-well.jpg"
+		},
+		{
+			"title": "El Dorado",
+			"role": "Frontend Development",
+			"url": "https://eldo.us/",
+			"description": "Minimalist architecture portfolio emphasizing visual storytelling and project narratives.",
+			"technologies": "Next.js, Contentful",
+			"image": "/projects/eldo.jpg"
+		},
+		{
+			"title": "VICE",
+			"role": "Lead Frontend Development",
+			"url": "https://vice.com",
+			"description": "High-traffic editorial platform serving millions of readers with real-time content delivery.",
+			"technologies": "React.js, Redux, Node.js",
+			"image": "/projects/vice.jpg"
+		}
+	]
+}
