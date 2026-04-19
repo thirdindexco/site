@@ -4,7 +4,9 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
-import { Clock } from "../_components/Clock";
+import Image from "next/image";
+import Link from "next/link";
+import { SiteHeader } from "../_components/SiteHeader";
 import data from "../../public/data.json";
 
 gsap.registerPlugin(useGSAP, SplitText);
@@ -31,6 +33,7 @@ export default function WorkPage() {
         let headlineSplit: SplitText | null = null;
 
         gsap.set(".reveal-header", { y: -4 });
+        gsap.set(".reveal-logo", { y: 20 });
         gsap.set(".reveal-eyebrow", { y: 10 });
         gsap.set(".reveal-meta", { y: 8 });
         gsap.set(".reveal-row", { y: 14 });
@@ -44,9 +47,14 @@ export default function WorkPage() {
 
         tl.to(".reveal-header", { autoAlpha: 1, y: 0, duration: 0.4 })
           .to(
+            ".reveal-logo",
+            { autoAlpha: 1, y: 0, duration: 0.75, ease: "power4.out" },
+            "-=0.2"
+          )
+          .to(
             ".reveal-eyebrow",
             { autoAlpha: 1, y: 0, duration: 0.45 },
-            "-=0.1"
+            "-=0.4"
           )
           .add("headlineIn", "-=0.15")
           .to(
@@ -107,30 +115,24 @@ export default function WorkPage() {
 
   return (
     <main ref={root} className="mx-auto max-w-[1440px]">
-      {/* Top bar */}
-      <header className="reveal reveal-header flex items-center pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-[calc(8.33%+18px)] pt-[20px] font-mono font-light text-[9px] uppercase tracking-[-0.01em]">
-        <div className="flex items-center gap-[6px]">
-          <Clock />
-          <span>— open to work.</span>
-          <a
-            href="https://cal.com/thirdindex/intro"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent transition-colors duration-200 hover:text-ink"
-          >
-            book a call →
-          </a>
-        </div>
-        <a
-          href="/"
-          className="ml-auto text-ink transition-colors duration-200 hover:text-accent"
-        >
-          ← back to index
-        </a>
-      </header>
+      <SiteHeader />
+
+      {/* Logo */}
+      <section className="overflow-hidden pt-8 md:pt-24 pl-5 md:pl-[calc(8.33%+18px)]">
+        <Link href="/" aria-label="third index — home" className="inline-block">
+          <Image
+            src="/logo.svg"
+            alt="third index"
+            width={750}
+            height={142}
+            priority
+            className="reveal reveal-logo h-[46px] md:h-[63px] w-auto"
+          />
+        </Link>
+      </section>
 
       {/* Masthead */}
-      <section className="pt-[80px] md:pt-[120px] pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
+      <section className="pt-16 md:pt-20 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
         <div className="reveal reveal-eyebrow font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5">
           selected work.
         </div>
@@ -192,14 +194,39 @@ export default function WorkPage() {
         ))}
       </ol>
 
-      {/* Back */}
-      <section className="reveal reveal-back pt-12 md:pt-16 pl-5 md:pl-[calc(8.33%+18px)]">
-        <a
+      {/* Get in touch CTA */}
+      <section className="reveal reveal-back pt-16 md:pt-24 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-[calc(8.33%+18px)] flex flex-col md:flex-row md:items-end md:justify-between gap-y-8">
+        <div>
+          <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5 md:pb-6">
+            get in touch
+          </div>
+          <p className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] tracking-[-0.01em] text-ink text-pretty max-w-[336px] pb-5">
+            seen something you like, or have a project in mind? start a
+            conversation — short note, rough brief, or a call.
+          </p>
+          <div className="flex flex-col gap-[6px]">
+            <a
+              href="mailto:info@thirdindex.co"
+              className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink transition-colors duration-200 hover:text-accent whitespace-nowrap"
+            >
+              info@thirdindex.co
+            </a>
+            <a
+              href="https://cal.com/thirdindex/intro"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-accent transition-colors duration-200 hover:text-ink whitespace-nowrap"
+            >
+              book a call →
+            </a>
+          </div>
+        </div>
+        <Link
           href="/"
-          className="font-ld font-light text-[15px] md:text-[16px] text-accent inline-block"
+          className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink transition-colors duration-200 hover:text-accent whitespace-nowrap"
         >
           ← back to index
-        </a>
+        </Link>
       </section>
 
       {/* Colophon */}

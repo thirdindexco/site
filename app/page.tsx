@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 import Link from "next/link";
-import { Clock } from "./_components/Clock";
+import { SiteHeader } from "./_components/SiteHeader";
 
 gsap.registerPlugin(useGSAP, SplitText);
 
@@ -120,34 +120,24 @@ export default function HomePage() {
 
   return (
     <main ref={root} className="mx-auto max-w-[1440px]">
-      {/* Top bar */}
-      <header className="reveal reveal-header flex items-center gap-[6px] pl-5 md:pl-[calc(8.33%+18px)] pr-5 pt-[20px] font-mono font-light text-[9px] uppercase tracking-[-0.01em]">
-        <Clock />
-        <span>— open to work.</span>
-        <a
-          href="https://cal.com/thirdindex/intro"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-accent transition-colors duration-200 hover:text-ink"
-        >
-          book a call →
-        </a>
-      </header>
+      <SiteHeader />
 
       {/* Logo */}
-      <section className="overflow-hidden pt-[80px] md:pt-[120px] pl-5 md:pl-[calc(8.33%+18px)]">
-        <Image
-          src="/logo.svg"
-          alt="third index"
-          width={750}
-          height={142}
-          priority
-          className="reveal reveal-logo h-[46px] md:h-[63px] w-auto"
-        />
+      <section className="overflow-hidden pt-8 md:pt-24 pl-5 md:pl-[calc(8.33%+18px)]">
+        <Link href="/" aria-label="third index — home" className="inline-block">
+          <Image
+            src="/logo.svg"
+            alt="third index"
+            width={750}
+            height={142}
+            priority
+            className="reveal reveal-logo h-[46px] md:h-[63px] w-auto"
+          />
+        </Link>
       </section>
 
       {/* Swatch + sub-tagline */}
-      <section className="flex items-center gap-[20px] md:gap-5 pt-8 md:pt-[50px] pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
+      <section className="flex items-center gap-[20px] md:gap-5 pt-8 md:pt-11 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
         <div className="flex h-[22px] md:h-[27.125px] shrink-0">
           {toneAlphas.map((a) => (
             <div
@@ -163,7 +153,7 @@ export default function HomePage() {
       </section>
 
       {/* Lede */}
-      <section className="pt-10 md:pt-[88px] pb-10 md:pb-[60px] pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
+      <section className="pt-16 md:pt-24 pb-8 md:pb-24 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
         <p className="reveal reveal-lede font-ld font-light text-[18px] md:text-[24px] leading-[1.25] tracking-[-0.02em] text-pretty max-w-[1164px]">
           design and engineering for digital products — interfaces, apps,
           websites, design systems. built for clients and for the studio&rsquo;s
@@ -175,10 +165,10 @@ export default function HomePage() {
       </section>
 
       {/* Currently + contact */}
-      <section className="grid grid-cols-12 gap-y-8 md:gap-y-0 py-8 md:py-10">
+      <section className="grid grid-cols-12 gap-y-8 md:gap-y-0 pt-8 md:pt-0 pb-8 md:pb-10">
         <div className="reveal reveal-block col-span-12 col-start-1 px-5 md:col-span-4 md:col-start-2 md:row-start-1 md:px-0 md:pl-[17px]">
           <div className="max-w-[336px]">
-            <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5">
+            <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5 md:pb-6">
               currently
             </div>
             <p className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] tracking-[-0.01em] text-ink text-pretty">
@@ -205,20 +195,30 @@ export default function HomePage() {
         </Link>
         <div className="reveal reveal-block col-span-12 col-start-1 px-5 md:col-span-4 md:col-start-6 md:row-start-1 md:px-0 md:pl-[12px]">
           <div className="max-w-[336px]">
-            <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5">
+            <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5 md:pb-6">
               get in touch
             </div>
             <p className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] tracking-[-0.01em] text-ink text-pretty pb-5">
               open to new projects, rough ideas, or a conversation. interfaces,
               marketing sites, design systems. full builds or focused
-              engagements.
+              engagements, from a few weeks to a few months.
             </p>
-            <a
-              href="mailto:info@thirdindex.co"
-              className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] text-ink transition-colors duration-200 hover:text-accent"
-            >
-              info@thirdindex.co
-            </a>
+            <div className="flex flex-col gap-[6px]">
+              <a
+                href="mailto:info@thirdindex.co"
+                className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink transition-colors duration-200 hover:text-accent whitespace-nowrap"
+              >
+                info@thirdindex.co
+              </a>
+              <a
+                href="https://cal.com/thirdindex/intro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-accent transition-colors duration-200 hover:text-ink whitespace-nowrap"
+              >
+                book a call →
+              </a>
+            </div>
           </div>
         </div>
       </section>
