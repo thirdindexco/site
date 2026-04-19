@@ -45,38 +45,35 @@ export default function WorkPage() {
           paused: true,
         });
 
-        tl.to(".reveal-header", { autoAlpha: 1, y: 0, duration: 0.4 })
-          .to(
-            ".reveal-logo",
-            { autoAlpha: 1, y: 0, duration: 0.75, ease: "power4.out" },
-            "-=0.2"
-          )
+        tl.to(".reveal-logo", {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.75,
+          ease: "power4.out",
+        })
           .to(
             ".reveal-eyebrow",
             { autoAlpha: 1, y: 0, duration: 0.45 },
-            "-=0.4"
+            "-=0.2",
           )
           .add("headlineIn", "-=0.15")
           .to(
             ".reveal-meta",
             { autoAlpha: 1, y: 0, duration: 0.45 },
-            "headlineIn+=0.4"
+            "headlineIn+=0.4",
           )
           .to(
             ".reveal-row",
             { autoAlpha: 1, y: 0, duration: 0.55, stagger: 0.06 },
-            "-=0.2"
+            "-=0.2",
           )
-          .to(
-            ".reveal-back",
-            { autoAlpha: 1, y: 0, duration: 0.4 },
-            "-=0.15"
-          )
+          .to(".reveal-back", { autoAlpha: 1, y: 0, duration: 0.4 }, "-=0.15")
           .to(
             ".reveal-colophon",
             { autoAlpha: 1, y: 0, duration: 0.5 },
-            "-=0.2"
-          );
+            "-=0.2",
+          )
+          .to(".reveal-header", { autoAlpha: 1, y: 0, duration: 0.4 }, "-=0.2");
 
         document.fonts.ready.then(() => {
           headlineSplit = new SplitText(".reveal-headline", {
@@ -95,7 +92,7 @@ export default function WorkPage() {
               duration: 0.65,
               stagger: 0.08,
             },
-            "headlineIn"
+            "headlineIn",
           );
 
           tl.play();
@@ -110,7 +107,7 @@ export default function WorkPage() {
         gsap.set(".reveal", { opacity: 1, clearProps: "transform" });
       });
     },
-    { scope: root }
+    { scope: root },
   );
 
   return (
@@ -137,8 +134,8 @@ export default function WorkPage() {
           selected work.
         </div>
         <h1 className="reveal reveal-headline font-ld font-light text-[40px] md:text-[64px] leading-[1.05] tracking-[-0.02em] text-pretty max-w-[1164px]">
-          a decade of interfaces, platforms, and brands. client engagements and
-          studio products.
+          a decade of interfaces, platforms, and brands. client work and studio
+          products.
         </h1>
       </section>
 
@@ -179,7 +176,10 @@ export default function WorkPage() {
                   {p.description}
                 </p>
                 <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-muted">
-                  {p.technologies.split(",").map((t) => t.trim()).join(" · ")}
+                  {p.technologies
+                    .split(",")
+                    .map((t) => t.trim())
+                    .join(" · ")}
                 </div>
               </div>
 
@@ -235,7 +235,9 @@ export default function WorkPage() {
           <span className="font-mono font-medium text-[10px] uppercase tracking-[-0.01em] text-ink pr-[6px]">
             third index
           </span>
-          a studio practice by michael ciccarelli. mojave desert, est. 2025.
+          a studio practice by{" "}
+          <a href="https://ciccarel.li">michael ciccarelli</a>. las vegas,
+          nevada, est. 2025.
         </p>
       </section>
     </main>

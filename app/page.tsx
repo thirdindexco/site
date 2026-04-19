@@ -33,12 +33,12 @@ export default function HomePage() {
           paused: true,
         });
 
-        tl.to(".reveal-header", { autoAlpha: 1, y: 0, duration: 0.4 })
-          .to(
-            ".reveal-logo",
-            { autoAlpha: 1, y: 0, duration: 0.75, ease: "power4.out" },
-            "-=0.2",
-          )
+        tl.to(".reveal-logo", {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.75,
+          ease: "power4.out",
+        })
           .to(
             ".reveal-swatch",
             {
@@ -47,9 +47,9 @@ export default function HomePage() {
               duration: 0.4,
               stagger: 0.04,
             },
-            "-=0.5",
+            "-=0.3",
           )
-          .add("subtagIn", "-=0.25")
+          .add("subtagIn", "-=0.05")
           .add("ledeIn", "subtagIn+=0.35")
           .to(
             ".reveal-block",
@@ -60,6 +60,11 @@ export default function HomePage() {
               stagger: 0.06,
             },
             "ledeIn+=0.6",
+          )
+          .to(
+            ".reveal-header",
+            { autoAlpha: 1, y: 0, duration: 0.4 },
+            "-=0.2",
           );
 
         document.fonts.ready.then(() => {
@@ -148,7 +153,7 @@ export default function HomePage() {
           ))}
         </div>
         <p className="reveal reveal-subtag font-mono font-light text-[9px] md:text-[11px] leading-[1.2] md:leading-[1.16] tracking-[-0.02em] md:tracking-[-0.01em] uppercase max-w-[137px] md:max-w-[171px] text-balance">
-          a small software studio based in las vegas, nevada
+          a small studio in the mojave desert
         </p>
       </section>
 
@@ -171,7 +176,7 @@ export default function HomePage() {
             <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5 md:pb-6">
               currently
             </div>
-            <p className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] tracking-[-0.01em] text-ink text-pretty">
+            <p className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] tracking-[-0.01em] text-ink text-pretty pb-5">
               working on{" "}
               <a
                 href="https://bankroll.fyi"
@@ -185,14 +190,14 @@ export default function HomePage() {
               sessions in natural language, track variance and roi across games,
               and see where your money actually comes from.
             </p>
+            <Link
+              href="/work"
+              className="inline-block font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink transition-colors duration-200 hover:text-accent whitespace-nowrap"
+            >
+              more projects →
+            </Link>
           </div>
         </div>
-        <Link
-          href="/work"
-          className="reveal reveal-block self-start col-span-12 col-start-1 px-5 md:col-span-2 md:col-start-4 md:row-start-1 md:px-0 md:pl-[15px] font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink transition-colors duration-200 hover:text-accent whitespace-nowrap"
-        >
-          selected work →
-        </Link>
         <div className="reveal reveal-block col-span-12 col-start-1 px-5 md:col-span-4 md:col-start-6 md:row-start-1 md:px-0 md:pl-[12px]">
           <div className="max-w-[336px]">
             <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5 md:pb-6">

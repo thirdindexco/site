@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://thirdindex.co"),
   title: "third index — software studio",
   description:
-    "a small software studio in las vegas. design and engineering for digital products.",
+    "a small studio in the mojave desert. design and engineering for digital products.",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
