@@ -1,19 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { SplitText } from "gsap/SplitText";
 import Link from "next/link";
-import { SiteHeader } from "./_components/SiteHeader";
-
-gsap.registerPlugin(useGSAP, SplitText);
+import { gsap, useGSAP, SplitText } from "./_lib/gsap";
 
 const toneAlphas = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
 
 export default function HomePage() {
-  const root = useRef<HTMLElement>(null);
+  const root = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -23,72 +17,76 @@ export default function HomePage() {
         let subtagSplit: SplitText | null = null;
         let ledeSplit: SplitText | null = null;
 
-        gsap.set(".reveal-header", { y: -4 });
-        gsap.set(".reveal-logo", { y: 20 });
         gsap.set(".reveal-swatch", { scaleX: 0 });
         gsap.set(".reveal-block", { y: 10 });
 
         const tl = gsap.timeline({
-          defaults: { ease: "power3.out" },
+          defaults: { ease: "premium" },
           paused: true,
         });
 
-        tl.to(".reveal-logo", {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.75,
-          ease: "power4.out",
-        })
-          .to(
-            ".reveal-swatch",
+        tl.to(
+          ".reveal-swatch",
+          {
+            autoAlpha: 1,
+            scaleX: 1,
+            duration: 0.35,
+            stagger: { each: 0.035, from: "center" },
+          },
+          0,
+        )
+          .fromTo(
+            ".swatch-sheen",
+            { xPercent: -100, autoAlpha: 0 },
             {
+              xPercent: 160,
               autoAlpha: 1,
-              scaleX: 1,
-              duration: 0.4,
-              stagger: 0.04,
+              duration: 0.55,
+              ease: "power2.inOut",
             },
-            "-=0.3",
+            0.25,
           )
-          .add("subtagIn", "-=0.05")
-          .add("ledeIn", "subtagIn+=0.35")
+          .to(
+            ".swatch-sheen",
+            { autoAlpha: 0, duration: 0.18, ease: "power2.out" },
+            0.68,
+          )
+          .addLabel("subtagIn", 0.2)
+          .addLabel("ledeIn", 0.42)
           .to(
             ".reveal-block",
             {
               autoAlpha: 1,
               y: 0,
-              duration: 0.55,
-              stagger: 0.06,
+              duration: 0.45,
+              stagger: { each: 0.05, ease: "power2.in" },
             },
-            "ledeIn+=0.6",
-          )
-          .to(
-            ".reveal-header",
-            { autoAlpha: 1, y: 0, duration: 0.4 },
-            "-=0.2",
+            0.75,
           );
 
         document.fonts.ready.then(() => {
           subtagSplit = new SplitText(".reveal-subtag", {
             type: "lines",
+            mask: "lines",
             linesClass: "subtag-line",
           });
           ledeSplit = new SplitText(".reveal-lede", {
             type: "lines",
+            mask: "lines",
             linesClass: "lede-line",
           });
 
-          gsap.set(".reveal-subtag", { autoAlpha: 1 });
-          gsap.set(subtagSplit.lines, { autoAlpha: 0, y: 8 });
-          gsap.set(".reveal-lede", { autoAlpha: 1 });
-          gsap.set(ledeSplit.lines, { autoAlpha: 0, y: 14 });
+          gsap.set(".reveal-subtag, .reveal-lede", { autoAlpha: 1 });
+          gsap.set([...subtagSplit.lines, ...ledeSplit.lines], {
+            yPercent: 110,
+          });
 
           tl.to(
             subtagSplit.lines,
             {
-              autoAlpha: 1,
-              y: 0,
+              yPercent: 0,
               duration: 0.45,
-              stagger: 0.06,
+              stagger: { each: 0.04, ease: "power2.in" },
             },
             "subtagIn",
           );
@@ -96,10 +94,9 @@ export default function HomePage() {
           tl.to(
             ledeSplit.lines,
             {
-              autoAlpha: 1,
-              y: 0,
-              duration: 0.6,
-              stagger: 0.06,
+              yPercent: 0,
+              duration: 0.55,
+              stagger: { each: 0.04, ease: "power2.in" },
             },
             "ledeIn",
           );
@@ -116,7 +113,7 @@ export default function HomePage() {
       mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.set(".reveal, .reveal-swatch", {
           opacity: 1,
-          clearProps: "transform",
+          clearProps: "transform,filter",
         });
       });
     },
@@ -124,26 +121,10 @@ export default function HomePage() {
   );
 
   return (
-    <main ref={root} className="mx-auto max-w-[1440px]">
-      <SiteHeader />
-
-      {/* Logo */}
-      <section className="overflow-hidden pt-8 md:pt-24 pl-5 md:pl-[calc(8.33%+18px)]">
-        <Link href="/" aria-label="third index — home" className="inline-block">
-          <Image
-            src="/logo.svg"
-            alt="third index"
-            width={750}
-            height={142}
-            priority
-            className="reveal reveal-logo h-[46px] md:h-[63px] w-auto"
-          />
-        </Link>
-      </section>
-
+    <div ref={root}>
       {/* Swatch + sub-tagline */}
       <section className="flex items-center gap-[20px] md:gap-5 pt-8 md:pt-11 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
-        <div className="flex h-[22px] md:h-[27.125px] shrink-0">
+        <div className="swatch-strip flex h-[22px] md:h-[27.125px] shrink-0 overflow-hidden">
           {toneAlphas.map((a) => (
             <div
               key={a}
@@ -151,6 +132,7 @@ export default function HomePage() {
               className="reveal-swatch h-full w-[21.375px] md:w-[27.125px]"
             />
           ))}
+          <div className="swatch-sheen" aria-hidden />
         </div>
         <p className="reveal reveal-subtag font-mono font-light text-[9px] md:text-[11px] leading-[1.2] md:leading-[1.16] tracking-[-0.02em] md:tracking-[-0.01em] uppercase max-w-[137px] md:max-w-[171px] text-balance">
           a small studio in the mojave desert
@@ -227,6 +209,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

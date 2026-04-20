@@ -35,12 +35,39 @@ body {
     opacity: 0;
     transform-origin: left center;
   }
+  .reveal-logo {
+    opacity: 0;
+    will-change: transform, filter, opacity;
+  }
+  .swatch-strip {
+    position: relative;
+  }
+  .swatch-sheen {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.55) 50%,
+      transparent 100%
+    );
+    mix-blend-mode: screen;
+    transform: translateX(-100%);
+  }
 
   @media (prefers-reduced-motion: reduce) {
     .reveal,
     .reveal-swatch {
       opacity: 1;
       transform: none;
+    }
+    .reveal-logo {
+      opacity: 1;
+    }
+    .swatch-sheen {
+      display: none;
     }
   }
 

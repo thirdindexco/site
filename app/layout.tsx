@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "./_components/SiteFooter";
+import { SiteHeader } from "./_components/SiteHeader";
+import { SiteLogo } from "./_components/SiteLogo";
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
@@ -59,7 +61,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${mono.variable} ${ld.variable} ${sd.variable}`}>
       <body className="bg-canvas text-ink antialiased font-ld min-h-screen flex flex-col">
-        <div className="flex-1">{children}</div>
+        <div className="flex-1 mx-auto w-full max-w-[1440px]">
+          <SiteHeader />
+          <SiteLogo />
+          <main>{children}</main>
+        </div>
         <SiteFooter />
       </body>
     </html>

@@ -1,15 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { SplitText } from "gsap/SplitText";
-import Image from "next/image";
 import Link from "next/link";
-import { SiteHeader } from "../_components/SiteHeader";
+import { gsap, useGSAP, SplitText } from "../_lib/gsap";
 import data from "../../public/data.json";
-
-gsap.registerPlugin(useGSAP, SplitText);
 
 type Project = {
   title: string;
@@ -23,7 +17,7 @@ type Project = {
 const projects = data.projects as Project[];
 
 export default function WorkPage() {
-  const root = useRef<HTMLElement>(null);
+  const root = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -32,65 +26,65 @@ export default function WorkPage() {
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         let headlineSplit: SplitText | null = null;
 
-        gsap.set(".reveal-header", { y: -4 });
-        gsap.set(".reveal-logo", { y: 20 });
-        gsap.set(".reveal-eyebrow", { y: 10 });
-        gsap.set(".reveal-meta", { y: 8 });
-        gsap.set(".reveal-row", { y: 14 });
-        gsap.set(".reveal-back", { y: 8 });
-        gsap.set(".reveal-colophon", { y: 8 });
+        gsap.set(".reveal-eyebrow", { y: 8 });
+        gsap.set(".reveal-meta", { y: 6 });
+        gsap.set(".reveal-row", { y: 10 });
+        gsap.set(".reveal-back", { y: 6 });
+        gsap.set(".reveal-colophon", { y: 6 });
 
         const tl = gsap.timeline({
-          defaults: { ease: "power3.out" },
+          defaults: { ease: "premium" },
           paused: true,
         });
 
-        tl.to(".reveal-logo", {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.75,
-          ease: "power4.out",
-        })
-          .to(
-            ".reveal-eyebrow",
-            { autoAlpha: 1, y: 0, duration: 0.45 },
-            "-=0.2",
-          )
-          .add("headlineIn", "-=0.15")
+        tl.to(
+          ".reveal-eyebrow",
+          { autoAlpha: 1, y: 0, duration: 0.35 },
+          0,
+        )
+          .addLabel("headlineIn", 0.1)
           .to(
             ".reveal-meta",
-            { autoAlpha: 1, y: 0, duration: 0.45 },
-            "headlineIn+=0.4",
+            { autoAlpha: 1, y: 0, duration: 0.3 },
+            0.45,
           )
           .to(
             ".reveal-row",
-            { autoAlpha: 1, y: 0, duration: 0.55, stagger: 0.06 },
-            "-=0.2",
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.45,
+              stagger: { each: 0.06, ease: "power2.in" },
+            },
+            0.55,
           )
-          .to(".reveal-back", { autoAlpha: 1, y: 0, duration: 0.4 }, "-=0.15")
+          .to(
+            ".reveal-back",
+            { autoAlpha: 1, y: 0, duration: 0.35 },
+            0.9,
+          )
           .to(
             ".reveal-colophon",
-            { autoAlpha: 1, y: 0, duration: 0.5 },
-            "-=0.2",
-          )
-          .to(".reveal-header", { autoAlpha: 1, y: 0, duration: 0.4 }, "-=0.2");
+            { autoAlpha: 1, y: 0, duration: 0.35 },
+            1.0,
+          );
 
         document.fonts.ready.then(() => {
           headlineSplit = new SplitText(".reveal-headline", {
             type: "lines",
+            mask: "lines",
             linesClass: "headline-line",
           });
 
           gsap.set(".reveal-headline", { autoAlpha: 1 });
-          gsap.set(headlineSplit.lines, { autoAlpha: 0, y: 16 });
+          gsap.set(headlineSplit.lines, { yPercent: 110 });
 
           tl.to(
             headlineSplit.lines,
             {
-              autoAlpha: 1,
-              y: 0,
-              duration: 0.65,
-              stagger: 0.08,
+              yPercent: 0,
+              duration: 0.55,
+              stagger: { each: 0.05, ease: "power2.in" },
             },
             "headlineIn",
           );
@@ -111,23 +105,7 @@ export default function WorkPage() {
   );
 
   return (
-    <main ref={root} className="mx-auto max-w-[1440px]">
-      <SiteHeader />
-
-      {/* Logo */}
-      <section className="overflow-hidden pt-8 md:pt-24 pl-5 md:pl-[calc(8.33%+18px)]">
-        <Link href="/" aria-label="third index — home" className="inline-block">
-          <Image
-            src="/logo.svg"
-            alt="third index"
-            width={750}
-            height={142}
-            priority
-            className="reveal reveal-logo h-[46px] md:h-[63px] w-auto"
-          />
-        </Link>
-      </section>
-
+    <div ref={root}>
       {/* Masthead */}
       <section className="pt-16 md:pt-20 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
         <div className="reveal reveal-eyebrow font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5">
@@ -240,6 +218,6 @@ export default function WorkPage() {
           nevada, est. 2025.
         </p>
       </section>
-    </main>
+    </div>
   );
 }
