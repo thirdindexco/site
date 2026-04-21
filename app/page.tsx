@@ -123,7 +123,7 @@ export default function HomePage() {
   return (
     <div ref={root}>
       {/* Swatch + sub-tagline */}
-      <section className="flex items-center gap-[20px] md:gap-5 pt-8 md:pt-11 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
+      <section className="flex items-center gap-[20px] md:gap-5 pt-4 md:pt-8 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
         <div className="swatch-strip flex h-[22px] md:h-[27.125px] shrink-0 overflow-hidden">
           {toneAlphas.map((a) => (
             <div
@@ -140,8 +140,8 @@ export default function HomePage() {
       </section>
 
       {/* Lede */}
-      <section className="pt-16 md:pt-24 pb-8 md:pb-24 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
-        <p className="reveal reveal-lede font-ld font-light text-[18px] md:text-[24px] leading-[1.25] tracking-[-0.02em] text-pretty max-w-[1164px]">
+      <section className="pt-20 md:pt-16 pb-16 md:pb-20 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
+        <p className="reveal reveal-lede font-ld font-light text-[16px] md:text-[24px] leading-[1.25] tracking-[-0.01em] md:tracking-[-0.02em] text-pretty max-w-[1164px]">
           design and engineering for digital products — interfaces, apps,
           websites, design systems. built for clients and for the studio&rsquo;s
           own products. one principal, one or two engagements at a time.
@@ -152,13 +152,21 @@ export default function HomePage() {
       </section>
 
       {/* Currently + contact */}
-      <section className="grid grid-cols-12 gap-y-8 md:gap-y-0 pt-8 md:pt-0 pb-8 md:pb-10">
+      <section className="grid grid-cols-12 gap-y-8 md:gap-y-0 pb-8 md:pb-10">
         <div className="reveal reveal-block col-span-12 col-start-1 px-5 md:col-span-4 md:col-start-2 md:row-start-1 md:px-0 md:pl-[17px]">
           <div className="max-w-[336px]">
-            <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink pb-5 md:pb-6">
-              currently
+            <div className="flex items-center justify-between pb-5 md:pb-6">
+              <div className="font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink">
+                currently
+              </div>
+              <Link
+                href="/work"
+                className="md:hidden font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink transition-colors duration-200 hover:text-accent whitespace-nowrap"
+              >
+                selected work →
+              </Link>
             </div>
-            <p className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] tracking-[-0.01em] text-ink text-pretty pb-5">
+            <p className="font-ld font-light text-[15px] md:text-[16px] leading-[1.5] tracking-[-0.01em] text-ink text-pretty md:pb-5">
               working on{" "}
               <a
                 href="https://bankroll.fyi"
@@ -174,9 +182,9 @@ export default function HomePage() {
             </p>
             <Link
               href="/work"
-              className="inline-block font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink transition-colors duration-200 hover:text-accent whitespace-nowrap"
+              className="hidden md:inline-block font-mono font-medium text-[9px] uppercase tracking-[-0.01em] text-ink transition-colors duration-200 hover:text-accent whitespace-nowrap"
             >
-              more projects →
+              selected work →
             </Link>
           </div>
         </div>

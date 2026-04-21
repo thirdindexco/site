@@ -16,13 +16,33 @@ const mono = JetBrains_Mono({
 const ld = localFont({
   src: [
     { path: "../public/fonts/LD-Light.woff2", weight: "300", style: "normal" },
-    { path: "../public/fonts/LD-LightItalic.woff2", weight: "300", style: "italic" },
-    { path: "../public/fonts/LD-Regular.woff2", weight: "400", style: "normal" },
-    { path: "../public/fonts/LD-RegularItalic.woff2", weight: "400", style: "italic" },
+    {
+      path: "../public/fonts/LD-LightItalic.woff2",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/LD-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/LD-RegularItalic.woff2",
+      weight: "400",
+      style: "italic",
+    },
     { path: "../public/fonts/LD-Medium.woff2", weight: "500", style: "normal" },
-    { path: "../public/fonts/LD-MediumItalic.woff2", weight: "500", style: "italic" },
+    {
+      path: "../public/fonts/LD-MediumItalic.woff2",
+      weight: "500",
+      style: "italic",
+    },
     { path: "../public/fonts/LD-Bold.woff2", weight: "700", style: "normal" },
-    { path: "../public/fonts/LD-BoldItalic.woff2", weight: "700", style: "italic" },
+    {
+      path: "../public/fonts/LD-BoldItalic.woff2",
+      weight: "700",
+      style: "italic",
+    },
   ],
   variable: "--font-ld",
   display: "swap",
@@ -31,18 +51,34 @@ const ld = localFont({
 const sd = localFont({
   src: [
     { path: "../public/fonts/SD-Light.woff2", weight: "300", style: "normal" },
-    { path: "../public/fonts/SD-LightItalic.woff2", weight: "300", style: "italic" },
-    { path: "../public/fonts/SD-Regular.woff2", weight: "400", style: "normal" },
+    {
+      path: "../public/fonts/SD-LightItalic.woff2",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/SD-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
   ],
   variable: "--font-sd",
   display: "swap",
 });
 
+const siteTitle = "third index — design and engineering studio";
+const siteDescription =
+  "A small design and engineering studio in Las Vegas, Nevada. Interfaces, applications, websites, and design systems for clients and for the studio's own products.";
+
+const siteUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://thirdindex.co"
+    : "http://localhost:3000";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://thirdindex.co"),
-  title: "third index — software studio",
-  description:
-    "a small studio in the mojave desert. design and engineering for digital products.",
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -55,11 +91,39 @@ export const metadata: Metadata = {
   appleWebApp: {
     title: "third index",
   },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "third index",
+    title: siteTitle,
+    description: siteDescription,
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 600,
+        alt: "third index — design and engineering studio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/og.jpg"],
+  },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className={`${mono.variable} ${ld.variable} ${sd.variable}`}>
+    <html
+      lang="en"
+      className={`${mono.variable} ${ld.variable} ${sd.variable}`}
+    >
       <body className="bg-canvas text-ink antialiased font-ld min-h-screen flex flex-col">
         <div className="flex-1 mx-auto w-full max-w-[1440px]">
           <SiteHeader />
