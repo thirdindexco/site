@@ -140,7 +140,7 @@ export default function HomePage() {
       </section>
 
       {/* Lede */}
-      <section className="pt-20 md:pt-16 pb-16 md:pb-20 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
+      <section className="pt-14 md:pt-16 pb-10 md:pb-20 pl-5 md:pl-[calc(8.33%+18px)] pr-5 md:pr-0">
         <p className="reveal reveal-lede font-ld font-light text-[16px] md:text-[24px] leading-[1.25] tracking-[-0.01em] md:tracking-[-0.02em] text-pretty max-w-[1164px]">
           design and engineering for digital products — interfaces, apps,
           websites, design systems. built for clients and for the studio&rsquo;s
