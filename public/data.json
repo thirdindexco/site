@@ -64,7 +64,7 @@
         "title": "bankroll.fyi",
         "role": "Design & Development",
         "url": "https://bankroll.fyi",
-        "description": "bankroll management for poker, sports, and casino play. sessions are logged in natural language and parsed into structured data — variance, roi, hourly rate, and breakdowns by game, stake, and venue. built to answer where the money is coming from.",
+        "description": "bankroll management for poker players and sports bettors. log sessions in natural language, track variance and roi across games, and see where your money actually comes from.",
         "technologies": "Next.js, Tailwind, Base UI, Supabase",
         "image": "/projects/bankrollfyi.jpg"
     },

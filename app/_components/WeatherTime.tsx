@@ -24,7 +24,7 @@ const WMO_MAP: Record<number, string> = {
 };
 
 export function WeatherTime() {
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState<string | null>(null);
   const [weather, setWeather] = useState<{
     temp: number;
     condition: string;
@@ -58,10 +58,13 @@ export function WeatherTime() {
     return () => clearInterval(interval);
   }, []);
 
+  if (!time || !weather) {
+    return <span suppressHydrationWarning>loading…</span>;
+  }
+
   return (
     <span suppressHydrationWarning>
-      {time || "00:00 pt"}
-      {weather && ` · ${weather.temp}°f · ${weather.condition}`}
+      {time} · {weather.temp}°f · {weather.condition}
     </span>
   );
 }

@@ -3,18 +3,39 @@
 @tailwind utilities;
 
 :root {
-  --canvas: #fafafa;
-  --ink: #0b0b0b;
-  --neutral: #e8e5e0;
+  --background: #fafafa; /* canvas */
+  --foreground: #0b0b0b; /* ink */
+  --card: #fafafa;
+  --popover: #fafafa;
+  --primary: #0b0b0b;
+  --primary-foreground: #fafafa;
+  --secondary: #e8e5e0; /* surface */
+  --muted: #e8e5e0;
+  --muted-foreground: #6b6b6b;
+  --accent: #0100ff; /* signature */
+}
+
+html[data-theme="dark"] {
+  --background: #0b0b0b;
+  --foreground: #fafafa;
+  --card: #0b0b0b;
+  --popover: #0b0b0b;
+  --primary: #fafafa;
+  --primary-foreground: #0b0b0b;
+  --secondary: #1a1a1a;
+  --muted: #1a1a1a;
+  --muted-foreground: #9b9b9b;
   --accent: #0100ff;
-  --muted: #8a8a86;
-  --hair: rgba(11, 11, 11, 0.12);
 }
 
 html,
 body {
-  background: var(--canvas);
-  color: var(--ink);
+  background: var(--background);
+  color: var(--foreground);
+  /* Contain anything that positions off-screen (e.g. the inquiry drawer
+     in its closed translate-x-full state) so nothing forces a horizontal
+     scrollbar. */
+  overflow-x: hidden;
 }
 
 body {
@@ -23,93 +44,23 @@ body {
 }
 
 ::selection {
-  background: var(--accent);
-  color: #fff;
+  background: var(--primary);
+  color: var(--primary-foreground);
 }
 
-@layer components {
-  .reveal {
-    opacity: 0;
-  }
-  .reveal-swatch {
-    opacity: 0;
-    transform-origin: left center;
-  }
-  .reveal-logo {
-    opacity: 0;
-    will-change: transform, filter, opacity;
-  }
-  .swatch-strip {
-    position: relative;
-  }
-  .swatch-sheen {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.55) 50%,
-      transparent 100%
-    );
-    mix-blend-mode: screen;
-    transform: translateX(-100%);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reveal,
-    .reveal-swatch {
-      opacity: 1;
-      transform: none;
-    }
-    .reveal-logo {
-      opacity: 1;
-    }
-    .swatch-sheen {
-      display: none;
-    }
-  }
-
-  .link-underline {
-    background-image: linear-gradient(var(--accent), var(--accent));
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    background-size: 0 1px;
-    transition: background-size 260ms ease-out;
-  }
-  .link-underline:hover {
-    background-size: 100% 1px;
-  }
-
-  .rule {
-    border-top: 1px solid var(--ink);
-  }
-  .rule-soft {
-    border-top: 1px solid var(--hair);
-  }
-  .rule-dots {
-    height: 12px;
-    background-image: radial-gradient(
-      circle,
-      var(--ink) 0.9px,
-      transparent 1.2px
-    );
-    background-size: 4px 4px;
-    background-position: 0 0;
-  }
+/* Base UI Collapsible — height animation via --collapsible-panel-height */
+.collapsible-panel {
+  overflow: hidden;
+  height: var(--collapsible-panel-height);
+  transition: height 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.collapsible-panel[data-starting-style],
+.collapsible-panel[data-ending-style] {
+  height: 0;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  .text-pretty {
-    text-wrap: pretty;
-  }
-  .hair-grid {
-    background-image:
-      linear-gradient(to right, var(--hair) 1px, transparent 1px);
-    background-size: calc(100% / 12) 100%;
+@media (prefers-reduced-motion: reduce) {
+  .collapsible-panel {
+    transition-duration: 0ms;
   }
 }

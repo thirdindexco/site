@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { SiteFooter } from "./_components/SiteFooter";
-import { SiteHeader } from "./_components/SiteHeader";
-import { SiteLogo } from "./_components/SiteLogo";
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
@@ -114,6 +111,18 @@ export const metadata: Metadata = {
   },
 };
 
+// Runs before hydration; sets data-theme from localStorage, falling back to
+// the system preference. Prevents a flash of the wrong theme on reload.
+const themeInitScript = `
+try {
+  var stored = localStorage.getItem('theme');
+  var theme = (stored === 'light' || stored === 'dark')
+    ? stored
+    : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', theme);
+} catch (e) {}
+`;
+
 export default function RootLayout({
   children,
 }: {
@@ -123,15 +132,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${mono.variable} ${ld.variable} ${sd.variable}`}
+      suppressHydrationWarning
     >
-      <body className="bg-canvas text-ink antialiased font-ld min-h-screen flex flex-col">
-        <div className="flex-1 mx-auto w-full max-w-[1440px]">
-          <SiteHeader />
-          <SiteLogo />
-          <main>{children}</main>
-        </div>
-        <SiteFooter />
-      </body>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="font-ld antialiased">{children}</body>
     </html>
   );
 }
