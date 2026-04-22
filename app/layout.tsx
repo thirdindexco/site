@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const mono = JetBrains_Mono({
@@ -145,7 +146,10 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="font-ld antialiased">{children}</body>
+      <body className="font-ld antialiased">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
