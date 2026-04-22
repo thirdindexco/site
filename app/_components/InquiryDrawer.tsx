@@ -143,8 +143,8 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
-        <Dialog.Backdrop className="fixed inset-0 z-40 bg-foreground/10 backdrop-blur-sm transition-opacity duration-300 data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
-        <Dialog.Popup className="fixed inset-y-0 right-0 z-50 flex w-full md:w-1/2 lg:w-[560px] flex-col bg-background text-foreground shadow-[-12px_0_32px_-16px_rgba(0,0,0,0.18)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-[starting-style]:translate-x-full data-[ending-style]:translate-x-full">
+        <Dialog.Backdrop className="fixed inset-0 z-40 bg-foreground/15 transition-opacity duration-300 data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
+        <Dialog.Popup className="fixed z-50 top-2 bottom-2 left-2 right-2 md:left-auto md:top-4 md:bottom-4 md:right-4 md:w-1/2 lg:w-[560px] flex flex-col overflow-hidden rounded-2xl border border-[color:var(--panel-border)] bg-background text-foreground shadow-[-8px_0_24px_-16px_rgba(0,0,0,0.1)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-[starting-style]:translate-x-full data-[ending-style]:translate-x-full">
           {/* Header */}
           <div className="flex items-center justify-between px-6 md:px-10 pt-5 pb-10">
             <Dialog.Title className="font-mono font-medium text-3xs uppercase tracking-tight">
@@ -236,7 +236,7 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
                 </div>
                 <div>
                   <p className="font-mono font-medium text-3xs uppercase tracking-tight pb-2">
-                    how i work
+                    how we work
                   </p>
                   <p className="font-ld font-light text-sm leading-snug">
                     {process.join(" · ")}

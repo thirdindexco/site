@@ -2,6 +2,9 @@ import type { Config } from "tailwindcss";
 
 export default {
   content: ["./app/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}"],
+  // hook the `dark:` variant into our <html data-theme="dark"> attribute so
+  // per-mode overrides can live in the JSX, not just CSS vars.
+  darkMode: ["selector", '[data-theme="dark"]'],
   theme: {
     extend: {
       colors: {

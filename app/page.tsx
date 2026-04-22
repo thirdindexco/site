@@ -116,7 +116,7 @@ function ProjectRow({ project }: { project: Project }) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/visit self-start inline-flex items-center gap-1.5 border-b-2 border-accent px-2 py-1 font-mono font-medium text-3xs uppercase tracking-tight text-foreground transition-colors duration-200 hover:bg-accent hover:text-white hover:border-accent whitespace-nowrap outline-none"
+              className="group/visit self-start inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight text-foreground opacity-60 underline decoration-solid underline-offset-2 transition-opacity hover:opacity-100 whitespace-nowrap outline-none"
             >
               visit {project.title.toLowerCase()}
               <ArrowUpRight
@@ -413,7 +413,7 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={() => setInquiryOpen(true)}
-                  className="group/cta self-start inline-flex items-center gap-1.5 border-b-2 border-accent px-2 py-1 font-mono font-medium text-3xs uppercase tracking-tight text-foreground transition-colors duration-200 hover:bg-accent hover:text-white hover:border-accent whitespace-nowrap cursor-pointer outline-none"
+                  className="group/cta self-start inline-flex items-center gap-1.5 border-b-2 border-accent px-2 pt-1.5 pb-1 font-mono font-medium text-3xs uppercase tracking-tight text-foreground transition-colors duration-200 hover:bg-accent hover:text-white hover:border-accent whitespace-nowrap cursor-pointer outline-none"
                 >
                   start an inquiry
                   <ArrowRight

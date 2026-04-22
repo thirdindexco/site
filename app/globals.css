@@ -13,6 +13,9 @@
   --muted: #e8e5e0;
   --muted-foreground: #6b6b6b;
   --accent: #0100ff; /* signature */
+  /* Subtle panel/drawer outline. Lower alpha in dark mode since light
+     pixels on a dark canvas read more prominently than the reverse. */
+  --panel-border: color-mix(in srgb, var(--foreground) 10%, transparent);
 }
 
 html[data-theme="dark"] {
@@ -26,6 +29,7 @@ html[data-theme="dark"] {
   --muted: #1a1a1a;
   --muted-foreground: #9b9b9b;
   --accent: #0100ff;
+  --panel-border: color-mix(in srgb, var(--foreground) 5%, transparent);
 }
 
 html,
