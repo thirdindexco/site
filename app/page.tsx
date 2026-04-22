@@ -263,7 +263,7 @@ export default function HomePage() {
       {showGrid && <GridOverlay />}
 
       {/* Header: logo · swatch · weather */}
-      <header className={`pt-5 items-center ${GRID}`}>
+      <header className={`pt-5 md:pt-10 lg:pt-16 items-center ${GRID}`}>
         {/* Logo — col 1, 176×34 fills col-span-2 exactly */}
         <Link
           href="/"
@@ -334,7 +334,7 @@ export default function HomePage() {
         </section>
 
         {/* Body — latest+work at col 1 · inquiries at col 8 */}
-        <section className={`pt-16 md:pt-24 lg:pt-28 ${GRID}`}>
+        <section className={`pt-10 md:pt-14 lg:pt-16 ${GRID}`}>
           {/* Latest + work — cols 1-4 on desktop */}
           <div
             data-anim="body"

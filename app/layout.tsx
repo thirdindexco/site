@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
@@ -71,6 +71,14 @@ const siteUrl =
   process.env.NODE_ENV === "production"
     ? "https://thirdindex.co"
     : "http://localhost:3000";
+
+// Tints browser chrome (Safari URL bar, Chrome Android tab bar) with the
+// accent blue. Doesn't affect the page background — that stays canvas/ink
+// via the CSS variables. Same value for light and dark so the chrome
+// identity is consistent regardless of mode.
+export const viewport: Viewport = {
+  themeColor: "#0100ff",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
