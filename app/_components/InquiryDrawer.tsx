@@ -3,7 +3,14 @@
 import { useState } from "react";
 import { Dialog } from "@base-ui-components/react/dialog";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useAtom } from "jotai";
 import data from "../../public/data.json";
+import {
+  inquiryFormAtom,
+  inquiryStepAtom,
+  initialInquiryForm,
+  type InquiryForm,
+} from "../_lib/inquiry-state";
 
 type Service = {
   title: string;
@@ -13,25 +20,7 @@ type Service = {
 const services = data.services as Service[];
 const process = data.process as string[];
 
-type FormState = {
-  description: string;
-  timeline: string;
-  budget: string;
-  name: string;
-  email: string;
-  company: string;
-  notes: string;
-};
-
-const initialState: FormState = {
-  description: "",
-  timeline: "",
-  budget: "",
-  name: "",
-  email: "",
-  company: "",
-  notes: "",
-};
+type FormState = InquiryForm;
 
 type Field = {
   key: keyof FormState;
@@ -120,8 +109,11 @@ type Props = {
 };
 
 export function InquiryDrawer({ open, onOpenChange }: Props) {
-  const [step, setStep] = useState(0);
-  const [form, setForm] = useState<FormState>(initialState);
+  // Form + step live in jotai so closing the drawer doesn't throw away
+  // what the user has entered. Transient UI (submitting, error, sent)
+  // stays local — it should always reset with the component.
+  const [form, setForm] = useAtom(inquiryFormAtom);
+  const [step, setStep] = useAtom(inquiryStepAtom);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
@@ -137,11 +129,13 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
     (f) => !f.required || form[f.key]?.trim(),
   );
 
-  const reset = () => {
+  const hasData =
+    step > 0 || Object.values(form).some((v) => v.trim().length > 0);
+
+  const clearAll = () => {
+    setForm(initialInquiryForm);
     setStep(0);
-    setForm(initialState);
     setError(null);
-    setSent(false);
   };
 
   const submit = async () => {
@@ -158,6 +152,10 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
         throw new Error(msg ?? "send failed");
       }
       setSent(true);
+      // Inquiry is done — clear the persisted atoms so reopening the drawer
+      // presents a fresh form.
+      setForm(initialInquiryForm);
+      setStep(0);
     } catch (e) {
       setError(
         e instanceof Error && e.message
@@ -191,8 +189,12 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
   const handleOpenChange = (o: boolean) => {
     onOpenChange(o);
     if (!o) {
-      // let the slide-out finish before resetting
-      window.setTimeout(reset, 500);
+      // Transient UI only — form + step stay in the atoms until the user
+      // submits or hits "clear".
+      window.setTimeout(() => {
+        setError(null);
+        setSent(false);
+      }, 500);
     }
   };
 
@@ -323,27 +325,36 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
                 </aside>
               </div>
 
-              {/* Footer */}
-              <div className="flex items-center justify-between px-6 md:px-10 pt-5 pb-5 border-t border-[color:var(--panel-border)]">
-                <button
-                  type="button"
-                  onClick={back}
-                  disabled={submitting}
-                  className="inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight transition-colors hover:text-accent outline-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  <ArrowLeft aria-hidden className="h-3 w-3" />
-                  {step === 0 ? "cancel" : "back"}
-                </button>
+              {/* Footer — left button aligns with form content above,
+                  right button aligns with the sidebar's right edge above.
+                  Both via the shared md:px-10 gutter. */}
+              <div className="flex items-center px-6 md:px-10 pt-5 pb-5 border-t border-[color:var(--panel-border)]">
+                {step > 0 ? (
+                  <button
+                    type="button"
+                    onClick={back}
+                    disabled={submitting}
+                    className="inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight transition-colors hover:text-accent outline-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    <ArrowLeft aria-hidden className="h-3 w-3" />
+                    back
+                  </button>
+                ) : hasData ? (
+                  <button
+                    type="button"
+                    onClick={clearAll}
+                    disabled={submitting}
+                    className="font-mono font-medium text-3xs uppercase tracking-tight opacity-60 transition-opacity hover:opacity-100 outline-none cursor-pointer disabled:cursor-not-allowed"
+                  >
+                    clear
+                  </button>
+                ) : null}
                 <button
                   type="submit"
                   disabled={!stepValid || submitting}
-                  className="group/next inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight text-accent transition-opacity hover:opacity-70 outline-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+                  className="group/next ml-auto inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight text-accent transition-opacity hover:opacity-70 outline-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
                 >
-                  {submitting
-                    ? "sending…"
-                    : isLast
-                      ? "send inquiry"
-                      : "next"}
+                  {submitting ? "sending…" : isLast ? "send inquiry" : "next"}
                   {!submitting && (
                     <ArrowRight
                       aria-hidden

@@ -16,7 +16,7 @@ const [featured, ...moreWork] = projects;
 // Hero copy, split into words so each can animate individually while the
 // paragraph still wraps naturally.
 const HERO_TEXT =
-  "design and engineering for digital products — interfaces, apps, websites, design systems. built for clients and for the studio's own products. creative agencies, venture-backed startups, fintech and web3, e-commerce, headless publishing, media. teams that know what they want and need someone who can build it.";
+  "design and engineering for digital products — interfaces and the systems behind them. built for clients and for the studio’s own products. creative agencies, venture-backed startups, fintech and web3, e-commerce, headless publishing, media. teams that know what they want and need someone who can build it.";
 const heroWords = HERO_TEXT.split(/\s+/);
 
 // Shared grid spec — inner grid is centered inside the canvas with an outer
@@ -106,9 +106,9 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="font-ld font-light text-base leading-tight tracking-tight pt-9">
-              one principal, one or two engagements at a time. interfaces,
-              marketing sites, design systems. full builds or focused
-              engagements, from a few weeks to a few months.
+              one principal, one or two engagements at a time. product
+              interfaces, systems, and the infrastructure behind them — from
+              MVPs and prototypes to production systems.
             </p>
             <InquiryCTA />
           </div>
