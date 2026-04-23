@@ -16,7 +16,7 @@ const [featured, ...moreWork] = projects;
 // Hero copy, split into words so each can animate individually while the
 // paragraph still wraps naturally.
 const HERO_TEXT =
-  "design and engineering for digital products — interfaces and the systems behind them. built for clients and for the studio’s own products. creative agencies, venture-backed startups, fintech and web3, e-commerce, headless publishing, media. teams that know what they want and need someone who can build it.";
+  "design and engineering for digital products — interfaces and the systems behind them. built for clients and the studio’s own products. work across fintech, commerce, media, and emerging tech.";
 const heroWords = HERO_TEXT.split(/\s+/);
 
 // Shared grid spec — inner grid is centered inside the canvas with an outer
@@ -60,7 +60,7 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Lede — left-aligned, full grid width */}
         <section className={`pt-16 md:pt-24 lg:pt-28 ${GRID}`}>
-          <p className="col-span-12 font-ld font-light text-xl lg:text-3xl leading-tight tracking-tighter text-pretty">
+          <p className="col-span-12 font-ld font-light text-xl md:text-2xl lg:text-4xl leading-tight tracking-tight text-balance">
             {heroWords.map((word, i) => (
               <Fragment key={i}>
                 <span data-anim="hero-word" className="inline-block">
@@ -106,9 +106,9 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="font-ld font-light text-base leading-tight tracking-tight pt-9">
-              one principal, one or two engagements at a time. product
-              interfaces, systems, and the infrastructure behind them — from
-              MVPs and prototypes to production systems.
+              one principal, one or two engagements at a time. MVPs, prototypes,
+              APIs, and production systems — from early exploration to shipped
+              product.
             </p>
             <InquiryCTA />
           </div>

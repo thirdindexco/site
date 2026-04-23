@@ -68,3 +68,19 @@ body {
     transition-duration: 0ms;
   }
 }
+
+/* Theme-toggle ripple. JS uses document.startViewTransition + a clip-path
+   animation from the swatch's position. The default crossfade is disabled
+   here; the new snapshot stacks on top of the old and reveals via the
+   animated clip-path. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}

@@ -33,19 +33,65 @@ export function ThemeSwatch() {
 
   const isDark = theme === "dark";
 
-  const setThemePref = (t: "dark" | "light") => {
+  const applyTheme = (t: "dark" | "light") => {
     try {
       localStorage.setItem("theme", t);
     } catch {}
+    // Set the attribute synchronously so View Transitions can snapshot the
+    // new DOM state immediately; the React state update just keeps the
+    // component in sync afterwards.
+    document.documentElement.setAttribute("data-theme", t);
     setTheme(t);
+  };
+
+  const handleToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const next = isDark ? "light" : "dark";
+
+    const doc = document as Document & {
+      startViewTransition?: (cb: () => void) => { ready: Promise<void> };
+    };
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (!doc.startViewTransition || prefersReducedMotion) {
+      applyTheme(next);
+      return;
+    }
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    const maxRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y),
+    );
+
+    const transition = doc.startViewTransition(() => applyTheme(next));
+
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${maxRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 450,
+          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+          pseudoElement: "::view-transition-new(root)",
+        },
+      );
+    });
   };
 
   return (
     <button
       type="button"
-      onClick={() => setThemePref(isDark ? "light" : "dark")}
+      onClick={handleToggle}
       aria-label="toggle theme"
-      className="group/theme relative hidden md:col-span-2 md:col-start-6 md:flex cursor-pointer"
+      className="hidden md:col-span-2 md:col-start-6 md:flex cursor-pointer"
     >
       {swatchAlphas.map((a) => (
         <span
@@ -59,12 +105,6 @@ export function ThemeSwatch() {
           className="block h-[22px] w-[22px]"
         />
       ))}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute left-0 top-full mt-2 font-mono font-light text-3xs uppercase tracking-tight opacity-0 group-hover/theme:opacity-60 group-focus-visible/theme:opacity-60 transition-opacity duration-200 whitespace-nowrap"
-      >
-        toggle light / dark
-      </span>
     </button>
   );
 }
