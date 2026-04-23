@@ -7,8 +7,6 @@ import data from "../../public/data.json";
 
 type Service = {
   title: string;
-  description: string;
-  deliverables: string[];
   timeline?: string;
 };
 
@@ -16,50 +14,103 @@ const services = data.services as Service[];
 const process = data.process as string[];
 
 type FormState = {
+  description: string;
+  timeline: string;
+  budget: string;
   name: string;
   email: string;
-  projectType: string;
-  timeline: string;
-  description: string;
+  company: string;
+  notes: string;
 };
 
 const initialState: FormState = {
+  description: "",
+  timeline: "",
+  budget: "",
   name: "",
   email: "",
-  projectType: "",
-  timeline: "",
-  description: "",
+  company: "",
+  notes: "",
 };
 
-type Step = {
+type Field = {
   key: keyof FormState;
   label: string;
   type: "input" | "textarea" | "select";
   inputType?: string;
   options?: string[];
   placeholder?: string;
+  required?: boolean;
+};
+
+type Step = {
+  title: string;
+  fields: Field[];
 };
 
 const steps: Step[] = [
-  { key: "name", label: "your name", type: "input", inputType: "text" },
-  { key: "email", label: "email address", type: "input", inputType: "email" },
   {
-    key: "projectType",
-    label: "project type",
-    type: "select",
-    options: ["interface or app", "marketing site", "design system", "other"],
+    title: "the project",
+    fields: [
+      {
+        key: "description",
+        label: "what are you looking to build?",
+        type: "textarea",
+        placeholder: "what are you building, and what do you need help with?",
+        required: true,
+      },
+      {
+        key: "timeline",
+        label: "timeline",
+        type: "select",
+        options: ["asap", "next month", "next quarter", "exploring"],
+        required: true,
+      },
+      {
+        key: "budget",
+        label: "budget",
+        type: "select",
+        options: ["<$10k", "$10–25k", "$25–50k", "$50k+", "not sure"],
+        required: true,
+      },
+    ],
   },
   {
-    key: "timeline",
-    label: "timeline",
-    type: "select",
-    options: ["a few weeks", "1–3 months", "3+ months", "not sure yet"],
+    title: "you",
+    fields: [
+      {
+        key: "name",
+        label: "name",
+        type: "input",
+        inputType: "text",
+        required: true,
+      },
+      {
+        key: "email",
+        label: "email",
+        type: "input",
+        inputType: "email",
+        required: true,
+      },
+      {
+        key: "company",
+        label: "company",
+        type: "input",
+        inputType: "text",
+        placeholder: "company or organization (optional)",
+      },
+    ],
   },
   {
-    key: "description",
-    label: "tell us about the project",
-    type: "textarea",
-    placeholder: "what you're building, who it's for, where you are.",
+    title: "anything else",
+    fields: [
+      {
+        key: "notes",
+        label: "notes (optional)",
+        type: "textarea",
+        placeholder: "anything else we should know? (optional)",
+      },
+    ],
   },
 ];
 
@@ -73,15 +124,24 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
   const [form, setForm] = useState<FormState>(initialState);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [sent, setSent] = useState(false);
 
   const current = steps[step];
   const isLast = step === steps.length - 1;
-  const value = form[current.key];
+
+  const update = (key: keyof FormState, value: string) => {
+    setForm((f) => ({ ...f, [key]: value }));
+  };
+
+  const stepValid = current.fields.every(
+    (f) => !f.required || form[f.key]?.trim(),
+  );
 
   const reset = () => {
     setStep(0);
     setForm(initialState);
     setError(null);
+    setSent(false);
   };
 
   const submit = async () => {
@@ -97,10 +157,7 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
         const { error: msg } = await res.json().catch(() => ({}));
         throw new Error(msg ?? "send failed");
       }
-      onOpenChange(false);
-      // small delay so the form doesn't flash through steps while the
-      // drawer is animating out
-      setTimeout(reset, 400);
+      setSent(true);
     } catch (e) {
       setError(
         e instanceof Error && e.message
@@ -113,6 +170,7 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
   };
 
   const advance = () => {
+    if (!stepValid || submitting) return;
     if (isLast) {
       submit();
     } else {
@@ -121,158 +179,247 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
   };
 
   const back = () => {
-    if (step === 0) onOpenChange(false);
+    if (step === 0) handleOpenChange(false);
     else setStep((s) => s - 1);
-  };
-
-  const selectOption = (o: string) => {
-    setForm((f) => ({ ...f, [current.key]: o }));
-    // Give the tap a beat of visual feedback before advancing.
-    window.setTimeout(() => {
-      if (isLast) submit();
-      else setStep((s) => s + 1);
-    }, 140);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!value || submitting) return;
     advance();
   };
 
+  const handleOpenChange = (o: boolean) => {
+    onOpenChange(o);
+    if (!o) {
+      // let the slide-out finish before resetting
+      window.setTimeout(reset, 500);
+    }
+  };
+
   return (
-    <Dialog.Root open={open} onOpenChange={onOpenChange}>
+    <Dialog.Root open={open} onOpenChange={handleOpenChange}>
       <Dialog.Portal>
         <Dialog.Backdrop className="fixed inset-0 z-40 bg-foreground/15 transition-opacity duration-300 data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
-        <Dialog.Popup className="fixed z-50 top-2 bottom-2 left-2 right-2 md:left-auto md:top-4 md:bottom-4 md:right-4 md:w-1/2 lg:w-[560px] flex flex-col overflow-hidden rounded-2xl border border-[color:var(--panel-border)] bg-background text-foreground shadow-[-8px_0_24px_-16px_rgba(0,0,0,0.1)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-[starting-style]:translate-x-full data-[ending-style]:translate-x-full">
+        <Dialog.Popup className="fixed z-50 top-2 bottom-2 left-2 right-2 md:left-auto md:top-4 md:bottom-4 md:right-4 md:w-1/2 lg:w-[680px] flex flex-col overflow-hidden rounded-2xl border border-[color:var(--panel-border)] bg-background text-foreground shadow-[-8px_0_24px_-16px_rgba(0,0,0,0.1)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-[starting-style]:translate-x-full data-[ending-style]:translate-x-full">
           {/* Header */}
-          <div className="flex items-center justify-between px-6 md:px-10 pt-5 pb-10">
+          <div className="flex items-center justify-between px-6 md:px-10 pt-5 pb-8">
             <Dialog.Title className="font-mono font-medium text-3xs uppercase tracking-tight">
-              inquiry · {step + 1} / {steps.length}
+              inquiry · {sent ? "sent" : `${step + 1} / ${steps.length}`}
             </Dialog.Title>
             <Dialog.Close className="font-mono font-medium text-3xs uppercase tracking-tight transition-colors hover:text-accent outline-none cursor-pointer">
               close
             </Dialog.Close>
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            className="flex min-h-0 flex-1 flex-col"
-          >
-            {/* Body */}
-            <div className="flex-1 overflow-y-auto px-6 md:px-10">
-              <label className="block font-mono font-medium text-3xs uppercase tracking-tight pb-6">
-                {current.label}
-              </label>
-              {current.type === "select" ? (
-                <div className="flex flex-col gap-3">
-                  {current.options!.map((o) => (
-                    <button
-                      key={o}
-                      type="button"
-                      onClick={() => selectOption(o)}
-                      disabled={submitting}
-                      className={`text-left font-ld font-light text-2xl leading-tight tracking-tight transition-opacity cursor-pointer disabled:cursor-not-allowed ${
-                        value === o
-                          ? "opacity-100"
-                          : "opacity-40 hover:opacity-70"
-                      }`}
-                    >
-                      {o}
-                    </button>
-                  ))}
-                </div>
-              ) : current.type === "textarea" ? (
-                <textarea
-                  key={step}
-                  value={value}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, [current.key]: e.target.value }))
-                  }
-                  placeholder={current.placeholder}
-                  rows={6}
-                  autoFocus
-                  disabled={submitting}
-                  className="w-full bg-transparent border-b border-foreground/20 focus:border-foreground outline-none font-ld font-light text-2xl leading-tight tracking-tight pb-2 resize-none placeholder:opacity-40 disabled:opacity-50"
-                />
-              ) : (
-                <input
-                  key={step}
-                  type={current.inputType ?? "text"}
-                  value={value}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, [current.key]: e.target.value }))
-                  }
-                  placeholder={current.placeholder}
-                  autoFocus
-                  disabled={submitting}
-                  className="w-full bg-transparent border-b border-foreground/20 focus:border-foreground outline-none font-ld font-light text-2xl leading-tight tracking-tight pb-2 placeholder:opacity-40 disabled:opacity-50"
-                />
-              )}
-
-              {error && (
-                <p className="pt-4 font-mono font-light text-3xs uppercase tracking-tight text-accent">
-                  {error}
-                </p>
-              )}
-
-              {/* Reference FAQ — typical engagements and how I work.
-                  Subdued so the form stays the primary focus. */}
-              <div className="pt-16 space-y-6 opacity-50">
-                <div>
-                  <p className="font-mono font-medium text-3xs uppercase tracking-tight pb-2">
-                    typical engagements
-                  </p>
-                  <ul className="font-ld font-light text-sm leading-snug space-y-0.5">
-                    {services.map((s) => (
-                      <li key={s.title}>
-                        {s.title}
-                        {s.timeline ? (
-                          <span className="opacity-70"> — {s.timeline}</span>
-                        ) : null}
-                      </li>
+          {sent ? (
+            <div className="flex-1 overflow-y-auto px-6 md:px-10 pb-10">
+              <h2 className="font-ld font-light text-3xl leading-tight tracking-tight pb-4">
+                inquiry sent.
+              </h2>
+              <p className="font-ld font-light text-base leading-snug tracking-tight opacity-70">
+                thanks — response within 48 hours.
+              </p>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubmit}
+              className="flex min-h-0 flex-1 flex-col"
+            >
+              <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
+                {/* Form body */}
+                <div className="flex-1 overflow-y-auto px-6 md:px-10 lg:pr-8 pb-8">
+                  <h2 className="font-mono font-medium text-3xs uppercase tracking-tight pb-5">
+                    {current.title}
+                  </h2>
+                  <div key={step} className="flex flex-col gap-4">
+                    {current.fields.map((field, i) => (
+                      <FieldRow
+                        key={field.key}
+                        field={field}
+                        value={form[field.key]}
+                        onChange={(v) => update(field.key, v)}
+                        disabled={submitting}
+                        autoFocus={i === 0 && field.type !== "select"}
+                      />
                     ))}
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-mono font-medium text-3xs uppercase tracking-tight pb-2">
-                    how we work
-                  </p>
-                  <p className="font-ld font-light text-sm leading-snug">
-                    {process.join(" · ")}
-                  </p>
-                </div>
-              </div>
-            </div>
+                  </div>
 
-            {/* Footer */}
-            <div className="flex items-center justify-between px-6 md:px-10 pt-10 pb-5">
-              <button
-                type="button"
-                onClick={back}
-                disabled={submitting}
-                className="inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight transition-colors hover:text-accent outline-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <ArrowLeft aria-hidden className="h-3 w-3" />
-                {step === 0 ? "cancel" : "back"}
-              </button>
-              <button
-                type="submit"
-                disabled={!value || submitting}
-                className="group/next inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight text-accent transition-opacity hover:opacity-70 outline-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
-              >
-                {submitting ? "sending…" : isLast ? "submit" : "next"}
-                {!submitting && (
-                  <ArrowRight
-                    aria-hidden
-                    className="h-3 w-3 transition-transform duration-200 group-hover/next:translate-x-0.5"
-                  />
-                )}
-              </button>
-            </div>
-          </form>
+                  {isLast && (
+                    <div className="mt-10 pt-6 border-t border-[color:var(--panel-border)] space-y-3 opacity-70">
+                      <p className="font-mono font-medium text-3xs uppercase tracking-tight">
+                        summary
+                      </p>
+                      <dl className="grid grid-cols-[auto_1fr] items-baseline gap-x-5 gap-y-1.5 font-ld font-light text-sm leading-snug">
+                        <dt className="font-mono text-3xs uppercase opacity-60">
+                          project
+                        </dt>
+                        <dd>{form.description || "—"}</dd>
+                        <dt className="font-mono text-3xs uppercase opacity-60">
+                          timeline
+                        </dt>
+                        <dd>{form.timeline || "—"}</dd>
+                        <dt className="font-mono text-3xs uppercase opacity-60">
+                          budget
+                        </dt>
+                        <dd>{form.budget || "—"}</dd>
+                        <dt className="font-mono text-3xs uppercase opacity-60">
+                          name
+                        </dt>
+                        <dd>{form.name || "—"}</dd>
+                        <dt className="font-mono text-3xs uppercase opacity-60">
+                          email
+                        </dt>
+                        <dd>{form.email || "—"}</dd>
+                        {form.company && (
+                          <>
+                            <dt className="font-mono text-3xs uppercase opacity-60">
+                              company
+                            </dt>
+                            <dd>{form.company}</dd>
+                          </>
+                        )}
+                      </dl>
+                    </div>
+                  )}
+
+                  {error && (
+                    <p className="pt-6 font-mono font-light text-3xs uppercase tracking-tight text-accent">
+                      {error}
+                    </p>
+                  )}
+                </div>
+
+                {/* Info sidebar — engagements on form steps, how-it-works on review. */}
+                <aside className="lg:w-52 shrink-0 px-6 md:px-10 lg:pl-6 lg:pr-10 pt-6 lg:pt-0 pb-6 border-t lg:border-t-0 lg:border-l border-[color:var(--panel-border)] opacity-60">
+                  {isLast ? (
+                    <div>
+                      <p className="font-mono font-medium text-3xs uppercase tracking-tight pb-2">
+                        how it works
+                      </p>
+                      <p className="font-ld font-light text-xs leading-snug">
+                        {process.join(" → ")}
+                      </p>
+                    </div>
+                  ) : (
+                    <div>
+                      <p className="font-mono font-medium text-3xs uppercase tracking-tight pb-2">
+                        typical engagements
+                      </p>
+                      <ul className="font-ld font-light text-xs leading-snug space-y-0.5">
+                        {services.map((s) => (
+                          <li key={s.title}>
+                            {s.title}
+                            {s.timeline ? (
+                              <span className="opacity-70">
+                                {" "}
+                                — {s.timeline}
+                              </span>
+                            ) : null}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </aside>
+              </div>
+
+              {/* Footer */}
+              <div className="flex items-center justify-between px-6 md:px-10 pt-5 pb-5 border-t border-[color:var(--panel-border)]">
+                <button
+                  type="button"
+                  onClick={back}
+                  disabled={submitting}
+                  className="inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight transition-colors hover:text-accent outline-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  <ArrowLeft aria-hidden className="h-3 w-3" />
+                  {step === 0 ? "cancel" : "back"}
+                </button>
+                <button
+                  type="submit"
+                  disabled={!stepValid || submitting}
+                  className="group/next inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight text-accent transition-opacity hover:opacity-70 outline-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  {submitting
+                    ? "sending…"
+                    : isLast
+                      ? "send inquiry"
+                      : "next"}
+                  {!submitting && (
+                    <ArrowRight
+                      aria-hidden
+                      className="h-3 w-3 transition-transform duration-200 group-hover/next:translate-x-0.5"
+                    />
+                  )}
+                </button>
+              </div>
+            </form>
+          )}
         </Dialog.Popup>
       </Dialog.Portal>
     </Dialog.Root>
+  );
+}
+
+function FieldRow({
+  field,
+  value,
+  onChange,
+  disabled,
+  autoFocus,
+}: {
+  field: Field;
+  value: string;
+  onChange: (v: string) => void;
+  disabled?: boolean;
+  autoFocus?: boolean;
+}) {
+  return (
+    <div>
+      <label className="block font-mono font-medium text-3xs uppercase tracking-tight pb-2">
+        {field.label}
+      </label>
+      {field.type === "select" ? (
+        <div className="flex flex-wrap gap-2">
+          {field.options!.map((o) => {
+            const selected = value === o;
+            return (
+              <button
+                key={o}
+                type="button"
+                onClick={() => onChange(o)}
+                disabled={disabled}
+                className={`font-mono font-medium text-3xs uppercase tracking-tight px-3 py-1.5 border transition-colors cursor-pointer disabled:cursor-not-allowed whitespace-nowrap outline-none ${
+                  selected
+                    ? "bg-foreground text-background border-foreground"
+                    : "text-foreground opacity-70 hover:opacity-100 border-[color:var(--panel-border)]"
+                }`}
+              >
+                {o}
+              </button>
+            );
+          })}
+        </div>
+      ) : field.type === "textarea" ? (
+        <textarea
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={field.placeholder}
+          rows={4}
+          disabled={disabled}
+          autoFocus={autoFocus}
+          className="w-full bg-transparent border-b border-[color:var(--panel-border)] focus:border-foreground outline-none font-ld font-light text-lg leading-snug tracking-tight pb-2 resize-none placeholder:opacity-40 disabled:opacity-50 transition-colors"
+        />
+      ) : (
+        <input
+          type={field.inputType ?? "text"}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={field.placeholder}
+          disabled={disabled}
+          autoFocus={autoFocus}
+          className="w-full bg-transparent border-b border-[color:var(--panel-border)] focus:border-foreground outline-none font-ld font-light text-lg leading-snug tracking-tight pb-2 placeholder:opacity-40 disabled:opacity-50 transition-colors"
+        />
+      )}
+    </div>
   );
 }

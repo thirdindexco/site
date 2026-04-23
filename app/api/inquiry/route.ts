@@ -10,11 +10,13 @@ const FROM = process.env.RESEND_FROM ?? "onboarding@resend.dev";
 const TO = "hello@thirdindex.co";
 
 type Payload = {
+  description?: string;
+  timeline?: string;
+  budget?: string;
   name?: string;
   email?: string;
-  projectType?: string;
-  timeline?: string;
-  description?: string;
+  company?: string;
+  notes?: string;
 };
 
 export async function POST(req: Request) {
@@ -32,25 +34,28 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "invalid json" }, { status: 400 });
   }
 
-  const { name, email, projectType, timeline, description } = body;
+  const { description, timeline, budget, name, email, company, notes } = body;
 
-  if (!name?.trim() || !email?.trim()) {
+  if (
+    !name?.trim() ||
+    !email?.trim() ||
+    !description?.trim() ||
+    !timeline?.trim() ||
+    !budget?.trim()
+  ) {
     return NextResponse.json(
-      { error: "name and email required" },
+      { error: "required fields missing" },
       { status: 400 },
     );
   }
 
-  const text = [
+  const lines: string[] = [
     `Name: ${name}`,
     `Email: ${email}`,
-    "",
-    `Project type: ${projectType || "—"}`,
-    `Timeline: ${timeline || "—"}`,
-    "",
-    "Description:",
-    description || "—",
-  ].join("\n");
+  ];
+  if (company?.trim()) lines.push(`Company: ${company}`);
+  lines.push("", `Timeline: ${timeline}`, `Budget: ${budget}`, "", "Project:", description);
+  if (notes?.trim()) lines.push("", "Notes:", notes);
 
   try {
     const result = await resend.emails.send({
@@ -58,7 +63,7 @@ export async function POST(req: Request) {
       to: TO,
       replyTo: email,
       subject: `inquiry from ${name}`,
-      text,
+      text: lines.join("\n"),
     });
 
     if (result.error) {
