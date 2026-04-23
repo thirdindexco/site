@@ -15,52 +15,12 @@ const ld = localFont({
   src: [
     { path: "../public/fonts/LD-Light.woff2", weight: "300", style: "normal" },
     {
-      path: "../public/fonts/LD-LightItalic.woff2",
-      weight: "300",
-      style: "italic",
-    },
-    {
       path: "../public/fonts/LD-Regular.woff2",
       weight: "400",
       style: "normal",
     },
-    {
-      path: "../public/fonts/LD-RegularItalic.woff2",
-      weight: "400",
-      style: "italic",
-    },
-    { path: "../public/fonts/LD-Medium.woff2", weight: "500", style: "normal" },
-    {
-      path: "../public/fonts/LD-MediumItalic.woff2",
-      weight: "500",
-      style: "italic",
-    },
-    { path: "../public/fonts/LD-Bold.woff2", weight: "700", style: "normal" },
-    {
-      path: "../public/fonts/LD-BoldItalic.woff2",
-      weight: "700",
-      style: "italic",
-    },
   ],
   variable: "--font-ld",
-  display: "swap",
-});
-
-const sd = localFont({
-  src: [
-    { path: "../public/fonts/SD-Light.woff2", weight: "300", style: "normal" },
-    {
-      path: "../public/fonts/SD-LightItalic.woff2",
-      weight: "300",
-      style: "italic",
-    },
-    {
-      path: "../public/fonts/SD-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-sd",
   display: "swap",
 });
 
@@ -140,7 +100,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${mono.variable} ${ld.variable} ${sd.variable}`}
+      className={`${mono.variable} ${ld.variable}`}
       suppressHydrationWarning
     >
       <head>

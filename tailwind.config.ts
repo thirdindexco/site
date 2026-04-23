@@ -69,7 +69,6 @@ export default {
       fontFamily: {
         mono: ["var(--font-mono)", "monospace"],
         ld: ["var(--font-ld)", "Georgia", "serif"],
-        sd: ["var(--font-sd)", "Georgia", "serif"],
       },
       fontSize: {
         "3xs": ["9px", { lineHeight: "1.16" }],

@@ -3,45 +3,21 @@
 		{
 			"title": "web platform",
 			"description": "full-stack web platforms on next.js — marketing, content, commerce, and product applications.",
-			"deliverables": [
-				"next.js / typescript",
-				"headless cms",
-				"e-commerce and payments",
-				"performance and seo"
-			],
 			"timeline": "2–6 wk"
 		},
 		{
 			"title": "ui engineering",
 			"description": "figma to production — component systems, interaction, and motion.",
-			"deliverables": [
-				"react / next.js",
-				"component libraries",
-				"motion and polish",
-				"design systems"
-			],
 			"timeline": "1–4 wk"
 		},
 		{
 			"title": "embedded role",
 			"description": "principal-level frontend, embedded with your team — where engineering rigor and design quality meet.",
-			"deliverables": [
-				"product development",
-				"architecture",
-				"code review",
-				"fractional or full-time"
-			],
 			"timeline": "1–3 mo"
 		},
 		{
 			"title": "technical review",
 			"description": "short-term or ongoing — architecture, systems, and product direction.",
-			"deliverables": [
-				"codebase review",
-				"design systems",
-				"performance audits",
-				"ongoing advisory"
-			],
 			"timeline": "1–2 wk"
 		}
 	],
@@ -58,88 +34,77 @@
         "role": "Design & Development",
         "url": "https://bankroll.fyi",
         "description": "bankroll management for poker players and sports bettors. log sessions in natural language, track variance and roi across games, and see where your money actually comes from.",
-        "technologies": "Next.js, Tailwind, Base UI, Supabase",
-        "image": "/projects/bankrollfyi.jpg"
+        "technologies": "Next.js, Tailwind, Base UI, Supabase"
     },
     {
         "title": "Legend.xyz",
         "role": "Frontend Development",
         "url": "https://legend.xyz",
         "description": "marketing site for an embedded smart contract wallet built on open defi protocols. custom webgl moments, scroll-driven sequences, a technical product rendered for a non-technical audience.",
-        "technologies": "Next.js, Tailwind, WebGL",
-        "image": "/projects/legend.jpg"
+        "technologies": "Next.js, Tailwind, WebGL"
     },
     {
         "title": "Amazon: The Bar",
         "role": "Frontend Development",
         "url": "https://amazonthe.bar",
         "description": "site for a creative agency that builds for amazon. custom animation, editorial layouts, typography that carries the brand. nothing off the shelf.",
-        "technologies": "Next.js, Sanity, Tailwind, Motion",
-        "image": "/projects/the-bar.jpg"
+        "technologies": "Next.js, Sanity, Tailwind, Motion"
     },
     {
         "title": "One/Of",
         "role": "Design & Development",
         "url": "https://shoponeof.com",
         "description": "e-commerce for a made-to-order fashion label. custom booking flow for in-person fittings, headless shopify checkout for ready-to-ship pieces. two purchase models, one interface.",
-        "technologies": "Shopify (Headless), Next.js, Sanity, Cal.com",
-        "image": "/projects/one-of.jpg"
+        "technologies": "Shopify (Headless), Next.js, Sanity, Cal.com"
     },
     {
         "title": "Modern Treasury",
         "role": "Frontend Development",
         "url": "https://moderntreasury.com",
         "description": "ui and component work for a fintech platform processing over a billion dollars in payments annually. marketing surfaces and in-app patterns built against a shared design system.",
-        "technologies": "Next.js, Sanity, Tailwind",
-        "image": "/projects/mt.jpg"
+        "technologies": "Next.js, Sanity, Tailwind"
     },
     {
         "title": "elara.world",
         "role": "Fullstack Development",
         "url": "https://elara.world",
         "description": "community platform pairing editorial content with a merchandise store. publishing and commerce running on the same frontend, same design language, no seams.",
-        "technologies": "Next.js, Sanity, Shopify",
-        "image": "/projects/elara.jpg"
+        "technologies": "Next.js, Sanity, Shopify"
     },
     {
         "title": "Revolve Law",
         "role": "Fullstack Development",
         "url": "https://revolvelawgroup.com",
         "description": "site for a law firm that wanted to look like neither a law firm nor a tech company. restrained type, quiet motion, a contact flow that gets people to the right place in two clicks.",
-        "technologies": "Next.js, Tailwind, Sanity",
-        "image": "/projects/revolve.jpg"
+        "technologies": "Next.js, Tailwind, Sanity"
     },
     {
         "title": "Kelvon Agee",
         "role": "Design & Development",
         "url": "https://kelvonagee.com",
         "description": "portfolio for a photographer. full-bleed imagery, ruthless image optimization, typography kept out of the way. the work is the interface.",
-        "technologies": "Next.js, Cloudinary",
-        "image": "/projects/kelvon.jpg"
+        "technologies": "Next.js, Cloudinary"
     },
     {
         "title": "The Well",
         "role": "Fullstack Development",
         "url": "https://the-well.com",
         "description": "wellness platform combining e-commerce, appointment booking, and member access. shopify for products, custom scheduling for services, member state shared across all of it.",
-        "technologies": "Vue.js, Sanity, Shopify",
-        "image": "/projects/the-well.jpg"
+        "technologies": "Vue.js, Sanity, Shopify"
     },
     {
         "title": "El Dorado",
         "role": "Frontend Development",
         "url": "https://eldo.us/",
         "description": "architecture studio portfolio. project pages built around process — drawings, material studies, site photography — not just finished shots. the site reads like a monograph.",
-        "technologies": "Next.js, Contentful",
-        "image": "/projects/eldo.jpg"
+        "technologies": "Next.js, Contentful"
     },
     {
         "title": "VICE",
         "role": "Lead Frontend Development",
         "url": "https://vice.com",
         "description": "editorial platform serving millions of readers. real-time content delivery, ad integration, and a frontend that had to hold up under breaking-news traffic spikes.",
-        "technologies": "React.js, Redux, Node.js",
-        "image": "/projects/vice.jpg"
+        "technologies": "React.js, Redux, Node.js"
     }
 	]
 }

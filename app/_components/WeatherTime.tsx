@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import { WeatherClock } from "./WeatherClock";
 
 const WMO_MAP: Record<number, string> = {
   0: "CLEAR",
@@ -23,48 +21,28 @@ const WMO_MAP: Record<number, string> = {
   99: "STORM",
 };
 
-export function WeatherTime() {
-  const [time, setTime] = useState<string | null>(null);
-  const [weather, setWeather] = useState<{
-    temp: number;
-    condition: string;
-  } | null>(null);
+type Weather = { temp: number; condition: string } | null;
 
-  useEffect(() => {
-    const updateTime = () => {
-      const formatted = new Date().toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-        timeZone: "America/Los_Angeles",
-      });
-      setTime(`${formatted} pt`);
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 60_000);
-
-    fetch(
+// Fetched on the server with a 10-minute revalidation window so all clients
+// read the cached Open-Meteo response instead of each hitting the API.
+async function fetchWeather(): Promise<Weather> {
+  try {
+    const res = await fetch(
       "https://api.open-meteo.com/v1/forecast?latitude=36.1699&longitude=-115.1398&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=America/Los_Angeles",
-    )
-      .then((r) => r.json())
-      .then((data) => {
-        setWeather({
-          temp: Math.round(data.current.temperature_2m),
-          condition: WMO_MAP[data.current.weather_code] ?? "CLEAR",
-        });
-      })
-      .catch(() => {});
-
-    return () => clearInterval(interval);
-  }, []);
-
-  if (!time || !weather) {
-    return <span suppressHydrationWarning>loading…</span>;
+      { next: { revalidate: 600 } },
+    );
+    if (!res.ok) return null;
+    const data = await res.json();
+    return {
+      temp: Math.round(data.current.temperature_2m),
+      condition: WMO_MAP[data.current.weather_code as number] ?? "CLEAR",
+    };
+  } catch {
+    return null;
   }
+}
 
-  return (
-    <span suppressHydrationWarning>
-      {time} · {weather.temp}°f · {weather.condition}
-    </span>
-  );
+export async function WeatherTime() {
+  const weather = await fetchWeather();
+  return <WeatherClock weather={weather} />;
 }
