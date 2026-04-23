@@ -60,7 +60,7 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Lede — left-aligned, full grid width */}
         <section className={`pt-16 md:pt-24 lg:pt-28 ${GRID}`}>
-          <p className="col-span-12 font-ld font-light text-lg md:text-xl lg:text-3xl leading-tight tracking-tighter">
+          <p className="col-span-12 font-ld font-light text-xl lg:text-3xl leading-tight tracking-tighter text-pretty">
             {heroWords.map((word, i) => (
               <Fragment key={i}>
                 <span data-anim="hero-word" className="inline-block">
