@@ -32,7 +32,7 @@ const swatchAlphas = [1, 0.82, 0.66, 0.5, 0.36, 0.24, 0.14, 0.06];
 // Hero copy, split into words so each can animate individually while the
 // paragraph still wraps naturally.
 const HERO_TEXT =
-  "design and engineering for digital products — interfaces, apps, websites, design systems. built for clients and for the studio’s own products. one principal, one or two engagements at a time. creative agencies, venture-backed startups, fintech and web3, e-commerce, headless publishing, media. teams that know what they want and need someone who can build it.";
+  "design and engineering for digital products — interfaces, apps, websites, design systems. built for clients and for the studio's own products. creative agencies, venture-backed startups, fintech and web3, e-commerce, headless publishing, media. teams that know what they want and need someone who can build it.";
 const heroWords = HERO_TEXT.split(/\s+/);
 
 // shared grid spec — inner grid is centered inside the canvas with an outer margin.
@@ -304,7 +304,7 @@ export default function HomePage() {
         {/* Weather + email — col 11 on desktop, right-aligned on mobile */}
         <div
           data-anim="weather"
-          className="col-span-6 md:col-span-2 md:col-start-11 flex flex-col items-end md:items-start text-right md:text-left font-mono font-light text-3xs uppercase tracking-wide"
+          className="col-span-6 md:col-span-2 md:col-start-11 flex flex-col gap-px items-end md:items-start text-right md:text-left font-mono font-light text-2xs uppercase tracking-wide"
         >
           <span>
             <WeatherTime />
@@ -321,7 +321,7 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Lede — left-aligned, full grid width, 24px on desktop */}
         <section className={`pt-16 md:pt-24 lg:pt-28 ${GRID}`}>
-          <p className="col-span-12 font-ld font-light text-lg md:text-xl lg:text-2xl leading-snug tracking-tight">
+          <p className="col-span-12 font-ld font-light text-lg md:text-xl lg:text-3xl leading-tight tracking-tighter">
             {heroWords.map((word, i) => (
               <Fragment key={i}>
                 <span data-anim="hero-word" className="inline-block">
@@ -362,10 +362,10 @@ export default function HomePage() {
               </p>
               <Collapsible.Trigger className="group mt-5 inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight transition-colors hover:text-accent outline-none cursor-pointer self-start">
                 <span className="group-data-[panel-open]:hidden">
-                  view more projects
+                  previously
                 </span>
                 <span className="hidden group-data-[panel-open]:inline">
-                  hide projects
+                  hide
                 </span>
                 <Plus
                   aria-hidden
@@ -404,9 +404,9 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="font-ld font-light text-base leading-tight tracking-tight pt-9">
-              interfaces, marketing sites, design systems. full builds or
-              focused engagements, from a few weeks to a few months. open to
-              rough ideas.
+              one principal, one or two engagements at a time. interfaces,
+              marketing sites, design systems. full builds or focused
+              engagements, from a few weeks to a few months.
             </p>
             <div className="flex flex-col items-start gap-3 pt-8">
               <div className="flex flex-col lg:flex-row lg:items-center items-start gap-3 lg:gap-5">
@@ -445,15 +445,15 @@ export default function HomePage() {
       <footer className={`pt-16 md:pt-24 lg:pt-28 pb-5 ${GRID}`}>
         <p
           data-anim="footer"
-          className="col-span-12 md:col-span-4 md:col-start-1 font-mono font-light text-3xs uppercase tracking-wide opacity-80"
+          className="col-span-12 md:col-span-4 md:col-start-1 font-mono font-light text-2xs uppercase tracking-wide opacity-80"
         >
           © 2026 third index llc
         </p>
         <p
           data-anim="footer"
-          className="col-span-12 md:col-span-5 md:col-start-8 pt-2 md:pt-0 font-mono font-light text-3xs uppercase tracking-wide opacity-80"
+          className="col-span-12 md:col-span-5 md:col-start-8 pt-2 md:pt-0 font-mono font-light text-2xs uppercase tracking-wide opacity-80"
         >
-          a small studio based in the mojave desert
+          a small studio in the mojave desert
         </p>
       </footer>
 
