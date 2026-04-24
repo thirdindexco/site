@@ -80,7 +80,7 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Lede — left-aligned, full grid width */}
         <section className={`pt-16 md:pt-24 lg:pt-28 ${GRID}`}>
-          <p className="col-span-12 font-ld font-light text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight text-balance">
+          <p className="col-span-12 font-ld font-light text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight lg:text-balance">
             {heroWords.map((word, i) => (
               <Fragment key={i}>
                 <span
