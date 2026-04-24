@@ -28,7 +28,8 @@ export function WeatherClock({ weather }: { weather: Weather }) {
 
   return (
     <span suppressHydrationWarning>
-      {time} · {weather.temp}°f · {weather.condition}
+      {time} · {weather.temp}°f
+      <span className="hidden xl:inline"> · {weather.condition}</span>
     </span>
   );
 }

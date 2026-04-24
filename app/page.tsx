@@ -45,10 +45,11 @@ export default function HomePage() {
 
         <ThemeSwatch className="hidden md:col-span-2 md:col-start-4 md:flex" />
 
-        {/* Studio location — desktop-only header slot (matches Figma spec). */}
+        {/* Studio location — desktop-only header slot (matches Figma spec).
+            Below lg, it falls back to the footer. */}
         <p
           data-anim="studio"
-          className="hidden md:block md:col-span-2 md:col-start-8 font-mono font-light text-2xs uppercase tracking-wide"
+          className="hidden lg:block lg:col-span-2 lg:col-start-8 font-mono font-light text-2xs uppercase tracking-wide"
         >
           a small studio in
           <br />
@@ -67,7 +68,7 @@ export default function HomePage() {
             href="mailto:info@thirdindex.co"
             className="transition-colors hover:text-accent"
           >
-            e: info@thirdindex.co
+            <span className="hidden xl:inline">e: </span>info@thirdindex.co
           </a>
         </div>
       </header>
@@ -147,7 +148,7 @@ export default function HomePage() {
         </p>
         <p
           data-anim="footer"
-          className="col-span-12 md:hidden pt-2 font-mono font-light text-2xs uppercase tracking-wide opacity-80"
+          className="col-span-12 lg:hidden pt-2 font-mono font-light text-2xs uppercase tracking-wide opacity-80"
         >
           a small studio in the mojave desert
         </p>

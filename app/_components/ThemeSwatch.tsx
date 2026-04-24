@@ -164,10 +164,12 @@ export function ThemeSwatch({ className = "" }: { className?: string }) {
         );
       })}
       {/* Hover caption — current mode + keyboard shortcut hint. Absolute so
-          it doesn't steal space when the swatch isn't being pointed at. */}
+          it doesn't steal space when the swatch isn't being pointed at.
+          Stacks below the cells on mobile where horizontal room is scarce;
+          slides out to the right on desktop. */}
       <span
         aria-hidden
-        className="pointer-events-none absolute left-full top-1/2 ml-3 flex -translate-y-1/2 items-center gap-1.5 whitespace-nowrap font-mono text-2xs uppercase tracking-wide opacity-0 transition-opacity duration-200 group-hover:opacity-70"
+        className="pointer-events-none absolute left-0 top-full mt-2 flex items-center gap-1.5 whitespace-nowrap font-mono text-2xs uppercase tracking-wide opacity-0 transition-opacity duration-200 group-hover:opacity-70 md:left-full md:top-1/2 md:ml-3 md:mt-0 md:-translate-y-1/2"
       >
         <span>{theme}</span>
         <kbd className="inline-flex h-[14px] min-w-[14px] items-center justify-center border border-current px-1 pt-px text-[9px] leading-none">
