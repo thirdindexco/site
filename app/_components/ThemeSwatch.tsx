@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 // 8 swatches × 22px = 176px, fills col-span-2 exactly (matches Figma).
 // Gradual opacity falloff so the last dot is barely visible.
-const swatchAlphas = [1, 0.82, 0.66, 0.5, 0.36, 0.24, 0.14, 0.06];
+const swatchAlphas = [0.95, 0.8, 0.7, 0.5, 0.4, 0.3, 0.15, 0.05];
 
 export function ThemeSwatch() {
   // Initial value matches SSR output; real theme is read from the attribute
@@ -91,7 +91,7 @@ export function ThemeSwatch() {
       type="button"
       onClick={handleToggle}
       aria-label="toggle theme"
-      className="hidden md:col-span-2 md:col-start-6 md:flex cursor-pointer"
+      className="hidden md:col-span-2 md:col-start-4 md:flex cursor-pointer"
     >
       {swatchAlphas.map((a) => (
         <span

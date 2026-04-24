@@ -15,6 +15,11 @@ const ld = localFont({
   src: [
     { path: "../public/fonts/LD-Light.woff2", weight: "300", style: "normal" },
     {
+      path: "../public/fonts/LD-LightItalic.woff2",
+      weight: "300",
+      style: "italic",
+    },
+    {
       path: "../public/fonts/LD-Regular.woff2",
       weight: "400",
       style: "normal",
@@ -38,7 +43,7 @@ const siteUrl =
 // via the CSS variables. Same value for light and dark so the chrome
 // identity is consistent regardless of mode.
 export const viewport: Viewport = {
-  themeColor: "#0100ff",
+  themeColor: "#0000ff",
 };
 
 export const metadata: Metadata = {

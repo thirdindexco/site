@@ -19,44 +19,75 @@ export function AnimRoot({
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
-      mm.add("(min-width: 1024px)", () => {
-        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      mm.add(
+        {
+          isDesktop: "(min-width: 1024px)",
+          reduceMotion: "(prefers-reduced-motion: reduce)",
+        },
+        (ctx) => {
+          const { isDesktop, reduceMotion } = ctx.conditions as {
+            isDesktop: boolean;
+            reduceMotion: boolean;
+          };
+          if (!isDesktop) return;
 
-        tl.from("[data-anim='swatch']", {
-          autoAlpha: 0,
-          filter: "blur(6px)",
-          duration: 0.9,
-          stagger: 0.08,
-          ease: "power2.out",
-          force3D: true,
-        })
-          .from(
-            ["[data-anim='logo']", "[data-anim='weather']"],
-            { autoAlpha: 0, y: -8, duration: 0.9 },
-            "-=0.4",
-          )
-          .from(
-            "[data-anim='hero-word']",
-            {
-              autoAlpha: 0,
-              y: 10,
-              duration: 0.55,
-              stagger: 0.015,
-              ease: "power2.out",
-            },
-            "-=0.3",
-          )
-          .from(
-            "[data-anim='body']",
-            { autoAlpha: 0, y: 14, duration: 0.95, stagger: 0.12 },
-            "-=0.5",
-          )
-          .from(
-            "[data-anim='footer']",
-            { autoAlpha: 0, y: 6, duration: 0.8, stagger: 0.08 },
-            "-=0.4",
-          );
-      });
+          // Reduced motion: reveal everything immediately, skip the timeline.
+          if (reduceMotion) {
+            gsap.set("[data-anim]", { autoAlpha: 1, visibility: "visible" });
+            return;
+          }
+
+          const tl = gsap.timeline({
+            defaults: { ease: "power3.out" },
+            delay: 0.15,
+          });
+
+          tl.from("[data-anim='swatch']", {
+            autoAlpha: 0,
+            filter: "blur(6px)",
+            duration: 0.9,
+            stagger: 0.08,
+            ease: "power2.out",
+            force3D: true,
+          })
+            .from(
+              "[data-anim='logo']",
+              { autoAlpha: 0, y: -8, duration: 0.9 },
+              "-=0.4",
+            )
+            .from(
+              "[data-anim='studio']",
+              { autoAlpha: 0, x: -12, duration: 0.85 },
+              "-=0.7",
+            )
+            .from(
+              "[data-anim='weather']",
+              { autoAlpha: 0, y: -8, duration: 0.9 },
+              "-=0.75",
+            )
+            .from(
+              "[data-anim='hero-word']",
+              {
+                autoAlpha: 0,
+                y: 10,
+                duration: 0.55,
+                stagger: 0.015,
+                ease: "power2.out",
+              },
+              "-=0.3",
+            )
+            .from(
+              "[data-anim='body']",
+              { autoAlpha: 0, y: 14, duration: 0.95, stagger: 0.12 },
+              "-=0.5",
+            )
+            .from(
+              "[data-anim='footer']",
+              { autoAlpha: 0, y: 6, duration: 0.8, stagger: 0.08 },
+              "-=0.4",
+            );
+        },
+      );
     },
     { scope: rootRef },
   );

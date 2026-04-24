@@ -12,7 +12,7 @@
   --secondary: #e8e5e0; /* surface */
   --muted: #e8e5e0;
   --muted-foreground: #6b6b6b;
-  --accent: #0100ff; /* signature */
+  --accent: #0000ff; /* signature */
   /* Subtle panel/drawer outline. Lower alpha in dark mode since light
      pixels on a dark canvas read more prominently than the reverse. */
   --panel-border: color-mix(in srgb, var(--foreground) 10%, transparent);
@@ -28,7 +28,7 @@ html[data-theme="dark"] {
   --secondary: #1a1a1a;
   --muted: #1a1a1a;
   --muted-foreground: #9b9b9b;
-  --accent: #0100ff;
+  --accent: #0000ff;
   --panel-border: color-mix(in srgb, var(--foreground) 5%, transparent);
 }
 
@@ -45,6 +45,14 @@ body {
 body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* FOUC guard for the desktop intro. Elements stay hidden until GSAP takes
+   control in AnimRoot; scoped to ≥1024px since mobile skips the timeline. */
+@media (min-width: 1024px) {
+  [data-anim] {
+    visibility: hidden;
+  }
 }
 
 ::selection {

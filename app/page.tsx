@@ -18,6 +18,9 @@ const [featured, ...moreWork] = projects;
 const HERO_TEXT =
   "design and engineering for digital products — interfaces and the systems behind them. built for clients and the studio’s own products. work across fintech, commerce, media, and emerging tech.";
 const heroWords = HERO_TEXT.split(/\s+/);
+// Italicized phrases in the hero. Matched against the split word list by index
+// so each span can still animate independently.
+const italicWordIndices = new Set([4, 5, 7, 10]);
 
 // Shared grid spec — inner grid is centered inside the canvas with an outer
 // margin. Everything that "snaps to the grid" uses this.
@@ -40,6 +43,16 @@ export default function HomePage() {
 
         <ThemeSwatch />
 
+        {/* Studio location — desktop-only header slot (matches Figma spec). */}
+        <p
+          data-anim="studio"
+          className="hidden md:block md:col-span-2 md:col-start-8 font-mono font-light text-2xs uppercase tracking-wide"
+        >
+          a small studio in
+          <br />
+          the mojave desert
+        </p>
+
         {/* Weather + email — col 11 on desktop, right-aligned on mobile */}
         <div
           data-anim="weather"
@@ -60,10 +73,13 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Lede — left-aligned, full grid width */}
         <section className={`pt-16 md:pt-24 lg:pt-28 ${GRID}`}>
-          <p className="col-span-12 font-ld font-light text-xl md:text-2xl lg:text-4xl leading-tight tracking-tight text-balance">
+          <p className="col-span-12 font-ld font-light text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight text-balance">
             {heroWords.map((word, i) => (
               <Fragment key={i}>
-                <span data-anim="hero-word" className="inline-block">
+                <span
+                  data-anim="hero-word"
+                  className={`inline-block ${italicWordIndices.has(i) ? "italic" : ""}`}
+                >
                   {word}
                 </span>
                 {i < heroWords.length - 1 && " "}
@@ -82,7 +98,7 @@ export default function HomePage() {
             <div className="font-mono font-medium text-3xs uppercase tracking-tight">
               latest
             </div>
-            <p className="font-ld font-light text-base leading-tight tracking-tight pt-9">
+            <p className="font-ld font-light text-sm leading-tight tracking-tight pt-9">
               working on{" "}
               <a
                 href={featured.url}
@@ -105,7 +121,7 @@ export default function HomePage() {
             <div className="font-mono font-medium text-3xs uppercase tracking-tight">
               inquiries
             </div>
-            <p className="font-ld font-light text-base leading-tight tracking-tight pt-9">
+            <p className="font-ld font-light text-sm leading-tight tracking-tight pt-9">
               one principal, one or two engagements at a time. MVPs, prototypes,
               APIs, and production systems — from early exploration to shipped
               product.
@@ -125,7 +141,7 @@ export default function HomePage() {
         </p>
         <p
           data-anim="footer"
-          className="col-span-12 md:col-span-5 md:col-start-8 pt-2 md:pt-0 font-mono font-light text-2xs uppercase tracking-wide opacity-80"
+          className="col-span-12 md:hidden pt-2 font-mono font-light text-2xs uppercase tracking-wide opacity-80"
         >
           a small studio in the mojave desert
         </p>
