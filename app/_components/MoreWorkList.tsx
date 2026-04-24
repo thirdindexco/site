@@ -61,7 +61,7 @@ function ProjectRow({ project }: { project: Project }) {
           data-state={open ? "open" : "closed"}
           className="group/title outline-none cursor-pointer text-left"
         >
-          <span className="font-ld font-light text-3xl md:text-4xl uppercase leading-none tracking-tight opacity-60 group-hover/title:opacity-100 group-data-[state=open]/title:opacity-100 transition-opacity duration-300">
+          <span className="font-ld font-light text-xl md:text-3xl uppercase leading-none tracking-tight opacity-80 group-hover/title:opacity-100 group-data-[state=open]/title:opacity-100 transition-opacity duration-300">
             {project.title}
           </span>
         </Collapsible.Trigger>

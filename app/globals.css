@@ -32,6 +32,22 @@ html[data-theme="dark"] {
   --panel-border: color-mix(in srgb, var(--foreground) 5%, transparent);
 }
 
+/* Brand-accent mode — the full blue canvas. Accent var flips to ink so
+   link-hover and CTAs still have contrast against the blue background. */
+html[data-theme="accent"] {
+  --background: #0000ff;
+  --foreground: #fafafa;
+  --card: #0000ff;
+  --popover: #0000ff;
+  --primary: #fafafa;
+  --primary-foreground: #0000ff;
+  --secondary: #1f2bff;
+  --muted: #1f2bff;
+  --muted-foreground: #c2c8ff;
+  --accent: #0b0b0b;
+  --panel-border: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
 html,
 body {
   background: var(--background);
@@ -77,18 +93,3 @@ body {
   }
 }
 
-/* Theme-toggle ripple. JS uses document.startViewTransition + a clip-path
-   animation from the swatch's position. The default crossfade is disabled
-   here; the new snapshot stacks on top of the old and reveals via the
-   animated clip-path. */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-::view-transition-old(root) {
-  z-index: 1;
-}
-::view-transition-new(root) {
-  z-index: 2;
-}

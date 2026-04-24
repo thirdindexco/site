@@ -4,6 +4,7 @@ import { AnimRoot } from "./_components/AnimRoot";
 import { InquiryCTA } from "./_components/InquiryCTA";
 import { Logo } from "./_components/Logo";
 import { MoreWorkList, type Project } from "./_components/MoreWorkList";
+import { ThemeShortcuts } from "./_components/ThemeShortcuts";
 import { ThemeSwatch } from "./_components/ThemeSwatch";
 import { WeatherTime } from "./_components/WeatherTime";
 import data from "../public/data.json";
@@ -29,6 +30,7 @@ const GRID = "mx-auto max-w-grid grid grid-cols-12 gap-4 w-full";
 export default function HomePage() {
   return (
     <AnimRoot className="relative mx-auto flex min-h-screen max-w-canvas flex-col px-6 md:px-8 xl:px-0">
+      <ThemeShortcuts />
       {/* Header: logo · swatch · weather */}
       <header className={`pt-5 md:pt-10 lg:pt-16 items-center ${GRID}`}>
         {/* Logo — col 1, 176×34 fills col-span-2 exactly */}
@@ -41,7 +43,7 @@ export default function HomePage() {
           <Logo className="h-7 w-auto md:h-[34px] md:w-[176px]" />
         </Link>
 
-        <ThemeSwatch />
+        <ThemeSwatch className="hidden md:col-span-2 md:col-start-4 md:flex" />
 
         {/* Studio location — desktop-only header slot (matches Figma spec). */}
         <p
@@ -69,6 +71,10 @@ export default function HomePage() {
           </a>
         </div>
       </header>
+
+      {/* Mobile-only swatch row — sits below the header, left-aligned to the
+          logo, above the hero. */}
+      <ThemeSwatch className="md:hidden flex mt-8" />
 
       <main className="flex-1">
         {/* Lede — left-aligned, full grid width */}
@@ -98,7 +104,7 @@ export default function HomePage() {
             <div className="font-mono font-medium text-3xs uppercase tracking-tight">
               latest
             </div>
-            <p className="font-ld font-light text-sm leading-tight tracking-tight pt-9">
+            <p className="font-ld font-light text-base leading-tight tracking-tight pt-9">
               working on{" "}
               <a
                 href={featured.url}
@@ -121,7 +127,7 @@ export default function HomePage() {
             <div className="font-mono font-medium text-3xs uppercase tracking-tight">
               inquiries
             </div>
-            <p className="font-ld font-light text-sm leading-tight tracking-tight pt-9">
+            <p className="font-ld font-light text-base leading-tight tracking-tight pt-9">
               one principal, one or two engagements at a time. MVPs, prototypes,
               APIs, and production systems — from early exploration to shipped
               product.
@@ -132,7 +138,7 @@ export default function HomePage() {
       </main>
 
       {/* Footer — copyright at col 1 · tagline at col 8 (stacked on mobile) */}
-      <footer className={`pt-16 md:pt-24 lg:pt-28 pb-5 ${GRID}`}>
+      <footer className={`pt-16 md:pt-24 lg:pt-28 pb-5 ${GRID} gap-0`}>
         <p
           data-anim="footer"
           className="col-span-12 md:col-span-4 md:col-start-1 font-mono font-light text-2xs uppercase tracking-wide opacity-80"
