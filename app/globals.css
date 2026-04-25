@@ -12,7 +12,10 @@
   --secondary: #e8e5e0; /* surface */
   --muted: #e8e5e0;
   --muted-foreground: #6b6b6b;
-  --accent: #0000ff; /* signature */
+  /* Signature blue — kept in HSL so the hover variant can shift lightness
+     cleanly without re-quantizing through hex. */
+  --accent: hsl(240 100% 50%);
+  --accent-hover: hsl(240 100% 62%);
   /* Subtle panel/drawer outline. Lower alpha in dark mode since light
      pixels on a dark canvas read more prominently than the reverse. */
   --panel-border: color-mix(in srgb, var(--foreground) 10%, transparent);
@@ -28,7 +31,8 @@ html[data-theme="dark"] {
   --secondary: #1a1a1a;
   --muted: #1a1a1a;
   --muted-foreground: #9b9b9b;
-  --accent: #0000ff;
+  --accent: hsl(240 100% 50%);
+  --accent-hover: hsl(240 100% 62%);
   --panel-border: color-mix(in srgb, var(--foreground) 5%, transparent);
 }
 
@@ -44,7 +48,8 @@ html[data-theme="accent"] {
   --secondary: #1f2bff;
   --muted: #1f2bff;
   --muted-foreground: #c2c8ff;
-  --accent: #0b0b0b;
+  --accent: hsl(0 0% 4%);
+  --accent-hover: hsl(0 0% 20%);
   --panel-border: color-mix(in srgb, var(--foreground) 16%, transparent);
 }
 
@@ -74,6 +79,12 @@ body {
 ::selection {
   background: var(--primary);
   color: var(--primary-foreground);
+}
+
+/* Inputs in accent mode bump placeholder contrast — 40% white on the
+   blue canvas is too faint to read as a real prompt. */
+html[data-theme="accent"] ::placeholder {
+  opacity: 0.7;
 }
 
 /* Base UI Collapsible — height animation via --collapsible-panel-height */

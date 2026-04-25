@@ -1,6 +1,7 @@
 "use client";
 
-import { atom, getDefaultStore } from "jotai";
+import { atom } from "jotai";
+import { store } from "./store";
 
 export type Theme = "light" | "dark" | "accent";
 
@@ -109,7 +110,6 @@ export function cycleTheme() {
   if (now < lockedUntil) return;
   lockedUntil = now + CLICK_LOCK_MS;
 
-  const store = getDefaultStore();
   const current = store.get(themeAtom);
   const next = NEXT_THEME[current];
 

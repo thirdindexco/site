@@ -20,7 +20,7 @@ export function InquiryCTA() {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="group/cta self-start inline-flex items-center gap-1.5 border-b-2 border-accent px-2 pt-1.5 pb-1 font-mono font-medium text-3xs uppercase tracking-tight text-foreground transition-colors duration-200 hover:bg-accent hover:text-white hover:border-accent whitespace-nowrap cursor-pointer outline-none"
+            className="group/cta self-start inline-flex items-center gap-1.5 bg-accent px-3 py-2 font-mono font-medium text-3xs uppercase tracking-tight text-white transition-colors duration-200 hover:bg-accent-hover whitespace-nowrap cursor-pointer outline-none"
           >
             start an inquiry
             <ArrowRight
