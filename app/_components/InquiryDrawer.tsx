@@ -292,7 +292,7 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
                 </div>
 
                 {/* Info sidebar — engagements on form steps, how-it-works on review. */}
-                <aside className="lg:w-52 shrink-0 px-6 md:px-10 lg:pl-6 lg:pr-10 pt-6 lg:pt-0 pb-6 border-t lg:border-t-0 lg:border-l border-[color:var(--panel-border)] opacity-60">
+                <aside className="lg:w-52 shrink-0 flex flex-col gap-5 px-6 md:px-10 lg:pl-6 lg:pr-10 pt-6 lg:pt-0 pb-6 border-t lg:border-t-0 lg:border-l border-[color:var(--panel-border)] opacity-60">
                   {isLast ? (
                     <div>
                       <p className="font-mono font-medium text-3xs uppercase tracking-tight pb-2">
@@ -322,6 +322,18 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
                       </ul>
                     </div>
                   )}
+                  <a
+                    href="https://cal.com/thirdindex/intro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/call inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight transition-opacity hover:opacity-100 outline-none"
+                  >
+                    or book a call
+                    <ArrowRight
+                      aria-hidden
+                      className="h-3 w-3 transition-transform duration-200 group-hover/call:translate-x-0.5"
+                    />
+                  </a>
                 </aside>
               </div>
 

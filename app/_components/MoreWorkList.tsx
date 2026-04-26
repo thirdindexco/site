@@ -59,9 +59,9 @@ function ProjectRow({ project }: { project: Project }) {
       >
         <Collapsible.Trigger
           data-state={open ? "open" : "closed"}
-          className="group/title outline-none cursor-pointer text-left"
+          className="group/title block w-full outline-none cursor-pointer text-left"
         >
-          <span className="font-ld font-light text-xl md:text-3xl uppercase leading-none tracking-tight opacity-80 group-hover/title:opacity-100 group-data-[state=open]/title:opacity-100 transition-opacity duration-300">
+          <span className="block font-ld font-light text-2xl md:text-4xl uppercase leading-[0.85] tracking-tight opacity-40 group-hover/title:opacity-100 group-data-[state=open]/title:opacity-100 transition-opacity duration-300">
             {project.title}
           </span>
         </Collapsible.Trigger>
@@ -70,7 +70,7 @@ function ProjectRow({ project }: { project: Project }) {
             initial="closed"
             animate={open ? "open" : "closed"}
             variants={detailVariants}
-            className="flex flex-col gap-4 pt-4 pb-8"
+            className="flex flex-col gap-4 pt-3 pb-5"
           >
             <p className="font-ld font-light text-sm leading-snug tracking-tight">
               {project.description}

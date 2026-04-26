@@ -32,7 +32,7 @@ const ld = localFont({
 
 const siteTitle = "third index — design and engineering studio";
 const siteDescription =
-  "A small design and engineering studio in Las Vegas, Nevada. Interfaces, applications, websites, and design systems for clients and studio products.";
+  "A small design and engineering studio in Las Vegas, Nevada. Interfaces, applications, websites, and design systems — for clients and original products.";
 
 const siteUrl =
   process.env.NODE_ENV === "production"

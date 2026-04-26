@@ -17,11 +17,11 @@ const [featured, ...moreWork] = projects;
 // Hero copy, split into words so each can animate individually while the
 // paragraph still wraps naturally.
 const HERO_TEXT =
-  "design and engineering for digital products — interfaces and the systems behind them. built for clients and the studio’s own products. work across fintech, commerce, media, and emerging tech.";
+  "design and engineering for digital products — interfaces, applications, and the systems behind them. one principal, end-to-end, with full-stack depth. fintech, commerce, media, and emerging tech. built for clients and original products.";
 const heroWords = HERO_TEXT.split(/\s+/);
 // Italicized phrases in the hero. Matched against the split word list by index
 // so each span can still animate independently.
-const italicWordIndices = new Set([4, 5, 7, 10]);
+const italicWordIndices = new Set([4, 5, 7, 8, 11]);
 
 // Shared grid spec — inner grid is centered inside the canvas with an outer
 // margin. Everything that "snaps to the grid" uses this.
@@ -80,7 +80,7 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Lede — left-aligned, full grid width */}
         <section className={`pt-8 md:pt-24 lg:pt-28 ${GRID}`}>
-          <p className="col-span-12 font-ld font-light text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight lg:text-balance">
+          <p className="col-span-12 font-ld font-light text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight lg:text-pretty">
             {heroWords.map((word, i) => (
               <Fragment key={i}>
                 <span
@@ -129,9 +129,9 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="font-ld font-light text-base leading-tight tracking-tight pt-9">
-              one principal, one or two engagements at a time. MVPs, prototypes,
-              APIs, and production systems — from early exploration to shipped
-              product.
+              open to new projects, rough ideas, or a conversation. MVPs,
+              prototypes, APIs, and production systems — designed and engineered
+              together. project work, retainers, or fractional engagements.
             </p>
             <InquiryCTA />
           </div>
