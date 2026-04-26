@@ -75,11 +75,11 @@ export default function HomePage() {
 
       {/* Mobile-only swatch row — sits below the header, left-aligned to the
           logo, above the hero. */}
-      <ThemeSwatch className="md:hidden flex mt-8" />
+      <ThemeSwatch className="md:hidden flex mt-4" />
 
       <main className="flex-1">
         {/* Lede — left-aligned, full grid width */}
-        <section className={`pt-16 md:pt-24 lg:pt-28 ${GRID}`}>
+        <section className={`pt-8 md:pt-24 lg:pt-28 ${GRID}`}>
           <p className="col-span-12 font-ld font-light text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight lg:text-balance">
             {heroWords.map((word, i) => (
               <Fragment key={i}>
@@ -96,7 +96,7 @@ export default function HomePage() {
         </section>
 
         {/* Body — latest+work at col 1 · inquiries at col 8 */}
-        <section className={`pt-10 md:pt-14 lg:pt-16 ${GRID}`}>
+        <section className={`pt-8 md:pt-14 lg:pt-16 ${GRID}`}>
           {/* Latest + work — cols 1-4 on desktop */}
           <div
             data-anim="body"
@@ -123,7 +123,7 @@ export default function HomePage() {
           {/* Inquiries — cols 8-11 */}
           <div
             data-anim="body"
-            className="col-span-12 md:col-span-4 md:col-start-8 pt-12 md:pt-0"
+            className="col-span-12 md:col-span-4 md:col-start-8 pt-8 md:pt-0"
           >
             <div className="font-mono font-medium text-3xs uppercase tracking-tight">
               inquiries
@@ -139,7 +139,7 @@ export default function HomePage() {
       </main>
 
       {/* Footer — copyright at col 1 · tagline at col 8 (stacked on mobile) */}
-      <footer className={`pt-16 md:pt-24 lg:pt-28 pb-5 ${GRID} gap-0`}>
+      <footer className={`pt-12 md:pt-24 lg:pt-28 pb-5 ${GRID} gap-0`}>
         <p
           data-anim="footer"
           className="col-span-12 md:col-span-4 md:col-start-1 font-mono font-light text-2xs uppercase tracking-wide opacity-80"
