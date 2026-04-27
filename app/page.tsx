@@ -133,7 +133,6 @@ export default function HomePage() {
           >
             michael ciccarelli
           </a>
-          .
         </p>
         <p
           data-anim="footer"
