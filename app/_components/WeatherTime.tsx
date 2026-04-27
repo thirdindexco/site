@@ -2,8 +2,8 @@ import { WeatherClock } from "./WeatherClock";
 
 const WMO_MAP: Record<number, string> = {
   0: "CLEAR",
-  1: "CLEAR",
-  2: "CLOUDY",
+  1: "MOSTLY CLEAR",
+  2: "PARTLY CLOUDY",
   3: "OVERCAST",
   45: "FOG",
   48: "FOG",
@@ -12,10 +12,10 @@ const WMO_MAP: Record<number, string> = {
   55: "DRIZZLE",
   61: "RAIN",
   63: "RAIN",
-  65: "RAIN",
+  65: "HEAVY RAIN",
   71: "SNOW",
   73: "SNOW",
-  75: "SNOW",
+  75: "HEAVY SNOW",
   95: "STORM",
   96: "STORM",
   99: "STORM",

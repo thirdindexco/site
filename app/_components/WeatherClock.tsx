@@ -5,17 +5,29 @@ import { useEffect, useState } from "react";
 type Weather = { temp: number; condition: string } | null;
 
 export function WeatherClock({ weather }: { weather: Weather }) {
-  const [time, setTime] = useState<string | null>(null);
+  const [line, setLine] = useState<string | null>(null);
 
   useEffect(() => {
     const update = () => {
-      const formatted = new Date().toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-        timeZone: "America/Los_Angeles",
-      });
-      setTime(`${formatted} pt`);
+      const now = new Date();
+
+      const day = now
+        .toLocaleDateString("en-US", {
+          weekday: "short",
+          timeZone: "America/Los_Angeles",
+        })
+        .toLowerCase();
+
+      const time = now
+        .toLocaleTimeString("en-US", {
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+          timeZone: "America/Los_Angeles",
+        })
+        .toLowerCase();
+
+      setLine(`${day} · ${time}`);
     };
     update();
     const interval = setInterval(update, 60_000);
@@ -24,7 +36,7 @@ export function WeatherClock({ weather }: { weather: Weather }) {
 
   return (
     <>
-      <span suppressHydrationWarning>{time ?? "--:-- pt"}</span>
+      <span suppressHydrationWarning>{line ?? "--- · --:-- --"}</span>
       <span suppressHydrationWarning>
         {weather ? `${weather.temp}°f · ${weather.condition}` : "—"}
       </span>

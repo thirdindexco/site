@@ -17,7 +17,7 @@ const [featured, ...moreWork] = projects;
 // Hero copy, split into words so each can animate individually while the
 // paragraph still wraps naturally.
 const HERO_TEXT =
-  "design and engineering for digital products — interfaces, applications, and the systems behind them. one principal, end-to-end, with full-stack depth. fintech, commerce, media, and emerging tech. built for clients and original products.";
+  "design and engineering for digital products — interfaces, platforms, and the systems behind them. one principal. end-to-end builds across fintech, commerce, editorial, and emerging tech.";
 const heroWords = HERO_TEXT.split(/\s+/);
 // Italicized phrases in the hero. Matched against the split word list by index
 // so each span can still animate independently.
@@ -61,7 +61,7 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Lede — left-aligned, full grid width */}
         <section className={`pt-8 md:pt-24 lg:pt-28 ${GRID}`}>
-          <p className="col-span-12 font-ld font-light text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight lg:text-pretty">
+          <p className="col-span-12 font-ld font-light text-2xl md:text-3xl leading-tight tracking-tight md:text-pretty">
             {heroWords.map((word, i) => (
               <Fragment key={i}>
                 <span
@@ -125,7 +125,7 @@ export default function HomePage() {
           data-anim="footer"
           className="col-span-12 lg:col-span-7 lg:col-start-1 font-mono font-light text-2xs uppercase tracking-wide opacity-50"
         >
-          an independent studio by{" "}
+          a studio by{" "}
           <a
             href="https://ciccarel.li"
             target="_blank"
