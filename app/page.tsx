@@ -43,33 +43,14 @@ export default function HomePage() {
           <Logo className="h-7 w-auto md:h-[34px] md:w-[176px]" />
         </Link>
 
-        <ThemeSwatch className="hidden md:col-span-2 md:col-start-4 md:flex" />
+        <ThemeSwatch className="hidden md:col-span-2 md:col-start-6 md:flex" />
 
-        {/* Studio location — desktop-only header slot (matches Figma spec).
-            Below lg, it falls back to the footer. */}
-        <p
-          data-anim="studio"
-          className="hidden lg:block lg:col-span-2 lg:col-start-8 font-mono font-light text-2xs uppercase tracking-wide"
-        >
-          a small studio in
-          <br />
-          the mojave desert
-        </p>
-
-        {/* Weather + email — col 11 on desktop, right-aligned on mobile */}
+        {/* Weather — col 11 on desktop, time on top · weather on bottom, right-aligned */}
         <div
           data-anim="weather"
-          className="col-span-6 md:col-span-2 md:col-start-11 flex flex-col gap-px items-end md:items-start text-right md:text-left font-mono font-light text-2xs uppercase tracking-wide"
+          className="col-span-6 md:col-span-2 md:col-start-11 flex flex-col gap-px items-end text-right font-mono font-light text-2xs uppercase tracking-wide"
         >
-          <span>
-            <WeatherTime />
-          </span>
-          <a
-            href="mailto:info@thirdindex.co"
-            className="transition-colors hover:text-accent"
-          >
-            <span className="hidden xl:inline">e: </span>info@thirdindex.co
-          </a>
+          <WeatherTime />
         </div>
       </header>
 
@@ -130,27 +111,35 @@ export default function HomePage() {
             </div>
             <p className="font-ld font-light text-base leading-tight tracking-tight pt-9">
               open to new projects, rough ideas, or a conversation. MVPs,
-              prototypes, APIs, and production systems — designed and engineered
-              together. project work, retainers, or fractional engagements.
+              prototypes, and production systems — designed and built together.
+              project work, retainers, or fractional engagements.
             </p>
             <InquiryCTA />
           </div>
         </section>
       </main>
 
-      {/* Footer — copyright at col 1 · tagline at col 8 (stacked on mobile) */}
+      {/* Footer — tagline at col 1 · copyright at col 11 right-aligned (stacked on mobile) */}
       <footer className={`pt-12 md:pt-24 lg:pt-28 pb-5 ${GRID} gap-0`}>
         <p
           data-anim="footer"
-          className="col-span-12 md:col-span-4 md:col-start-1 font-mono font-light text-2xs uppercase tracking-wide opacity-80"
+          className="col-span-12 lg:col-span-7 lg:col-start-1 font-mono font-light text-2xs uppercase tracking-wide opacity-50"
         >
-          © 2026 third index llc
+          an independent studio by{" "}
+          <a
+            href="https://ciccarel.li"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            michael ciccarelli
+          </a>
+          .
         </p>
         <p
           data-anim="footer"
-          className="col-span-12 lg:hidden pt-2 font-mono font-light text-2xs uppercase tracking-wide opacity-80"
+          className="col-span-12 lg:col-span-2 lg:col-start-11 pt-2 lg:pt-0 font-mono font-light text-2xs uppercase tracking-wide opacity-50 lg:text-right"
         >
-          a small studio in the mojave desert
+          © 2026 third index llc
         </p>
       </footer>
     </AnimRoot>

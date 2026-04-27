@@ -42,28 +42,29 @@ export function AnimRoot({
             delay: 0.15,
           });
 
-          tl.from("[data-anim='swatch']", {
+          // Header cascades left → right (logo · swatches · weather), then
+          // hero, body, footer follow the page's vertical reading flow.
+          tl.from("[data-anim='logo']", {
             autoAlpha: 0,
-            filter: "blur(6px)",
+            y: -8,
             duration: 0.9,
-            stagger: 0.08,
-            ease: "power2.out",
-            force3D: true,
           })
             .from(
-              "[data-anim='logo']",
-              { autoAlpha: 0, y: -8, duration: 0.9 },
-              "-=0.4",
-            )
-            .from(
-              "[data-anim='studio']",
-              { autoAlpha: 0, x: -12, duration: 0.85 },
-              "-=0.7",
+              "[data-anim='swatch']",
+              {
+                autoAlpha: 0,
+                filter: "blur(6px)",
+                duration: 0.9,
+                stagger: 0.08,
+                ease: "power2.out",
+                force3D: true,
+              },
+              "-=0.55",
             )
             .from(
               "[data-anim='weather']",
               { autoAlpha: 0, y: -8, duration: 0.9 },
-              "-=0.75",
+              "-=0.7",
             )
             .from(
               "[data-anim='hero-word']",

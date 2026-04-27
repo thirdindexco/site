@@ -22,14 +22,12 @@ export function WeatherClock({ weather }: { weather: Weather }) {
     return () => clearInterval(interval);
   }, []);
 
-  if (!time || !weather) {
-    return <span suppressHydrationWarning>loading…</span>;
-  }
-
   return (
-    <span suppressHydrationWarning>
-      {time} · {weather.temp}°f
-      <span className="hidden xl:inline"> · {weather.condition}</span>
-    </span>
+    <>
+      <span suppressHydrationWarning>{time ?? "--:-- pt"}</span>
+      <span suppressHydrationWarning>
+        {weather ? `${weather.temp}°f · ${weather.condition}` : "—"}
+      </span>
+    </>
   );
 }
