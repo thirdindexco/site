@@ -3,14 +3,7 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
-import data from "../../public/data.json";
-
-type Service = {
-  title: string;
-  timeline?: string;
-};
-
-const services = data.services as Service[];
+import { services } from "../_lib/projects";
 
 const InquiryDrawer = dynamic(
   () => import("./InquiryDrawer").then((m) => m.InquiryDrawer),

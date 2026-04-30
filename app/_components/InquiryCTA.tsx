@@ -4,8 +4,8 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
 
-// Drawer bundle (base-ui Dialog + form logic + services data) stays out of
-// the initial payload — only loads when the CTA is clicked.
+// Drawer bundle stays out of the initial payload — only loads when the CTA is
+// clicked.
 const InquiryDrawer = dynamic(
   () => import("./InquiryDrawer").then((m) => m.InquiryDrawer),
   { ssr: false },
