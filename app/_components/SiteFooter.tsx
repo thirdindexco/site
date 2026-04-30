@@ -3,7 +3,6 @@
 import type { MouseEvent } from "react";
 import { GRID } from "../_lib/layout";
 import { FooterWeather } from "./FooterWeather";
-import { MonogramMark } from "./MonogramMark";
 import { ThemeSwatch } from "./ThemeSwatch";
 
 export function SiteFooter({
@@ -56,16 +55,6 @@ export function SiteFooter({
         <br />
         © 2026 third index llc
       </p>
-
-      <div
-        data-anim="footer"
-        className="col-span-12 flex justify-center pt-24 pb-6 md:col-span-2 md:col-start-6 md:pt-32 md:pb-10"
-      >
-        <MonogramMark
-          title="third index monogram"
-          className="h-20 w-20 text-foreground md:h-24 md:w-24"
-        />
-      </div>
     </footer>
   );
 }
