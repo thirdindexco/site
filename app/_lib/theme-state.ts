@@ -113,6 +113,10 @@ export function cycleTheme() {
   const current = store.get(themeAtom);
   const next = NEXT_THEME[current];
 
+  setTheme(next);
+}
+
+export function setTheme(next: Theme) {
   playClick(next);
   if (typeof navigator !== "undefined" && navigator.vibrate) {
     navigator.vibrate(8);

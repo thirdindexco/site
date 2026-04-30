@@ -4,21 +4,12 @@ import { useState } from "react";
 import { Dialog } from "@base-ui-components/react/dialog";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useAtom } from "jotai";
-import data from "../../public/data.json";
 import {
   inquiryFormAtom,
   inquiryStepAtom,
   initialInquiryForm,
   type InquiryForm,
 } from "../_lib/inquiry-state";
-
-type Service = {
-  title: string;
-  timeline?: string;
-};
-
-const services = data.services as Service[];
-const process = data.process as string[];
 
 type FormState = InquiryForm;
 
@@ -202,7 +193,7 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
     <Dialog.Root open={open} onOpenChange={handleOpenChange}>
       <Dialog.Portal>
         <Dialog.Backdrop className="fixed inset-0 z-40 bg-foreground/15 transition-opacity duration-300 data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
-        <Dialog.Popup className="fixed z-50 top-2 bottom-2 left-2 right-2 md:left-auto md:top-4 md:bottom-4 md:right-4 md:w-1/2 lg:w-[680px] flex flex-col overflow-hidden rounded-2xl border border-[color:var(--panel-border)] bg-background text-foreground shadow-[-8px_0_24px_-16px_rgba(0,0,0,0.1)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-[starting-style]:translate-x-full data-[ending-style]:translate-x-full">
+        <Dialog.Popup className="fixed z-50 top-2 bottom-2 left-2 right-2 md:left-auto md:top-4 md:bottom-4 md:right-4 md:w-[520px] flex flex-col overflow-hidden rounded-2xl border border-[color:var(--panel-border)] bg-background text-foreground shadow-[-8px_0_24px_-16px_rgba(0,0,0,0.1)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-[starting-style]:translate-x-full data-[ending-style]:translate-x-full">
           {/* Header */}
           <div className="flex items-center justify-between px-6 md:px-10 pt-5 pb-8">
             <Dialog.Title className="font-mono font-medium text-3xs uppercase tracking-tight">
@@ -227,9 +218,9 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
               onSubmit={handleSubmit}
               className="flex min-h-0 flex-1 flex-col"
             >
-              <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
+              <div className="flex min-h-0 flex-1 flex-col">
                 {/* Form body */}
-                <div className="flex-1 overflow-y-auto px-6 md:px-10 lg:pr-8 pb-8">
+                <div className="flex-1 overflow-y-auto px-6 md:px-10 pb-8">
                   <h2 className="font-mono font-medium text-3xs uppercase tracking-tight pb-5">
                     {current.title}
                   </h2>
@@ -290,51 +281,6 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
                     </p>
                   )}
                 </div>
-
-                {/* Info sidebar — engagements on form steps, how-it-works on review. */}
-                <aside className="lg:w-52 shrink-0 flex flex-col gap-5 px-6 md:px-10 lg:pl-6 lg:pr-10 pt-6 lg:pt-0 pb-6 border-t lg:border-t-0 lg:border-l border-[color:var(--panel-border)] opacity-60">
-                  {isLast ? (
-                    <div>
-                      <p className="font-mono font-medium text-3xs uppercase tracking-tight pb-2">
-                        how it works
-                      </p>
-                      <p className="font-ld font-light text-xs leading-snug">
-                        {process.join(" → ")}
-                      </p>
-                    </div>
-                  ) : (
-                    <div>
-                      <p className="font-mono font-medium text-3xs uppercase tracking-tight pb-2">
-                        typical engagements
-                      </p>
-                      <ul className="font-ld font-light text-xs leading-snug space-y-0.5">
-                        {services.map((s) => (
-                          <li key={s.title}>
-                            {s.title}
-                            {s.timeline ? (
-                              <span className="opacity-70">
-                                {" "}
-                                — {s.timeline}
-                              </span>
-                            ) : null}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  <a
-                    href="https://cal.com/thirdindex/intro"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/call inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight transition-opacity hover:opacity-100 outline-none"
-                  >
-                    or book a call
-                    <ArrowRight
-                      aria-hidden
-                      className="h-3 w-3 transition-transform duration-200 group-hover/call:translate-x-0.5"
-                    />
-                  </a>
-                </aside>
               </div>
 
               {/* Footer — left button aligns with form content above,
