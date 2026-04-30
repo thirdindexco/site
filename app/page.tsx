@@ -76,7 +76,7 @@ export default function HomePage() {
     <AnimRoot
       className={`relative mx-auto flex min-h-screen flex-col [--settings-surface:#09090b] border-[color:var(--settings-surface)] transition-[max-width,border-width,padding] duration-200 ease-[cubic-bezier(0.2,0,0,1)] motion-reduce:transition-none ${
         settingsOpen
-          ? "max-w-none border-l-[12px] border-r-[12px] px-4 md:border-l-[18px] md:border-r-[18px] md:px-6"
+          ? "max-w-[100vw] border-l-[12px] border-r-[12px] px-4 md:border-l-[18px] md:border-r-[18px] md:px-6"
           : "max-w-canvas border-0 px-6 md:px-8 xl:px-0"
       }`}
     >
