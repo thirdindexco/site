@@ -16,9 +16,14 @@ import { GRID } from "./_lib/layout";
 import { projects } from "./_lib/projects";
 
 const HERO_TEXT =
-  "a software design and engineering studio for teams that need sharp product thinking and production-grade execution. from early ideas to production.";
+  "a design and engineering studio building digital products with care — interfaces, websites, and the systems behind them.";
 const heroWords = HERO_TEXT.split(/\s+/);
-const italicWordIndices = new Set([10, 14]);
+const italicHeroWords = new Set([
+  "digital",
+  "products",
+  "interfaces",
+  "systems",
+]);
 
 export default function HomePage() {
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -113,12 +118,20 @@ export default function HomePage() {
 
       <main onClickCapture={dismissSettingsFromPage} className="flex-1">
         <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
-          <p className="col-span-12 font-ld text-xl font-light leading-snug tracking-tight md:col-span-10 md:col-start-2 md:text-3xl md:text-pretty">
+          <p className="col-span-12 font-ld text-xl font-light leading-[1.24] tracking-tight md:col-span-10 md:col-start-2 md:text-3xl md:leading-[1.22] md:text-pretty lg:text-4xl lg:leading-[1.18]">
             {heroWords.map((word, i) => (
               <Fragment key={i}>
                 <span
                   data-anim="hero-word"
-                  className={`inline-block ${italicWordIndices.has(i) ? "italic" : ""}`}
+                  className={`inline-block ${
+                    italicHeroWords.has(
+                      word
+                        .toLowerCase()
+                        .replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, ""),
+                    )
+                      ? "italic"
+                      : ""
+                  }`}
                 >
                   {word}
                 </span>
@@ -145,10 +158,9 @@ export default function HomePage() {
                 className="underline decoration-solid underline-offset-2 transition-colors hover:text-accent"
               >
                 michael ciccarelli
-              </a>{" "}
-              — 20+ years building for the web across fintech, commerce, media,
-              and emerging tech. one principal, directly involved in every
-              engagement, with a small network of trusted collaborators when
+              </a>
+              . 20+ years building for the web across fintech, commerce, and
+              media. one principal, end-to-end, with trusted collaborators when
               needed.
             </p>
           </div>
@@ -161,10 +173,9 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="pt-8 font-ld text-base font-light leading-tight tracking-tight">
-              open to new projects and conversations. from mvp to production
-              systems — and the product decisions between them. structured as a
-              partnership, not a handoff. available for focused builds, ongoing
-              work, or fractional support.
+              open to new projects. mvps, prototypes, and production systems —
+              designed and built together. project work, retainers, or
+              fractional engagements.
             </p>
             <InquiryCTA />
           </div>

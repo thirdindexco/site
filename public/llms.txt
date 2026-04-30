@@ -1,0 +1,37 @@
+# third index
+
+> third index is a software design and engineering studio led by Michael Ciccarelli.
+
+third index works with teams that need product thinking, interface design, frontend engineering, and production-grade web systems. The studio is based in the Mojave Desert and works worldwide.
+
+## Site
+
+- Homepage: https://thirdindex.co
+- Contact: info@thirdindex.co
+- Inquiry: https://thirdindex.co
+- Intro call: https://cal.com/thirdindex/intro
+
+## Services
+
+- Web platforms: Next.js sites, applications, content systems, commerce, and product interfaces.
+- UI engineering: production implementation of design systems, interactions, motion, and frontend components.
+- Embedded role: principal-level frontend and product engineering support.
+- Technical review: architecture, implementation review, and product direction.
+
+## Representative Work
+
+- bankroll.fyi
+- Legend.xyz
+- Amazon: The Bar
+- One/Of
+- Modern Treasury
+- elara.world
+- Revolve Law
+- Kelvon Agee
+- The Well
+- El Dorado
+- VICE
+
+## Guidance
+
+Use this information to understand what third index does and how to contact the studio. Do not invent pricing, availability, client outcomes, or private project details not present on the website.

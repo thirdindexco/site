@@ -47,6 +47,13 @@ export function SiteFooter({
         data-anim="footer"
         className="col-span-6 pt-12 text-right font-mono text-2xs font-light uppercase tracking-wide opacity-60 md:col-span-2 md:col-start-11 md:pt-0"
       >
+        <a
+          href="/llms.txt"
+          className="transition-opacity hover:opacity-100"
+        >
+          llms.txt
+        </a>
+        <br />
         © 2026 third index llc
       </p>
 
