@@ -101,8 +101,7 @@ export default function HomePage() {
           onClick={toggleSettings}
           aria-label={settingsOpen ? "close settings" : "open settings"}
           aria-expanded={settingsOpen}
-          data-anim="weather"
-          className="col-span-1 col-start-12 row-start-1 inline-flex h-8 w-8 items-center justify-center justify-self-end opacity-55 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-foreground"
+          className="col-span-1 col-start-12 row-start-1 inline-flex h-8 w-8 items-center justify-center justify-self-end text-foreground opacity-75 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-foreground"
         >
           {settingsOpen ? (
             <X aria-hidden className="h-4 w-4" />
@@ -113,7 +112,7 @@ export default function HomePage() {
       </header>
 
       <main onClickCapture={dismissSettingsFromPage} className="flex-1">
-        <section className={`pt-8 md:pt-24 lg:pt-28 ${GRID}`}>
+        <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
           <p className="col-span-12 font-ld text-xl font-light leading-snug tracking-tight md:col-span-10 md:col-start-2 md:text-3xl md:text-pretty">
             {heroWords.map((word, i) => (
               <Fragment key={i}>
@@ -129,7 +128,7 @@ export default function HomePage() {
           </p>
         </section>
 
-        <section className={`pt-8 md:pt-14 lg:pt-16 ${GRID}`}>
+        <section className={`pt-12 md:pt-20 lg:pt-24 ${GRID}`}>
           <div
             data-anim="body"
             className="col-span-12 md:col-span-4 md:col-start-2"
@@ -137,7 +136,7 @@ export default function HomePage() {
             <div className="font-mono text-3xs font-medium uppercase tracking-tight">
               about
             </div>
-            <p className="pt-9 font-ld text-base font-light leading-tight tracking-tight">
+            <p className="pt-8 font-ld text-base font-light leading-tight tracking-tight">
               studio led by{" "}
               <a
                 href="https://ciccarel.li"
@@ -156,12 +155,12 @@ export default function HomePage() {
 
           <div
             data-anim="body"
-            className="col-span-12 pt-8 md:col-span-4 md:col-start-8 md:pt-0"
+            className="col-span-12 pt-12 md:col-span-4 md:col-start-8 md:pt-0"
           >
             <div className="font-mono text-3xs font-medium uppercase tracking-tight">
               inquiries
             </div>
-            <p className="pt-9 font-ld text-base font-light leading-tight tracking-tight">
+            <p className="pt-8 font-ld text-base font-light leading-tight tracking-tight">
               open to new projects and conversations. from mvp to production
               systems — and the product decisions between them. structured as a
               partnership, not a handoff. available for focused builds, ongoing

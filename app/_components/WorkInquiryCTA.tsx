@@ -15,16 +15,16 @@ export function WorkInquiryCTA() {
 
   return (
     <>
-      <section className="pt-10 md:pt-16 lg:pt-20">
-        <div className="mx-auto grid w-full max-w-grid grid-cols-12 gap-4 border-t border-[color:var(--panel-border)] pt-8 md:pt-10">
+      <section className="pt-16 md:pt-24 lg:pt-32">
+        <div className="mx-auto grid w-full max-w-grid grid-cols-12 gap-4 border-t border-[color:var(--panel-border)] pt-8 md:pt-8">
           <div className="col-span-12 md:col-span-4 md:col-start-2">
             <p className="font-mono font-medium text-3xs uppercase tracking-tight">
               working together
             </p>
-            <p className="pt-6 font-ld text-xl font-light leading-tight tracking-tight md:text-2xl">
+            <p className="pt-8 font-ld text-xl font-light leading-tight tracking-tight md:text-2xl">
               need a design engineer who can own a project start to finish?
             </p>
-            <div className="flex flex-wrap items-center gap-3 pt-7">
+            <div className="flex flex-wrap items-center gap-3 pt-8">
               <button
                 type="button"
                 onClick={() => setOpen(true)}
@@ -51,11 +51,11 @@ export function WorkInquiryCTA() {
             </div>
           </div>
 
-          <div className="col-span-12 pt-8 md:col-span-4 md:col-start-8 md:pt-0">
+          <div className="col-span-12 pt-12 md:col-span-4 md:col-start-8 md:pt-0">
             <p className="font-mono font-medium text-3xs uppercase tracking-tight">
               typical engagements
             </p>
-            <ul className="grid gap-3 pt-6 font-ld text-base font-light leading-tight tracking-tight">
+            <ul className="grid gap-3 pt-8 font-ld text-base font-light leading-tight tracking-tight">
               {services.map((service) => (
                 <li
                   key={service.title}
