@@ -76,7 +76,8 @@
         "url": "https://elara.world",
         "description": "community platform pairing editorial content with a merchandise store. publishing and commerce running on the same frontend, same design language, no seams.",
         "technologies": "Next.js, Sanity, Shopify",
-        "thumbnail": "/projects/elara.jpg"
+        "thumbnail": "/projects/elara.jpg",
+        "video": "/projects/elara.mp4"
     },
     {
         "title": "Revolve Law",
