@@ -13,10 +13,10 @@ third index works with teams that need product thinking, interface design, front
 
 ## Services
 
-- Web platforms: Next.js sites, applications, content systems, commerce, and product interfaces.
-- UI engineering: production implementation of design systems, interactions, motion, and frontend components.
-- Embedded role: principal-level frontend and product engineering support.
-- Technical review: architecture, implementation review, and product direction.
+- Web platforms: full-stack builds in TypeScript on Next.js — marketing, content, commerce, and product applications. Postgres for data, Sanity for content, Stripe and Shopify (headless) for commerce, deployed on Vercel.
+- Design engineering: design and frontend engineering by the same hands. Design systems, tokens, and component libraries in TypeScript, React, and Tailwind, with Framer Motion for UI animation and WebGL for the moments that need it.
+- Embedded role: principal-level frontend embedded with your team — set frontend direction, pair with product and design, and ship the hard parts.
+- Technical review: short-term or ongoing architecture, systems, and product direction. Stack audits across Next.js, TypeScript, Postgres, Sanity, Shopify, and Stripe with pragmatic recommendations.
 
 ## Representative Work
 
