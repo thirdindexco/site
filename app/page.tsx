@@ -181,7 +181,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <ProjectShowcase projects={projects} />
+        <ProjectShowcase projects={projects.slice(0, 10)} />
         <WorkInquiryCTA />
       </main>
 

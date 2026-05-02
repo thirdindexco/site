@@ -18,18 +18,22 @@ third index works with teams that need product thinking, interface design, front
 - Embedded role: principal-level frontend embedded with your team — set frontend direction, pair with product and design, and ship the hard parts.
 - Technical review: short-term or ongoing architecture, systems, and product direction. Stack audits across Next.js, TypeScript, Postgres, Sanity, Shopify, and Stripe with pragmatic recommendations.
 
-## Representative Work
+## Original products
 
 - bankroll.fyi
-- Legend.xyz
+
+## Representative Work
+
+- Legend
 - Amazon: The Bar
 - One/Of
 - Modern Treasury
-- elara.world
+- Elara
 - Revolve Law
-- Kelvon Agee
 - The Well
-- El Dorado
+- Pentagram
+- GREY
+- Condé Nast
 - VICE
 
 ## Guidance
