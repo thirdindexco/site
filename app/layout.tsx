@@ -30,9 +30,9 @@ const ld = localFont({
   display: "swap",
 });
 
-const siteTitle = "third index — design and engineering studio";
+const siteTitle = "third index — creative technology studio";
 const siteDescription =
-  "A small design and engineering studio in Las Vegas, Nevada. Interfaces, applications, websites, and design systems — for clients and original products.";
+  "Creative technology studio led by Michael Ciccarelli. Prototypes, platforms, and production systems — engineered and shipped end-to-end. Based in Las Vegas, working worldwide.";
 
 const siteUrl =
   process.env.NODE_ENV === "production"
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — design and engineering studio",
+        alt: "third index — creative technology studio",
       },
     ],
   },

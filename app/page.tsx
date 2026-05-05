@@ -16,14 +16,8 @@ import { GRID } from "./_lib/layout";
 import { projects } from "./_lib/projects";
 
 const HERO_TEXT =
-  "a design and engineering studio building digital products with care — interfaces, websites, and the systems behind them.";
+  "creative technology studio. prototypes, platforms, production systems — engineered and shipped end-to-end.";
 const heroWords = HERO_TEXT.split(/\s+/);
-const italicHeroWords = new Set([
-  "digital",
-  "products",
-  "interfaces",
-  "systems",
-]);
 
 export default function HomePage() {
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -118,21 +112,10 @@ export default function HomePage() {
 
       <main onClickCapture={dismissSettingsFromPage} className="flex-1">
         <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
-          <p className="col-span-12 font-ld text-xl font-light leading-[1.24] tracking-tight md:col-span-10 md:col-start-2 md:text-3xl md:leading-[1.22] md:text-pretty lg:text-4xl lg:leading-[1.18]">
+          <p className="col-span-12 lg:col-span-10 lg:col-start-2 font-ld text-2xl font-light leading-[1.35] text-pretty md:text-4xl md:leading-[1.3] tracking-tight">
             {heroWords.map((word, i) => (
               <Fragment key={i}>
-                <span
-                  data-anim="hero-word"
-                  className={`inline-block ${
-                    italicHeroWords.has(
-                      word
-                        .toLowerCase()
-                        .replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, ""),
-                    )
-                      ? "italic"
-                      : ""
-                  }`}
-                >
+                <span data-anim="hero-word" className="inline-block">
                   {word}
                 </span>
                 {i < heroWords.length - 1 && " "}
@@ -150,7 +133,7 @@ export default function HomePage() {
               about
             </div>
             <p className="pt-8 font-ld text-base font-light leading-tight tracking-tight">
-              studio led by{" "}
+              led by{" "}
               <a
                 href="https://ciccarel.li"
                 target="_blank"
@@ -158,10 +141,10 @@ export default function HomePage() {
                 className="underline decoration-solid underline-offset-2 transition-colors hover:text-accent"
               >
                 michael ciccarelli
-              </a>
-              . 20+ years building for the web across fintech, commerce, and
-              media. one principal, end-to-end, with trusted collaborators when
-              needed.
+              </a>{" "}
+              — senior design engineer and consultant. 20+ years building for
+              the web across fintech, media, commerce, and web3. one principal,
+              end-to-end, trusted collaborators when the work demands it.
             </p>
           </div>
 
@@ -173,9 +156,9 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="pt-8 font-ld text-base font-light leading-tight tracking-tight">
-              open to new projects. mvps, prototypes, and production systems —
-              designed and built together. project work, retainers, or
-              fractional engagements.
+              open to new projects. mvps, prototypes, platforms, design systems,
+              and internal tools. project work, retainers, or fractional
+              engagements.
             </p>
             <InquiryCTA />
           </div>

@@ -1,28 +1,29 @@
 # third index
 
-> third index is a software design and engineering studio led by Michael Ciccarelli.
+> creative technology studio led by Michael Ciccarelli. prototypes, platforms, and production systems — engineered and shipped end-to-end.
 
-third index works with teams that need product thinking, interface design, frontend engineering, and production-grade web systems. The studio is based in the Mojave Desert and works worldwide.
+third index sits at the intersection of engineering rigor and design craft. one principal, with trusted collaborators when the work demands it. Michael is a senior design engineer and independent consultant with 20+ years building for the web. work spans fintech, media, commerce, and crypto/web3. based in Las Vegas. working worldwide.
+
+not an agency. not a dev shop. the senior technical partner who can own a project end-to-end — from architecture to interaction design to shipped code.
 
 ## Site
 
 - Homepage: https://thirdindex.co
 - Contact: info@thirdindex.co
-- Inquiry: https://thirdindex.co
 - Intro call: https://cal.com/thirdindex/intro
 
-## Services
+## Typical engagements
 
-- Web platforms: full-stack builds in TypeScript on Next.js — marketing, content, commerce, and product applications. Postgres for data, Sanity for content, Stripe and Shopify (headless) for commerce, deployed on Vercel.
-- Design engineering: design and frontend engineering by the same hands. Design systems, tokens, and component libraries in TypeScript, React, and Tailwind, with Framer Motion for UI animation and WebGL for the moments that need it.
-- Embedded role: principal-level frontend embedded with your team — set frontend direction, pair with product and design, and ship the hard parts.
-- Technical review: short-term or ongoing architecture, systems, and product direction. Stack audits across Next.js, TypeScript, Postgres, Sanity, Shopify, and Stripe with pragmatic recommendations.
+- Web platform / app — 2–6 wk. full-stack builds in TypeScript on Next.js and Vercel. Postgres, Sanity, Stripe, and headless Shopify in the stack when the job calls for it.
+- Creative development — 1–4 wk. work that needs both engineering depth and aesthetic judgment. design systems, custom interactions, scroll-driven sequences, WebGL moments.
+- Fractional eng / tech lead — 1–3 mo. principal-level frontend embedded with your team. set direction, pair with product and design, ship the hard parts.
+- Technical audit — 1–2 wk. architecture, systems, and product direction. stack audits with pragmatic recommendations.
 
 ## Original products
 
-- bankroll.fyi
+- bankroll.fyi — bankroll management for poker players, sports bettors, and more.
 
-## Representative Work
+## Representative work
 
 - Legend
 - Amazon: The Bar
@@ -31,9 +32,8 @@ third index works with teams that need product thinking, interface design, front
 - Elara
 - Revolve Law
 - The Well
-- Pentagram
-- GREY
-- Condé Nast
+- El Dorado
+- Kelvon Agee
 - VICE
 
 ## Guidance
