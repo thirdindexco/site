@@ -16,7 +16,7 @@ import { GRID } from "./_lib/layout";
 import { projects } from "./_lib/projects";
 
 const HERO_TEXT =
-  "creative technology studio. prototypes, platforms, production systems — engineered and shipped end-to-end.";
+  "creative technology studio building prototypes, platforms, and production systems — designed and engineered end-to-end.";
 const heroWords = HERO_TEXT.split(/\s+/);
 
 export default function HomePage() {
@@ -142,9 +142,9 @@ export default function HomePage() {
               >
                 michael ciccarelli
               </a>{" "}
-              — design engineer &amp; consultant. 20+ years building for the web
-              across fintech, media, commerce, and web3. one principal,
-              end-to-end, trusted collaborators when the work demands it.
+              — design engineer and consultant. two decades building for the web
+              across fintech, media, commerce, and web3. one principal on the
+              work, trusted collaborators when needed.
             </p>
           </div>
 
@@ -156,9 +156,9 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="pt-8 font-ld text-base font-light leading-tight tracking-tight">
-              need a senior technical partner who can own a project end-to-end —
-              architecture, interaction, shipped code? open to project work,
-              retainers, or fractional engagements.
+              need a senior partner who can take ownership from architecture
+              through interaction to shipped code? available for project work,
+              retainers, and fractional engagements.
             </p>
             <InquiryCTA />
           </div>

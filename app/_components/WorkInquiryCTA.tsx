@@ -23,8 +23,8 @@ export function WorkInquiryCTA() {
               working together
             </p>
             <p className="pt-8 font-ld text-lg font-light leading-tight tracking-tight md:text-xl">
-              mvps, prototypes, platforms, design systems, and internal
-              tools — sized around your team, stack, and timeline.
+              mvps, prototypes, platforms, production systems, and internal
+              tools — scoped to your team, stack, and timeline.
             </p>
             <div className="flex flex-wrap items-center gap-3 pt-8">
               <button
