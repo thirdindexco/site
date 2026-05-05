@@ -238,34 +238,34 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
                   </div>
 
                   {isLast && (
-                    <div className="mt-10 pt-6 border-t border-[color:var(--panel-border)] space-y-3 opacity-70">
+                    <div className="mt-10 pt-6 border-t border-foreground/20 space-y-3">
                       <p className="font-mono font-medium text-3xs uppercase tracking-tight">
                         summary
                       </p>
                       <dl className="grid grid-cols-[auto_1fr] items-baseline gap-x-5 gap-y-1.5 font-ld font-light text-sm leading-snug">
-                        <dt className="font-mono text-3xs uppercase opacity-60">
+                        <dt className="font-mono text-3xs uppercase opacity-70">
                           project
                         </dt>
                         <dd>{form.description || "—"}</dd>
-                        <dt className="font-mono text-3xs uppercase opacity-60">
+                        <dt className="font-mono text-3xs uppercase opacity-70">
                           timeline
                         </dt>
                         <dd>{form.timeline || "—"}</dd>
-                        <dt className="font-mono text-3xs uppercase opacity-60">
+                        <dt className="font-mono text-3xs uppercase opacity-70">
                           budget
                         </dt>
                         <dd>{form.budget || "—"}</dd>
-                        <dt className="font-mono text-3xs uppercase opacity-60">
+                        <dt className="font-mono text-3xs uppercase opacity-70">
                           name
                         </dt>
                         <dd>{form.name || "—"}</dd>
-                        <dt className="font-mono text-3xs uppercase opacity-60">
+                        <dt className="font-mono text-3xs uppercase opacity-70">
                           email
                         </dt>
                         <dd>{form.email || "—"}</dd>
                         {form.company && (
                           <>
-                            <dt className="font-mono text-3xs uppercase opacity-60">
+                            <dt className="font-mono text-3xs uppercase opacity-70">
                               company
                             </dt>
                             <dd>{form.company}</dd>
@@ -310,7 +310,7 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
                 <button
                   type="submit"
                   disabled={!stepValid || submitting}
-                  className="group/next ml-auto inline-flex items-center gap-1.5 font-mono font-medium text-3xs uppercase tracking-tight text-accent transition-opacity hover:opacity-70 outline-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+                  className="group/next ml-auto inline-flex items-center gap-1.5 bg-accent px-3 py-2 font-mono font-medium text-3xs uppercase tracking-tight text-white transition-colors duration-200 hover:bg-accent-hover outline-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
                 >
                   {submitting ? "sending…" : isLast ? "send inquiry" : "next"}
                   {!submitting && (
@@ -360,7 +360,7 @@ function FieldRow({
                 className={`font-mono font-medium text-3xs uppercase tracking-tight px-3 py-1.5 border transition-colors cursor-pointer disabled:cursor-not-allowed whitespace-nowrap outline-none ${
                   selected
                     ? "bg-foreground text-background border-foreground"
-                    : "text-foreground opacity-70 hover:opacity-100 border-[color:var(--panel-border)]"
+                    : "text-foreground border-foreground/30 hover:border-foreground/60"
                 }`}
               >
                 {o}
@@ -376,7 +376,7 @@ function FieldRow({
           rows={4}
           disabled={disabled}
           autoFocus={autoFocus}
-          className="w-full bg-transparent border-b border-[color:var(--panel-border)] focus:border-foreground outline-none font-ld font-light text-lg leading-snug tracking-tight pb-2 resize-none placeholder:opacity-40 disabled:opacity-50 transition-colors"
+          className="w-full bg-transparent border-b border-foreground/25 focus:border-foreground outline-none font-ld font-light text-lg leading-snug tracking-tight pb-2 resize-none placeholder:opacity-60 disabled:opacity-50 transition-colors"
         />
       ) : (
         <input
@@ -386,7 +386,7 @@ function FieldRow({
           placeholder={field.placeholder}
           disabled={disabled}
           autoFocus={autoFocus}
-          className="w-full bg-transparent border-b border-[color:var(--panel-border)] focus:border-foreground outline-none font-ld font-light text-lg leading-snug tracking-tight pb-2 placeholder:opacity-40 disabled:opacity-50 transition-colors"
+          className="w-full bg-transparent border-b border-foreground/25 focus:border-foreground outline-none font-ld font-light text-lg leading-snug tracking-tight pb-2 placeholder:opacity-60 disabled:opacity-50 transition-colors"
         />
       )}
     </div>

@@ -142,8 +142,8 @@ export default function HomePage() {
               >
                 michael ciccarelli
               </a>{" "}
-              — senior design engineer and consultant. 20+ years building for
-              the web across fintech, media, commerce, and web3. one principal,
+              — design engineer &amp; consultant. 20+ years building for the web
+              across fintech, media, commerce, and web3. one principal,
               end-to-end, trusted collaborators when the work demands it.
             </p>
           </div>
@@ -156,9 +156,9 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="pt-8 font-ld text-base font-light leading-tight tracking-tight">
-              open to new projects. mvps, prototypes, platforms, design systems,
-              and internal tools. project work, retainers, or fractional
-              engagements.
+              need a senior technical partner who can own a project end-to-end —
+              architecture, interaction, shipped code? open to project work,
+              retainers, or fractional engagements.
             </p>
             <InquiryCTA />
           </div>

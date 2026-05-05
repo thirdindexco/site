@@ -42,8 +42,8 @@ export function AnimRoot({
             delay: 0.04,
           });
 
-          // Header cascades left → right (logo · swatches · weather), then
-          // hero, body, footer follow the page's vertical reading flow.
+          // Header cascades left → right (logo · swatches), then hero, body,
+          // footer follow the page's vertical reading flow.
           tl.from("[data-anim='logo']", {
             autoAlpha: 0,
             y: -5,
@@ -62,11 +62,6 @@ export function AnimRoot({
               "-=0.24",
             )
             .from(
-              "[data-anim='weather']",
-              { autoAlpha: 0, y: -5, duration: 0.38 },
-              "-=0.3",
-            )
-            .from(
               "[data-anim='hero-word']",
               {
                 autoAlpha: 0,
@@ -75,7 +70,7 @@ export function AnimRoot({
                 stagger: 0.007,
                 ease: "power2.out",
               },
-              "-=0.16",
+              "-=0.08",
             )
             .from(
               "[data-anim='body']",
