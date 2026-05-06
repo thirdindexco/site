@@ -23,8 +23,8 @@ export function WorkInquiryCTA() {
               working together
             </p>
             <p className="pt-8 font-ld text-lg font-light leading-tight tracking-tight md:text-xl">
-              independent by default — embedded when needed, with a small team
-              for larger scopes.
+              share a brief, a budget range, and a timeline. we'll reply within
+              two business days.
             </p>
             <div className="flex flex-wrap items-center gap-3 pt-8">
               <button

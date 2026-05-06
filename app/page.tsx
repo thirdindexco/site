@@ -16,7 +16,7 @@ import { GRID } from "./_lib/layout";
 import { projects } from "./_lib/projects";
 
 const HERO_TEXT =
-  "creative technology studio building prototypes, platforms, and production systems — designed and engineered end-to-end.";
+  "design engineering studio. we build the surface and the system underneath — interfaces, prototypes, and production frontends for product teams.";
 const heroWords = HERO_TEXT.split(/\s+/);
 
 export default function HomePage() {
@@ -112,7 +112,7 @@ export default function HomePage() {
 
       <main onClickCapture={dismissSettingsFromPage} className="flex-1">
         <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
-          <p className="col-span-12 lg:col-span-10 lg:col-start-2 font-ld text-2xl font-light leading-[1.35] text-pretty md:text-4xl md:leading-[1.3] tracking-tight">
+          <p className="col-span-12 font-ld text-2xl font-light leading-[1.35] text-pretty md:text-4xl md:leading-[1.3] tracking-snug">
             {heroWords.map((word, i) => (
               <Fragment key={i}>
                 <span data-anim="hero-word" className="inline-block">
@@ -142,8 +142,9 @@ export default function HomePage() {
               >
                 michael ciccarelli
               </a>{" "}
-              — design engineer. two decades across fintech, media, and
-              commerce. principal-led, with collaborators brought in as needed.
+              — two decades shipping software across fintech, media, and
+              commerce. client work alongside in-house products. principal-led,
+              collaborators as needed.
             </p>
           </div>
 
@@ -155,8 +156,9 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="pt-8 font-ld text-base font-light leading-tight tracking-tight">
-              open to new projects. websites, mvps, prototypes, and platforms.
-              project work, retainers, or fractional engagements.
+              open to new work. product interfaces, design systems, marketing
+              sites, and zero-to-one builds. project-based, retainer, or
+              embedded engagements.
             </p>
             <InquiryCTA />
           </div>
