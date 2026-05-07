@@ -65,7 +65,7 @@ export function SiteFooter({
             </svg>
           </a>
           <a
-            href="https://x.com/thirdindex_"
+            href="https://x.com/thirdindexco"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="X"
