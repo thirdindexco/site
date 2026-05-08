@@ -74,11 +74,13 @@ export function SettingsPanel({
       inert={!settingsOpen}
       aria-hidden={!settingsOpen}
       className={`relative left-1/2 grid w-screen -translate-x-1/2 overflow-hidden bg-[color:var(--settings-surface)] px-4 text-zinc-400 transition-[grid-template-rows] duration-200 ease-[cubic-bezier(0.2,0,0,1)] motion-reduce:transition-none md:px-6 ${
-        settingsOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        settingsOpen
+          ? "grid-rows-[1fr]"
+          : "pointer-events-none grid-rows-[0fr]"
       }`}
     >
       <div className="min-h-0">
-        <div className={`${GRID} items-center py-3 md:py-3.5`}>
+        <div className={`${GRID} items-center py-3`}>
           <div className="col-span-12 flex flex-wrap items-center justify-end gap-3 md:col-span-6 md:col-start-7">
             <GridDebugSwitch
               checked={gridDebug}

@@ -6,113 +6,29 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useAtom } from "jotai";
 import {
   inquiryFormAtom,
+  inquiryOpenAtom,
   inquiryStepAtom,
   initialInquiryForm,
+  inquirySteps,
   type InquiryForm,
 } from "../_lib/inquiry-state";
+import { InquiryField } from "./InquiryField";
 
-type FormState = InquiryForm;
-
-type Field = {
-  key: keyof FormState;
-  label: string;
-  type: "input" | "textarea" | "select";
-  inputType?: string;
-  options?: string[];
-  placeholder?: string;
-  required?: boolean;
-};
-
-type Step = {
-  title: string;
-  fields: Field[];
-};
-
-const steps: Step[] = [
-  {
-    title: "the project",
-    fields: [
-      {
-        key: "description",
-        label: "what are you looking to build?",
-        type: "textarea",
-        placeholder: "what are you building, and what do you need help with?",
-        required: true,
-      },
-      {
-        key: "timeline",
-        label: "timeline",
-        type: "select",
-        options: ["asap", "next month", "next quarter", "exploring"],
-        required: true,
-      },
-      {
-        key: "budget",
-        label: "budget",
-        type: "select",
-        options: ["<$10k", "$10–25k", "$25–50k", "$50k+", "not sure"],
-        required: true,
-      },
-    ],
-  },
-  {
-    title: "you",
-    fields: [
-      {
-        key: "name",
-        label: "name",
-        type: "input",
-        inputType: "text",
-        required: true,
-      },
-      {
-        key: "email",
-        label: "email",
-        type: "input",
-        inputType: "email",
-        required: true,
-      },
-      {
-        key: "company",
-        label: "company",
-        type: "input",
-        inputType: "text",
-        placeholder: "company or organization (optional)",
-      },
-    ],
-  },
-  {
-    title: "anything else",
-    fields: [
-      {
-        key: "notes",
-        label: "notes (optional)",
-        type: "textarea",
-        placeholder: "anything else we should know? (optional)",
-      },
-    ],
-  },
-];
-
-type Props = {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-};
-
-export function InquiryDrawer({ open, onOpenChange }: Props) {
+export function InquiryDrawer() {
   // Form + step live in jotai so closing the drawer doesn't throw away
   // what the user has entered. Transient UI (submitting, error, sent)
   // stays local — it should always reset with the component.
+  const [open, setOpen] = useAtom(inquiryOpenAtom);
   const [form, setForm] = useAtom(inquiryFormAtom);
   const [step, setStep] = useAtom(inquiryStepAtom);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
 
-  const current = steps[step];
-  const isLast = step === steps.length - 1;
+  const current = inquirySteps[step];
+  const isLast = step === inquirySteps.length - 1;
 
-  const update = (key: keyof FormState, value: string) => {
+  const update = (key: keyof InquiryForm, value: string) => {
     setForm((f) => ({ ...f, [key]: value }));
   };
 
@@ -178,7 +94,7 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
   };
 
   const handleOpenChange = (o: boolean) => {
-    onOpenChange(o);
+    setOpen(o);
     if (!o) {
       // Transient UI only — form + step stay in the atoms until the user
       // submits or hits "clear".
@@ -197,7 +113,7 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
           {/* Header */}
           <div className="flex items-center justify-between px-6 md:px-10 pt-5 pb-8">
             <Dialog.Title className="font-mono font-medium text-3xs uppercase tracking-tight">
-              inquiry · {sent ? "sent" : `${step + 1} / ${steps.length}`}
+              inquiry · {sent ? "sent" : `${step + 1} / ${inquirySteps.length}`}
             </Dialog.Title>
             <Dialog.Close className="font-mono font-medium text-3xs uppercase tracking-tight transition-colors hover:text-accent outline-none cursor-pointer">
               close
@@ -206,10 +122,10 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
 
           {sent ? (
             <div className="flex-1 overflow-y-auto px-6 md:px-10 pb-10">
-              <h2 className="font-ld font-light text-3xl leading-tight tracking-tight pb-4">
+              <h2 className="font-sans text-2xl font-semibold tracking-tight leading-tight pb-4 md:text-3xl">
                 inquiry sent.
               </h2>
-              <p className="font-ld font-light text-base leading-snug tracking-tight opacity-70">
+              <p className="font-sans text-sm leading-relaxed text-foreground/60">
                 thanks — response within 48 hours.
               </p>
             </div>
@@ -226,7 +142,7 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
                   </h2>
                   <div key={step} className="flex flex-col gap-4">
                     {current.fields.map((field, i) => (
-                      <FieldRow
+                      <InquiryField
                         key={field.key}
                         field={field}
                         value={form[field.key]}
@@ -242,7 +158,7 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
                       <p className="font-mono font-medium text-3xs uppercase tracking-tight">
                         summary
                       </p>
-                      <dl className="grid grid-cols-[auto_1fr] items-baseline gap-x-5 gap-y-1.5 font-ld font-light text-sm leading-snug">
+                      <dl className="grid grid-cols-[auto_1fr] items-baseline gap-x-5 gap-y-1.5 font-sans text-sm leading-relaxed">
                         <dt className="font-mono text-3xs uppercase opacity-70">
                           project
                         </dt>
@@ -326,69 +242,5 @@ export function InquiryDrawer({ open, onOpenChange }: Props) {
         </Dialog.Popup>
       </Dialog.Portal>
     </Dialog.Root>
-  );
-}
-
-function FieldRow({
-  field,
-  value,
-  onChange,
-  disabled,
-  autoFocus,
-}: {
-  field: Field;
-  value: string;
-  onChange: (v: string) => void;
-  disabled?: boolean;
-  autoFocus?: boolean;
-}) {
-  return (
-    <div>
-      <label className="block font-mono font-medium text-3xs uppercase tracking-tight pb-2">
-        {field.label}
-      </label>
-      {field.type === "select" ? (
-        <div className="flex flex-wrap gap-2">
-          {field.options!.map((o) => {
-            const selected = value === o;
-            return (
-              <button
-                key={o}
-                type="button"
-                onClick={() => onChange(o)}
-                disabled={disabled}
-                className={`font-mono font-medium text-3xs uppercase tracking-tight px-3 py-1.5 border transition-colors cursor-pointer disabled:cursor-not-allowed whitespace-nowrap outline-none ${
-                  selected
-                    ? "bg-foreground text-background border-foreground"
-                    : "text-foreground border-foreground/30 hover:border-foreground/60"
-                }`}
-              >
-                {o}
-              </button>
-            );
-          })}
-        </div>
-      ) : field.type === "textarea" ? (
-        <textarea
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder={field.placeholder}
-          rows={4}
-          disabled={disabled}
-          autoFocus={autoFocus}
-          className="w-full bg-transparent border-b border-foreground/25 focus:border-foreground outline-none font-ld font-light text-lg leading-snug tracking-tight pb-2 resize-none placeholder:opacity-60 disabled:opacity-50 transition-colors"
-        />
-      ) : (
-        <input
-          type={field.inputType ?? "text"}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder={field.placeholder}
-          disabled={disabled}
-          autoFocus={autoFocus}
-          className="w-full bg-transparent border-b border-foreground/25 focus:border-foreground outline-none font-ld font-light text-lg leading-snug tracking-tight pb-2 placeholder:opacity-60 disabled:opacity-50 transition-colors"
-        />
-      )}
-    </div>
   );
 }

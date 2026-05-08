@@ -38,48 +38,46 @@ export function AnimRoot({
           }
 
           const tl = gsap.timeline({
-            defaults: { ease: "power3.out" },
-            delay: 0.04,
+            defaults: { ease: "power2.out" },
+            delay: 0.02,
           });
 
           // Header cascades left → right (logo · swatches), then hero, body,
           // footer follow the page's vertical reading flow.
           tl.from("[data-anim='logo']", {
             autoAlpha: 0,
-            y: -5,
-            duration: 0.42,
+            y: -3,
+            duration: 0.28,
           })
             .from(
               "[data-anim='swatch']",
               {
                 autoAlpha: 0,
-                filter: "blur(4px)",
-                duration: 0.38,
-                stagger: 0.035,
-                ease: "power2.out",
+                filter: "blur(2px)",
+                duration: 0.24,
+                stagger: 0.02,
                 force3D: true,
               },
-              "-=0.24",
-            )
-            .from(
-              "[data-anim='hero-word']",
-              {
-                autoAlpha: 0,
-                y: 6,
-                duration: 0.34,
-                stagger: 0.007,
-                ease: "power2.out",
-              },
-              "-=0.08",
-            )
-            .from(
-              "[data-anim='body']",
-              { autoAlpha: 0, y: 8, duration: 0.48, stagger: 0.045 },
               "-=0.18",
             )
             .from(
+              "[data-anim='hero']",
+              {
+                autoAlpha: 0,
+                y: 6,
+                duration: 0.32,
+                stagger: 0.05,
+              },
+              "-=0.12",
+            )
+            .from(
+              "[data-anim='body']",
+              { autoAlpha: 0, y: 5, duration: 0.3, stagger: 0.03 },
+              "-=0.2",
+            )
+            .from(
               "[data-anim='footer']",
-              { autoAlpha: 0, y: 4, duration: 0.38, stagger: 0.035 },
+              { autoAlpha: 0, y: 3, duration: 0.26, stagger: 0.02 },
               "-=0.18",
             );
         },

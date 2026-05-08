@@ -13,7 +13,7 @@ export function SiteFooter({
   return (
     <footer
       onClickCapture={onClickCapture}
-      className={`mt-16 pb-16 md:mt-24 md:pb-24 lg:mt-32 lg:pb-32 ${GRID}`}
+      className={`mt-16 pb-6 md:mt-24 md:pb-8 lg:mt-32 lg:pb-10 ${GRID}`}
     >
       <div
         data-anim="footer"

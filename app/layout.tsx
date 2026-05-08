@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
-import { JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "./_components/Providers";
 import "./globals.css";
@@ -12,25 +11,15 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-const ld = localFont({
-  src: [
-    { path: "../public/fonts/LD-Light.woff2", weight: "300", style: "normal" },
-    {
-      path: "../public/fonts/LD-LightItalic.woff2",
-      weight: "300",
-      style: "italic",
-    },
-    {
-      path: "../public/fonts/LD-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-ld",
+const sans = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-sans",
   display: "swap",
 });
 
-const siteTitle = "third index — design engineering studio";
+const siteTitle = "third index";
 const siteDescription =
   "Design engineering studio led by Michael Ciccarelli. Prototypes, platforms, and production systems — engineered and shipped end-to-end. Based in Las Vegas, working worldwide.";
 
@@ -45,6 +34,10 @@ const siteUrl =
 // identity is consistent regardless of mode.
 export const viewport: Viewport = {
   themeColor: "#0000ff",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export const metadata: Metadata = {
@@ -97,13 +90,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${mono.variable} ${ld.variable}`}
+      className={`${mono.variable} ${sans.variable}`}
       suppressHydrationWarning
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="font-ld antialiased">
+      <body className="font-sans antialiased">
         <Providers>
           {children}
           <Analytics />

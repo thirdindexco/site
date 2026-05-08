@@ -7,22 +7,21 @@ export function MonogramMark({ className, title }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="275"
-      height="275"
-      viewBox="0 0 275 275"
+      width="140"
+      height="100"
+      viewBox="0 0 140 100"
       fill="none"
       className={className}
       aria-hidden={title ? undefined : true}
       role={title ? "img" : undefined}
     >
       {title ? <title>{title}</title> : null}
-      <rect width="275" height="275" fill="var(--background)" />
       <path
-        d="M67 188V88H87.3463V91.2813H76.3473V184.716H87.3463V188H67Z"
+        d="M0 100V0H20.3463V3.28129H9.34734V96.7163H20.3463V100H0Z"
         fill="currentColor"
       />
       <path
-        d="M207 88V188H186.654V184.716H197.653V91.2813H186.654V88H207Z"
+        d="M140 0V100H119.654V96.7163H130.653V3.28129H119.654V0H140Z"
         fill="currentColor"
       />
     </svg>

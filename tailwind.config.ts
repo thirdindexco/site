@@ -70,7 +70,7 @@ export default {
       },
       fontFamily: {
         mono: ["var(--font-mono)", "monospace"],
-        ld: ["var(--font-ld)", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       fontSize: {
         "3xs": ["9px", { lineHeight: "1.16" }],

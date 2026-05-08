@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Fragment, useEffect, useState, type MouseEvent } from "react";
+import dynamic from "next/dynamic";
+import { useState, type MouseEvent } from "react";
 import { Settings2, X } from "lucide-react";
 import { AnimRoot } from "./_components/AnimRoot";
 import { GridDebugger } from "./_components/GridDebugger";
 import { InquiryCTA } from "./_components/InquiryCTA";
-import { Logo } from "./_components/Logo";
+import { MonogramMark } from "./_components/MonogramMark";
 import { ProjectShowcase } from "./_components/ProjectShowcase";
 import { SettingsPanel } from "./_components/SettingsPanel";
 import { SiteFooter } from "./_components/SiteFooter";
@@ -14,40 +15,24 @@ import { ThemeShortcuts } from "./_components/ThemeShortcuts";
 import { WorkInquiryCTA } from "./_components/WorkInquiryCTA";
 import { GRID } from "./_lib/layout";
 import { projects } from "./_lib/projects";
+import { useBodyScrollLock } from "./_lib/useBodyScrollLock";
 
-const HERO_TEXT =
-  "design engineering studio. we build the surface and the system underneath — interfaces, prototypes, and production frontends for product teams.";
-const heroWords = HERO_TEXT.split(/\s+/);
+// Drawer bundle stays out of the initial payload — only loads on the client.
+// Single instance for the whole page; CTAs flip the inquiryOpenAtom.
+const InquiryDrawer = dynamic(
+  () => import("./_components/InquiryDrawer").then((m) => m.InquiryDrawer),
+  { ssr: false },
+);
+
+const HERO_HEADLINE = "third index is a design engineering studio.";
+const HERO_SUBHEAD =
+  "interfaces, prototypes, and production frontends for product teams.";
 
 export default function HomePage() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [gridDebug, setGridDebug] = useState(false);
 
-  useEffect(() => {
-    if (!settingsOpen) return;
-
-    const scrollY = window.scrollY;
-    const previousOverflow = document.body.style.overflow;
-    const previousHtmlOverflow = document.documentElement.style.overflow;
-    const previousPosition = document.body.style.position;
-    const previousTop = document.body.style.top;
-    const previousWidth = document.body.style.width;
-
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = "100%";
-
-    return () => {
-      document.documentElement.style.overflow = previousHtmlOverflow;
-      document.body.style.overflow = previousOverflow;
-      document.body.style.position = previousPosition;
-      document.body.style.top = previousTop;
-      document.body.style.width = previousWidth;
-      window.scrollTo(0, scrollY);
-    };
-  }, [settingsOpen]);
+  useBodyScrollLock(settingsOpen);
 
   const dismissSettingsFromPage = (event: MouseEvent<HTMLElement>) => {
     if (!settingsOpen) return;
@@ -57,13 +42,7 @@ export default function HomePage() {
   };
 
   const toggleSettings = () => {
-    if (settingsOpen) {
-      setSettingsOpen(false);
-      return;
-    }
-
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    setSettingsOpen(true);
+    setSettingsOpen((prev) => !prev);
   };
 
   return (
@@ -90,9 +69,9 @@ export default function HomePage() {
           href="/"
           aria-label="third index — home"
           data-anim="logo"
-          className="col-span-8 col-start-3 flex justify-center md:col-span-4 md:col-start-5"
+          className="col-span-1 col-start-1 md:col-start-2 row-start-1 justify-self-start"
         >
-          <Logo className="h-7 w-auto md:h-[34px] md:w-[176px]" />
+          <MonogramMark className="h-7 w-auto md:h-9" />
         </Link>
 
         <button
@@ -100,7 +79,7 @@ export default function HomePage() {
           onClick={toggleSettings}
           aria-label={settingsOpen ? "close settings" : "open settings"}
           aria-expanded={settingsOpen}
-          className="col-span-1 col-start-12 row-start-1 inline-flex h-8 w-8 items-center justify-center justify-self-end text-foreground opacity-75 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-foreground"
+          className="col-span-1 col-start-12 md:col-start-11 row-start-1 inline-flex h-8 w-8 items-center justify-center justify-self-end text-foreground opacity-75 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-foreground"
         >
           {settingsOpen ? (
             <X aria-hidden className="h-4 w-4" />
@@ -112,15 +91,17 @@ export default function HomePage() {
 
       <main onClickCapture={dismissSettingsFromPage} className="flex-1">
         <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
-          <p className="col-span-12 font-ld text-2xl font-light leading-[1.35] text-pretty md:text-4xl md:leading-[1.3] tracking-snug">
-            {heroWords.map((word, i) => (
-              <Fragment key={i}>
-                <span data-anim="hero-word" className="inline-block">
-                  {word}
-                </span>
-                {i < heroWords.length - 1 && " "}
-              </Fragment>
-            ))}
+          <p
+            data-anim="hero"
+            className="col-span-12 md:col-span-10 md:col-start-2 font-sans text-2xl font-semibold tracking-tight leading-tight text-pretty md:text-3xl"
+          >
+            {HERO_HEADLINE}
+          </p>
+          <p
+            data-anim="hero"
+            className="col-span-12 md:col-span-10 md:col-start-2 pt-2 font-sans text-sm leading-relaxed text-foreground/60 md:text-base"
+          >
+            {HERO_SUBHEAD}
           </p>
         </section>
 
@@ -132,8 +113,8 @@ export default function HomePage() {
             <div className="font-mono text-3xs font-medium uppercase tracking-tight">
               about
             </div>
-            <p className="pt-8 font-ld text-base font-light leading-tight tracking-tight">
-              led by{" "}
+            <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
+              studio practice of{" "}
               <a
                 href="https://ciccarel.li"
                 target="_blank"
@@ -142,9 +123,9 @@ export default function HomePage() {
               >
                 michael ciccarelli
               </a>{" "}
-              — two decades shipping software across fintech, media, and
-              commerce. client work alongside in-house products. principal-led,
-              collaborators as needed.
+              — two decades shipping software for the web across fintech, media,
+              and e-commerce. client work alongside original products.
+              principal-led, collaborators as needed.
             </p>
           </div>
 
@@ -155,7 +136,7 @@ export default function HomePage() {
             <div className="font-mono text-3xs font-medium uppercase tracking-tight">
               inquiries
             </div>
-            <p className="pt-8 font-ld text-base font-light leading-tight tracking-tight">
+            <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
               open to new work. product interfaces, design systems, marketing
               sites, and zero-to-one builds. project-based, retainer, or
               embedded engagements.
@@ -169,6 +150,7 @@ export default function HomePage() {
       </main>
 
       <SiteFooter onClickCapture={dismissSettingsFromPage} />
+      <InquiryDrawer />
     </AnimRoot>
   );
 }

@@ -38,7 +38,7 @@ export function ProjectHoverTooltip({
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>
-      <p className="pt-2 font-ld text-sm font-light leading-tight tracking-tight text-zinc-200">
+      <p className="pt-2 font-sans text-xs leading-snug text-zinc-200">
         {project.description}
       </p>
       <div className="flex flex-col gap-1 pt-3 font-mono text-3xs tracking-tight text-zinc-500">
