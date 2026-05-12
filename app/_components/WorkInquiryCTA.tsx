@@ -23,7 +23,7 @@ export function WorkInquiryCTA() {
             >
               info@thirdindex.co
             </a>
-            . we reply within two business days.
+            . i reply within two business days.
           </p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-4 pt-8 md:pt-10">
             <a

@@ -86,7 +86,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "what tech stacks do you work with?",
-    a: "react, next.js, typescript, framer motion, gsap, three.js / webgl. comfortable with most modern frontend stacks. ai-fluent across the day-to-day — claude code, codex, cursor, and agents in the loop where they earn it. if you're on something exotic, ask.",
+    a: "an audit is mostly stack-agnostic — i'm reading your product, your code, and your component patterns regardless of framework. day to day i live in react, next.js, typescript, framer motion, gsap, three.js / webgl, but i've audited products on most modern frontend stacks. if you're on something exotic, ask.",
   },
   {
     q: "what if we're pre-launch?",
@@ -110,7 +110,7 @@ function BuyButton({
       rel="noopener noreferrer"
       className={`${base} ${sizing}`}
     >
-      buy now
+      buy the audit
       <ArrowRight
         aria-hidden
         className="h-3 w-3 transition-transform duration-200 group-hover/cta:translate-x-0.5"
@@ -128,10 +128,10 @@ export default function AuditPage() {
             className="col-span-12"
           >
             <p className="font-mono text-3xs font-medium uppercase tracking-tight opacity-60">
-              productized service
+              diagnose
             </p>
             <h1 className="pt-3 font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
-              design engineering audit
+              find what's slowing your product down.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
               a one-week deep review of your product's interaction,
@@ -152,7 +152,7 @@ export default function AuditPage() {
                   rel="noopener noreferrer"
                   className="underline decoration-solid underline-offset-2 transition-colors hover:text-accent"
                 >
-                  book a 15-min intro call
+                  book a call
                 </a>
                 .
               </p>
@@ -324,7 +324,7 @@ export default function AuditPage() {
                   rel="noopener noreferrer"
                   className="underline decoration-solid underline-offset-2 transition-colors hover:text-accent"
                 >
-                  book a 15-min intro call
+                  book a call
                 </a>
                 .
               </p>

@@ -7,7 +7,7 @@ import { GRID } from "../_lib/layout";
 
 const pageTitle = "design engineering sprint — third index";
 const pageDescription =
-  "Two to three weeks to ship the work that's been stuck on your roadmap. Fixed scope, fixed price, in production by the end. From $8,000.";
+  "Two to three weeks to ship the work that's been stuck on your roadmap. Fixed scope, fixed price, in production by the end. $8–15k typical.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -87,7 +87,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "what tech stacks?",
-    a: "typescript end-to-end on next.js and vercel. react, framer motion, gsap, three.js / webgl for the high-craft surfaces. postgres, sanity, stripe, and headless shopify in the stack when the job calls for it. ai-fluent across the day-to-day — claude code, codex, cursor, and agents in the loop where they earn it. comfortable with most modern frontend stacks — if you're on something exotic, ask.",
+    a: "fastest in typescript on next.js and vercel — react, framer motion, gsap, three.js / webgl for the high-craft surfaces. postgres, sanity, stripe, and headless shopify when the job calls for it. i lean on claude code, codex, and cursor where they earn it; useful for covering ground on a fixed-scope timeline. if you're on something exotic, ask.",
   },
   {
     q: "what about ongoing maintenance after?",
@@ -121,17 +121,17 @@ export default function SprintPage() {
             className="col-span-12"
           >
             <p className="font-mono text-3xs font-medium uppercase tracking-tight opacity-60">
-              productized service
+              build
             </p>
             <h1 className="pt-3 font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
-              design engineering sprint
+              ship the work that's been stuck.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
               two to three weeks to ship the work that's been stuck on your
               roadmap. fixed scope, fixed price, in production by the end.
             </p>
             <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
-              from $8,000 · 2–3 weeks · remote
+              $8–15k · 2–3 weeks · remote
             </p>
             <div className="pt-6 md:pt-8">
               <StartSprintButton />
@@ -205,6 +205,22 @@ export default function SprintPage() {
         <section className={`pt-20 md:pt-28 ${GRID}`}>
           <div className="col-span-12 md:col-span-3 md:col-start-1">
             <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+              what it costs
+            </div>
+          </div>
+          <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
+            <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
+              sprints typically run $8–15k. price moves with scope — full
+              marketing site rebuilds and new product builds sit at the top of
+              the range; focused polish and system buildouts at the bottom.
+              fixed before we start.
+            </p>
+          </div>
+        </section>
+
+        <section className={`pt-20 md:pt-28 ${GRID}`}>
+          <div className="col-span-12 md:col-span-3 md:col-start-1">
+            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
               why a sprint instead of hourly?
             </div>
           </div>
@@ -244,7 +260,7 @@ export default function SprintPage() {
                   rel="noopener noreferrer"
                   className="underline decoration-solid underline-offset-2 transition-colors hover:text-accent"
                 >
-                  book a 15-min scoping call
+                  book a call
                 </a>
                 .
               </p>

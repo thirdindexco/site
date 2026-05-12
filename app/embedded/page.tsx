@@ -7,7 +7,7 @@ import { GRID } from "../_lib/layout";
 
 const pageTitle = "embedded design engineering — third index";
 const pageDescription =
-  "2–3 days a week as your fractional design engineer. For product teams that need senior frontend + design judgment consistently in the room. From $10,000/month.";
+  "2–3 days a week as your fractional design engineer. For product teams that need senior frontend + design judgment consistently in the room. $10–14k/month.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -67,7 +67,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "what stacks do you work in?",
-    a: "typescript end-to-end on next.js and vercel by default. tailwind, framer motion, gsap, and webgl for high-craft surfaces. postgres, sanity, stripe, and headless shopify when full-stack work is on the table. ai-fluent across the day-to-day — claude code, codex, cursor, and agents in the loop where they earn it. embedded means fitting into your stack — if it's modern frontend, i'm comfortable.",
+    a: "embedded means fitting into your stack, not asking you to change it. by default i'm fastest in typescript on next.js and vercel, with tailwind, framer motion, gsap, and webgl for high-craft surfaces — and postgres, sanity, stripe, and headless shopify when the work goes full-stack. if it's modern frontend, i'm comfortable.",
   },
 ];
 
@@ -79,7 +79,7 @@ function StartConversationButton() {
       rel="noopener noreferrer"
       className="group/cta inline-flex items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-mono text-3xs font-medium uppercase tracking-tight text-white outline-none transition-colors duration-200 hover:bg-accent-hover"
     >
-      start the conversation
+      start a conversation
       <ArrowRight
         aria-hidden
         className="h-3 w-3 transition-transform duration-200 group-hover/cta:translate-x-0.5"
@@ -97,10 +97,10 @@ export default function EmbeddedPage() {
             className="col-span-12"
           >
             <p className="font-mono text-3xs font-medium uppercase tracking-tight opacity-60">
-              productized service
+              stay close
             </p>
             <h1 className="pt-3 font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
-              embedded design engineering
+              your fractional design engineer.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
               2–3 days a week as your fractional design engineer. for product
@@ -108,7 +108,7 @@ export default function EmbeddedPage() {
               in the room.
             </p>
             <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
-              from $10,000/month · 3-month minimum · remote, in your tools
+              $10–14k/month · 3-month minimum · remote, in your tools
             </p>
             <div className="pt-6 md:pt-8">
               <StartConversationButton />

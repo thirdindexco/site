@@ -20,7 +20,7 @@ const InquiryDrawer = dynamic(
 
 const HERO_HEADLINE = "third index is a design engineering studio.";
 const HERO_SUPPORT =
-  "we build the surface and the system underneath — product interfaces, frontend systems, and focused product experiences.";
+  "i build the surface and the system underneath — product interfaces, frontend systems, and focused product experiences.";
 
 // Hardcoded so Tailwind 4's JIT picks up the strings; index matches the
 // order of ENGAGEMENTS.
