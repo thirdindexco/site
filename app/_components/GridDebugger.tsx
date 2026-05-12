@@ -64,7 +64,7 @@ export function GridDebugger({
     >
       <div
         ref={gridRef}
-        className="relative mx-auto grid h-full max-w-grid grid-cols-4 gap-4 md:grid-cols-12"
+        className="relative mx-auto grid h-full max-w-grid grid-cols-4 gap-6 md:grid-cols-12"
       >
         <div className="absolute inset-y-0 left-0 w-px bg-pink-500/70" />
         <div className="absolute inset-y-0 right-0 w-px bg-pink-500/70" />

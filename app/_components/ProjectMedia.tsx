@@ -50,7 +50,7 @@ export function ProjectMedia({ project }: { project: Project }) {
   return (
     <span
       ref={containerRef}
-      className="grid min-h-[48vh] grid-cols-4 items-center gap-4 px-6 md:min-h-[62vh] md:grid-cols-12 md:px-8 xl:px-0"
+      className="grid min-h-[48vh] grid-cols-4 items-center gap-6 px-6 md:min-h-[62vh] md:grid-cols-12 md:px-8 xl:px-0"
     >
       {project.video ? (
         <video

@@ -2,20 +2,14 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { useState, type MouseEvent } from "react";
-import { Settings2, X } from "lucide-react";
-import { AnimRoot } from "./_components/AnimRoot";
-import { GridDebugger } from "./_components/GridDebugger";
+import { ArrowRight } from "lucide-react";
 import { InquiryCTA } from "./_components/InquiryCTA";
-import { MonogramMark } from "./_components/MonogramMark";
+import { PageChrome } from "./_components/PageChrome";
 import { ProjectShowcase } from "./_components/ProjectShowcase";
-import { SettingsPanel } from "./_components/SettingsPanel";
-import { SiteFooter } from "./_components/SiteFooter";
-import { ThemeShortcuts } from "./_components/ThemeShortcuts";
 import { WorkInquiryCTA } from "./_components/WorkInquiryCTA";
+import { ENGAGEMENTS } from "./_lib/engagements";
 import { GRID } from "./_lib/layout";
 import { projects } from "./_lib/projects";
-import { useBodyScrollLock } from "./_lib/useBodyScrollLock";
 
 // Drawer bundle stays out of the initial payload — only loads on the client.
 // Single instance for the whole page; CTAs flip the inquiryOpenAtom.
@@ -25,83 +19,30 @@ const InquiryDrawer = dynamic(
 );
 
 const HERO_HEADLINE = "third index is a design engineering studio.";
-const HERO_SUBHEAD =
-  "interfaces, prototypes, and production frontends for product teams.";
+const HERO_SUPPORT =
+  "we build the surface and the system underneath — product interfaces, frontend systems, and focused product experiences.";
+
+// Hardcoded so Tailwind 4's JIT picks up the strings; index matches the
+// order of ENGAGEMENTS.
+const ENGAGEMENT_COL_STARTS = [
+  "lg:col-start-1",
+  "lg:col-start-5",
+  "lg:col-start-9",
+];
 
 export default function HomePage() {
-  const [settingsOpen, setSettingsOpen] = useState(false);
-  const [gridDebug, setGridDebug] = useState(false);
-
-  useBodyScrollLock(settingsOpen);
-
-  const dismissSettingsFromPage = (event: MouseEvent<HTMLElement>) => {
-    if (!settingsOpen) return;
-    event.preventDefault();
-    event.stopPropagation();
-    setSettingsOpen(false);
-  };
-
-  const toggleSettings = () => {
-    setSettingsOpen((prev) => !prev);
-  };
-
   return (
-    <AnimRoot
-      className={`relative flex min-h-screen flex-col [--settings-surface:#09090b] border-[color:var(--settings-surface)] transition-[border-width,padding] duration-200 ease-[cubic-bezier(0.2,0,0,1)] motion-reduce:transition-none ${
-        settingsOpen
-          ? "border-l-[12px] border-r-[12px] px-4 md:border-l-[18px] md:border-r-[18px] md:px-6"
-          : "border-0 px-6 md:px-8 xl:px-0"
-      }`}
-    >
-      <ThemeShortcuts />
-      <GridDebugger enabled={gridDebug} settingsOpen={settingsOpen} />
-      <SettingsPanel
-        gridDebug={gridDebug}
-        setGridDebug={setGridDebug}
-        settingsOpen={settingsOpen}
-      />
-
-      <header
-        onClickCapture={dismissSettingsFromPage}
-        className={`relative items-center pt-5 md:pt-10 lg:pt-16 ${GRID}`}
-      >
-        <Link
-          href="/"
-          aria-label="third index — home"
-          data-anim="logo"
-          className="col-span-1 col-start-1 md:col-start-2 row-start-1 justify-self-start"
-        >
-          <MonogramMark className="h-7 w-auto md:h-9" />
-        </Link>
-
-        <button
-          type="button"
-          onClick={toggleSettings}
-          aria-label={settingsOpen ? "close settings" : "open settings"}
-          aria-expanded={settingsOpen}
-          className="col-span-1 col-start-12 md:col-start-11 row-start-1 inline-flex h-8 w-8 items-center justify-center justify-self-end text-foreground opacity-75 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-foreground"
-        >
-          {settingsOpen ? (
-            <X aria-hidden className="h-4 w-4" />
-          ) : (
-            <Settings2 aria-hidden className="h-4 w-4" />
-          )}
-        </button>
-      </header>
-
-      <main onClickCapture={dismissSettingsFromPage} className="flex-1">
+    <>
+      <PageChrome>
         <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
           <p
             data-anim="hero"
-            className="col-span-12 md:col-span-10 md:col-start-2 font-sans text-2xl font-semibold tracking-tight leading-tight text-pretty md:text-3xl"
+            className="col-span-12 max-w-[60ch] font-sans text-2xl font-semibold tracking-tight leading-tight text-pretty md:text-3xl"
           >
-            {HERO_HEADLINE}
-          </p>
-          <p
-            data-anim="hero"
-            className="col-span-12 md:col-span-10 md:col-start-2 pt-2 font-sans text-sm leading-relaxed text-foreground/60 md:text-base"
-          >
-            {HERO_SUBHEAD}
+            {HERO_HEADLINE}{" "}
+            <span className="font-normal text-foreground/60">
+              {HERO_SUPPORT}
+            </span>
           </p>
         </section>
 
@@ -114,7 +55,7 @@ export default function HomePage() {
               about
             </div>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
-              studio practice of{" "}
+              principal-led studio practice by{" "}
               <a
                 href="https://ciccarel.li"
                 target="_blank"
@@ -123,9 +64,8 @@ export default function HomePage() {
               >
                 michael ciccarelli
               </a>{" "}
-              — two decades shipping software for the web across fintech, media,
-              and e-commerce. client work alongside original products.
-              principal-led, collaborators as needed.
+              — frontend engineering, interaction design, and product systems
+              across fintech, media, web3, and commerce.
             </p>
           </div>
 
@@ -138,7 +78,7 @@ export default function HomePage() {
             </div>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
               open to new work. product interfaces, design systems, marketing
-              sites, and zero-to-one builds. project-based, retainer, or
+              sites, and new product builds. project-based, retainer, or
               embedded engagements.
             </p>
             <InquiryCTA />
@@ -146,11 +86,53 @@ export default function HomePage() {
         </section>
 
         <ProjectShowcase projects={projects.slice(0, 10)} />
-        <WorkInquiryCTA />
-      </main>
 
-      <SiteFooter onClickCapture={dismissSettingsFromPage} />
+        <section className={`pt-16 md:pt-24 lg:pt-32 ${GRID}`}>
+          <div data-anim="body" className="col-span-12">
+            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+              ways to work together
+            </div>
+            <p className="max-w-[50ch] pt-8 font-sans text-sm leading-relaxed text-foreground/65 md:text-base">
+              structured ways to diagnose, build, or stay close to the product.
+            </p>
+          </div>
+
+          {ENGAGEMENTS.map((engagement, i) => (
+            <article
+              key={engagement.slug}
+              data-anim="body"
+              className={`col-span-12 lg:col-span-4 lg:pt-16 ${
+                ENGAGEMENT_COL_STARTS[i]
+              } ${i === 0 ? "pt-12" : "pt-8 lg:pt-16"}`}
+            >
+              <div className="flex h-full flex-col border-t border-[color:var(--panel-border)] pt-5">
+                <h3 className="font-sans text-xl font-semibold leading-tight tracking-tight">
+                  {engagement.title}
+                </h3>
+                <p className="pt-2 font-mono text-3xs font-medium uppercase tracking-tight opacity-70">
+                  {engagement.meta}
+                </p>
+                <p className="pt-6 font-sans text-sm leading-relaxed text-pretty">
+                  {engagement.description}
+                </p>
+                <Link
+                  href={engagement.href}
+                  className="group/learn mt-6 inline-flex items-center gap-1.5 self-start font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity hover:opacity-100"
+                >
+                  learn more
+                  <ArrowRight
+                    aria-hidden
+                    className="h-3 w-3 transition-transform duration-200 group-hover/learn:translate-x-0.5"
+                  />
+                </Link>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <WorkInquiryCTA />
+      </PageChrome>
       <InquiryDrawer />
-    </AnimRoot>
+    </>
   );
 }

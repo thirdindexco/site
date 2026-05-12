@@ -7,7 +7,7 @@ import { inquiryOpenAtom } from "../_lib/inquiry-state";
 export function InquiryCTA() {
   const setOpen = useSetAtom(inquiryOpenAtom);
   return (
-    <div className="pt-8">
+    <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-8">
       <button
         type="button"
         onClick={() => setOpen(true)}
@@ -19,6 +19,18 @@ export function InquiryCTA() {
           className="h-3 w-3 transition-transform duration-200 group-hover/cta:translate-x-0.5"
         />
       </button>
+      <a
+        href="https://cal.com/thirdindex/intro"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group/call inline-flex items-center gap-1.5 font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity duration-200 hover:opacity-100"
+      >
+        book a call
+        <ArrowRight
+          aria-hidden
+          className="h-3 w-3 transition-transform duration-200 group-hover/call:translate-x-0.5"
+        />
+      </a>
     </div>
   );
 }

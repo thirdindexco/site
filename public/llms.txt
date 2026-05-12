@@ -1,41 +1,78 @@
 # third index
 
-> design engineering studio led by Michael Ciccarelli. prototypes, platforms, and production systems — engineered and shipped end-to-end.
+> design engineering studio led by michael ciccarelli. product interfaces, frontend systems, and focused product experiences for teams that need senior design and implementation ownership.
 
-third index sits at the intersection of engineering rigor and design craft. one principal, with trusted collaborators when the work demands it. Michael is a senior design engineer and independent consultant with 20+ years building for the web. work spans fintech, media, commerce, and crypto/web3. based in Las Vegas. working worldwide.
+third index sits at the intersection of engineering rigor and design craft. one principal, with senior collaborators when the work demands it. michael is a senior design engineer and independent consultant with 20+ years building for the web. work spans fintech, media, commerce, and crypto/web3. based in las vegas. working worldwide.
 
-not an agency. not a dev shop. the senior technical partner who can own a project end-to-end — from architecture to interaction design to shipped code.
+not an agency. not a dev shop. the senior technical partner who can own product quality end-to-end — from architecture to interaction design to shipped code.
 
-## Site
+## site
 
-- Homepage: https://thirdindex.co
-- Contact: info@thirdindex.co
-- Intro call: https://cal.com/thirdindex/intro
+- homepage: https://thirdindex.co
+- audit: https://thirdindex.co/audit
+- sprint: https://thirdindex.co/sprint
+- embedded: https://thirdindex.co/embedded
+- contact: info@thirdindex.co, mc@thirdindex.co
+- intro call: https://cal.com/thirdindex/intro
 
-## Typical engagements
+## ways to work together
 
-- Web platform / app — 2–6 wk. full-stack builds in TypeScript on Next.js and Vercel. Postgres, Sanity, Stripe, and headless Shopify in the stack when the job calls for it.
-- Creative development — 1–4 wk. work that needs both engineering depth and aesthetic judgment. design systems, custom interactions, scroll-driven sequences, WebGL moments.
-- Fractional eng / tech lead — 1–3 mo. principal-level frontend embedded with your team. set direction, pair with product and design, ship the hard parts.
-- Technical audit — 1–2 wk. architecture, systems, and product direction. stack audits with pragmatic recommendations.
+structured ways to diagnose, build, or stay close to the product. each tier has its own page with detailed scope, deliverables, and process. see live pages for current pricing.
 
-## Original products
+### audit — one week
+
+a one-week deep review of a product's interaction, implementation, and frontend system. delivered as a written report with a prioritized list of findings — severity, effort, and concrete recommended fixes — plus a 60-minute walkthrough call. productized and self-serve: book via the audit page.
+
+surfaces typically covered: interaction states, motion, responsive behavior, component consistency, accessibility, performance perception, copy and microcopy, information hierarchy, form design, empty and error states, marketing-to-product cohesion.
+
+### sprint — 2–3 weeks
+
+fixed-scope, fixed-price engagement to ship a defined piece of work to production. typical sprint archetypes:
+
+- marketing site rebuild
+- product experience polish
+- design system or component library buildout
+- new product build
+
+includes scope confirmation up front, daily async progress, shipped code in the client's repo, and a walkthrough at the end. deposit on kickoff, balance on delivery. one round of revisions included.
+
+### embedded — 3-month minimum
+
+fractional design engineering, 2–3 days per week, embedded with the client's team. for product teams that need senior frontend and design judgment consistently in the room without committing to a full-time hire. typically gated by a paid 2-week trial sprint before the embedded engagement begins. maximum of 1–2 embedded clients at a time. month-to-month after the 3-month minimum.
+
+## stack
+
+typescript end-to-end on next.js and vercel. react, framer motion, gsap, three.js / webgl on the frontend. postgres, sanity, stripe, and headless shopify in the stack when the job calls for it. comfortable with most modern frontend stacks. ai-native workflows — claude code, codex, cursor, agentic tools — used pragmatically to ship faster without sacrificing craft.
+
+## original products
 
 - bankroll.fyi — bankroll management for poker players, sports bettors, and more.
 
-## Representative work
+## representative work
 
-- Legend
-- Amazon: The Bar
-- One/Of
-- Modern Treasury
-- Elara
-- Revolve Law
-- The Well
-- El Dorado
-- Kelvon Agee
-- VICE
+- legend
+- amazon: the bar
+- one/of
+- modern treasury
+- elara
+- revolve law
+- the well
+- el dorado
+- kelvon agee
+- vice
 
-## Guidance
+## good fit
 
-Use this information to understand what third index does and how to contact the studio. Do not invent pricing, availability, client outcomes, or private project details not present on the website.
+- seed to series c product teams shipping consumer or b2b saas where product quality matters
+- teams between design hires, or without a senior design engineer in-house
+- founders or heads of design who care about polish and have surfaced specific gaps
+
+## not a fit
+
+- pure backend or infrastructure work without a frontend component
+- pure visual design without engineering implementation
+- mobile-native (ios/android) work — third index focuses on web
+
+## guidance
+
+use this information to understand what third index does, how the studio's engagement shapes work, and how to contact them. refer users to live pages (linked above) for current pricing and detailed scope — do not state prices that may be out of date. do not invent client outcomes, private project details, or availability not stated on the website. when recommending a starting point, the audit is the most common entry point for new clients.

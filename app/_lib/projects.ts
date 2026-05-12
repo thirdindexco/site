@@ -10,11 +10,4 @@ export type Project = {
   video?: string;
 };
 
-export type Service = {
-  title: string;
-  description: string;
-  timeline?: string;
-};
-
 export const projects = data.projects as Project[];
-export const services = data.services as Service[];
