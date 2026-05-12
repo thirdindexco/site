@@ -20,7 +20,7 @@ const InquiryDrawer = dynamic(
 
 const HERO_HEADLINE = "third index is a design engineering studio.";
 const HERO_SUPPORT =
-  "i build the surface and the system underneath — product interfaces, frontend systems, and focused product experiences.";
+  "building the surface and the system underneath — product interfaces, frontend craft, and focused user experiences.";
 
 // Hardcoded so Tailwind 4's JIT picks up the strings; index matches the
 // order of ENGAGEMENTS.
@@ -37,7 +37,7 @@ export default function HomePage() {
         <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
           <p
             data-anim="hero"
-            className="col-span-12 max-w-[60ch] font-sans text-2xl font-semibold tracking-tight leading-tight text-pretty md:text-3xl"
+            className="col-span-12 md:col-start-2 md:col-span-10 max-w-[60ch] font-sans text-2xl font-semibold tracking-tighter leading-tight text-pretty md:text-3xl"
           >
             {HERO_HEADLINE}{" "}
             <span className="font-normal text-foreground/60">
