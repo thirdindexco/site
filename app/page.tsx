@@ -112,7 +112,7 @@ export default function HomePage() {
                 <p className="pt-2 font-mono text-3xs font-medium uppercase tracking-tight opacity-70">
                   {engagement.meta}
                 </p>
-                <p className="pt-6 font-sans text-sm leading-relaxed text-pretty">
+                <p className="pt-6 font-sans text-xs leading-relaxed text-pretty">
                   {engagement.description}
                 </p>
                 <Link

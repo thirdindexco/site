@@ -16,7 +16,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "audit",
     meta: "$3,500 · one week",
     description:
-      "a deep review of your product's interaction, implementation, and frontend system. you get a prioritized doc of what's slowing the product down and exactly how to fix it. low commitment, high signal.",
+      "a deep review of your design system, interaction patterns, and frontend implementation. you get a prioritized breakdown of what’s slowing the product down and how to fix it. low commitment, high signal.",
     href: "/audit",
   },
   {

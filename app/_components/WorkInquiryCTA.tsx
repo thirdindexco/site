@@ -14,7 +14,7 @@ export function WorkInquiryCTA() {
           <p className="font-mono text-3xs font-medium uppercase tracking-tight">
             get in touch
           </p>
-          <p className="max-w-[60ch] pt-8 font-sans text-sm leading-relaxed md:text-base">
+          <p className="max-w-[60ch] pt-8 font-sans text-xs leading-relaxed">
             start with a 15-minute intro call — no prep needed. share a brief,
             or write directly to{" "}
             <a
