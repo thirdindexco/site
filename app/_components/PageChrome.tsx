@@ -30,22 +30,19 @@ export function PageChrome({ children }: { children: ReactNode }) {
   };
 
   const toggleSettings = () => {
-    setSettingsOpen((prev) => {
-      const next = !prev;
-      // Panel renders inline above the header; if the user is scrolled
-      // past it, opening would slide the panel in offscreen. Pull them
-      // back up so the panel is actually visible when it appears.
-      if (next && typeof window !== "undefined" && window.scrollY > 0) {
-        const reduceMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
-        window.scrollTo({
-          top: 0,
-          behavior: reduceMotion ? "auto" : "smooth",
-        });
-      }
-      return next;
-    });
+    // Panel renders inline above the header. If the user has scrolled past
+    // it, opening would slide the panel in offscreen — and useBodyScrollLock
+    // would then pin the body at the current scroll, leaving the panel
+    // clipped. Scroll synchronously (not smooth) so scrollY is 0 before the
+    // lock effect runs.
+    if (
+      !settingsOpen &&
+      typeof window !== "undefined" &&
+      window.scrollY > 0
+    ) {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+    setSettingsOpen((prev) => !prev);
   };
 
   return (
