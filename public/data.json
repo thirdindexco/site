@@ -18,7 +18,7 @@
     {
         "title": "Legend.xyz",
         "role": "Frontend Development",
-        "url": "https://legend.xyz",
+        "url": "https://legend-xyz.vercel.app",
         "description": "marketing site for an embedded smart contract wallet built on open defi protocols. custom webgl moments, scroll-driven sequences, a technical product rendered for a non-technical audience.",
         "technologies": "Next.js, Tailwind, WebGL",
         "thumbnail": "/projects/legend.jpg"
