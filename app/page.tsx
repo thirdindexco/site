@@ -18,9 +18,9 @@ const InquiryDrawer = dynamic(
   { ssr: false },
 );
 
-const HERO_HEADLINE = "third index is a design engineering studio.";
+const HERO_HEADLINE = "third index is a design engineering studio ";
 const HERO_SUPPORT =
-  "building the surface and the system underneath. product interfaces, frontend craft, and focused ux.";
+  "building the surface and the system underneath — interfaces, frontend craft, interaction design.";
 
 // Hardcoded so Tailwind 4's JIT picks up the strings; index matches the
 // order of ENGAGEMENTS.
@@ -40,7 +40,7 @@ export default function HomePage() {
             className="col-span-12 md:col-start-2 md:col-span-10 max-w-[60ch] font-sans text-2xl font-semibold tracking-tighter leading-tight text-pretty md:text-3xl"
           >
             {HERO_HEADLINE}{" "}
-            <span className="font-normal text-foreground/60">
+            <span className="font-light text-foreground/60">
               {HERO_SUPPORT}
             </span>
           </p>
@@ -55,7 +55,7 @@ export default function HomePage() {
               about
             </div>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
-              principal-led studio practice by{" "}
+              studio practice of{" "}
               <a
                 href="https://ciccarel.li"
                 target="_blank"
@@ -64,8 +64,8 @@ export default function HomePage() {
               >
                 michael ciccarelli
               </a>{" "}
-              — frontend engineering, interaction design, and product systems
-              across fintech, media, and commerce.
+              — two decades building for the web across fintech, media, and
+              commerce. principal-led, collaborators as needed.
             </p>
           </div>
 
@@ -77,9 +77,8 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
-              open to new work. product interfaces, design systems, marketing
-              sites, and new product builds. project-based, retainer, or
-              embedded engagements.
+              open to new work. marketing sites, design systems, frontend
+              architecture, and new product builds.
             </p>
             <InquiryCTA />
           </div>
