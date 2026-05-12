@@ -20,7 +20,7 @@ const InquiryDrawer = dynamic(
 
 const HERO_HEADLINE = "third index is a design engineering studio.";
 const HERO_SUPPORT =
-  "building the surface and the system underneath — product interfaces, frontend craft, and focused user experiences.";
+  "building the surface and the system underneath. product interfaces, frontend craft, and focused ux.";
 
 // Hardcoded so Tailwind 4's JIT picks up the strings; index matches the
 // order of ENGAGEMENTS.
@@ -65,7 +65,7 @@ export default function HomePage() {
                 michael ciccarelli
               </a>{" "}
               — frontend engineering, interaction design, and product systems
-              across fintech, media, web3, and commerce.
+              across fintech, media, and commerce.
             </p>
           </div>
 
