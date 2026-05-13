@@ -16,7 +16,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "audit",
     meta: "$3,500 · one week",
     description:
-      "a deep review of your design system, interaction patterns, and frontend implementation. you get a prioritized breakdown of what’s slowing the product down and how to fix it. low commitment, high signal.",
+      "interface, system, motion, and frontend review. prioritized fixes, written clearly.",
     href: "/audit",
   },
   {
@@ -24,7 +24,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "sprint",
     meta: "$8–15k · 2–3 weeks",
     description:
-      "typically the highest-priority fixes from an audit, a marketing site rebuild, or a focused product area redesign. fixed scope, fixed price, shipped to production.",
+      "fixed-scope build for a brand site, product flow, design system, or frontend cleanup.",
     href: "/sprint",
   },
   {
@@ -32,7 +32,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "embedded",
     meta: "$10–14k/month · 3 month minimum",
     description:
-      "2–3 days a week as your fractional design engineer. for teams that need senior frontend + design judgment in the room consistently — without the cost or commitment of a full-time hire.",
+      "fractional design engineering for teams that need senior frontend judgment in the room.",
     href: "/embedded",
   },
 ];

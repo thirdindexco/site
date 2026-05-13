@@ -71,7 +71,7 @@ export function PageChrome({ children }: { children: ReactNode }) {
           data-anim="logo"
           className="col-span-1 col-start-1 row-start-1 justify-self-start"
         >
-          <MonogramMark className="h-7 w-auto md:h-9" />
+          <MonogramMark className="h-6 w-auto md:h-8" />
         </Link>
 
         <button

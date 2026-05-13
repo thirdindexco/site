@@ -1,10 +1,10 @@
 # third index
 
-> design engineering studio led by michael ciccarelli. product interfaces, frontend systems, and focused product experiences for teams that need senior design and implementation ownership.
+> interfaces, systems, motion. built end-to-end.
 
-third index sits at the intersection of engineering rigor and design craft. one principal, with senior collaborators when the work demands it. michael is a senior design engineer and independent consultant with 20+ years building for the web. work spans fintech, media, commerce, and crypto/web3. based in las vegas. working worldwide.
+third index is the studio practice of michael ciccarelli. two decades in the browser across fintech, media, commerce, and crypto. principal-led, collaborators as needed.
 
-not an agency. not a dev shop. the senior technical partner who can own product quality end-to-end — from architecture to interaction design to shipped code.
+new projects considered: brand sites, design systems, frontend architecture, product builds, commerce stacks, editorial systems.
 
 ## site
 
@@ -17,32 +17,32 @@ not an agency. not a dev shop. the senior technical partner who can own product 
 
 ## ways to work together
 
-structured ways to diagnose, build, or stay close to the product. each tier has its own page with detailed scope, deliverables, and process. see live pages for current pricing.
+structured ways to diagnose, build, or stay close to the product. see live pages for current pricing, scope, and process.
 
 ### audit — one week
 
-a one-week deep review of a product's interaction, implementation, and frontend system. delivered as a written report with a prioritized list of findings — severity, effort, and concrete recommended fixes — plus a 60-minute walkthrough call. productized and self-serve: book via the audit page.
+a one-week review of product interfaces, design systems, motion, and frontend implementation. delivered as a written report with prioritized fixes, plus a walkthrough call. productized and self-serve: book via the audit page.
 
-surfaces typically covered: interaction states, motion, responsive behavior, component consistency, accessibility, performance perception, copy and microcopy, information hierarchy, form design, empty and error states, marketing-to-product cohesion.
+surfaces typically covered: interaction states, motion, responsive behavior, component consistency, accessibility, performance perception, information hierarchy, forms, empty states, error states, and marketing-to-product cohesion.
 
 ### sprint — 2–3 weeks
 
-fixed-scope, fixed-price engagement to ship a defined piece of work to production. typical sprint archetypes:
+fixed-scope engagement to ship a defined web surface to production. typical sprint shapes:
 
-- marketing site rebuild
-- product experience polish
-- design system or component library buildout
-- new product build
+- brand or marketing site
+- product flow or feature
+- design system or component library
+- frontend architecture cleanup
 
-includes scope confirmation up front, daily async progress, shipped code in the client's repo, and a walkthrough at the end. deposit on kickoff, balance on delivery. one round of revisions included.
+includes scope confirmation up front, daily async progress, shipped code in the client's repo, and a walkthrough at the end.
 
 ### embedded — 3-month minimum
 
-fractional design engineering, 2–3 days per week, embedded with the client's team. for product teams that need senior frontend and design judgment consistently in the room without committing to a full-time hire. typically gated by a paid 2-week trial sprint before the embedded engagement begins. maximum of 1–2 embedded clients at a time. month-to-month after the 3-month minimum.
+fractional design engineering, 2–3 days per week, embedded with the client's team. for product teams that need senior frontend architecture, interface judgment, and production momentum. maximum of 1–2 embedded clients at a time.
 
 ## stack
 
-typescript end-to-end on next.js and vercel. react, framer motion, gsap, three.js / webgl on the frontend. postgres, sanity, stripe, and headless shopify in the stack when the job calls for it. comfortable with most modern frontend stacks. ai-native workflows — claude code, codex, cursor, agentic tools — used pragmatically to ship faster without sacrificing craft.
+typescript end-to-end on next.js and vercel. react, motion, gsap, three.js / webgl on the frontend. postgres, sanity, stripe, and headless shopify when the work goes full-stack. comfortable with most modern frontend stacks.
 
 ## original products
 
@@ -63,9 +63,9 @@ typescript end-to-end on next.js and vercel. react, framer motion, gsap, three.j
 
 ## good fit
 
-- seed to series c product teams shipping consumer or b2b saas where product quality matters
-- teams between design hires, or without a senior design engineer in-house
-- founders or heads of design who care about polish and have surfaced specific gaps
+- teams shipping serious web surfaces
+- founders, design leads, and product teams with high standards and real constraints
+- product teams without a senior design engineer in-house
 
 ## not a fit
 
@@ -75,4 +75,4 @@ typescript end-to-end on next.js and vercel. react, framer motion, gsap, three.j
 
 ## guidance
 
-use this information to understand what third index does, how the studio's engagement shapes work, and how to contact them. refer users to live pages (linked above) for current pricing and detailed scope — do not state prices that may be out of date. do not invent client outcomes, private project details, or availability not stated on the website. when recommending a starting point, the audit is the most common entry point for new clients.
+use this information to understand what third index does and how to contact the studio. refer users to live pages for current pricing and scope. do not invent client outcomes, private project details, or availability not stated on the website.

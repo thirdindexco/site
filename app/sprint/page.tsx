@@ -5,9 +5,9 @@ import { PageChrome } from "../_components/PageChrome";
 import { RelatedEngagements } from "../_components/RelatedEngagements";
 import { GRID } from "../_lib/layout";
 
-const pageTitle = "design engineering sprint — third index";
+const pageTitle = "sprint — third index";
 const pageDescription =
-  "Two to three weeks to ship the work that's been stuck on your roadmap. Fixed scope, fixed price, in production by the end. $8–15k typical.";
+  "Two to three weeks to ship a defined web surface: brand site, product flow, design system, or frontend architecture.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — design engineering sprint",
+        alt: "third index — sprint",
       },
     ],
   },
@@ -40,54 +40,54 @@ const SCOPE_URL = "https://cal.com/thirdindex/sprint";
 
 const archetypes: { title: string; description: string }[] = [
   {
-    title: "marketing site rebuild",
+    title: "brand site",
     description:
-      "landing page or full marketing site, design-engineered with motion and interaction craft.",
+      "landing page or full site, built with motion and interaction craft.",
   },
   {
-    title: "product experience polish",
+    title: "product polish",
     description:
-      "implementation of the highest-priority issues from an audit, or a focused redesign of one product area.",
+      "highest-priority fixes from an audit, or one focused product area.",
   },
   {
-    title: "design system or component library buildout",
+    title: "design system",
     description:
-      "initial system, documented patterns, react component library handed off to your team.",
+      "documented patterns and react components your team can extend.",
   },
   {
-    title: "new product build",
-    description: "new product area or feature, designed and built end-to-end.",
+    title: "product build",
+    description: "new feature or product surface, designed and built end-to-end.",
   },
 ];
 
 const schedule: [string, string][] = [
   [
     "week 0",
-    "30-min scoping call. we agree on scope, deliverables, timeline, and price. half deposit invoiced.",
+    "30-minute scoping call. scope, timeline, price, deposit.",
   ],
   [
     "weeks 1–3",
-    "work happens. daily async updates, mid-sprint check-in call, code in your repo from day one.",
+    "daily async updates. code in your repo from day one.",
   ],
-  ["end of sprint", "walkthrough call, final deliverables, final invoice."],
+  ["end", "walkthrough, final deliverables, final invoice."],
   [
     "after",
-    "sprint stands alone. if it works and you want continuity, we can talk about embedded.",
+    "done, or continued through another sprint / embedded work.",
   ],
 ];
 
 const faqs: FaqItem[] = [
   {
     q: "what if scope changes mid-sprint?",
-    a: "small changes are absorbed. larger scope changes get a brief written addendum with adjusted price and timeline before we proceed. no surprises.",
+    a: "small changes are absorbed. larger changes get a written adjustment before work continues.",
   },
   {
     q: "do you work with our existing designers / engineers?",
-    a: "yes — most sprints do. i typically work alongside your team, in your repo, in your slack. for sprints that need a designer i can bring one in.",
+    a: "yes. most sprints happen in your repo, alongside your team. collaborators can join when needed.",
   },
   {
     q: "what tech stacks?",
-    a: "fastest in typescript on next.js and vercel — react, framer motion, gsap, three.js / webgl for the high-craft surfaces. postgres, sanity, stripe, and headless shopify when the job calls for it. i lean on claude code, codex, and cursor where they earn it; useful for covering ground on a fixed-scope timeline. if you're on something exotic, ask.",
+    a: "fastest in typescript on next.js and vercel. react, motion, gsap, webgl, sanity, stripe, and headless shopify when needed. if you're on something unusual, ask.",
   },
   {
     q: "what about ongoing maintenance after?",
@@ -127,8 +127,8 @@ export default function SprintPage() {
               ship the work that's been stuck.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
-              two to three weeks to ship the work that's been stuck on your
-              roadmap. fixed scope, fixed price, in production by the end.
+              two to three weeks to ship a defined web surface. fixed scope,
+              fixed price, production code.
             </p>
             <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
               $8–15k · 2–3 weeks · remote
@@ -147,8 +147,7 @@ export default function SprintPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              a sprint is for teams who know what needs to ship and need a
-              senior pair of hands to ship it. typical sprints:
+              for teams with a clear surface to ship:
             </p>
             <ul className="mt-8">
               {archetypes.map((a) => (
@@ -166,9 +165,8 @@ export default function SprintPage() {
               ))}
             </ul>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty md:text-base">
-              every sprint includes scope confirmation up front, daily async
-              progress, shipped code in your repo, and a walkthrough at the
-              end. one round of revisions included.
+              includes scope confirmation, daily async progress, shipped code,
+              walkthrough, and one revision pass.
             </p>
           </div>
         </section>
@@ -210,10 +208,7 @@ export default function SprintPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              sprints typically run $8–15k. price moves with scope — full
-              marketing site rebuilds and new product builds sit at the top of
-              the range; focused polish and system buildouts at the bottom.
-              fixed before we start.
+              $8–15k. price moves with scope and is fixed before work starts.
             </p>
           </div>
         </section>
@@ -226,10 +221,8 @@ export default function SprintPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              hourly billing punishes speed and rewards padding. fixed-price
-              sprints align our incentives: i'm motivated to ship efficiently
-              and well, and you know exactly what you're paying before we
-              start.
+              fixed scope, fixed fee, shipped code. less clock-watching, more
+              momentum.
             </p>
           </div>
         </section>
@@ -248,7 +241,7 @@ export default function SprintPage() {
         <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
           <div className="col-span-12">
             <p className="font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
-              ready to ship the work that's been stuck?
+              start a sprint.
             </p>
             <div className="flex flex-col items-start gap-4 pt-8 md:pt-10">
               <StartSprintButton />

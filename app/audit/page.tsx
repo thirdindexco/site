@@ -6,9 +6,9 @@ import { PageChrome } from "../_components/PageChrome";
 import { RelatedEngagements } from "../_components/RelatedEngagements";
 import { GRID } from "../_lib/layout";
 
-const pageTitle = "design engineering audit — third index";
+const pageTitle = "audit — third index";
 const pageDescription =
-  "A one-week deep review of your product's interaction, implementation, and frontend system. $3,500. A prioritized list of what's slowing the product down, what to fix first, and exactly how to fix it.";
+  "A one-week review of product interfaces, design systems, motion, and frontend implementation. Prioritized fixes, written clearly.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — design engineering audit",
+        alt: "third index — audit",
       },
     ],
   },
@@ -42,43 +42,40 @@ const BUY_URL = "https://book.stripe.com/fZubJ18kB0SaaZpfOA9fW02";
 const INTRO_URL = "https://cal.com/thirdindex/audit";
 
 const deliverables: [string, string][] = [
-  ["severity", "what it's actually costing you"],
-  ["effort", "rough implementation time"],
-  [
-    "fix",
-    "concrete recommendation, often with code or component-level detail",
-  ],
-  ["examples", "references to products doing it well"],
+  ["severity", "what it costs the product"],
+  ["effort", "rough implementation weight"],
+  ["fix", "concrete next step"],
+  ["examples", "useful references"],
 ];
 
 const schedule: [string, string][] = [
   [
     "day 1",
-    "kickoff call (30 min). you share access, context, and what's bothering you most.",
+    "30-minute kickoff. access, context, sharpest concerns.",
   ],
   [
     "days 2–5",
-    "i go deep. product, marketing site, key user flows, design system, component library if you have one.",
+    "product, key flows, design system, component library, marketing surface.",
   ],
-  ["day 6", "written report delivered."],
+  ["day 6", "report delivered."],
   [
     "day 7",
-    "walkthrough call. q&a, prioritization, next steps if you want them.",
+    "walkthrough call. q&a, priorities, next steps.",
   ],
 ];
 
 const faqs: FaqItem[] = [
   {
     q: "how is this different from a design review or a UX audit?",
-    a: "most design reviews focus on visual design or user flows in isolation. this looks at the entire surface where design meets code — the interaction layer, the motion layer, the component layer, the polish layer. it's written by someone who'll be in your codebase if you hire them to implement.",
+    a: "it looks at the surface where design meets code: interaction, motion, components, responsiveness, accessibility, and polish. not just screens in isolation.",
   },
   {
     q: "we already have designers. why would we need this?",
-    a: "your designers see what they designed. your engineers see what they built. an outside design engineer sees what your users see — and notices the gap between intent and shipped reality. that gap is usually where the polish lives.",
+    a: "designers see intent. engineers see implementation. the audit looks at the shipped gap between them.",
   },
   {
     q: "what if we just want you to fix the stuff yourself?",
-    a: "after the audit, we can scope a 2–4 week sprint to implement the highest-priority fixes. typical sprint pricing is $8–15k depending on scope. but you're not committed to anything past the audit.",
+    a: "after the audit, we can scope a sprint around the highest-priority fixes. no obligation.",
   },
   {
     q: "do you sign NDAs?",
@@ -86,11 +83,11 @@ const faqs: FaqItem[] = [
   },
   {
     q: "what tech stacks do you work with?",
-    a: "an audit is mostly stack-agnostic — i'm reading your product, your code, and your component patterns regardless of framework. day to day i live in react, next.js, typescript, framer motion, gsap, three.js / webgl, but i've audited products on most modern frontend stacks. if you're on something exotic, ask.",
+    a: "mostly stack-agnostic. strongest in react, next.js, typescript, motion, gsap, and webgl. if you're on something unusual, ask.",
   },
   {
     q: "what if we're pre-launch?",
-    a: "even better. an audit before launch catches things that are expensive to fix after. same scope, same price.",
+    a: "good time for it. same scope, same price.",
   },
 ];
 
@@ -134,10 +131,9 @@ export default function AuditPage() {
               find what's slowing your product down.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
-              a one-week deep review of your product's interaction,
-              implementation, and frontend system. you get a prioritized list
-              of what's slowing the product down, what to fix first, and
-              exactly how to fix it.
+              a one-week review of the surface where design meets code:
+              interaction, motion, components, responsiveness, accessibility,
+              performance perception.
             </p>
             <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
               $3,500 · one week · remote
@@ -168,15 +164,12 @@ export default function AuditPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              your product works. it ships. customers use it. but something
-              feels off — the polish isn't there, the interactions feel rough,
-              the marketing site doesn't match the product, the design system
-              is drifting, or your team can't articulate why the whole thing
-              looks a half-step behind the competition.
+              for shipped products that work, but feel a half-step off:
+              rough interactions, drifting systems, weak states, mismatched
+              marketing and product surfaces.
             </p>
             <p className="pt-4 font-sans text-sm leading-relaxed text-pretty md:text-base">
-              you don't need a redesign. you need someone to tell you,
-              specifically, what's wrong and what to do about it.
+              not a redesign. a diagnosis.
             </p>
           </div>
         </section>
@@ -189,8 +182,7 @@ export default function AuditPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              a written report covering a thorough set of prioritized
-              findings across your product experience, each one tagged with:
+              a written report of prioritized findings, each tagged with:
             </p>
             <dl className="mt-8 border-y border-[color:var(--panel-border)]">
               {deliverables.map(([term, def], i) => (
@@ -212,16 +204,12 @@ export default function AuditPage() {
               ))}
             </dl>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty md:text-base">
-              issues span the surface where design meets engineering:
-              interaction states, motion, responsive behavior, component
-              consistency, accessibility, performance perception, copy and
-              microcopy, information hierarchy, form design, empty and error
-              states, marketing-to-product cohesion.
+              covers interaction states, motion, responsive behavior,
+              component consistency, accessibility, hierarchy, forms, empty
+              states, error states, and marketing-to-product cohesion.
             </p>
             <p className="pt-4 font-sans text-sm leading-relaxed text-pretty md:text-base">
-              delivered as a structured doc you can hand directly to your team.
-              plus a 60-minute walkthrough call to discuss priorities and
-              answer questions.
+              delivered as a structured doc, plus a 60-minute walkthrough.
             </p>
           </div>
         </section>
@@ -264,9 +252,8 @@ export default function AuditPage() {
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
               $3,500, paid up front. one round of clarifying questions
-              included after delivery. if you want help implementing the fixes,
-              we can talk about a follow-up sprint or retainer — but there's no
-              obligation, and the audit stands alone.
+              included after delivery. implementation can be scoped separately;
+              the audit stands alone.
             </p>
           </div>
         </section>
@@ -279,11 +266,9 @@ export default function AuditPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              twenty years shipping software for the web. design engineering
-              work for modern treasury, axoni, vice media, condé nast, amazon.
-              i sit between design and engineering and have for a long time. i
-              notice things your team has stopped seeing because they're too
-              close to it.
+              two decades in the browser. work for modern treasury, axoni,
+              vice media, condé nast, amazon. long practice at the line
+              between interface and implementation.
             </p>
             <Link
               href="/#selected-work"
@@ -312,7 +297,7 @@ export default function AuditPage() {
         <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
           <div className="col-span-12">
             <p className="font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
-              ready to see what your product is hiding from you?
+              start with the audit.
             </p>
             <div className="flex flex-col items-start gap-4 pt-8 md:pt-10">
               <BuyButton />

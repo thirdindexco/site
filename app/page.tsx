@@ -18,17 +18,8 @@ const InquiryDrawer = dynamic(
   { ssr: false },
 );
 
-const HERO_HEADLINE = "third index is a design engineering studio ";
-const HERO_SUPPORT =
-  "building the surface and the system underneath — interfaces, frontend craft, interaction design.";
-
-// Hardcoded so Tailwind 4's JIT picks up the strings; index matches the
-// order of ENGAGEMENTS.
-const ENGAGEMENT_COL_STARTS = [
-  "lg:col-start-1",
-  "lg:col-start-5",
-  "lg:col-start-9",
-];
+const HERO_HEADLINE = "third index.";
+const HERO_SUPPORT = "interfaces, systems, motion. built end-to-end.";
 
 export default function HomePage() {
   return (
@@ -40,7 +31,7 @@ export default function HomePage() {
             className="col-span-12 md:col-start-2 md:col-span-10 max-w-[60ch] font-sans text-2xl font-semibold tracking-tighter leading-tight text-pretty md:text-3xl"
           >
             {HERO_HEADLINE}{" "}
-            <span className="font-light text-foreground/60">
+            <span className="font-normal text-foreground/60">
               {HERO_SUPPORT}
             </span>
           </p>
@@ -63,9 +54,9 @@ export default function HomePage() {
                 className="underline decoration-solid underline-offset-2 transition-colors hover:text-accent"
               >
                 michael ciccarelli
-              </a>{" "}
-              — two decades building for the web across fintech, media, and
-              commerce. principal-led, collaborators as needed.
+              </a>
+              . two decades in the browser across fintech, media, commerce, and
+              crypto. principal-led, collaborators as needed.
             </p>
           </div>
 
@@ -77,8 +68,8 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
-              open to new work. marketing sites, design systems, frontend
-              architecture, and new product builds.
+              new projects considered. brand sites, design systems, frontend
+              architecture, product builds, commerce stacks, editorial systems.
             </p>
             <InquiryCTA />
           </div>
@@ -87,46 +78,49 @@ export default function HomePage() {
         <ProjectShowcase projects={projects.slice(0, 10)} />
 
         <section className={`pt-16 md:pt-24 lg:pt-32 ${GRID}`}>
-          <div data-anim="body" className="col-span-12">
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
-              ways to work together
-            </div>
-            <p className="max-w-[50ch] pt-8 font-sans text-sm leading-relaxed text-foreground/65 md:text-base">
-              structured ways to diagnose, build, or stay close to the product.
-            </p>
-          </div>
-
-          {ENGAGEMENTS.map((engagement, i) => (
-            <article
-              key={engagement.slug}
-              data-anim="body"
-              className={`col-span-12 lg:col-span-4 lg:pt-16 ${
-                ENGAGEMENT_COL_STARTS[i]
-              } ${i === 0 ? "pt-12" : "pt-8 lg:pt-16"}`}
-            >
-              <div className="flex h-full flex-col border-t border-[color:var(--panel-border)] pt-5">
-                <h3 className="font-sans text-xl font-semibold leading-tight tracking-tight">
-                  {engagement.title}
-                </h3>
-                <p className="pt-2 font-mono text-3xs font-medium uppercase tracking-tight opacity-70">
-                  {engagement.meta}
+          <div className="relative col-span-12 overflow-hidden border-y border-[color:var(--panel-border)] py-8 md:py-10 lg:py-12">
+            <div aria-hidden className="dither-field absolute inset-0" />
+            <div className="relative z-10">
+              <div data-anim="body">
+                <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+                  ways to work together
+                </div>
+                <p className="max-w-[32ch] pt-8 font-sans text-sm leading-relaxed text-foreground/65 md:text-base">
+                  diagnose. build. stay close.
                 </p>
-                <p className="pt-6 font-sans text-xs leading-relaxed text-pretty">
-                  {engagement.description}
-                </p>
-                <Link
-                  href={engagement.href}
-                  className="group/learn mt-6 inline-flex items-center gap-1.5 self-start font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity hover:opacity-100"
-                >
-                  learn more
-                  <ArrowRight
-                    aria-hidden
-                    className="h-3 w-3 transition-transform duration-200 group-hover/learn:translate-x-0.5"
-                  />
-                </Link>
               </div>
-            </article>
-          ))}
+
+              <div className="grid gap-4 pt-12 md:grid-cols-3 md:gap-5 lg:gap-6 lg:pt-16">
+                {ENGAGEMENTS.map((engagement) => (
+                  <Link
+                    key={engagement.slug}
+                    href={engagement.href}
+                    data-anim="body"
+                    className="group/card flex min-h-64 flex-col border border-[color:var(--panel-border)] bg-[color:var(--background)] p-5 outline-none transition-colors duration-200 hover:border-[color:color-mix(in_srgb,var(--foreground)_20%,transparent)] focus-visible:border-[color:color-mix(in_srgb,var(--foreground)_20%,transparent)] focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-[color:var(--accent)] md:min-h-72 lg:p-6"
+                  >
+                    <h3 className="font-sans text-xl font-semibold leading-tight tracking-tight">
+                      {engagement.title}
+                    </h3>
+                    <p className="pt-2 font-mono text-3xs font-medium uppercase tracking-tight opacity-70">
+                      {engagement.meta}
+                    </p>
+                    <p className="pt-6 font-sans text-xs leading-relaxed text-pretty">
+                      {engagement.description}
+                    </p>
+                    <span className="mt-auto inline-flex items-center gap-1.5 self-start pt-8 font-mono text-3xs font-medium uppercase tracking-tight opacity-70 transition-opacity duration-200 group-hover/card:opacity-100 group-focus-visible/card:opacity-100">
+                      <span className="transition-transform duration-200 group-hover/card:translate-x-0.5 group-focus-visible/card:translate-x-0.5">
+                        learn more
+                      </span>
+                      <ArrowRight
+                        aria-hidden
+                        className="h-3 w-3 transition-transform duration-200 group-hover/card:translate-x-1 group-focus-visible/card:translate-x-1"
+                      />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
         </section>
 
         <WorkInquiryCTA />

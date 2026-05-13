@@ -5,9 +5,9 @@ import { PageChrome } from "../_components/PageChrome";
 import { RelatedEngagements } from "../_components/RelatedEngagements";
 import { GRID } from "../_lib/layout";
 
-const pageTitle = "embedded design engineering — third index";
+const pageTitle = "embedded — third index";
 const pageDescription =
-  "2–3 days a week as your fractional design engineer. For product teams that need senior frontend + design judgment consistently in the room. $10–14k/month.";
+  "Fractional design engineering for teams that need senior frontend architecture, interface judgment, and production momentum.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — embedded design engineering",
+        alt: "third index — embedded",
       },
     ],
   },
@@ -39,11 +39,11 @@ const START_URL = "https://cal.com/thirdindex/embedded";
 const EMAIL = "info@thirdindex.co";
 
 const ownership: string[] = [
-  "the polish layer of your product — interaction, motion, micro-design decisions",
+  "interaction, motion, and product polish",
   "design system maintenance and evolution",
-  "marketing site and high-craft surfaces",
-  "the design-to-engineering pipeline (handoff, component patterns, review)",
-  "hiring help when you're ready to bring this in-house",
+  "brand sites and high-craft surfaces",
+  "handoff, component patterns, and review",
+  "hiring support when it moves in-house",
 ];
 
 const tiers: [string, string][] = [
@@ -55,19 +55,19 @@ const tiers: [string, string][] = [
 const faqs: FaqItem[] = [
   {
     q: "can you do less than 2 days/week?",
-    a: "not as embedded. if you need lighter-touch ongoing work, an audit or sprint is probably the right shape.",
+    a: "not as embedded. lighter work is usually an audit or sprint.",
   },
   {
     q: "do you work with multiple embedded clients?",
-    a: "usually 1–2 at a time, maximum. embedded means actual presence and continuity; you're not getting that if i'm spread across five teams.",
+    a: "usually 1–2 at a time, maximum. embedded needs real presence.",
   },
   {
     q: "can it convert to full-time?",
-    a: "sometimes. embedded is often the path to \"we found the right person and now want them on the team.\" if that's the conversation, we have it.",
+    a: "sometimes. if that becomes the right conversation, we have it.",
   },
   {
     q: "what stacks do you work in?",
-    a: "embedded means fitting into your stack, not asking you to change it. by default i'm fastest in typescript on next.js and vercel, with tailwind, framer motion, gsap, and webgl for high-craft surfaces — and postgres, sanity, stripe, and headless shopify when the work goes full-stack. if it's modern frontend, i'm comfortable.",
+    a: "your stack first. fastest in typescript, next.js, vercel, tailwind, motion, gsap, webgl, sanity, stripe, and headless shopify.",
   },
 ];
 
@@ -103,9 +103,8 @@ export default function EmbeddedPage() {
               your fractional design engineer.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
-              2–3 days a week as your fractional design engineer. for product
-              teams that need senior frontend + design judgment consistently
-              in the room.
+              2–3 days a week for teams that need senior frontend architecture,
+              interface judgment, and production momentum.
             </p>
             <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
               $10–14k/month · 3-month minimum · remote, in your tools
@@ -124,20 +123,14 @@ export default function EmbeddedPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              you're shipping fast. you have a product. design and engineering
-              both exist, but the handoff between them is where things get
-              rough — polish slips, interactions feel inconsistent, the
-              marketing site drifts from product, the design system isn't
-              being maintained.
-              you've considered hiring a senior design engineer full-time but
-              you're not ready (or the right person isn't available).
+              for teams with real product velocity and a visible gap between
+              design intent and shipped interface: rough interactions, drifting
+              systems, inconsistent polish, product and marketing out of sync.
             </p>
             <p className="pt-4 font-sans text-sm leading-relaxed text-pretty md:text-base">
-              embedded is the answer for that gap. i join your team for 2–3
-              days a week, in your slack, your repo, your standups, your
-              design reviews. i do the work, mentor your team on craft, own
-              the design engineering layer of your product. for 3–12 months
-              at a time, with a clean exit at any milestone.
+              embedded means 2–3 days a week in your tools: repo, slack,
+              standups, reviews. hands on the work, close to the team, clean
+              exit at agreed milestones.
             </p>
           </div>
         </section>
@@ -178,9 +171,7 @@ export default function EmbeddedPage() {
               sprint → embedded engagement begins.
             </p>
             <p className="pt-4 font-sans text-sm leading-relaxed text-pretty text-foreground/70 md:text-base">
-              the trial sprint exists because embedded is a real commitment
-              for both of us. better to confirm fit on a 2-week project before
-              signing a 3-month contract.
+              the trial sprint confirms fit before a 3-month contract.
             </p>
           </div>
         </section>
@@ -232,7 +223,7 @@ export default function EmbeddedPage() {
         <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
           <div className="col-span-12">
             <p className="font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
-              want senior design engineering in the room?
+              bring design engineering closer.
             </p>
             <div className="flex flex-col items-start gap-4 pt-8 md:pt-10">
               <StartConversationButton />

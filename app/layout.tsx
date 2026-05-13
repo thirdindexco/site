@@ -21,7 +21,7 @@ const sans = Inter({
 
 const siteTitle = "third index";
 const siteDescription =
-  "Design engineering studio led by Michael Ciccarelli. Prototypes, platforms, and production systems — engineered and shipped end-to-end. Based in Las Vegas, working worldwide.";
+  "Interfaces, systems, motion. Built end-to-end by Michael Ciccarelli.";
 
 const siteUrl =
   process.env.NODE_ENV === "production"
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — design engineering studio",
+        alt: "third index — interfaces, systems, motion",
       },
     ],
   },

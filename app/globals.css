@@ -86,6 +86,24 @@ html[data-theme="accent"] ::placeholder {
   opacity: 0.7;
 }
 
+.dither-field {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--foreground) 16%, transparent) 0.7px,
+    transparent 0.8px
+  );
+  background-size: 8px 8px;
+  opacity: 0.34;
+}
+
+html[data-theme="dark"] .dither-field {
+  opacity: 0.22;
+}
+
+html[data-theme="accent"] .dither-field {
+  opacity: 0.26;
+}
+
 /* Base UI Collapsible — height animation via --collapsible-panel-height */
 .collapsible-panel {
   overflow: hidden;
@@ -104,4 +122,3 @@ html[data-theme="accent"] ::placeholder {
     transition-duration: 0ms;
   }
 }
-
