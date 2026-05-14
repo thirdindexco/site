@@ -42,44 +42,42 @@ export function AnimRoot({
             delay: 0.02,
           });
 
-          // Header cascades left → right (logo · swatches), then hero, body,
-          // footer follow the page's vertical reading flow.
-          tl.from("[data-anim='logo']", {
-            autoAlpha: 0,
-            y: -3,
-            duration: 0.28,
-          })
-            .from(
-              "[data-anim='swatch']",
-              {
-                autoAlpha: 0,
-                filter: "blur(2px)",
-                duration: 0.24,
-                stagger: 0.02,
-                force3D: true,
-              },
-              "-=0.18",
-            )
-            .from(
-              "[data-anim='hero']",
-              {
-                autoAlpha: 0,
-                y: 6,
-                duration: 0.32,
-                stagger: 0.05,
-              },
-              "-=0.12",
-            )
-            .from(
-              "[data-anim='body']",
-              { autoAlpha: 0, y: 5, duration: 0.3, stagger: 0.03 },
-              "-=0.2",
-            )
-            .from(
-              "[data-anim='footer']",
-              { autoAlpha: 0, y: 3, duration: 0.26, stagger: 0.02 },
-              "-=0.18",
+          const root = rootRef.current;
+          const pick = (sel: string) => {
+            const nodes = root?.querySelectorAll(sel);
+            return nodes && nodes.length ? nodes : null;
+          };
+
+          // Above-the-fold only: logo + swatches together, then hero,
+          // then the about/inquiries pair. Below-the-fold elements
+          // (project list, engagement cards, footer) reveal without
+          // animation — there's no audience for a cascade that runs
+          // offscreen.
+          const logoSwatch = pick("[data-anim='logo'], [data-anim='swatch']");
+          if (logoSwatch) {
+            tl.from(logoSwatch, {
+              autoAlpha: 0,
+              y: -2,
+              duration: 0.24,
+              stagger: 0.015,
+            });
+          }
+          const hero = pick("[data-anim='hero']");
+          if (hero) {
+            tl.from(
+              hero,
+              { autoAlpha: 0, y: 4, duration: 0.28 },
+              "-=0.1",
             );
+          }
+          const body = pick("[data-anim='body']");
+          if (body) {
+            tl.from(
+              body,
+              { autoAlpha: 0, y: 4, duration: 0.26, stagger: 0.04 },
+              "-=0.16",
+            );
+          }
         },
       );
     },

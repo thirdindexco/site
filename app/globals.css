@@ -109,7 +109,7 @@ html[data-theme="accent"] .dither-field {
   overflow: hidden;
   height: var(--collapsible-panel-height);
   transition-property: height;
-  transition-duration: 520ms;
+  transition-duration: 280ms;
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 .collapsible-panel[data-starting-style],

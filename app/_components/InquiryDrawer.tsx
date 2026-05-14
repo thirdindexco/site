@@ -108,8 +108,8 @@ export function InquiryDrawer() {
   return (
     <Dialog.Root open={open} onOpenChange={handleOpenChange}>
       <Dialog.Portal>
-        <Dialog.Backdrop className="fixed inset-0 z-40 bg-foreground/15 transition-opacity duration-300 data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
-        <Dialog.Popup className="fixed z-50 top-2 bottom-2 left-2 right-2 md:left-auto md:top-4 md:bottom-4 md:right-4 md:w-[520px] flex flex-col overflow-hidden rounded-2xl border border-[color:var(--panel-border)] bg-background text-foreground shadow-[-8px_0_24px_-16px_rgba(0,0,0,0.1)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-[starting-style]:translate-x-full data-[ending-style]:translate-x-full">
+        <Dialog.Backdrop className="fixed inset-0 z-40 bg-foreground/15 transition-opacity duration-200 data-[starting-style]:opacity-0 data-[ending-style]:opacity-0" />
+        <Dialog.Popup className="fixed z-50 top-2 bottom-2 left-2 right-2 md:left-auto md:top-4 md:bottom-4 md:right-4 md:w-[520px] flex flex-col overflow-hidden rounded-2xl border border-[color:var(--panel-border)] bg-background text-foreground shadow-[-8px_0_24px_-16px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] data-[starting-style]:translate-x-full data-[ending-style]:translate-x-full">
           {/* Header */}
           <div className="flex items-center justify-between px-6 md:px-10 pt-5 pb-8">
             <Dialog.Title className="font-mono font-medium text-3xs uppercase tracking-tight">

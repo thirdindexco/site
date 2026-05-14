@@ -32,10 +32,7 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
   return (
     <section id="selected-work" className="scroll-mt-12 pt-12 md:pt-24 lg:pt-32">
       <div className={GRID}>
-        <div
-          data-anim="body"
-          className="col-span-12 font-mono font-medium text-3xs uppercase tracking-tight md:col-span-10 md:col-start-2"
-        >
+        <div className="col-span-12 font-mono font-medium text-3xs uppercase tracking-tight md:col-span-10 md:col-start-2">
           selected work
         </div>
       </div>
@@ -46,7 +43,6 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
         {projects.map((project, index) => (
           <article
             key={project.url}
-            data-anim="body"
             className="min-h-[80vh] py-6 md:py-8 lg:py-10"
           >
             <div className={`${GRID} min-h-[calc(80vh-5rem)] content-center`}>

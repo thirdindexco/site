@@ -63,13 +63,13 @@ export function ProjectMedia({ project }: { project: Project }) {
           preload="none"
           onLoadedData={playVideo}
           aria-hidden="true"
-          className="col-span-4 h-auto max-h-[58vh] w-full object-contain opacity-95 transition duration-500 group-hover:scale-[1.01] group-hover:opacity-100 md:col-span-10 md:col-start-2 md:max-h-[66vh]"
+          className="col-span-4 h-auto max-h-[58vh] w-full object-contain md:col-span-10 md:col-start-2 md:max-h-[66vh]"
         />
       ) : (
         <img
           src={project.thumbnail ?? "/landscape.jpg"}
           alt=""
-          className="col-span-4 h-auto max-h-[58vh] w-full object-contain opacity-95 transition duration-500 group-hover:scale-[1.01] group-hover:opacity-100 md:col-span-10 md:col-start-2 md:max-h-[66vh]"
+          className="col-span-4 h-auto max-h-[58vh] w-full object-contain md:col-span-10 md:col-start-2 md:max-h-[66vh]"
         />
       )}
     </span>

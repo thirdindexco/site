@@ -31,7 +31,7 @@ export default function HomePage() {
             className="col-span-12 md:col-start-2 md:col-span-10 max-w-[60ch] font-sans text-2xl font-semibold tracking-tighter leading-tight text-pretty md:text-3xl"
           >
             {HERO_HEADLINE}{" "}
-            <span className="font-normal text-foreground/60">
+            <span className="font-light text-foreground/50">
               {HERO_SUPPORT}
             </span>
           </p>
@@ -81,7 +81,7 @@ export default function HomePage() {
           <div className="relative col-span-12 overflow-hidden border-y border-[color:var(--panel-border)] py-8 md:py-10 lg:py-12">
             <div aria-hidden className="dither-field absolute inset-0" />
             <div className="relative z-10">
-              <div data-anim="body">
+              <div>
                 <div className="font-mono text-3xs font-medium uppercase tracking-tight">
                   ways to work together
                 </div>
@@ -95,7 +95,6 @@ export default function HomePage() {
                   <Link
                     key={engagement.slug}
                     href={engagement.href}
-                    data-anim="body"
                     className="group/card flex min-h-64 flex-col border border-[color:var(--panel-border)] bg-[color:var(--background)] p-5 outline-none transition-colors duration-200 hover:border-[color:color-mix(in_srgb,var(--foreground)_20%,transparent)] focus-visible:border-[color:color-mix(in_srgb,var(--foreground)_20%,transparent)] focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-[color:var(--accent)] md:min-h-72 lg:p-6"
                   >
                     <h3 className="font-sans text-xl font-semibold leading-tight tracking-tight">
@@ -108,12 +107,10 @@ export default function HomePage() {
                       {engagement.description}
                     </p>
                     <span className="mt-auto inline-flex items-center gap-1.5 self-start pt-8 font-mono text-3xs font-medium uppercase tracking-tight opacity-70 transition-opacity duration-200 group-hover/card:opacity-100 group-focus-visible/card:opacity-100">
-                      <span className="transition-transform duration-200 group-hover/card:translate-x-0.5 group-focus-visible/card:translate-x-0.5">
-                        learn more
-                      </span>
+                      learn more
                       <ArrowRight
                         aria-hidden
-                        className="h-3 w-3 transition-transform duration-200 group-hover/card:translate-x-1 group-focus-visible/card:translate-x-1"
+                        className="h-3 w-3 transition-transform duration-200 group-hover/card:translate-x-0.5 group-focus-visible/card:translate-x-0.5"
                       />
                     </span>
                   </Link>
