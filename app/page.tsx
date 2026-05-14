@@ -55,8 +55,8 @@ export default function HomePage() {
               >
                 michael ciccarelli
               </a>
-              . two decades in the browser across fintech, media, commerce, and
-              crypto. principal-led, collaborators as needed.
+              . two decades building software across fintech, media, commerce,
+              and crypto. principal-led, collaborators as needed.
             </p>
           </div>
 
@@ -68,7 +68,7 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
-              new projects considered. brand sites, design systems, frontend
+              open to new projects. marketing sites, design systems, frontend
               architecture, product builds, commerce stacks, editorial systems.
             </p>
             <InquiryCTA />
