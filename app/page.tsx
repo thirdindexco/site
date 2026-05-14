@@ -18,8 +18,9 @@ const InquiryDrawer = dynamic(
   { ssr: false },
 );
 
-const HERO_HEADLINE = "third index.";
-const HERO_SUPPORT = "interfaces, systems, motion. built end-to-end.";
+const HERO_HEADLINE = "third index";
+const HERO_SUPPORT =
+  "is a small software studio for interfaces, systems, and motion.";
 
 export default function HomePage() {
   return (
@@ -55,8 +56,9 @@ export default function HomePage() {
               >
                 michael ciccarelli
               </a>
-              . two decades building software across fintech, media, commerce,
-              and crypto. principal-led, collaborators as needed.
+              . two decades building software for the web across products,
+              platforms, and digital systems. principal-led, collaborators as
+              needed.
             </p>
           </div>
 
@@ -68,8 +70,8 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
-              open to new projects. marketing sites, design systems, frontend
-              architecture, product builds, commerce stacks, editorial systems.
+              open to new projects. product interfaces, design engineering,
+              brand & marketing sites, commerce stacks, editorial builds.
             </p>
             <InquiryCTA />
           </div>

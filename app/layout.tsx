@@ -21,7 +21,7 @@ const sans = Inter({
 
 const siteTitle = "third index";
 const siteDescription =
-  "Interfaces, systems, motion. Built end-to-end by Michael Ciccarelli.";
+  "A small software studio for web products, design systems, and design engineering.";
 
 const siteUrl =
   process.env.NODE_ENV === "production"
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — interfaces, systems, motion",
+        alt: "third index — small software studio",
       },
     ],
   },

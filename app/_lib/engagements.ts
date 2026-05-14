@@ -32,7 +32,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "embedded",
     meta: "$10–14k/month · 3 month minimum",
     description:
-      "fractional design engineering for teams that need senior frontend judgment in the room.",
+      "fractional software and design engineering for teams that need senior frontend judgment in the room.",
     href: "/embedded",
   },
 ];

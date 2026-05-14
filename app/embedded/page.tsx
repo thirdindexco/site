@@ -7,7 +7,7 @@ import { GRID } from "../_lib/layout";
 
 const pageTitle = "embedded — third index";
 const pageDescription =
-  "Fractional design engineering for teams that need senior frontend architecture, interface judgment, and production momentum.";
+  "Fractional software and design engineering for teams that need senior frontend architecture, interface judgment, and production momentum.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -100,7 +100,7 @@ export default function EmbeddedPage() {
               stay close
             </p>
             <h1 className="pt-3 font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
-              your fractional design engineer.
+              senior software and design engineering, embedded.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
               2–3 days a week for teams that need senior frontend architecture,
@@ -223,7 +223,7 @@ export default function EmbeddedPage() {
         <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
           <div className="col-span-12">
             <p className="font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
-              bring design engineering closer.
+              bring software and design engineering closer.
             </p>
             <div className="flex flex-col items-start gap-4 pt-8 md:pt-10">
               <StartConversationButton />

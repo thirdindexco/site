@@ -1,10 +1,10 @@
 # third index
 
-> interfaces, systems, motion. built end-to-end.
+> a small software studio for interfaces, systems, motion, and design engineering.
 
-third index is the studio practice of michael ciccarelli. two decades in the browser across fintech, media, commerce, and crypto. principal-led, collaborators as needed.
+third index is a small software studio and design engineering practice led by michael ciccarelli. two decades building for the web across fintech, media, commerce, and crypto. principal-led, collaborators as needed.
 
-new projects considered: brand sites, design systems, frontend architecture, product builds, commerce stacks, editorial systems.
+new projects considered: web products, brand sites, design systems, frontend architecture, product builds, commerce stacks, editorial systems.
 
 ## site
 
@@ -38,7 +38,7 @@ includes scope confirmation up front, daily async progress, shipped code in the 
 
 ### embedded — 3-month minimum
 
-fractional design engineering, 2–3 days per week, embedded with the client's team. for product teams that need senior frontend architecture, interface judgment, and production momentum. maximum of 1–2 embedded clients at a time.
+fractional software and design engineering, 2–3 days per week, embedded with the client's team. for product teams that need senior frontend architecture, interface judgment, and production momentum. maximum of 1–2 embedded clients at a time.
 
 ## stack
 
@@ -52,12 +52,12 @@ typescript end-to-end on next.js and vercel. react, motion, gsap, three.js / web
 
 - legend
 - amazon: the bar
+- pentagram
+- grey
 - one/of
-- modern treasury
-- elara
+- elara pictures
+- condé nast
 - revolve law
-- the well
-- el dorado
 - kelvon agee
 - vice
 
@@ -65,7 +65,7 @@ typescript end-to-end on next.js and vercel. react, motion, gsap, three.js / web
 
 - teams shipping serious web surfaces
 - founders, design leads, and product teams with high standards and real constraints
-- product teams without a senior design engineer in-house
+- product teams without senior software or design engineering in-house
 
 ## not a fit
 
