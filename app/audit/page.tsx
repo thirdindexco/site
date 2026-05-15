@@ -8,7 +8,7 @@ import { GRID } from "../_lib/layout";
 
 const pageTitle = "audit — third index";
 const pageDescription =
-  "A one-week review of product interfaces, design systems, motion, and frontend implementation. Prioritized fixes, written clearly.";
+  "A one-week product and frontend engineering audit spanning interface quality, design systems, implementation, performance, and architecture.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -55,9 +55,9 @@ const schedule: [string, string][] = [
   ],
   [
     "days 2–5",
-    "product, key flows, design system, component library, marketing surface.",
+    "product flows, design system, component architecture, codebase structure, marketing surface.",
   ],
-  ["day 6", "report delivered."],
+  ["day 6", "findings and recommended next steps delivered."],
   [
     "day 7",
     "walkthrough call. q&a, priorities, next steps.",
@@ -67,11 +67,15 @@ const schedule: [string, string][] = [
 const faqs: FaqItem[] = [
   {
     q: "how is this different from a design review or a UX audit?",
-    a: "it looks at the surface where design meets code: interaction, motion, components, responsiveness, accessibility, and polish. not just screens in isolation.",
+    a: "it looks at the full web surface where design meets code: interaction, motion, components, responsiveness, accessibility, performance, and implementation quality. not just screens in isolation.",
+  },
+  {
+    q: "can it cover deeper frontend architecture?",
+    a: "yes. the audit can stay close to surface quality, go deeper into component architecture and frontend systems, or balance both depending on what is slowing the product down.",
   },
   {
     q: "we already have designers. why would we need this?",
-    a: "designers see intent. engineers see implementation. the audit looks at the shipped gap between them.",
+    a: "designers see intent. engineers see implementation. the audit looks at the shipped gap between them, and the system decisions underneath that gap.",
   },
   {
     q: "what if we just want you to fix the stuff yourself?",
@@ -131,9 +135,9 @@ export default function AuditPage() {
               find what's slowing your product down.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
-              a one-week review of the surface where design meets code:
-              interaction, motion, components, responsiveness, accessibility,
-              performance perception.
+              a one-week review of product and frontend engineering:
+              interface quality, design systems, component architecture,
+              performance, and implementation risk.
             </p>
             <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
               $3,500 · one week · remote
@@ -164,12 +168,14 @@ export default function AuditPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              for shipped products that work, but feel a half-step off:
-              rough interactions, drifting systems, weak states, mismatched
-              marketing and product surfaces.
+              for shipped products that work, but feel a half-step off: rough
+              interactions, drifting systems, weak states, mismatched marketing
+              and product surfaces, or a frontend codebase that is starting to
+              slow the team down.
             </p>
             <p className="pt-4 font-sans text-sm leading-relaxed text-pretty md:text-base">
-              not a redesign. a diagnosis.
+              not a redesign, and not a rewrite plan by default. a diagnosis of
+              what deserves attention next.
             </p>
           </div>
         </section>
@@ -182,7 +188,7 @@ export default function AuditPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              a written report of prioritized findings, each tagged with:
+              prioritized findings, each tagged with:
             </p>
             <dl className="mt-8 border-y border-[color:var(--panel-border)]">
               {deliverables.map(([term, def], i) => (
@@ -204,12 +210,21 @@ export default function AuditPage() {
               ))}
             </dl>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty md:text-base">
-              covers interaction states, motion, responsive behavior,
-              component consistency, accessibility, hierarchy, forms, empty
-              states, error states, and marketing-to-product cohesion.
+              the final artifact depends on what the audit uncovers: a written
+              report, a semi-functional prototype in the browser, low- or
+              high-fidelity design directions, annotated flows, technical notes,
+              or some mix of those.
             </p>
             <p className="pt-4 font-sans text-sm leading-relaxed text-pretty md:text-base">
-              delivered as a structured doc, plus a 60-minute walkthrough.
+              depending on the product, the audit can cover interaction states,
+              motion, responsive behavior, component consistency, accessibility,
+              hierarchy, forms, empty states, error states,
+              marketing-to-product cohesion, code organization, component
+              boundaries, data flow, and performance bottlenecks.
+            </p>
+            <p className="pt-4 font-sans text-sm leading-relaxed text-pretty md:text-base">
+              delivered with a 60-minute walkthrough so the priorities, tradeoffs,
+              and next steps are clear.
             </p>
           </div>
         </section>
@@ -268,7 +283,7 @@ export default function AuditPage() {
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
               two decades in the browser. work for modern treasury, axoni,
               vice media, condé nast, amazon. long practice at the line
-              between interface and implementation.
+              between interface, systems, and implementation.
             </p>
             <Link
               href="/#selected-work"

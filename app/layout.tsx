@@ -21,7 +21,7 @@ const sans = Inter({
 
 const siteTitle = "third index";
 const siteDescription =
-  "A small software studio for web products, design systems, and design engineering.";
+  "independent design engineering studio building product interfaces, design systems, and self-initiated web products. principal-led by michael ciccarelli.";
 
 const siteUrl =
   process.env.NODE_ENV === "production"
@@ -44,6 +44,20 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: siteTitle,
   description: siteDescription,
+  keywords: [
+    "design engineering",
+    "design engineering studio",
+    "design engineer",
+    "frontend engineering",
+    "frontend architecture",
+    "product interfaces",
+    "design systems",
+    "web motion",
+    "headless commerce",
+    "interface engineering",
+  ],
+  authors: [{ name: "Michael Ciccarelli", url: "https://ciccarel.li" }],
+  creator: "Michael Ciccarelli",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
@@ -58,7 +72,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — small software studio",
+        alt: "third index — independent software and design engineering studio",
       },
     ],
   },

@@ -7,7 +7,7 @@ import { GRID } from "../_lib/layout";
 
 const pageTitle = "sprint — third index";
 const pageDescription =
-  "Two to three weeks to ship a defined web surface: brand site, product flow, design system, or frontend architecture.";
+  "Two to three weeks of senior frontend development to ship a defined web surface: brand site, product flow, design system, or frontend architecture.";
 
 export const metadata: Metadata = {
   title: pageTitle,

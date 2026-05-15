@@ -19,8 +19,7 @@ const InquiryDrawer = dynamic(
 );
 
 const HERO_HEADLINE = "third index";
-const HERO_SUPPORT =
-  "is a small software studio for interfaces, systems, and motion.";
+const HERO_SUPPORT = "is an independent design engineering studio.";
 
 export default function HomePage() {
   return (
@@ -29,7 +28,7 @@ export default function HomePage() {
         <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
           <p
             data-anim="hero"
-            className="col-span-12 md:col-start-2 md:col-span-10 max-w-[60ch] font-sans text-2xl font-semibold tracking-tighter leading-tight text-pretty md:text-3xl"
+            className="col-span-12 md:col-start-2 md:col-span-10 max-w-[60ch] font-sans text-2xl font-semibold tracking-tighter leading-tight text-pretty md:text-4xl"
           >
             {HERO_HEADLINE}{" "}
             <span className="font-light text-foreground/50">
@@ -56,9 +55,8 @@ export default function HomePage() {
               >
                 michael ciccarelli
               </a>
-              . two decades building software for the web across products,
-              platforms, and digital systems. principal-led, collaborators as
-              needed.
+              . two decades building interfaces, systems, and motion for the
+              web. client work alongside self-initiated products.
             </p>
           </div>
 
@@ -70,8 +68,9 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
-              open to new projects. product interfaces, design engineering,
-              brand & marketing sites, commerce stacks, editorial builds.
+              open to new projects. product work, brand & marketing sites,
+              commerce stacks, editorial builds. principal-led, collaborators as
+              needed.
             </p>
             <InquiryCTA />
           </div>

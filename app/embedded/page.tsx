@@ -7,7 +7,7 @@ import { GRID } from "../_lib/layout";
 
 const pageTitle = "embedded — third index";
 const pageDescription =
-  "Fractional software and design engineering for teams that need senior frontend architecture, interface judgment, and production momentum.";
+  "Fractional software and design engineering for teams that need a senior frontend developer, design engineer, interface judgment, and production momentum.";
 
 export const metadata: Metadata = {
   title: pageTitle,
