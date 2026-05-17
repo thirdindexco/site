@@ -5,6 +5,7 @@ import { useState, type MouseEvent, type ReactNode } from "react";
 import { Settings2, X } from "lucide-react";
 import { AnimRoot } from "./AnimRoot";
 import { GridDebugger } from "./GridDebugger";
+import { InspectOverlay } from "./InspectOverlay";
 import { MonogramMark } from "./MonogramMark";
 import { SettingsPanel } from "./SettingsPanel";
 import { SiteFooter } from "./SiteFooter";
@@ -19,6 +20,7 @@ import { useBodyScrollLock } from "../_lib/useBodyScrollLock";
 export function PageChrome({ children }: { children: ReactNode }) {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [gridDebug, setGridDebug] = useState(false);
+  const [inspect, setInspect] = useState(false);
 
   useBodyScrollLock(settingsOpen);
 
@@ -55,9 +57,12 @@ export function PageChrome({ children }: { children: ReactNode }) {
     >
       <ThemeShortcuts />
       <GridDebugger enabled={gridDebug} settingsOpen={settingsOpen} />
+      <InspectOverlay enabled={inspect} />
       <SettingsPanel
         gridDebug={gridDebug}
         setGridDebug={setGridDebug}
+        inspect={inspect}
+        setInspect={setInspect}
         settingsOpen={settingsOpen}
       />
 

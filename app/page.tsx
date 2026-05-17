@@ -28,7 +28,7 @@ export default function HomePage() {
         <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
           <p
             data-anim="hero"
-            className="col-span-12 md:col-start-2 md:col-span-10 max-w-[60ch] font-sans text-2xl font-semibold tracking-tighter leading-tight text-pretty md:text-4xl"
+            className="col-span-12 md:col-start-2 md:col-span-10 max-w-[60ch] font-sans text-2xl font-semibold tracking-tighter leading-tight text-pretty md:text-3xl"
           >
             {HERO_HEADLINE}{" "}
             <span className="font-light text-foreground/50">

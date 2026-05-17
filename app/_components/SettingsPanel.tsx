@@ -39,16 +39,18 @@ function ThemeControls() {
   );
 }
 
-function GridDebugSwitch({
+function ToggleSwitch({
+  label,
   checked,
   onCheckedChange,
 }: {
+  label: string;
   checked: boolean;
   onCheckedChange: (checked: boolean) => void;
 }) {
   return (
     <label className="flex items-center gap-2 font-mono text-3xs uppercase tracking-tight text-zinc-400">
-      <span>grid</span>
+      <span>{label}</span>
       <Switch.Root
         checked={checked}
         onCheckedChange={onCheckedChange}
@@ -63,10 +65,14 @@ function GridDebugSwitch({
 export function SettingsPanel({
   gridDebug,
   setGridDebug,
+  inspect,
+  setInspect,
   settingsOpen,
 }: {
   gridDebug: boolean;
   setGridDebug: (checked: boolean) => void;
+  inspect: boolean;
+  setInspect: (checked: boolean) => void;
   settingsOpen: boolean;
 }) {
   return (
@@ -82,9 +88,15 @@ export function SettingsPanel({
       <div className="min-h-0">
         <div className={`${GRID} items-center py-3`}>
           <div className="col-span-12 flex flex-wrap items-center justify-end gap-3 md:col-span-6 md:col-start-7">
-            <GridDebugSwitch
+            <ToggleSwitch
+              label="grid"
               checked={gridDebug}
               onCheckedChange={setGridDebug}
+            />
+            <ToggleSwitch
+              label="inspect"
+              checked={inspect}
+              onCheckedChange={setInspect}
             />
             <ThemeControls />
           </div>
