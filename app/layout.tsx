@@ -21,7 +21,7 @@ const sans = Inter({
 
 const siteTitle = "third index";
 const siteDescription =
-  "independent design engineering studio building product interfaces, design systems, and self-initiated web products. principal-led by michael ciccarelli.";
+  "independent software studio focused on product interfaces, frontend systems, and digital experiences. principal-led by michael ciccarelli.";
 
 const siteUrl =
   process.env.NODE_ENV === "production"

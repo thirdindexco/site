@@ -46,6 +46,15 @@ export function SiteFooter({
           >
             llms.txt
           </a>
+          <a
+            href="https://ciccarel.li"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Michael Ciccarelli"
+            className="transition-opacity hover:opacity-100"
+          >
+            ciccarel.li
+          </a>
         </div>
         <p className="pt-1">© 2026 third index llc</p>
       </div>

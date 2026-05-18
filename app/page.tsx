@@ -19,7 +19,7 @@ const InquiryDrawer = dynamic(
 );
 
 const HERO_HEADLINE = "third index";
-const HERO_SUPPORT = "is an independent design engineering studio.";
+const HERO_SUPPORT = "is an independent software studio.";
 
 export default function HomePage() {
   return (
@@ -46,17 +46,8 @@ export default function HomePage() {
               about
             </div>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
-              studio practice of{" "}
-              <a
-                href="https://ciccarel.li"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-solid underline-offset-2 transition-colors hover:text-accent"
-              >
-                michael ciccarelli
-              </a>
-              . two decades building interfaces, systems, and motion for the
-              web. client work alongside self-initiated products.
+              interfaces, systems, and motion for the web. full-stack
+              product builds, with a frontend and design engineering focus.
             </p>
           </div>
 
@@ -68,9 +59,8 @@ export default function HomePage() {
               inquiries
             </div>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
-              open to new projects. product work, brand & marketing sites,
-              commerce stacks, editorial builds. principal-led, collaborators as
-              needed.
+              open to new work — full projects, fractional engagements, and
+              partnerships. principal-led, collaborators as needed.
             </p>
             <InquiryCTA />
           </div>
