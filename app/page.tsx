@@ -19,7 +19,8 @@ const InquiryDrawer = dynamic(
 );
 
 const HERO_HEADLINE = "third index";
-const HERO_SUPPORT = "is an independent software studio.";
+const HERO_SUPPORT =
+  "is an independent software studio building interfaces, systems, and motion for the web — full-stack product development with a frontend and design engineering focus.";
 
 export default function HomePage() {
   return (
@@ -28,7 +29,7 @@ export default function HomePage() {
         <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
           <p
             data-anim="hero"
-            className="col-span-12 md:col-start-2 md:col-span-10 max-w-[60ch] font-sans text-2xl font-semibold tracking-tighter leading-tight text-pretty md:text-3xl"
+            className="col-span-12 md:col-start-2 md:col-span-10 max-w-[45ch] font-sans text-xl font-semibold tracking-tighter leading-tight md:text-2xl"
           >
             {HERO_HEADLINE}{" "}
             <span className="font-light text-foreground/50">
@@ -40,20 +41,7 @@ export default function HomePage() {
         <section className={`pt-12 md:pt-20 lg:pt-24 ${GRID}`}>
           <div
             data-anim="body"
-            className="col-span-12 md:col-span-4 md:col-start-2"
-          >
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
-              about
-            </div>
-            <p className="pt-8 font-sans text-sm leading-relaxed text-pretty">
-              interfaces, systems, and motion for the web. full-stack
-              product builds, with a frontend and design engineering focus.
-            </p>
-          </div>
-
-          <div
-            data-anim="body"
-            className="col-span-12 pt-12 md:col-span-4 md:col-start-8 md:pt-0"
+            className="col-span-12 md:col-span-5 md:col-start-2"
           >
             <div className="font-mono text-3xs font-medium uppercase tracking-tight">
               inquiries

@@ -74,7 +74,7 @@ export function PageChrome({ children }: { children: ReactNode }) {
           href="/"
           aria-label="third index — home"
           data-anim="logo"
-          className="col-span-1 col-start-1 row-start-1 justify-self-start"
+          className="col-span-1 col-start-1 row-start-1 justify-self-start md:col-start-2"
         >
           <MonogramMark className="h-6 w-auto md:h-8" />
         </Link>
@@ -84,7 +84,7 @@ export function PageChrome({ children }: { children: ReactNode }) {
           onClick={toggleSettings}
           aria-label={settingsOpen ? "close settings" : "open settings"}
           aria-expanded={settingsOpen}
-          className="col-span-1 col-start-12 row-start-1 inline-flex h-8 w-8 items-center justify-center justify-self-end text-foreground opacity-75 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-foreground"
+          className="col-span-1 col-start-12 row-start-1 inline-flex h-8 w-8 items-center justify-center justify-self-end text-foreground opacity-75 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-foreground md:col-start-11"
         >
           {settingsOpen ? (
             <X aria-hidden className="h-4 w-4" />

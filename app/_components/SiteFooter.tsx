@@ -32,20 +32,10 @@ export function SiteFooter({
 
       <div className="col-span-6 pt-12 text-right font-mono text-2xs font-light uppercase tracking-wide opacity-60 md:col-span-2 md:col-start-11 md:pt-0">
         <div className="flex items-center justify-end gap-3">
-          <a
-            href="https://x.com/thirdindexco"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-opacity hover:opacity-100"
-          >
-            x
-          </a>
-          <a
-            href="/llms.txt"
-            className="transition-opacity hover:opacity-100"
-          >
+          <a href="/llms.txt" className="transition-opacity hover:opacity-100">
             llms.txt
           </a>
+          <span className="text-foreground/50 -mx-1.5">·</span>
           <a
             href="https://ciccarel.li"
             target="_blank"

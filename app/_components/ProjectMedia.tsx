@@ -50,7 +50,7 @@ export function ProjectMedia({ project }: { project: Project }) {
   return (
     <span
       ref={containerRef}
-      className="grid min-h-[48vh] grid-cols-4 items-center gap-6 px-6 md:min-h-[62vh] md:grid-cols-12 md:px-8 xl:px-0"
+      className="block aspect-[4/3] w-full overflow-hidden"
     >
       {project.video ? (
         <video
@@ -63,13 +63,13 @@ export function ProjectMedia({ project }: { project: Project }) {
           preload="none"
           onLoadedData={playVideo}
           aria-hidden="true"
-          className="col-span-4 h-auto max-h-[58vh] w-full object-contain md:col-span-10 md:col-start-2 md:max-h-[66vh]"
+          className="h-full w-full object-contain"
         />
       ) : (
         <img
           src={project.thumbnail ?? "/landscape.jpg"}
           alt=""
-          className="col-span-4 h-auto max-h-[58vh] w-full object-contain md:col-span-10 md:col-start-2 md:max-h-[66vh]"
+          className="h-full w-full object-contain"
         />
       )}
     </span>

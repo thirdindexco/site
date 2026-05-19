@@ -122,3 +122,31 @@ html[data-theme="accent"] .dither-field {
     transition-duration: 0ms;
   }
 }
+
+/* Selected work marquee — track holds two copies, scrolls one width */
+.marquee {
+  overflow: hidden;
+}
+.marquee-track {
+  animation: marquee 60s linear infinite;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
+}
