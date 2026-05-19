@@ -23,10 +23,7 @@ const siteTitle = "third index";
 const siteDescription =
   "independent software studio focused on product interfaces, frontend systems, and digital experiences. principal-led by michael ciccarelli.";
 
-const siteUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://thirdindex.co"
-    : "http://localhost:3000";
+const siteUrl = "https://thirdindex.co";
 
 // Tints browser chrome (Safari URL bar, Chrome Android tab bar) with the
 // accent blue. Doesn't affect the page background — that stays canvas/ink
