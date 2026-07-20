@@ -8,7 +8,7 @@ import { GRID } from "../_lib/layout";
 
 const pageTitle = "audit — third index";
 const pageDescription =
-  "A one-week product and frontend engineering audit spanning interface quality, design systems, implementation, performance, and architecture.";
+  "A one-week design engineering audit spanning interface quality, design systems, implementation, performance, and architecture.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -78,6 +78,10 @@ const faqs: FaqItem[] = [
     a: "designers see intent. engineers see implementation. the audit looks at the shipped gap between them, and the system decisions underneath that gap.",
   },
   {
+    q: "our frontend was mostly ai-generated. is that a fit?",
+    a: "yes, and increasingly common. ai-assisted codebases ship fast and drift fast — duplicated patterns, inconsistent components, missing states. the audit separates what needs a senior pass from what can stay.",
+  },
+  {
     q: "what if we just want you to fix the stuff yourself?",
     a: "after the audit, we can scope a sprint around the highest-priority fixes. no obligation.",
   },
@@ -132,7 +136,7 @@ export default function AuditPage() {
               diagnose
             </p>
             <h1 className="pt-3 font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
-              find what's slowing your product down.
+              find the gap between design intent and shipped product.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
               a one-week review of product and frontend engineering:

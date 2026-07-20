@@ -1,8 +1,8 @@
 # third index
 
-> independent software studio focused on product interfaces, frontend systems, and digital experiences.
+> design engineering studio building web apps and user interfaces — where design intent survives implementation.
 
-third index is an independent software studio led by michael ciccarelli. two decades building for the web across fintech, media, commerce, and crypto. principal-led, collaborators as needed. client work alongside self-initiated products. full-stack product builds, with a frontend and design engineering focus.
+third index is a design engineering studio led by michael ciccarelli. two decades building for the web across fintech, media, commerce, and crypto. principal-led, collaborators as needed. client work alongside self-initiated products. full-stack product builds, led from the interface down.
 
 new projects considered: product interfaces, design systems, frontend architecture, brand and marketing sites, commerce stacks, editorial systems, motion work, and web products. senior frontend engagements and design engineering consulting throughout.
 

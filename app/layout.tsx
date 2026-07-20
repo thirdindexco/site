@@ -21,7 +21,7 @@ const sans = Inter({
 
 const siteTitle = "third index";
 const siteDescription =
-  "independent software studio focused on product interfaces, frontend systems, and digital experiences. principal-led by michael ciccarelli.";
+  "design engineering studio building web apps and user interfaces. principal-led by michael ciccarelli — work for modern treasury, vice, amazon, and condé nast.";
 
 const siteUrl = "https://thirdindex.co";
 
@@ -47,6 +47,8 @@ export const metadata: Metadata = {
     "design engineer",
     "frontend engineering",
     "frontend architecture",
+    "web app development",
+    "user interface design",
     "product interfaces",
     "design systems",
     "web motion",
@@ -69,7 +71,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — independent software and design engineering studio",
+        alt: "third index — design engineering studio for web apps and user interfaces",
       },
     ],
   },

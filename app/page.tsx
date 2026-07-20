@@ -20,7 +20,7 @@ const InquiryDrawer = dynamic(
 
 const HERO_HEADLINE = "third index";
 const HERO_SUPPORT =
-  "is an independent software studio building interfaces, systems, and motion for the web — full-stack product development with a frontend and design engineering focus.";
+  "is a design engineering studio building web apps and user interfaces — full-stack product development where the design intent survives implementation.";
 
 export default function HomePage() {
   return (
@@ -35,6 +35,12 @@ export default function HomePage() {
             <span className="font-light text-foreground/50">
               {HERO_SUPPORT}
             </span>
+          </p>
+          <p
+            data-anim="body"
+            className="col-span-12 md:col-start-2 md:col-span-10 pt-6 font-mono text-3xs font-medium uppercase tracking-tight opacity-60 md:pt-8"
+          >
+            modern treasury · vice · amazon · condé nast · pentagram
           </p>
         </section>
 

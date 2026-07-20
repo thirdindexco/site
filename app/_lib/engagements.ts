@@ -16,7 +16,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "audit",
     meta: "$3,500 · one week",
     description:
-      "review of the product's design and frontend engineering, from interface to architecture.",
+      "a one-week diagnosis of where design intent dies in implementation — interface quality, design systems, frontend architecture.",
     href: "/audit",
   },
   {
@@ -24,7 +24,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "sprint",
     meta: "$8–15k · 2–3 weeks",
     description:
-      "fixed-scope build for a brand site, product flow, design system, or frontend cleanup.",
+      "a defined surface — product flow, brand site, or design system — designed, built, and shipped as production code.",
     href: "/sprint",
   },
   {
@@ -32,7 +32,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "embedded",
     meta: "$10–14k/month · 3 month minimum",
     description:
-      "fractional software and design engineering for teams that need senior frontend judgment in the room.",
+      "fractional design engineering for product teams that need senior interface judgment in the room, week after week.",
     href: "/embedded",
   },
 ];
