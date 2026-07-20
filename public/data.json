@@ -8,9 +8,9 @@
 	],
 	"projects": [
     {
-        "title": "bankroll.fyi",
+        "title": "bkrl.app",
         "role": "Design & Development",
-        "url": "https://bankroll.fyi",
+        "url": "https://bkrl.app",
         "description": "bankroll management for poker players. log sessions in natural language, track variance and ROI, and see which games and stakes are actually profitable.",
         "technologies": "Next.js, Tailwind, Base UI, Supabase",
         "thumbnail": "/projects/bankrollfyi.png"
