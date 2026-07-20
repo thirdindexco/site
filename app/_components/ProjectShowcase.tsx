@@ -132,7 +132,7 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
               onPointerLeave={() => setPaused(false)}
               onFocus={() => setPaused(true)}
               onBlur={() => setPaused(false)}
-              className="flex w-full gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              className="flex w-full gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-px [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               {projects.map((project, index) => (
                 <a
