@@ -117,8 +117,9 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
       id="selected-work"
       className="relative pt-12 md:pt-20 lg:pt-24"
     >
-      {/* Desktop cursor-following media — floats above the rows, centered
-          slightly up-right of the cursor. Stills and video loops. */}
+      {/* Desktop cursor-following media. Early rows open below the cursor so
+          their media stays clear of the viewport top; later rows open above
+          it to preserve room near the bottom. Stills and video loops. */}
       <div
         ref={followerRef}
         aria-hidden
@@ -128,7 +129,9 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
         {projects.map((project, i) => (
           <div
             key={project.url}
-            className={`absolute left-4 bottom-4 transition-opacity duration-300 ${
+            className={`absolute left-4 transition-opacity duration-300 ${
+              i < Math.ceil(projects.length / 2) ? "top-4" : "bottom-4"
+            } ${
               hoverIndex === i ? "opacity-100" : "opacity-0"
             }`}
             style={{ width: FOLLOWER_W }}
