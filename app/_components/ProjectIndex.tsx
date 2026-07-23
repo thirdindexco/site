@@ -176,7 +176,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                 onClick={() => setOpenIndex(isOpen ? null : index)}
                 onMouseEnter={() => setHoverIndex(index)}
                 onMouseLeave={() => setHoverIndex(null)}
-                className={`relative z-10 -mx-4 grid w-[calc(100%+2rem)] cursor-pointer grid-cols-12 items-baseline gap-6 px-4 py-[3px] text-left outline-none transition-colors duration-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:-outline-offset-[1.5px] focus-visible:outline-[color:var(--accent)] md:-mx-5 md:w-[calc(100%+2.5rem)] md:px-5 ${
+                className={`relative z-10 -mx-4 grid min-h-11 w-[calc(100%+2rem)] cursor-pointer grid-cols-12 items-center gap-6 px-4 py-3 text-left outline-none transition-colors duration-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:-outline-offset-[1.5px] focus-visible:outline-[color:var(--accent)] md:-mx-5 md:min-h-0 md:w-[calc(100%+2.5rem)] md:items-baseline md:px-5 md:py-[3px] ${
                   isHovered || isOpen
                     ? "bg-foreground text-background"
                     : ""

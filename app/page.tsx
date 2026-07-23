@@ -60,7 +60,7 @@ export default function HomePage() {
       <section className="flex min-h-[calc(100svh-44px)] flex-col justify-between pb-4 md:min-h-[calc(100svh-52px)]">
         <h1
           data-anim="hero"
-          className="w-full pt-10 font-sans text-3xl font-bold tracking-tighter leading-[1.08] md:pt-14 md:text-4xl lg:pt-16 lg:text-6xl lg:leading-[1.05]"
+          className="w-full pt-10 font-sans text-2xl font-bold leading-[1.1] tracking-tighter sm:text-3xl md:pt-14 md:text-4xl md:leading-[1.08] lg:pt-16 lg:text-6xl lg:leading-[1.05]"
         >
           {heroWords("THIRD INDEX")}
           <span className="text-foreground/50">

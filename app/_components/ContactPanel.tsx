@@ -31,7 +31,7 @@ export function ContactPanel({
         <button
           type="button"
           onClick={onClose}
-          className="cursor-pointer opacity-60 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
+          className="inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-end opacity-60 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
         >
           close
         </button>
@@ -63,7 +63,7 @@ export function ContactPanel({
           href="https://cal.com/thirdindex/intro"
           target="_blank"
           rel="noopener noreferrer"
-          className="group/call inline-flex items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-mono text-3xs font-medium uppercase tracking-tight text-white outline-none transition-colors duration-200 hover:bg-accent-hover"
+          className="group/call inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-mono text-3xs font-medium uppercase tracking-tight text-white outline-none transition-colors duration-200 hover:bg-accent-hover focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--foreground)]"
         >
           book a call
           <ArrowRight
@@ -77,7 +77,7 @@ export function ContactPanel({
             onClose();
             setInquiryOpen(true);
           }}
-          className="group/inq inline-flex cursor-pointer items-center gap-1.5 font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100"
+          className="group/inq inline-flex min-h-11 cursor-pointer items-center gap-1.5 font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
         >
           start an inquiry
           <ArrowRight

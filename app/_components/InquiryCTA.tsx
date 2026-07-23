@@ -11,7 +11,7 @@ export function InquiryCTA() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group/cta inline-flex items-center gap-1.5 bg-accent px-3 py-2 font-mono font-medium text-3xs uppercase tracking-tight text-white transition-colors duration-200 hover:bg-accent-hover whitespace-nowrap cursor-pointer outline-none"
+        className="group/cta inline-flex min-h-11 cursor-pointer items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2 font-mono text-3xs font-medium uppercase tracking-tight text-white outline-none transition-colors duration-200 hover:bg-accent-hover focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--foreground)]"
       >
         start an inquiry
         <ArrowRight
@@ -23,7 +23,7 @@ export function InquiryCTA() {
         href="https://cal.com/thirdindex/intro"
         target="_blank"
         rel="noopener noreferrer"
-        className="group/call inline-flex items-center gap-1.5 font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity duration-200 hover:opacity-100"
+        className="group/call inline-flex min-h-11 items-center gap-1.5 font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
       >
         book a call
         <ArrowRight
