@@ -3,18 +3,17 @@
 import { atom } from "jotai";
 import { store } from "./store";
 
-export type Theme = "light" | "dark" | "accent";
+export type Theme = "light" | "dark";
 
 // Shared theme atom so multiple ThemeSwatch placements (mobile + desktop)
 // stay in sync. The pre-hydration script in layout.tsx writes data-theme to
 // <html> before React mounts; ThemeShortcuts reads that back into this atom.
 export const themeAtom = atom<Theme>("dark");
 
-// Single-click cycle through the three modes.
+// Single-click toggle between the two modes.
 const NEXT_THEME: Record<Theme, Theme> = {
   light: "dark",
-  dark: "accent",
-  accent: "light",
+  dark: "light",
 };
 
 // Lazily-initialized AudioContext, shared across cycleTheme invocations.
@@ -34,12 +33,11 @@ function getAudioCtx(): AudioContext | null {
   return audioCtx;
 }
 
-// Per-theme click pitch in semitones above base — turns the 3-mode cycle
-// into a tiny recurring motif when clicked repeatedly.
+// Per-theme click pitch in semitones above base — turns the toggle into a
+// tiny recurring motif when clicked repeatedly.
 const PITCH_SEMITONES: Record<Theme, number> = {
   dark: 0,
   light: 1,
-  accent: 2,
 };
 
 // Minimum gap between cycle-handled toggles — prevents rapid-fire input

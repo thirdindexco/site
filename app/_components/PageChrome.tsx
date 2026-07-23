@@ -1,62 +1,105 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, type MouseEvent, type ReactNode } from "react";
-import { Settings2, X } from "lucide-react";
 import { AnimRoot } from "./AnimRoot";
+import { ContactPanel } from "./ContactPanel";
 import { GridDebugger } from "./GridDebugger";
+import { InquiryDrawerMount } from "./InquiryDrawerMount";
 import { InspectOverlay } from "./InspectOverlay";
-import { MonogramMark } from "./MonogramMark";
 import { SettingsPanel } from "./SettingsPanel";
 import { SiteFooter } from "./SiteFooter";
 import { ThemeShortcuts } from "./ThemeShortcuts";
-import { GRID } from "../_lib/layout";
-import { useBodyScrollLock } from "../_lib/useBodyScrollLock";
 
-// Shared chrome for the homepage and /audit, /sprint, /embedded. Owns the
-// settings drawer + grid debugger state so any page using it gets the gear
-// icon and panel without re-implementing them. AnimRoot wraps so each page's
-// data-anim choreography continues to fire from inside.
-export function PageChrome({ children }: { children: ReactNode }) {
+const NAV_LINKS = [
+  { href: "/information", label: "information" },
+  { href: "/projects", label: "projects" },
+];
+
+// Site nav on the header's 12-col grid — links at the 1/3 line, contact at
+// the 2/3 line. display:contents so both clusters are grid items. The
+// current page's link renders at full opacity. Contact opens the overlay
+// panel rather than navigating.
+function HeaderNav({
+  contactOpen,
+  onContactToggle,
+}: {
+  contactOpen: boolean;
+  onContactToggle: () => void;
+}) {
+  const pathname = usePathname();
+
+  return (
+    <nav className="contents">
+      <div className="col-span-3 col-start-5 row-start-1 hidden items-center whitespace-nowrap font-mono text-3xs font-medium uppercase tracking-tight md:flex">
+        {NAV_LINKS.map((link, i) => (
+          <span key={link.href} className="flex items-center whitespace-nowrap">
+            {i > 0 && <span className="opacity-60">,&nbsp;</span>}
+            <Link
+              href={link.href}
+              aria-current={pathname === link.href ? "page" : undefined}
+              className={`transition-opacity hover:opacity-100 ${
+                pathname === link.href ? "opacity-100" : "opacity-60"
+              }`}
+            >
+              {link.label}
+            </Link>
+          </span>
+        ))}
+      </div>
+      <button
+        type="button"
+        onClick={onContactToggle}
+        aria-expanded={contactOpen}
+        className="col-span-2 col-start-9 row-start-1 hidden cursor-pointer text-left font-mono text-3xs font-medium uppercase tracking-tight opacity-60 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)] md:block"
+      >
+        contact
+      </button>
+    </nav>
+  );
+}
+
+// Shared chrome for every page. Owns the site nav plus the settings and
+// contact overlay panels + grid debugger state so each page gets them
+// without re-implementing anything. AnimRoot wraps so each page's data-anim
+// choreography continues to fire from inside. `footer` lets the homepage
+// opt out — its hero pins copyright/contact to the fold line instead.
+export function PageChrome({
+  children,
+  footer = true,
+}: {
+  children: ReactNode;
+  footer?: boolean;
+}) {
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const [gridDebug, setGridDebug] = useState(false);
   const [inspect, setInspect] = useState(false);
 
-  useBodyScrollLock(settingsOpen);
-
-  const dismissSettingsFromPage = (event: MouseEvent<HTMLElement>) => {
-    if (!settingsOpen) return;
+  // Page clicks dismiss whichever overlay is open.
+  const dismissPanelsFromPage = (event: MouseEvent<HTMLElement>) => {
+    if (!settingsOpen && !contactOpen) return;
     event.preventDefault();
     event.stopPropagation();
     setSettingsOpen(false);
+    setContactOpen(false);
   };
 
+  // The two overlays share the right edge — opening one closes the other.
   const toggleSettings = () => {
-    // Panel renders inline above the header. If the user has scrolled past
-    // it, opening would slide the panel in offscreen — and useBodyScrollLock
-    // would then pin the body at the current scroll, leaving the panel
-    // clipped. Scroll synchronously (not smooth) so scrollY is 0 before the
-    // lock effect runs.
-    if (
-      !settingsOpen &&
-      typeof window !== "undefined" &&
-      window.scrollY > 0
-    ) {
-      window.scrollTo({ top: 0, behavior: "auto" });
-    }
+    setContactOpen(false);
     setSettingsOpen((prev) => !prev);
+  };
+  const toggleContact = () => {
+    setSettingsOpen(false);
+    setContactOpen((prev) => !prev);
   };
 
   return (
-    <AnimRoot
-      className={`relative flex min-h-screen flex-col [--settings-surface:#09090b] border-[color:var(--settings-surface)] transition-[border-width,padding] duration-200 ease-[cubic-bezier(0.2,0,0,1)] motion-reduce:transition-none ${
-        settingsOpen
-          ? "border-l-[12px] border-r-[12px] px-4 md:border-l-[18px] md:border-r-[18px] md:px-6"
-          : "border-0 px-6 md:px-8 xl:px-0"
-      }`}
-    >
+    <AnimRoot className="relative flex min-h-screen flex-col px-4 md:px-5">
       <ThemeShortcuts />
-      <GridDebugger enabled={gridDebug} settingsOpen={settingsOpen} />
+      <GridDebugger enabled={gridDebug} />
       <InspectOverlay enabled={inspect} />
       <SettingsPanel
         gridDebug={gridDebug}
@@ -64,41 +107,41 @@ export function PageChrome({ children }: { children: ReactNode }) {
         inspect={inspect}
         setInspect={setInspect}
         settingsOpen={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
       />
+      <ContactPanel open={contactOpen} onClose={() => setContactOpen(false)} />
+      <InquiryDrawerMount />
 
       <header
-        onClickCapture={dismissSettingsFromPage}
-        className={`relative items-center pt-5 md:pt-10 lg:pt-16 ${GRID}`}
+        onClickCapture={dismissPanelsFromPage}
+        className="relative grid w-full grid-cols-12 items-center gap-6 pt-4 md:pt-5"
       >
         <Link
           href="/"
           aria-label="third index — home"
           data-anim="logo"
-          className="col-span-1 col-start-1 row-start-1 justify-self-start md:col-start-2"
+          className="col-span-6 col-start-1 row-start-1 whitespace-nowrap font-mono text-3xs font-medium uppercase tracking-tight md:col-span-3"
         >
-          <MonogramMark className="h-6 w-auto md:h-8" />
+          third index
         </Link>
+
+        <HeaderNav contactOpen={contactOpen} onContactToggle={toggleContact} />
 
         <button
           type="button"
           onClick={toggleSettings}
-          aria-label={settingsOpen ? "close settings" : "open settings"}
           aria-expanded={settingsOpen}
-          className="col-span-1 col-start-12 row-start-1 inline-flex h-8 w-8 items-center justify-center justify-self-end text-foreground opacity-75 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-foreground md:col-start-11"
+          className="col-span-2 col-start-11 row-start-1 cursor-pointer justify-self-end whitespace-nowrap font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
         >
-          {settingsOpen ? (
-            <X aria-hidden className="h-4 w-4" />
-          ) : (
-            <Settings2 aria-hidden className="h-4 w-4" />
-          )}
+          settings
         </button>
       </header>
 
-      <main onClickCapture={dismissSettingsFromPage} className="flex-1">
+      <main onClickCapture={dismissPanelsFromPage} className="flex-1">
         {children}
       </main>
 
-      <SiteFooter onClickCapture={dismissSettingsFromPage} />
+      {footer && <SiteFooter onClickCapture={dismissPanelsFromPage} />}
     </AnimRoot>
   );
 }

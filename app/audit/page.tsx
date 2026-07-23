@@ -290,7 +290,7 @@ export default function AuditPage() {
               between interface, systems, and implementation.
             </p>
             <Link
-              href="/#selected-work"
+              href="/projects"
               className="group/work mt-6 inline-flex items-center gap-1.5 font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity hover:opacity-100"
             >
               see selected work

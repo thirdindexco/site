@@ -62,8 +62,29 @@ export function AnimRoot({
               stagger: 0.015,
             });
           }
+          // Hero: if the headline is split into .hero-word spans, cascade
+          // word-by-word with a blur settle; otherwise reveal as one block.
+          const heroWords = pick("[data-anim='hero'] .hero-word");
           const hero = pick("[data-anim='hero']");
-          if (hero) {
+          if (heroWords) {
+            if (hero) tl.set(hero, { autoAlpha: 1 });
+            tl.from(
+              heroWords,
+              {
+                autoAlpha: 0,
+                y: 14,
+                filter: "blur(8px)",
+                duration: 0.5,
+                stagger: 0.03,
+                ease: "power3.out",
+                // Drop the inline filter/transform once done — a lingering
+                // blur(0px) keeps the span rasterized in its own layer,
+                // which blocks subpixel antialiasing on the final text.
+                clearProps: "filter,transform",
+              },
+              "-=0.1",
+            );
+          } else if (hero) {
             tl.from(
               hero,
               { autoAlpha: 0, y: 4, duration: 0.28 },

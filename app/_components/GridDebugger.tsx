@@ -2,13 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export function GridDebugger({
-  enabled,
-  settingsOpen,
-}: {
-  enabled: boolean;
-  settingsOpen: boolean;
-}) {
+export function GridDebugger({ enabled }: { enabled: boolean }) {
   const gridRef = useRef<HTMLDivElement>(null);
   const [measurements, setMeasurements] = useState({
     viewport: 0,
@@ -49,22 +43,18 @@ export function GridDebugger({
       observer?.disconnect();
       window.removeEventListener("resize", measure);
     };
-  }, [enabled, settingsOpen]);
+  }, [enabled]);
 
   if (!enabled) return null;
 
   return (
     <div
       aria-hidden
-      className={`pointer-events-none fixed bottom-0 z-50 overflow-hidden xl:px-0 ${
-        settingsOpen
-          ? "left-[12px] right-[12px] top-[48px] px-4 md:left-[18px] md:right-[18px] md:top-[52px] md:px-6"
-          : "inset-0 px-6 md:px-8"
-      }`}
+      className="pointer-events-none fixed inset-0 z-40 overflow-hidden px-4 md:px-5"
     >
       <div
         ref={gridRef}
-        className="relative mx-auto grid h-full max-w-grid grid-cols-4 gap-6 md:grid-cols-12"
+        className="relative grid h-full w-full grid-cols-4 gap-6 md:grid-cols-12"
       >
         <div className="absolute inset-y-0 left-0 w-px bg-pink-500/70" />
         <div className="absolute inset-y-0 right-0 w-px bg-pink-500/70" />

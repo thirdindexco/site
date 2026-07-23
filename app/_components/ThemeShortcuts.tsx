@@ -16,7 +16,7 @@ export function ThemeShortcuts() {
   // color-scheme changes until the user explicitly picks a theme.
   useEffect(() => {
     const attr = document.documentElement.getAttribute("data-theme");
-    if (attr === "light" || attr === "dark" || attr === "accent") {
+    if (attr === "light" || attr === "dark") {
       setTheme(attr);
     }
 

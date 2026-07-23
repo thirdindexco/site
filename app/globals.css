@@ -35,23 +35,6 @@ html[data-theme="dark"] {
   --panel-border: color-mix(in srgb, var(--foreground) 5%, transparent);
 }
 
-/* Brand-accent mode — the full blue canvas. Accent var flips to ink so
-   link-hover and CTAs still have contrast against the blue background. */
-html[data-theme="accent"] {
-  --background: #0000ff;
-  --foreground: #fafafa;
-  --card: #0000ff;
-  --popover: #0000ff;
-  --primary: #fafafa;
-  --primary-foreground: #0000ff;
-  --secondary: #1f2bff;
-  --muted: #1f2bff;
-  --muted-foreground: #c2c8ff;
-  --accent: hsl(0 0% 4%);
-  --accent-hover: hsl(0 0% 20%);
-  --panel-border: color-mix(in srgb, var(--foreground) 16%, transparent);
-}
-
 html,
 body {
   background: var(--background);
@@ -80,12 +63,6 @@ body {
   color: var(--primary-foreground);
 }
 
-/* Inputs in accent mode bump placeholder contrast — 40% white on the
-   blue canvas is too faint to read as a real prompt. */
-html[data-theme="accent"] ::placeholder {
-  opacity: 0.7;
-}
-
 .dither-field {
   background-image: radial-gradient(
     circle,
@@ -98,10 +75,6 @@ html[data-theme="accent"] ::placeholder {
 
 html[data-theme="dark"] .dither-field {
   opacity: 0.22;
-}
-
-html[data-theme="accent"] .dither-field {
-  opacity: 0.26;
 }
 
 /* Base UI Collapsible — height animation via --collapsible-panel-height */

@@ -1,7 +1,7 @@
 "use client";
 
 import type { MouseEvent } from "react";
-import { GRID } from "../_lib/layout";
+import { FLUID_GRID } from "../_lib/layout";
 import { FooterWeather } from "./FooterWeather";
 import { ThemeSwatch } from "./ThemeSwatch";
 
@@ -13,7 +13,7 @@ export function SiteFooter({
   return (
     <footer
       onClickCapture={onClickCapture}
-      className={`mt-16 pb-6 md:mt-24 md:pb-8 lg:mt-32 lg:pb-10 ${GRID}`}
+      className={`mt-16 pb-6 md:mt-24 md:pb-8 lg:mt-32 lg:pb-10 ${FLUID_GRID}`}
     >
       <div className="col-span-12 border-t border-[color:var(--panel-border)] pt-6 md:pt-8" />
 

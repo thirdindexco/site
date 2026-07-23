@@ -28,19 +28,16 @@ const CELL_PX = 22;
 const FG_LIGHT = "#0b0b0b";
 const FG_DARK = "#fafafa";
 const ACCENT_BLUE = "#0000ff";
-const INK = "#0b0b0b";
 
 // Per-theme source colors for the dither canvases. Back face picks a
 // contrasting tone so the hover flip always reads as a reveal.
 const FRONT_COLOR: Record<Theme, string> = {
   light: FG_LIGHT,
   dark: FG_DARK,
-  accent: FG_DARK,
 };
 const BACK_COLOR: Record<Theme, string> = {
   light: ACCENT_BLUE,
   dark: ACCENT_BLUE,
-  accent: INK,
 };
 
 function hexToRgb(hex: string): [number, number, number] {
@@ -104,7 +101,6 @@ export function ThemeSwatch({ className = "" }: { className?: string }) {
     setPatterns({
       light: buildSet("light"),
       dark: buildSet("dark"),
-      accent: buildSet("accent"),
     });
   }, []);
 
