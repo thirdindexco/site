@@ -211,7 +211,7 @@ export function PageChrome({
           aria-label={mobileMenuOpen ? "close navigation" : "open navigation"}
           aria-controls="mobile-navigation"
           aria-expanded={mobileMenuOpen}
-          className="col-span-2 col-start-11 row-start-1 inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-end justify-self-end outline-none focus-visible:text-[color:var(--accent)] md:hidden"
+          className="col-span-2 col-start-11 row-start-1 inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-center justify-self-end outline-none focus-visible:text-[color:var(--accent)] md:hidden"
         >
           {mobileMenuOpen ? (
             <X aria-hidden className="h-5 w-5" strokeWidth={1.5} />
