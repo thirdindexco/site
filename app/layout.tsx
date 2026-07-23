@@ -19,9 +19,9 @@ const sans = Inter({
   display: "swap",
 });
 
-const siteTitle = "third index";
+const siteTitle = "THIRD INDEX";
 const siteDescription =
-  "design engineering studio building web apps and user interfaces. principal-led by michael ciccarelli — work for modern treasury, vice, amazon, and condé nast.";
+  "Principal-led design engineering studio building custom web apps, product interfaces, design systems, and high-craft websites.";
 
 const siteUrl = "https://thirdindex.co";
 
@@ -41,19 +41,22 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: siteTitle,
   description: siteDescription,
+  alternates: { canonical: "/" },
+  applicationName: siteTitle,
   keywords: [
-    "design engineering",
     "design engineering studio",
-    "design engineer",
-    "frontend engineering",
+    "design engineering agency",
+    "frontend development studio",
+    "custom web application development",
+    "product interface development",
+    "user interface engineering",
+    "design system development",
     "frontend architecture",
-    "web app development",
-    "user interface design",
-    "product interfaces",
-    "design systems",
-    "web motion",
-    "headless commerce",
-    "interface engineering",
+    "creative web development",
+    "web animation development",
+    "headless commerce development",
+    "fractional design engineer",
+    "senior frontend consulting",
   ],
   authors: [{ name: "Michael Ciccarelli", url: "https://ciccarel.li" }],
   creator: "Michael Ciccarelli",
@@ -63,7 +66,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/",
-    siteName: "third index",
+    siteName: siteTitle,
     title: siteTitle,
     description: siteDescription,
     images: [
@@ -71,7 +74,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — design engineering studio for web apps and user interfaces",
+        alt: "THIRD INDEX — design engineering studio for web apps, product interfaces, and design systems",
       },
     ],
   },

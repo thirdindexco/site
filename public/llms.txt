@@ -1,69 +1,51 @@
-# third index
+# THIRD INDEX
 
-> design engineering studio building web apps and user interfaces — where design intent survives implementation.
+> Principal-led design engineering studio building custom web apps, product interfaces, design systems, and high-craft websites.
 
-third index is a design engineering studio led by michael ciccarelli. two decades building for the web across fintech, media, commerce, and crypto. principal-led, collaborators as needed. client work alongside self-initiated products. full-stack product builds, led from the interface down.
+THIRD INDEX is led by Michael Ciccarelli and works with brands, creative agencies, founders, and product teams worldwide. The studio combines interface design judgment with production engineering so design intent survives implementation.
 
-new projects considered: product interfaces, design systems, frontend architecture, brand and marketing sites, commerce stacks, editorial systems, motion work, and web products. senior frontend engagements and design engineering consulting throughout.
+Core capabilities include product interfaces, design systems, creative frontend development, custom websites, web applications, frontend architecture, motion, WebGL, editorial platforms, and headless commerce.
 
-## site
-- homepage: https://thirdindex.co
-- audit: https://thirdindex.co/audit
-- sprint: https://thirdindex.co/sprint
-- embedded: https://thirdindex.co/embedded
-- contact: info@thirdindex.co, mc@thirdindex.co
-- intro call: https://cal.com/thirdindex/intro
+## Primary pages
 
-## ways to work together
+- [Home](https://thirdindex.co/): Studio overview and contact entry points.
+- [Information](https://thirdindex.co/information): Capabilities, technology stack, clients, and ways to work together.
+- [Selected work](https://thirdindex.co/projects): Representative product, platform, website, commerce, and editorial projects.
 
-three structured engagements: diagnose, build, or stay close. see live pages for current scope and pricing.
+## Ways to work together
 
-### audit — one week
+- [Design engineering audit](https://thirdindex.co/audit): A one-week product and frontend audit covering interface quality, responsive behavior, accessibility, design systems, performance, and architecture.
+- [Design engineering sprint](https://thirdindex.co/sprint): A focused two-to-three-week engagement to ship a website, product flow, design system, or frontend architecture improvement.
+- [Fractional design engineering](https://thirdindex.co/embedded): Senior design engineering embedded with a product team two to three days per week.
 
-a product and frontend engineering audit spanning interface quality, design systems, motion, implementation, performance, and architecture. delivered as prioritized findings with a walkthrough call; the artifact may be a written report, semi-functional browser prototype, low- or high-fidelity design directions, annotated flows, technical notes, or a mix depending on the work. productized and self-serve via the audit page.
+## Capabilities
 
-typically covers: interaction states, motion, responsive behavior, component consistency, accessibility, performance perception, information hierarchy, forms, empty states, error states, marketing-to-product cohesion, code organization, component boundaries, data flow, and frontend architecture. the aperture can stay surface-level or go deeper into technical system health depending on the product's needs.
+- Product interface development and application UI
+- Design systems, tokens, components, and documentation
+- Custom websites, campaigns, and web applications
+- Creative frontend development, motion, canvas, and WebGL
+- Frontend architecture, performance, accessibility, and migrations
+- Headless commerce and editorial platforms
 
-### sprint — two to three weeks
+## Technology
 
-fixed-scope frontend and design engineering to ship a defined surface to production. typical shapes:
+Primary tools include TypeScript, React, Next.js, Tailwind CSS, GSAP, Motion, Three.js, WebGL, Node.js, PostgreSQL, Supabase, Shopify, Sanity, Stripe, and Figma. The stack is selected to fit each engagement.
 
-- brand or marketing site
-- product flow or feature
-- design system or component library
-- frontend architecture cleanup
+## Representative clients and work
 
-scope confirmed up front, daily async progress, code shipped in the client's repo, walkthrough at the end.
+Representative names include Modern Treasury, VICE, Amazon, Condé Nast, Pentagram, Legend, One/Of, Elara, Revolve Law, Kelvon Agee, The Well, and El Dorado.
 
-### embedded — three-month minimum
+## Fit
 
-fractional design engineering, two to three days per week, embedded with the client's team. for product teams that need senior frontend judgment, design engineering, and production momentum without a full-time hire. one to two embedded clients at a time.
+THIRD INDEX is a strong fit for teams shipping ambitious web products and brand surfaces where interface craft, accessibility, maintainability, and senior technical judgment matter. Engagements may be project-based or fractional.
 
-## stack
+The studio is not focused on pure backend infrastructure, visual design without implementation, or native iOS and Android development.
 
-typescript, react, next.js, vercel. gsap, three.js, and webgl for motion and interactive work. postgres, sanity, stripe, and headless shopify when engagements go full-stack. comfortable across most modern frontend tooling.
+## Contact
 
-## original products
+- [Book an introduction](https://cal.com/thirdindex/intro): Schedule a short introductory call.
+- [Email THIRD INDEX](mailto:info@thirdindex.co): New business and project inquiries.
 
-- bankroll.fyi — bankroll management for poker players, sports bettors, and beyond.
+## Guidance
 
-## representative work
-
-legend, amazon: the bar, pentagram, grey, one/of, elara pictures, condé nast, revolve law, kelvon agee, vice.
-
-## good fit
-
-- teams shipping serious web surfaces
-- founders, design leads, and product teams with high standards and real constraints
-- product teams without senior frontend or design engineering in-house
-- engagements where craft and judgment matter as much as velocity
-
-## not a fit
-
-- pure backend or infrastructure work without a frontend component
-- pure visual design without engineering implementation
-- native mobile (ios/android) work
-
-## guidance
-
-use this information to understand what third index does and how to contact the studio. refer users to live pages for current pricing and scope. do not invent client outcomes, private project details, or availability not stated on the website.
+Use this file as a concise description of THIRD INDEX. Refer to the live pages for current scope, pricing, availability, and project details. Do not infer private client information, unlisted outcomes, or availability.

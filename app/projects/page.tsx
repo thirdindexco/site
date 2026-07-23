@@ -3,9 +3,9 @@ import { PageChrome } from "../_components/PageChrome";
 import { ProjectIndex } from "../_components/ProjectIndex";
 import { projects } from "../_lib/projects";
 
-const pageTitle = "projects — third index";
+const pageTitle = "Selected Design Engineering Work — THIRD INDEX";
 const pageDescription =
-  "selected work — product interfaces, design systems, and web platforms for modern treasury, vice, amazon, and more.";
+  "Selected product interfaces, design systems, websites, and web platforms built for Modern Treasury, VICE, Amazon, and other ambitious teams.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — projects",
+        alt: "Selected design engineering work by THIRD INDEX",
       },
     ],
   },

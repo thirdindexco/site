@@ -6,9 +6,9 @@ import { PageChrome } from "../_components/PageChrome";
 import { ENGAGEMENTS } from "../_lib/engagements";
 import { FLUID_GRID } from "../_lib/layout";
 
-const pageTitle = "information — third index";
+const pageTitle = "Design Engineering Studio — THIRD INDEX";
 const pageDescription =
-  "digital studio for custom websites and apps — design systems, product interfaces, user experiences. working with brands and creative agencies, fractional or project-based.";
+  "Explore THIRD INDEX services for custom web apps, product interfaces, design systems, creative development, and senior frontend architecture.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — information",
+        alt: "THIRD INDEX design engineering services",
       },
     ],
   },

@@ -5,9 +5,9 @@ import { PageChrome } from "../_components/PageChrome";
 import { RelatedEngagements } from "../_components/RelatedEngagements";
 import { GRID } from "../_lib/layout";
 
-const pageTitle = "embedded — third index";
+const pageTitle = "Fractional Design Engineering — THIRD INDEX";
 const pageDescription =
-  "Fractional design engineering for product teams that need senior interface judgment and production momentum, embedded 2–3 days a week.";
+  "Fractional design engineering for product teams needing senior frontend judgment, interface craft, design systems expertise, and production momentum.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — embedded",
+        alt: "Fractional design engineering by THIRD INDEX",
       },
     ],
   },

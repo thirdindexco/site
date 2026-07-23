@@ -5,9 +5,9 @@ import { PageChrome } from "../_components/PageChrome";
 import { RelatedEngagements } from "../_components/RelatedEngagements";
 import { GRID } from "../_lib/layout";
 
-const pageTitle = "sprint — third index";
+const pageTitle = "Design Engineering Sprint — THIRD INDEX";
 const pageDescription =
-  "Two to three weeks of senior design engineering to ship a defined web surface: brand site, product flow, design system, or frontend architecture.";
+  "A focused two-to-three-week design engineering sprint to ship a website, product flow, design system, or frontend architecture improvement.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "third index — sprint",
+        alt: "Design engineering sprint by THIRD INDEX",
       },
     ],
   },
