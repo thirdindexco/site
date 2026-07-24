@@ -89,18 +89,19 @@ function SectionLabel({ children }: { children: string }) {
 export default function InformationPage() {
   return (
     <PageChrome>
-        {/* Inquiries */}
+        {/* Studio */}
         <section className={`pt-12 md:pt-20 lg:pt-24 ${FLUID_GRID}`}>
-          <SectionLabel>inquiries</SectionLabel>
+          <SectionLabel>studio</SectionLabel>
           <div
             data-anim="body"
-            className="col-span-12 pt-4 md:col-span-6 md:col-start-5 md:pt-0"
+            className="col-span-12 pt-4 md:col-span-7 md:col-start-5 md:pt-0"
           >
-            <h1 className="max-w-[40ch] font-sans text-lg font-medium leading-tight tracking-tight md:text-xl">
-              open to new work — full projects, fractional engagements, and
-              partnerships. principal-led, collaborators as needed.
+            <h1 className="max-w-[48ch] font-sans text-lg font-medium leading-tight tracking-tight md:text-xl">
+              third index is a principal-led design engineering studio building
+              custom storefronts, marketing sites, and product interfaces.
+              engagements are fractional or project-based, with collaborators
+              brought in when the work calls for it.
             </h1>
-            <InquiryCTA />
           </div>
         </section>
 
@@ -129,51 +130,12 @@ export default function InformationPage() {
           </ul>
         </section>
 
-        {/* Stack */}
+        {/* Engagement tiers */}
         <section className={`pt-16 md:pt-24 lg:pt-32 ${FLUID_GRID}`}>
-          <SectionLabel>stack</SectionLabel>
           <div
             data-anim="body"
-            className="col-span-12 md:col-span-8 md:col-start-5"
+            className="col-span-12 md:col-span-3 md:col-start-1"
           >
-            <dl className="border-y border-[color:var(--panel-border)]">
-              {STACK.map((row, i) => (
-                <div
-                  key={row.group}
-                  className={`grid gap-6 py-4 md:grid-cols-8 ${
-                    i > 0 ? "border-t border-[color:var(--panel-border)]" : ""
-                  }`}
-                >
-                  <dt className="font-mono text-3xs font-medium uppercase tracking-tight opacity-60 md:col-span-3">
-                    {row.group}
-                  </dt>
-                  <dd className="font-sans text-sm leading-relaxed md:col-span-5 md:col-start-4">
-                    {row.items}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-            <p className="max-w-[52ch] pt-6 font-sans text-sm leading-relaxed text-foreground/70">
-              stack is flexible — these are the defaults, not the boundary. if
-              you&apos;re on something unusual, ask.
-            </p>
-          </div>
-        </section>
-
-        {/* Selected clients */}
-        <section className={`pt-16 md:pt-24 lg:pt-32 ${FLUID_GRID}`}>
-          <SectionLabel>selected clients</SectionLabel>
-          <p
-            data-anim="body"
-            className="col-span-12 font-sans text-sm leading-relaxed md:col-span-8 md:col-start-5"
-          >
-            modern treasury · vice · amazon · condé nast · pentagram
-          </p>
-        </section>
-
-        {/* Engagement tiers as text rows */}
-        <section className={`pt-16 md:pt-24 lg:pt-32 ${FLUID_GRID}`}>
-          <div data-anim="body" className="col-span-12 md:col-span-3 md:col-start-1">
             <div className="font-mono text-3xs font-medium uppercase tracking-tight">
               ways to work together
             </div>
@@ -219,6 +181,63 @@ export default function InformationPage() {
               </li>
             ))}
           </ul>
+        </section>
+
+        {/* Selected clients */}
+        <section className={`pt-16 md:pt-24 lg:pt-32 ${FLUID_GRID}`}>
+          <SectionLabel>selected clients</SectionLabel>
+          <p
+            data-anim="body"
+            className="col-span-12 font-sans text-sm leading-relaxed md:col-span-8 md:col-start-5"
+          >
+            modern treasury · vice · amazon · condé nast · pentagram
+          </p>
+        </section>
+
+        {/* Stack */}
+        <section className={`pt-16 md:pt-24 lg:pt-32 ${FLUID_GRID}`}>
+          <SectionLabel>stack</SectionLabel>
+          <div
+            data-anim="body"
+            className="col-span-12 md:col-span-8 md:col-start-5"
+          >
+            <dl className="border-y border-[color:var(--panel-border)]">
+              {STACK.map((row, i) => (
+                <div
+                  key={row.group}
+                  className={`grid gap-6 py-4 md:grid-cols-8 ${
+                    i > 0 ? "border-t border-[color:var(--panel-border)]" : ""
+                  }`}
+                >
+                  <dt className="font-mono text-3xs font-medium uppercase tracking-tight opacity-60 md:col-span-3">
+                    {row.group}
+                  </dt>
+                  <dd className="font-sans text-sm leading-relaxed md:col-span-5 md:col-start-4">
+                    {row.items}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <p className="max-w-[52ch] pt-6 font-sans text-sm leading-relaxed text-foreground/70">
+              stack is flexible — these are the defaults, not the boundary. if
+              you&apos;re on something unusual, ask.
+            </p>
+          </div>
+        </section>
+
+        {/* Closing inquiry */}
+        <section className={`pt-16 md:pt-24 lg:pt-32 ${FLUID_GRID}`}>
+          <SectionLabel>inquiries</SectionLabel>
+          <div
+            data-anim="body"
+            className="col-span-12 pt-4 md:col-span-7 md:col-start-5 md:pt-0"
+          >
+            <h2 className="max-w-[44ch] font-sans text-lg font-medium leading-tight tracking-tight md:text-xl">
+              have a project in mind? third index is currently considering
+              select project-based and fractional engagements.
+            </h2>
+            <InquiryCTA />
+          </div>
         </section>
     </PageChrome>
   );
