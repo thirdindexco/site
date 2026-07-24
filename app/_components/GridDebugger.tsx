@@ -58,7 +58,7 @@ export function GridDebugger({ enabled }: { enabled: boolean }) {
       >
         <div className="absolute inset-y-0 left-0 w-px bg-pink-500/70" />
         <div className="absolute inset-y-0 right-0 w-px bg-pink-500/70" />
-        <div className="absolute right-0 top-2 z-10 flex gap-2 bg-pink-500 px-1.5 py-1 font-mono text-[9px] uppercase leading-none text-white">
+        <div className="absolute bottom-2 right-0 z-10 flex gap-2 bg-pink-500 px-1.5 py-1 font-mono text-[9px] uppercase leading-none text-white">
           <span>vp {Math.round(measurements.viewport)}px</span>
           <span>ct {Math.round(measurements.container)}px</span>
           <span>cols {measurements.columns}</span>

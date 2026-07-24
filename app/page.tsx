@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { PageChrome } from "./_components/PageChrome";
 
 const HERO_SUPPORT =
-  "is a design engineering studio. websites, storefronts, and product interfaces — designed and built for brands, agencies, and product teams.";
+  "is a design engineering studio building websites, web applications, product interfaces, and e-commerce platforms for brands, agencies, and product teams.";
 
 // Words are wrapped individually so AnimRoot can cascade the reveal. The
 // space must live OUTSIDE the inline-block span — trailing whitespace at
@@ -16,10 +16,16 @@ const HERO_SUPPORT =
 // and without the extra room, glyph ink that overhangs the box (ligatures,
 // tight tracking) is clipped until the filter clears.
 function heroWords(text: string) {
-  return text.split(" ").map((word, i) => (
+  // The last two words share one span, joined by a non-breaking space, so
+  // the final line can never wrap to a single orphaned word. (text-pretty
+  // can't do this here: the inline-block spans are atomic boxes, outside
+  // its rebalancing.)
+  const words = text.split(" ");
+  const chunks = [...words.slice(0, -2), words.slice(-2).join(" ")];
+  return chunks.map((chunk, i) => (
     <Fragment key={i}>
       <span className="hero-word inline-block p-[0.15em] -m-[0.15em]">
-        {word}
+        {chunk}
       </span>{" "}
     </Fragment>
   ));
@@ -60,7 +66,7 @@ export default function HomePage() {
       <section className="flex min-h-[calc(100svh-44px)] flex-col justify-between pb-4 md:min-h-[calc(100svh-52px)]">
         <h1
           data-anim="hero"
-          className="w-full pt-10 font-sans text-2xl font-bold leading-[1.1] tracking-tighter sm:text-3xl md:pt-14 md:text-3xl md:leading-[1.08] lg:pt-16 lg:text-5xl lg:leading-[1.05]"
+          className="w-full pt-10 font-sans text-2xl font-bold leading-[1.1] tracking-tight sm:text-3xl md:pt-14 md:text-3xl md:leading-[1.08] lg:pt-16 lg:text-5xl lg:leading-[1.05]"
         >
           {heroWords("THIRD INDEX")}
           <span className="text-foreground/50">

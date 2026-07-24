@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { playClickThrottled } from "../_lib/click-sound";
 import { formatTechnologies } from "../_lib/format";
 import { FLUID_GRID } from "../_lib/layout";
 import type { Project } from "../_lib/projects";
@@ -12,7 +13,7 @@ import type { Project } from "../_lib/projects";
 gsap.registerPlugin(ScrollTrigger);
 
 // Cursor-following media width (px). Height follows the asset's ratio.
-const FOLLOWER_W = 340;
+const FOLLOWER_W = 480;
 
 // Tactical project index: full-bleed table rows (index / title / role /
 // stack) with a background-fill hover state, a cursor-following thumbnail
@@ -177,7 +178,12 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                 type="button"
                 aria-expanded={isOpen}
                 onClick={() => setOpenIndex(isOpen ? null : index)}
-                onMouseEnter={() => setHoverIndex(index)}
+                onMouseEnter={() => {
+                  setHoverIndex(index);
+                  // Same mech click as the toggles, quieter and throttled
+                  // so sweeping the list reads as discrete ticks.
+                  playClickThrottled(70, 0, 0.6);
+                }}
                 onMouseLeave={() => setHoverIndex(null)}
                 className={`relative z-10 -mx-4 grid min-h-11 w-[calc(100%+2rem)] cursor-pointer grid-cols-12 items-center gap-6 px-4 py-3 text-left outline-none transition-colors duration-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:-outline-offset-[1.5px] focus-visible:outline-[color:var(--accent)] md:-mx-5 md:min-h-0 md:w-[calc(100%+2.5rem)] md:items-baseline md:px-5 md:py-[3px] ${
                   isHovered || isOpen

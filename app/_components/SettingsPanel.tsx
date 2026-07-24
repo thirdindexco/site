@@ -2,6 +2,7 @@
 
 import { Switch } from "@base-ui-components/react/switch";
 import { useAtom } from "jotai";
+import { playClick } from "../_lib/click-sound";
 import { setTheme, themeAtom, type Theme } from "../_lib/theme-state";
 
 const MOODS: Theme[] = ["dark", "light"];
@@ -48,7 +49,12 @@ function ToggleSwitch({
       <span>{label}</span>
       <Switch.Root
         checked={checked}
-        onCheckedChange={onCheckedChange}
+        onCheckedChange={(next) => {
+          // Same mech click as the theme toggle — pitched up for on, base
+          // for off, mirroring the dark/light motif.
+          playClick(next ? 1 : 0);
+          onCheckedChange(next);
+        }}
         className="relative inline-flex h-5 w-9 cursor-pointer items-center border border-[color:var(--panel-border)] outline-none transition-colors hover:border-[color:color-mix(in_srgb,var(--foreground)_35%,transparent)] data-[checked]:border-foreground data-[checked]:bg-foreground data-[checked]:text-background focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
       >
         <Switch.Thumb className="block h-3 w-3 translate-x-1 bg-current transition-transform duration-150 ease-[cubic-bezier(0.2,0,0,1)] data-[checked]:translate-x-[18px]" />
@@ -65,10 +71,11 @@ function SectionLabel({ children }: { children: string }) {
   );
 }
 
-// Settings drawer — slides in over the page from the right, covering the
-// last third of the viewport on desktop. Its header mirrors the site nav:
-// the "settings" label lands where the contact link sits, and "close" takes
-// the spot of the settings trigger behind it.
+// Settings drawer — floating card in the same family as the contact and
+// inquiry overlays (inset, rounded, shared ease), but slimmer and with no
+// backdrop: theme and debug toggles need the page visible while they're
+// flipped. The closed transform overshoots by 2rem so the card and its
+// shadow fully clear the inset gap.
 export function SettingsPanel({
   gridDebug,
   setGridDebug,
@@ -91,8 +98,8 @@ export function SettingsPanel({
       inert={!settingsOpen}
       aria-hidden={!settingsOpen}
       aria-label="settings"
-      className={`fixed inset-y-0 right-0 z-50 w-full border-l border-[color:var(--panel-border)] bg-[color:var(--background)] px-4 pt-4 text-foreground transition-transform duration-200 ease-[cubic-bezier(0.2,0,0,1)] motion-reduce:transition-none sm:w-80 md:w-[calc(100vw/3+11px)] md:px-5 md:pt-5 ${
-        settingsOpen ? "translate-x-0" : "translate-x-full"
+      className={`fixed top-2 bottom-2 left-2 right-2 z-50 overflow-hidden rounded-2xl border border-[color:var(--panel-border)] bg-[color:var(--background)] px-4 pt-4 text-foreground shadow-[-8px_0_24px_-16px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none sm:left-auto sm:w-80 md:top-4 md:bottom-4 md:right-4 md:px-5 md:pt-5 ${
+        settingsOpen ? "translate-x-0" : "translate-x-[calc(100%+2rem)]"
       }`}
     >
       <div className="flex items-center justify-between font-mono text-3xs font-medium uppercase tracking-tight">
