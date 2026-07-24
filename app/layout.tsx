@@ -21,7 +21,7 @@ const sans = Inter({
 
 const siteTitle = "THIRD INDEX";
 const siteDescription =
-  "Principal-led design engineering studio building custom web apps, product interfaces, design systems, and high-craft websites.";
+  "Design engineering studio in Las Vegas building web apps, product interfaces, and high-craft websites. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
 
 const siteUrl = "https://thirdindex.co";
 
@@ -86,6 +86,30 @@ export const metadata: Metadata = {
   },
 };
 
+// Structured data for search engines: ties the studio to its founder and
+// Las Vegas locality. The geo lives here and in llms.txt, not the hero copy.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: siteTitle,
+  url: siteUrl,
+  description: siteDescription,
+  email: "info@thirdindex.co",
+  founder: {
+    "@type": "Person",
+    name: "Michael Ciccarelli",
+    url: "https://ciccarel.li",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Las Vegas",
+    addressRegion: "NV",
+    addressCountry: "US",
+  },
+  areaServed: "Worldwide",
+  sameAs: ["https://ciccarel.li"],
+};
+
 // Runs before hydration; sets data-theme from localStorage, falling back to
 // the system preference. Prevents a flash of the wrong theme on reload.
 const themeInitScript = `
@@ -111,6 +135,10 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className="font-sans antialiased">
         <Providers>

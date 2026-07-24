@@ -97,10 +97,12 @@ export default function InformationPage() {
             className="col-span-12 pt-4 md:col-span-7 md:col-start-5 md:pt-0"
           >
             <h1 className="max-w-[48ch] font-sans text-lg font-medium leading-tight tracking-tight md:text-xl">
-              third index is a principal-led design engineering studio building
-              custom storefronts, marketing sites, and product interfaces.
-              engagements are fractional or project-based, with collaborators
-              brought in when the work calls for it.
+              third index is the design engineering practice of michael
+              ciccarelli — two decades building websites, storefronts, and
+              product interfaces for brands, agencies, and product teams.
+              engagements are project-based or fractional, principal-led end
+              to end, with collaborators brought in when the scope calls for
+              it.
             </h1>
           </div>
         </section>
@@ -233,8 +235,8 @@ export default function InformationPage() {
             className="col-span-12 pt-4 md:col-span-7 md:col-start-5 md:pt-0"
           >
             <h2 className="max-w-[44ch] font-sans text-lg font-medium leading-tight tracking-tight md:text-xl">
-              have a project in mind? third index is currently considering
-              select project-based and fractional engagements.
+              have a project in mind? third index is taking on new
+              project-based and fractional work.
             </h2>
             <InquiryCTA />
           </div>

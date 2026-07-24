@@ -2,7 +2,7 @@
 
 > Principal-led design engineering studio building custom web apps, product interfaces, design systems, and high-craft websites.
 
-THIRD INDEX is led by Michael Ciccarelli and works with brands, creative agencies, founders, and product teams worldwide. The studio combines interface design judgment with production engineering so design intent survives implementation.
+THIRD INDEX is based in Las Vegas, led by Michael Ciccarelli, and works with brands, creative agencies, founders, and product teams worldwide. The studio combines interface design judgment with production engineering so design intent survives implementation.
 
 Core capabilities include product interfaces, design systems, creative frontend development, custom websites, web applications, frontend architecture, motion, WebGL, editorial platforms, and headless commerce.
 
