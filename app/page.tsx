@@ -1,8 +1,10 @@
 "use client";
 
 import { Fragment, useEffect, useState } from "react";
+import { useSetAtom } from "jotai";
 import { ArrowRight } from "lucide-react";
 import { PageChrome } from "./_components/PageChrome";
+import { inquiryOpenAtom } from "./_lib/inquiry-state";
 
 const HERO_SUPPORT =
   "is an engineering studio building custom websites, web applications, and frontend systems for brands, agencies, and product teams.";
@@ -60,19 +62,38 @@ function useClock() {
 // since the fold row carries that duty here.
 export default function HomePage() {
   const time = useClock();
+  const setInquiryOpen = useSetAtom(inquiryOpenAtom);
 
   return (
     <PageChrome footer={false}>
       <section className="flex min-h-[calc(100svh-44px)] flex-col justify-between pb-4 md:min-h-[calc(100svh-52px)]">
-        <h1
-          data-anim="hero"
-          className="w-full pt-10 font-sans text-2xl font-bold leading-[1.1] tracking-tight sm:text-3xl md:pt-14 md:text-3xl md:leading-[1.08] lg:pt-16 lg:text-5xl lg:leading-[1.05]"
-        >
-          {heroWords("THIRD INDEX")}
-          <span className="text-foreground/50">
-            {heroWords(HERO_SUPPORT)}
-          </span>
-        </h1>
+        <div>
+          <h1
+            data-anim="hero"
+            className="w-full pt-10 font-sans text-2xl font-bold leading-[1.1] tracking-tight sm:text-3xl md:pt-14 md:text-3xl md:leading-[1.08] lg:pt-16 lg:text-5xl lg:leading-[1.05]"
+          >
+            {heroWords("THIRD INDEX")}
+            <span className="text-foreground/50">
+              {heroWords(HERO_SUPPORT)}
+            </span>
+          </h1>
+
+          {/* Minimal inquiry link — sits on the 1/3 line, aligned with the
+              header nav above and the las vegas block on the fold row below.
+              Same mono-caps treatment as both. */}
+          <div
+            data-anim="body"
+            className="grid w-full grid-cols-12 gap-6 pt-10 md:pt-12"
+          >
+            <button
+              type="button"
+              onClick={() => setInquiryOpen(true)}
+              className="col-span-12 inline-flex cursor-pointer items-center justify-self-start whitespace-nowrap font-mono text-3xs font-medium uppercase tracking-tight opacity-60 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 md:col-span-3 md:col-start-5"
+            >
+              [&nbsp;start a project inquiry&nbsp;]
+            </button>
+          </div>
+        </div>
 
         <div className="grid w-full grid-cols-12 items-end gap-6 pt-12">
           <p
