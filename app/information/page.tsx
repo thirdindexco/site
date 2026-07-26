@@ -97,12 +97,11 @@ export default function InformationPage() {
             className="col-span-12 pt-4 md:col-span-7 md:col-start-5 md:pt-0"
           >
             <h1 className="max-w-[48ch] font-sans text-lg font-medium leading-tight tracking-tight md:text-xl">
-              third index is the design engineering practice of michael
-              ciccarelli — two decades building websites, storefronts, and
-              product interfaces for brands, agencies, and product teams.
-              engagements are project-based or fractional, principal-led end
-              to end, with collaborators brought in when the scope calls for
-              it.
+              third index is the engineering studio of michael ciccarelli —
+              two decades of design engineering across custom websites, web
+              applications, and frontend systems. engagements are
+              project-based or fractional, principal-led end to end, with
+              collaborators brought in when the scope calls for it.
             </h1>
           </div>
         </section>

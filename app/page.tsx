@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { PageChrome } from "./_components/PageChrome";
 
 const HERO_SUPPORT =
-  "is a design engineering studio building websites, web applications, product interfaces, and e-commerce platforms for brands, agencies, and product teams.";
+  "is an engineering studio building custom websites, web applications, and frontend systems for brands, agencies, and product teams.";
 
 // Words are wrapped individually so AnimRoot can cascade the reveal. The
 // space must live OUTSIDE the inline-block span — trailing whitespace at
