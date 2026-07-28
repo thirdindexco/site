@@ -97,7 +97,7 @@ export default function InformationPage() {
             className="col-span-12 pt-4 md:col-span-7 md:col-start-5 md:pt-0"
           >
             <h1 className="max-w-[48ch] font-sans text-lg font-medium leading-tight tracking-tight md:text-xl">
-              third index is the engineering studio of{" "}
+              THIRD INDEX is led by{" "}
               <a
                 href="https://ciccarel.li"
                 target="_blank"
@@ -105,10 +105,9 @@ export default function InformationPage() {
                 className="underline decoration-foreground/30 underline-offset-[3px] outline-none transition-colors hover:decoration-current focus-visible:decoration-current"
               >
                 michael ciccarelli
-              </a>{" "}
-              — two decades of design engineering across custom websites, web
-              applications, and frontend systems. engagements are
-              project-based or fractional, principal-led end to end, with
+              </a>
+              , a creative developer with two decades building for the web.
+              the work is principal-led from design through production, with
               collaborators brought in when the scope calls for it.
             </h1>
           </div>
