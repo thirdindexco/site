@@ -2,7 +2,15 @@ import type { MetadataRoute } from "next";
 
 const BASE_URL = "https://thirdindex.co";
 
-const ROUTES = ["", "/information", "/projects", "/audit", "/sprint", "/embedded"];
+const ROUTES = [
+  "",
+  "/information",
+  "/projects",
+  "/prototype",
+  "/systems",
+  "/sprint",
+  "/fractional",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return ROUTES.map((path) => ({

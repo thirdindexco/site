@@ -14,9 +14,10 @@ Core capabilities include product interfaces, design systems, creative frontend 
 
 ## Ways to work together
 
-- [Design engineering audit](https://thirdindex.co/audit): A one-week product and frontend audit covering interface quality, responsive behavior, accessibility, design systems, performance, and architecture.
-- [Design engineering sprint](https://thirdindex.co/sprint): A focused two-to-three-week engagement to ship a website, product flow, design system, or frontend architecture improvement.
-- [Fractional design engineering](https://thirdindex.co/embedded): Senior design engineering embedded with a product team two to three days per week.
+- [Prototype sprint](https://thirdindex.co/prototype): A one-to-two-week sprint turning a loose idea into a clickable, deployed prototype — real interface, core flows, and a shareable URL.
+- [Design system sprint](https://thirdindex.co/systems): A two-week design engineering sprint turning existing designs into a coded, documented component system — tokens, reusable components, and a Storybook-style playground. No original design work; the design stays with the client's team.
+- [Design engineering sprint](https://thirdindex.co/sprint): A focused two-to-three-week engagement to ship a website, product flow, or frontend architecture improvement — including execution of a design team's existing designs.
+- [Fractional design engineering](https://thirdindex.co/fractional): Senior design engineering embedded with a product team two to three days per week.
 
 ## Capabilities
 
@@ -37,7 +38,7 @@ Representative names include Modern Treasury, VICE, Amazon, Condé Nast, Pentagr
 
 ## Fit
 
-THIRD INDEX is a strong fit for teams shipping ambitious web products and brand surfaces where interface craft, accessibility, maintainability, and senior technical judgment matter. Engagements may be project-based or fractional.
+THIRD INDEX is a strong fit for teams shipping ambitious web products and brand surfaces where interface craft, accessibility, maintainability, and senior technical judgment matter — and for design studios and designers who need a technical partner to execute and systematize their designs. Engagements may be project-based or fractional.
 
 The studio is not focused on pure backend infrastructure, visual design without implementation, or native iOS and Android development.
 

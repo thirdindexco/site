@@ -7,7 +7,7 @@ import { PageChrome } from "./_components/PageChrome";
 import { inquiryOpenAtom } from "./_lib/inquiry-state";
 
 const HERO_SUPPORT =
-  "is a digital studio that designs and builds custom websites, apps, and interfaces for brands, agencies, and product teams. engagements are project-based or fractional, with clients worldwide.";
+  "is a digital studio that designs and builds custom websites, apps, and interfaces for select brands, studios, and product teams worldwide.";
 
 // Words are wrapped individually so AnimRoot can cascade the reveal. The
 // space must live OUTSIDE the inline-block span — trailing whitespace at

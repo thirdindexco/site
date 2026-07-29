@@ -12,10 +12,10 @@ const pageDescription =
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  alternates: { canonical: "/embedded" },
+  alternates: { canonical: "/fractional" },
   openGraph: {
     type: "website",
-    url: "/embedded",
+    url: "/fractional",
     title: pageTitle,
     description: pageDescription,
     images: [
@@ -55,7 +55,7 @@ const tiers: [string, string][] = [
 const faqs: FaqItem[] = [
   {
     q: "can you do less than 2 days/week?",
-    a: "not as embedded. lighter work is usually an audit or sprint.",
+    a: "not at this tier. lighter work is usually a sprint or a design system sprint.",
   },
   {
     q: "do you work with multiple embedded clients?",
@@ -241,7 +241,7 @@ export default function EmbeddedPage() {
           </div>
         </section>
 
-        <RelatedEngagements currentSlug="embedded" />
+        <RelatedEngagements currentSlug="fractional" />
     </PageChrome>
   );
 }

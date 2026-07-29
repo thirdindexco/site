@@ -51,6 +51,8 @@ export const metadata: Metadata = {
     "product interface development",
     "user interface engineering",
     "design system development",
+    "design system sprint",
+    "prototype development",
     "frontend architecture",
     "creative web development",
     "web animation development",

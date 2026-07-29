@@ -3,8 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { ENGAGEMENTS, type EngagementSlug } from "../_lib/engagements";
 import { GRID } from "../_lib/layout";
 
-// Two cards mirror the homepage about/inquiries rhythm: cols 1-4 + 9-12.
-const COL_STARTS = ["md:col-start-1", "md:col-start-9"];
+// Three sibling tiers per page: cards at cols 1-4, 5-8, 9-12.
+const COL_STARTS = ["md:col-start-1", "md:col-start-5", "md:col-start-9"];
 
 export function RelatedEngagements({
   currentSlug,

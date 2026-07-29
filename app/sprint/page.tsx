@@ -7,7 +7,7 @@ import { GRID } from "../_lib/layout";
 
 const pageTitle = "Design Engineering Sprint — THIRD INDEX";
 const pageDescription =
-  "A focused two-to-three-week design engineering sprint to ship a website, product flow, design system, or frontend architecture improvement.";
+  "A focused two-to-three-week design engineering sprint to ship a website, product flow, design handoff, or frontend architecture improvement.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -40,6 +40,11 @@ const SCOPE_URL = "https://cal.com/thirdindex/sprint";
 
 const archetypes: { title: string; description: string }[] = [
   {
+    title: "design execution",
+    description:
+      "your team's designs, built as designed — motion and interaction included.",
+  },
+  {
     title: "brand site",
     description:
       "landing page or full site, built with motion and interaction craft.",
@@ -47,12 +52,7 @@ const archetypes: { title: string; description: string }[] = [
   {
     title: "product polish",
     description:
-      "highest-priority fixes from an audit, or one focused product area.",
-  },
-  {
-    title: "design system",
-    description:
-      "documented patterns and react components your team can extend.",
+      "one focused product area, or the priorities surfaced by a design system sprint.",
   },
   {
     title: "product build",
@@ -91,7 +91,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "what about ongoing maintenance after?",
-    a: "not included by default. for ongoing work, embedded is the better shape.",
+    a: "not included by default. for ongoing work, fractional is the better shape.",
   },
 ];
 
@@ -131,7 +131,7 @@ export default function SprintPage() {
               fixed price, production code.
             </p>
             <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
-              $8–15k · 2–3 weeks · remote
+              $10–15k · 2–3 weeks · remote
             </p>
             <div className="pt-6 md:pt-8">
               <StartSprintButton />
@@ -208,7 +208,7 @@ export default function SprintPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              $8–15k. price moves with scope and is fixed before work starts.
+              $10–15k. price moves with scope and is fixed before work starts.
             </p>
           </div>
         </section>

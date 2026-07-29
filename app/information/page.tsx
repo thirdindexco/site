@@ -107,8 +107,11 @@ export default function InformationPage() {
                 michael ciccarelli
               </a>
               , a creative developer with two decades building for the web.
-              the work is principal-led from design through production, with
-              collaborators brought in when the scope calls for it.
+              the studio works two ways: end-to-end design and build for
+              founders and product teams, or as the technical partner behind
+              designers and studios — their designs, built as designed.
+              either way the work is principal-led, with collaborators
+              brought in when the scope calls for it.
             </h1>
           </div>
         </section>
@@ -148,7 +151,7 @@ export default function InformationPage() {
               ways to work together
             </div>
             <p className="pt-3 font-sans text-sm leading-relaxed text-foreground/65">
-              diagnose. build. stay close.
+              validate. systematize. build. stay close.
             </p>
           </div>
 
