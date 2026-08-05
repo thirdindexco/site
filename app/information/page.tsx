@@ -106,12 +106,11 @@ export default function InformationPage() {
               >
                 michael ciccarelli
               </a>
-              , a creative developer with two decades building for the web.
-              the studio works two ways: end-to-end design and build for
-              founders and product teams, or as the technical partner behind
-              designers and studios — their designs, built as designed.
-              either way the work is principal-led, with collaborators
-              brought in when the scope calls for it.
+              , a software engineer with two decades building for the web.
+              the studio designs and builds for founders and product teams,
+              and partners with designers and studios who need a technical
+              counterpart. principal-led, with collaborators when scope
+              calls for it.
             </h1>
           </div>
         </section>

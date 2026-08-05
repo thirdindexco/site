@@ -7,7 +7,7 @@ import { PageChrome } from "./_components/PageChrome";
 import { inquiryOpenAtom } from "./_lib/inquiry-state";
 
 const HERO_SUPPORT =
-  "is a digital studio that designs and builds custom websites, apps, and interfaces for select brands, studios, and product teams worldwide.";
+  "is a digital studio. We design and build websites, apps, and interfaces for brands, studios, and product teams.";
 
 // Words are wrapped individually so AnimRoot can cascade the reveal. The
 // space must live OUTSIDE the inline-block span — trailing whitespace at
@@ -70,7 +70,7 @@ export default function HomePage() {
         <div>
           <h1
             data-anim="hero"
-            className="w-full pt-10 font-sans text-2xl font-bold leading-[1.1] tracking-tight sm:text-3xl md:pt-14 md:text-3xl md:leading-[1.08] lg:pt-16 lg:text-5xl lg:leading-[1.05]"
+            className="w-full pt-10 font-sans text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:pt-14 md:text-4xl md:leading-[1.08] lg:pt-16 lg:text-6xl lg:leading-[1.05]"
           >
             {heroWords("THIRD INDEX")}
             <span className="text-foreground/50">
