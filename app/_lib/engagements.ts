@@ -1,4 +1,8 @@
-export type EngagementSlug = "prototype" | "systems" | "sprint" | "fractional";
+export type EngagementSlug =
+  | "sprint"
+  | "prototype"
+  | "systems"
+  | "fractional";
 
 export type Engagement = {
   slug: EngagementSlug;
@@ -9,10 +13,27 @@ export type Engagement = {
 };
 
 // Source of truth for the productized service tiers. Consumed by the
-// information-page router section and the cross-link block on each service
-// page. Ordered as the ladder reads: validate → systematize → build → stay
-// close. Prototype is the founder door; systems is the designer/studio door.
+// landing page's engagement section and the cross-link block on each
+// service page.
+//
+// Ordered by commitment, cheapest first. The build is priced by the week so
+// one offer covers the whole range: a single week is a low-risk way for a
+// studio or founder to find out what working together is like, and the same
+// engagement extends to three when the work warrants it — no second SKU for
+// what is really one motion at two lengths.
+//
+// Ranges hold at current demand. Don't raise them speculatively; if
+// inquiries are lost on price, cut the opening scope rather than the rate.
+// Every tier clears the ~$5k/week floor.
 export const ENGAGEMENTS: readonly Engagement[] = [
+  {
+    slug: "sprint",
+    title: "frontend build",
+    meta: "from $5k/week · 1–3 weeks",
+    description:
+      "a finished design turned into responsive, production-ready frontend code. one week buys one surface; three is a full sprint.",
+    href: "/sprint",
+  },
   {
     slug: "prototype",
     title: "prototype",
@@ -23,26 +44,18 @@ export const ENGAGEMENTS: readonly Engagement[] = [
   },
   {
     slug: "systems",
-    title: "design systems",
-    meta: "$10,000 · two weeks",
+    title: "design-system foundation",
+    meta: "from $10k · two weeks",
     description:
       "your designs turned into a coded, documented component system — tokens, reusable components, and a browsable playground.",
     href: "/systems",
   },
   {
-    slug: "sprint",
-    title: "sprint",
-    meta: "$10–15k · 2–3 weeks",
-    description:
-      "a defined surface — product flow, brand site, or design handoff — designed, built, and shipped as production code.",
-    href: "/sprint",
-  },
-  {
     slug: "fractional",
-    title: "fractional",
-    meta: "$10–14k/month · 3 month minimum",
+    title: "fractional design engineering",
+    meta: "from $10k/month · two days a week",
     description:
-      "senior design engineering, embedded in your team 2–3 days a week — interface judgment in the room, week after week.",
+      "senior design engineering embedded in your team — two days a week at the base rate, three when you need them. three month minimum.",
     href: "/fractional",
   },
 ];

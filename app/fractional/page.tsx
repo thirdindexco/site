@@ -91,7 +91,7 @@ function StartConversationButton() {
 export default function EmbeddedPage() {
   return (
     <PageChrome>
-        <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
+        <section className={`pt-2 md:pt-6 lg:pt-4 ${GRID}`}>
           <div
             data-anim="hero"
             className="col-span-12"
@@ -107,7 +107,7 @@ export default function EmbeddedPage() {
               interface judgment, and production momentum.
             </p>
             <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
-              $10–14k/month · 3-month minimum · remote, in your tools
+              from $10k/month · two days a week · 3-month minimum · remote
             </p>
             <div className="pt-6 md:pt-8">
               <StartConversationButton />

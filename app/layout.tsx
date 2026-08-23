@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     "fractional design engineer",
     "senior frontend consulting",
   ],
-  authors: [{ name: "Michael Ciccarelli", url: "https://ciccarel.li" }],
+  authors: [{ name: "Michael Ciccarelli", url: "https://relli.cc" }],
   creator: "Michael Ciccarelli",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
@@ -100,7 +100,7 @@ const jsonLd = {
   founder: {
     "@type": "Person",
     name: "Michael Ciccarelli",
-    url: "https://ciccarel.li",
+    url: "https://relli.cc",
   },
   address: {
     "@type": "PostalAddress",
@@ -109,7 +109,7 @@ const jsonLd = {
     addressCountry: "US",
   },
   areaServed: "Worldwide",
-  sameAs: ["https://ciccarel.li"],
+  sameAs: ["https://relli.cc"],
 };
 
 // Runs before hydration; sets data-theme from localStorage, falling back to
@@ -141,6 +141,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* The desktop FOUC guard in globals.css hides [data-anim] until
+            AnimRoot reveals it. With scripting off nothing ever would, and
+            the whole page would render blank. */}
+        <noscript>
+          <style>{`@media (min-width: 1024px) { [data-anim] { visibility: visible !important; } }`}</style>
+        </noscript>
       </head>
       <body className="font-sans antialiased">
         <Providers>

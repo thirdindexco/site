@@ -57,7 +57,7 @@ export function FooterWeather() {
         const temp = Math.round(weather.current.temperature_2m);
         const condition =
           WMO_MAP[weather.current.weather_code as number] ?? "CLEAR";
-        setWeatherLine(`${temp}°f · ${condition}`);
+        setWeatherLine(`${temp}°f · ${condition.toLowerCase()}`);
       } catch {
         setWeatherLine("—");
       }
@@ -75,7 +75,7 @@ export function FooterWeather() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-px font-mono text-2xs font-light uppercase tracking-wide">
+    <div className="flex flex-col gap-px">
       <span suppressHydrationWarning>{timeLine}</span>
       <span suppressHydrationWarning>{weatherLine}</span>
     </div>

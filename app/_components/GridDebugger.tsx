@@ -8,9 +8,11 @@ const COLUMNS = 12;
 
 export function GridDebugger({ enabled }: { enabled: boolean }) {
   const gridRef = useRef<HTMLDivElement>(null);
-  // Service pages lay their content on the boxed grid (mx-auto max-w-grid);
-  // information/projects/home run full-bleed. Mirror whichever the current
-  // page actually uses so the overlay lines up with real content.
+  // Engagement subroutes lay their content on the boxed grid (mx-auto
+  // max-w-grid); the landing page runs full-bleed inside the main column.
+  // Mirror whichever the current page uses so the overlay lines up with
+  // real content. The lg padding above matches the rail offset (w-80) plus
+  // the main column's own gutter.
   const [boxed, setBoxed] = useState(false);
   const [measurements, setMeasurements] = useState({
     viewport: 0,
@@ -54,7 +56,7 @@ export function GridDebugger({ enabled }: { enabled: boolean }) {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-40 overflow-hidden px-4 md:px-5"
+      className="pointer-events-none fixed inset-0 z-40 overflow-hidden px-5 md:px-8 lg:pl-[calc(20rem+3rem)] lg:pr-12"
     >
       <div
         ref={gridRef}

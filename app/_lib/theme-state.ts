@@ -6,9 +6,10 @@ import { store } from "./store";
 
 export type Theme = "light" | "dark";
 
-// Shared theme atom so multiple ThemeSwatch placements (mobile + desktop)
-// stay in sync. The pre-hydration script in layout.tsx writes data-theme to
-// <html> before React mounts; ThemeShortcuts reads that back into this atom.
+// Shared theme atom so multiple theme controls (the rail's toggle in both
+// its fixed and flow placements, the settings panel) stay in sync. The
+// pre-hydration script in layout.tsx writes data-theme to <html> before
+// React mounts; ThemeShortcuts reads that back into this atom.
 export const themeAtom = atom<Theme>("dark");
 
 // Single-click toggle between the two modes.
@@ -31,7 +32,7 @@ const PITCH_SEMITONES: Record<Theme, number> = {
 const CLICK_LOCK_MS = 120;
 let lockedUntil = 0;
 
-// Canonical cycle entry point — called from both the swatch click and the
+// Canonical cycle entry point — called from both the rail's toggle and the
 // T keyboard shortcut. Debounced at module scope so either path hitting
 // during the lock window is a no-op.
 export function cycleTheme() {

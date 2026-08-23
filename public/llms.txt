@@ -8,16 +8,18 @@ Core capabilities include product interfaces, design systems, creative frontend 
 
 ## Primary pages
 
-- [Home](https://thirdindex.co/): Studio overview and contact entry points.
-- [Information](https://thirdindex.co/information): Capabilities, technology stack, clients, and ways to work together.
-- [Selected work](https://thirdindex.co/projects): Representative product, platform, website, commerce, and editorial projects.
+- [Home](https://thirdindex.co/): Single landing page covering the studio overview, selected work, capabilities, technology stack, clients, ways to work together, and contact entry points.
+- [Selected work](https://thirdindex.co/#work): Representative product, platform, website, commerce, and editorial projects.
+- [Studio and capabilities](https://thirdindex.co/#studio): Who runs the studio, focus areas, clients, and stack.
 
 ## Ways to work together
 
-- [Prototype sprint](https://thirdindex.co/prototype): A one-to-two-week sprint turning a loose idea into a clickable, deployed prototype — real interface, core flows, and a shareable URL.
-- [Design system sprint](https://thirdindex.co/systems): A two-week design engineering sprint turning existing designs into a coded, documented component system — tokens, reusable components, and a Storybook-style playground. No original design work; the design stays with the client's team.
-- [Design engineering sprint](https://thirdindex.co/sprint): A focused two-to-three-week engagement to ship a website, product flow, or frontend architecture improvement — including execution of a design team's existing designs.
-- [Fractional design engineering](https://thirdindex.co/fractional): Senior design engineering embedded with a product team two to three days per week.
+Engagements are listed cheapest first. The build is priced by the week, so a single week is a low-risk way to start and the same engagement extends when the work warrants it.
+
+- [Frontend build](https://thirdindex.co/sprint): Senior frontend development by the week, from $5k/week over one to three weeks. A finished design turned into responsive, production-ready code — one week for a single surface, three for a full sprint.
+- [Prototype](https://thirdindex.co/prototype): $6–10k over one to two weeks, turning a loose idea into a clickable, deployed prototype — real interface, core flows, and a shareable URL.
+- [Design-system foundation](https://thirdindex.co/systems): From $10k over two weeks, turning existing designs into a coded, documented component system — tokens, reusable components, and a Storybook-style playground. No original design work; the design stays with the client's team.
+- [Fractional design engineering](https://thirdindex.co/fractional): From $10k/month for two days a week, embedded with a product team, three-month minimum. Three days a week from $14k/month.
 
 ## Capabilities
 
@@ -38,7 +40,7 @@ Representative names include Modern Treasury, VICE, Amazon, Condé Nast, Pentagr
 
 ## Fit
 
-THIRD INDEX is a strong fit for teams shipping ambitious web products and brand surfaces where interface craft, accessibility, maintainability, and senior technical judgment matter — and for design studios and designers who need a technical partner to execute and systematize their designs. Engagements may be project-based or fractional.
+THIRD INDEX is first and foremost senior frontend development for teams with ambitious designs and nobody available to build them properly, supported by full-stack capability, product judgment, motion, systems thinking, and enough design ability to close gaps without supervision. It is a strong fit for teams shipping ambitious web products and brand surfaces where interface craft, accessibility, maintainability, and senior technical judgment matter — and for design studios and designers who need a technical partner to execute and systematize their designs. Engagements may be project-based or fractional.
 
 The studio is not focused on pure backend infrastructure, visual design without implementation, or native iOS and Android development.
 

@@ -106,7 +106,7 @@ const faqs: FaqItem[] = [
 export default function SystemsPage() {
   return (
     <PageChrome>
-        <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
+        <section className={`pt-2 md:pt-6 lg:pt-4 ${GRID}`}>
           <div
             data-anim="hero"
             className="col-span-12"
@@ -123,7 +123,7 @@ export default function SystemsPage() {
               design and ready for production.
             </p>
             <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
-              $10,000 · two weeks · remote
+              from $10k · two weeks · remote
             </p>
             <InquiryCTA />
           </div>
@@ -236,7 +236,7 @@ export default function SystemsPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              $10,000, fixed, paid up front. two weeks, one project at a
+              from $10,000, fixed, paid up front. two weeks, one project at a
               time. continuation — more flows, more components, ongoing
               evolution — can be scoped as a sprint or fractional work.
             </p>

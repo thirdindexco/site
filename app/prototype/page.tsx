@@ -105,7 +105,7 @@ const faqs: FaqItem[] = [
 export default function PrototypePage() {
   return (
     <PageChrome>
-        <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
+        <section className={`pt-2 md:pt-6 lg:pt-4 ${GRID}`}>
           <div
             data-anim="hero"
             className="col-span-12"

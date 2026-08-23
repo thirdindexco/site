@@ -7,8 +7,8 @@ import { cycleTheme, themeAtom } from "../_lib/theme-state";
 // Mounted once under AnimRoot. Owns everything that must run a single time
 // per page: hydrating the atom from the pre-hydration <html data-theme>
 // attribute, the system-preference listener, and the global T keybinding.
-// ThemeSwatch can be rendered in multiple placements without duplicating
-// listeners or racing on DOM writes.
+// Theme controls can be rendered in multiple placements without
+// duplicating listeners or racing on DOM writes.
 export function ThemeShortcuts() {
   const [, setTheme] = useAtom(themeAtom);
 
@@ -32,7 +32,7 @@ export function ThemeShortcuts() {
   }, [setTheme]);
 
   // T cycles the theme. Routes through the same cycleTheme used by the
-  // swatch click so sound, haptic, and dedupe lock stay consistent.
+  // rail's toggle so sound, haptic, and dedupe lock stay consistent.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "t" && e.key !== "T") return;

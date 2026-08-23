@@ -5,9 +5,9 @@ import { PageChrome } from "../_components/PageChrome";
 import { RelatedEngagements } from "../_components/RelatedEngagements";
 import { GRID } from "../_lib/layout";
 
-const pageTitle = "Design Engineering Sprint — THIRD INDEX";
+const pageTitle = "Frontend Build — THIRD INDEX";
 const pageDescription =
-  "A focused two-to-three-week design engineering sprint to ship a website, product flow, design handoff, or frontend architecture improvement.";
+  "Senior frontend development by the week. A finished design turned into responsive, production-ready code — one week for a single surface, up to three for a full sprint.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "Design engineering sprint by THIRD INDEX",
+        alt: "Frontend build by THIRD INDEX",
       },
     ],
   },
@@ -40,9 +40,14 @@ const SCOPE_URL = "https://cal.com/thirdindex/sprint";
 
 const archetypes: { title: string; description: string }[] = [
   {
+    title: "one week, one surface",
+    description:
+      "a finished design converted to responsive, production-ready frontend code. the smallest way to find out what working together is like.",
+  },
+  {
     title: "design execution",
     description:
-      "your team's designs, built as designed — motion and interaction included.",
+      "your team's designs, built as designed — motion and interaction included. more surfaces, more weeks.",
   },
   {
     title: "brand site",
@@ -52,7 +57,7 @@ const archetypes: { title: string; description: string }[] = [
   {
     title: "product polish",
     description:
-      "one focused product area, or the priorities surfaced by a design system sprint.",
+      "one focused product area, or the priorities surfaced by a design-system foundation.",
   },
   {
     title: "product build",
@@ -67,23 +72,23 @@ const schedule: [string, string][] = [
   ],
   [
     "weeks 1–3",
-    "daily async updates. code in your repo from day one.",
+    "daily async updates. code in your repo from day one. one week or three, same cadence.",
   ],
   ["end", "walkthrough, final deliverables, final invoice."],
   [
     "after",
-    "done, or continued through another sprint / embedded work.",
+    "done, extended by another week, or continued as embedded work.",
   ],
 ];
 
 const faqs: FaqItem[] = [
   {
-    q: "what if scope changes mid-sprint?",
+    q: "what if scope changes mid-build?",
     a: "small changes are absorbed. larger changes get a written adjustment before work continues.",
   },
   {
     q: "do you work with our existing designers / engineers?",
-    a: "yes. most sprints happen in your repo, alongside your team. collaborators can join when needed.",
+    a: "yes. most builds happen in your repo, alongside your team. collaborators can join when needed.",
   },
   {
     q: "what tech stacks?",
@@ -95,7 +100,7 @@ const faqs: FaqItem[] = [
   },
 ];
 
-function StartSprintButton() {
+function StartBuildButton() {
   return (
     <a
       href={START_URL}
@@ -103,7 +108,7 @@ function StartSprintButton() {
       rel="noopener noreferrer"
       className="group/cta inline-flex items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-mono text-3xs font-medium uppercase tracking-tight text-white outline-none transition-colors duration-200 hover:bg-accent-hover"
     >
-      start a sprint
+      start a build
       <ArrowRight
         aria-hidden
         className="h-3 w-3 transition-transform duration-200 group-hover/cta:translate-x-0.5"
@@ -115,7 +120,7 @@ function StartSprintButton() {
 export default function SprintPage() {
   return (
     <PageChrome>
-        <section className={`pt-12 md:pt-24 lg:pt-32 ${GRID}`}>
+        <section className={`pt-2 md:pt-6 lg:pt-4 ${GRID}`}>
           <div
             data-anim="hero"
             className="col-span-12"
@@ -124,17 +129,18 @@ export default function SprintPage() {
               build
             </p>
             <h1 className="pt-3 font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
-              ship the work that's been stuck.
+              ambitious designs, built properly.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
-              two to three weeks to ship a defined web surface. fixed scope,
-              fixed price, production code.
+              senior frontend development by the week. one week turns a
+              finished design into a shipped surface; three is a full sprint.
+              fixed scope, fixed price, production code.
             </p>
             <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
-              $10–15k · 2–3 weeks · remote
+              from $5k/week · 1–3 weeks · remote
             </p>
             <div className="pt-6 md:pt-8">
-              <StartSprintButton />
+              <StartBuildButton />
             </div>
           </div>
         </section>
@@ -142,12 +148,12 @@ export default function SprintPage() {
         <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
           <div className="col-span-12 md:col-span-3 md:col-start-1">
             <div className="font-mono text-3xs font-medium uppercase tracking-tight">
-              what a sprint looks like
+              what a build looks like
             </div>
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              for teams with a clear surface to ship:
+              for teams with designs ready and nobody free to build them:
             </p>
             <ul className="mt-8">
               {archetypes.map((a) => (
@@ -208,7 +214,9 @@ export default function SprintPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              $10–15k. price moves with scope and is fixed before work starts.
+              $5k for the first week and the same rate for each week after —
+              most work lands between one and three. scope and price are
+              agreed and fixed before anything starts.
             </p>
           </div>
         </section>
@@ -216,13 +224,14 @@ export default function SprintPage() {
         <section className={`pt-20 md:pt-28 ${GRID}`}>
           <div className="col-span-12 md:col-span-3 md:col-start-1">
             <div className="font-mono text-3xs font-medium uppercase tracking-tight">
-              why a sprint instead of hourly?
+              why by the week instead of hourly?
             </div>
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
               fixed scope, fixed fee, shipped code. less clock-watching, more
-              momentum.
+              momentum — and a single week is a cheap way to try it before
+              committing to more.
             </p>
           </div>
         </section>
@@ -241,10 +250,10 @@ export default function SprintPage() {
         <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
           <div className="col-span-12">
             <p className="font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
-              start a sprint.
+              start with a week.
             </p>
             <div className="flex flex-col items-start gap-4 pt-8 md:pt-10">
-              <StartSprintButton />
+              <StartBuildButton />
               <p className="font-mono text-3xs font-medium uppercase tracking-tight opacity-70">
                 or{" "}
                 <a

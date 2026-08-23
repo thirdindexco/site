@@ -3,13 +3,24 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   devIndicators: false,
   allowedDevOrigins: ["192.168.*"],
-  // The audit was retired in favor of the design system sprint; preserve
-  // inbound links and search equity.
+  // Retired routes, kept alive so inbound links and search equity survive.
+  // The audit became the design system sprint; information and projects
+  // were folded into the single landing page.
   async redirects() {
     return [
       {
         source: "/audit",
         destination: "/systems",
+        permanent: true,
+      },
+      {
+        source: "/information",
+        destination: "/#studio",
+        permanent: true,
+      },
+      {
+        source: "/projects",
+        destination: "/#work",
         permanent: true,
       },
       {

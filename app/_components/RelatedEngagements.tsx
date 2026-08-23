@@ -3,9 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { ENGAGEMENTS, type EngagementSlug } from "../_lib/engagements";
 import { GRID } from "../_lib/layout";
 
-// Three sibling tiers per page: cards at cols 1-4, 5-8, 9-12.
-const COL_STARTS = ["md:col-start-1", "md:col-start-5", "md:col-start-9"];
-
 export function RelatedEngagements({
   currentSlug,
 }: {
@@ -24,7 +21,7 @@ export function RelatedEngagements({
       {others.map((engagement, i) => (
         <article
           key={engagement.slug}
-          className={`col-span-12 md:col-span-4 ${COL_STARTS[i]} ${
+          className={`col-span-12 md:col-span-4 ${
             i === 0 ? "pt-10 md:pt-12" : "pt-8 md:pt-12"
           }`}
         >

@@ -7,13 +7,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { playClickThrottled } from "../_lib/click-sound";
 import { formatTechnologies } from "../_lib/format";
-import { FLUID_GRID } from "../_lib/layout";
+import { BLEED_X, FLUID_GRID } from "../_lib/layout";
 import type { Project } from "../_lib/projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
 // Cursor-following media width (px). Height follows the asset's ratio.
-const FOLLOWER_W = 480;
+const FOLLOWER_W = 420;
 
 // Tactical project index: full-bleed table rows (index / title / role /
 // stack) with a background-fill hover state, a cursor-following thumbnail
@@ -115,8 +115,8 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
   return (
     <section
       ref={sectionRef}
-      id="selected-work"
-      className="relative pt-12 md:pt-20 lg:pt-24"
+      id="work"
+      className="relative scroll-mt-20 pt-20 md:pt-28 lg:scroll-mt-14 lg:pt-36"
     >
       {/* Desktop cursor-following media. Early rows open below the cursor so
           their media stays clear of the viewport top; later rows open above
@@ -161,9 +161,12 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
       </div>
 
       <div className={FLUID_GRID}>
-        <div className="col-span-12 font-mono text-3xs font-medium uppercase tracking-tight">
+        <h2
+          data-anim="body"
+          className="col-span-12 font-mono text-2xs font-medium uppercase tracking-tight opacity-50"
+        >
           selected work
-        </div>
+        </h2>
       </div>
 
       <div ref={listRef} className="mt-6 md:mt-8">
@@ -185,7 +188,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                   playClickThrottled(70, 0, 0.6);
                 }}
                 onMouseLeave={() => setHoverIndex(null)}
-                className={`relative z-10 -mx-4 grid min-h-11 w-[calc(100%+2rem)] cursor-pointer grid-cols-12 items-center gap-6 px-4 py-3 text-left outline-none transition-colors duration-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:-outline-offset-[1.5px] focus-visible:outline-[color:var(--accent)] md:-mx-5 md:min-h-0 md:w-[calc(100%+2.5rem)] md:items-baseline md:px-5 md:py-[3px] ${
+                className={`relative z-10 grid min-h-11 cursor-pointer grid-cols-12 items-center gap-6 py-3 text-left outline-none transition-colors duration-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:-outline-offset-[1.5px] focus-visible:outline-[color:var(--accent)] md:min-h-0 md:items-baseline md:py-[3px] ${BLEED_X} ${
                   isHovered || isOpen
                     ? "bg-foreground text-background"
                     : ""
@@ -194,10 +197,10 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                 <span className="col-span-2 font-mono text-2xs font-medium tabular-nums tracking-tight opacity-50 md:col-span-1">
                   {String(index + 1).padStart(3, "0")}
                 </span>
-                <span className="col-span-10 font-mono text-2xs font-medium uppercase leading-tight tracking-tight md:col-span-3 md:col-start-5">
+                <span className="col-span-10 font-mono text-2xs font-medium uppercase leading-tight tracking-tight md:col-span-3 md:col-start-3">
                   {project.title}
                 </span>
-                <span className="hidden font-mono text-2xs font-medium uppercase tracking-tight opacity-50 md:col-span-2 md:col-start-8 md:block">
+                <span className="hidden font-mono text-2xs font-medium uppercase tracking-tight opacity-50 md:col-span-3 md:col-start-6 md:block">
                   {project.role}
                 </span>
                 <span className="hidden text-right font-mono text-2xs font-medium uppercase tracking-tight opacity-50 md:col-span-3 md:col-start-10 md:block">
@@ -236,7 +239,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                         )}
                       </div>
 
-                      <p className="col-span-12 pt-4 font-sans text-sm leading-relaxed text-pretty md:col-span-4 md:col-start-5 md:max-w-[52ch] md:pt-0">
+                      <p className="col-span-12 pt-4 font-sans text-sm leading-relaxed text-pretty md:col-span-5 md:col-start-3 md:max-w-[52ch] md:pt-0">
                         {project.description}
                       </p>
 
