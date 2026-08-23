@@ -56,9 +56,14 @@ const FOCUS_AREAS: { title: string; description: string }[] = [
       "tokens, primitives, and documentation that keep shipped product consistent with design intent — in figma and in code.",
   },
   {
-    title: "websites & campaigns",
+    title: "websites & rebuilds",
     description:
-      "marketing, editorial, and commerce surfaces with the craft turned up — fast, accessible, and easy to author against.",
+      "marketing, editorial, and commerce surfaces — built new or rebuilt, with architecture and navigation reworked rather than restyled. fast and findable because they're built that way.",
+  },
+  {
+    title: "cms systemization",
+    description:
+      "content models, editing experience, and page-building components wired up so your team can ship pages without calling us.",
   },
   {
     title: "creative development",

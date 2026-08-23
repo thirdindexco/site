@@ -26,6 +26,8 @@ Engagements are listed cheapest first. The build is priced by the week, so a sin
 - Product interface development and application UI
 - Design systems, tokens, components, and documentation
 - Custom websites, campaigns, and web applications
+- Website rebuilds and redesigns, including information architecture, navigation, and technical SEO
+- CMS systemization: content modeling, editing experience, and page-building components
 - Creative frontend development, motion, canvas, and WebGL
 - Frontend architecture, performance, accessibility, and migrations
 - Headless commerce and editorial platforms

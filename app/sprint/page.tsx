@@ -52,7 +52,7 @@ const archetypes: { title: string; description: string }[] = [
   {
     title: "brand site",
     description:
-      "landing page or full site, built with motion and interaction craft.",
+      "landing page, full site, or a rebuild of the one you have — built with motion and interaction craft.",
   },
   {
     title: "product polish",
