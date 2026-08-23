@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   },
 };
 
-const HERO_LEAD = "Design engineering. Creative development.";
+const HERO_LEAD = "Frontend development for ambitious design.";
 const HERO_SUPPORT =
-  "Twenty years building thoughtful interfaces, scalable systems, and motion for the web\u2014and the occasional thing nobody\u2019s built before.";
+  "Interfaces, systems, and motion\u2014with the full-stack depth to take ideas all the way to production.";
 
 const FOCUS_AREAS: { title: string; description: string }[] = [
   {
