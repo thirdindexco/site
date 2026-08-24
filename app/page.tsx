@@ -4,8 +4,7 @@ import { Fragment } from "react";
 import { ArrowRight } from "lucide-react";
 import { InquiryCTA } from "./_components/InquiryCTA";
 import { PageChrome } from "./_components/PageChrome";
-import { ProjectIndex } from "./_components/ProjectIndex";
-import { StudioLine } from "./_components/StudioLine";
+import { ProjectMarquee } from "./_components/ProjectMarquee";
 import { ENGAGEMENTS } from "./_lib/engagements";
 import { FLUID_GRID } from "./_lib/layout";
 import { projects } from "./_lib/projects";
@@ -150,20 +149,13 @@ function Section({
 export default function HomePage() {
   return (
     <PageChrome>
-      {/* Studio — a masthead and the way in, nothing else. Names the
-          disciplines outright; the rail's standing description carries the
-          plain-English gloss, so this doesn't explain itself. */}
+      {/* Studio — a masthead and the way in, nothing else. The footer's
+          standing description carries the plain-English gloss, so this
+          doesn't explain itself. */}
       <section
         id="studio"
         className={`scroll-mt-20 lg:scroll-mt-14 ${FLUID_GRID}`}
       >
-        {/* The rail carries this on desktop; below lg it has to sit in the
-            document or the visitor never gets the framing at all. */}
-        <StudioLine
-          data-anim="body"
-          className="col-span-12 max-w-[40ch] pb-8 opacity-70 lg:hidden"
-        />
-
         <div className="col-span-12 md:col-span-10">
           <h1
             data-anim="hero"
@@ -186,9 +178,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Selected work — full-bleed table, so it sits outside Section's
-          label grid and carries its own heading. */}
-      <ProjectIndex projects={projects} />
+      {/* Selected work — a full-bleed moving band, so it sits outside
+          Section's label grid and carries its own heading. */}
+      <ProjectMarquee projects={projects} />
 
       {/* Focus areas */}
       <Section id="focus" label="focus">

@@ -75,8 +75,11 @@ export function FooterWeather() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-px">
+    <div className="flex flex-col gap-px md:flex-row md:items-baseline md:gap-0">
       <span suppressHydrationWarning>{timeLine}</span>
+      <span aria-hidden className="hidden px-1.5 opacity-60 md:inline">
+        ·
+      </span>
       <span suppressHydrationWarning>{weatherLine}</span>
     </div>
   );

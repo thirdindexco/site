@@ -9,10 +9,8 @@ const COLUMNS = 12;
 export function GridDebugger({ enabled }: { enabled: boolean }) {
   const gridRef = useRef<HTMLDivElement>(null);
   // Engagement subroutes lay their content on the boxed grid (mx-auto
-  // max-w-grid); the landing page runs full-bleed inside the main column.
-  // Mirror whichever the current page uses so the overlay lines up with
-  // real content. The lg padding above matches the rail offset (w-80) plus
-  // the main column's own gutter.
+  // max-w-grid), which is narrower than the shell's own measure. Mirror
+  // whichever the current page uses so the overlay lines up with content.
   const [boxed, setBoxed] = useState(false);
   const [measurements, setMeasurements] = useState({
     viewport: 0,
@@ -56,12 +54,12 @@ export function GridDebugger({ enabled }: { enabled: boolean }) {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-40 overflow-hidden px-5 md:px-8 lg:pl-[calc(20rem+3rem)] lg:pr-12"
+      className="pointer-events-none fixed inset-0 z-40 overflow-hidden px-5 md:px-8 lg:px-10"
     >
       <div
         ref={gridRef}
-        className={`relative grid h-full w-full grid-cols-12 gap-6 ${
-          boxed ? "mx-auto max-w-grid" : ""
+        className={`relative mx-auto grid h-full w-full grid-cols-12 gap-6 ${
+          boxed ? "max-w-grid" : "max-w-[1140px]"
         }`}
       >
         <div className="absolute inset-y-0 left-0 w-px bg-pink-500/70" />
