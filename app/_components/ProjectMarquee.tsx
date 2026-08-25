@@ -5,10 +5,26 @@ import { formatTechnologies } from "../_lib/format";
 import { FULL_BLEED, PAGE_X, SHELL } from "../_lib/layout";
 import type { Project } from "../_lib/projects";
 
-// Non-breaking space. The panel keeps its rows rendered when nothing is
-// hovered so the reserved height holds; a plain space would collapse and
-// the block would jump as text arrives and leaves.
-const NBSP = "\u00a0";
+// One project's line in the reveal panel. Rendered once per project, all
+// stacked in a single grid cell, so the panel is always as tall as its
+// tallest entry and its height cannot depend on which one is showing.
+function PanelBody({ project }: { project: Project }) {
+  return (
+    <>
+      <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1">
+        <p className="font-mono text-2xs font-medium uppercase tracking-tight opacity-50">
+          {project.title}
+        </p>
+        <p className="font-mono text-2xs font-medium uppercase tracking-tight opacity-35">
+          {formatTechnologies(project.technologies)}
+        </p>
+      </div>
+      <p className="pt-2 font-sans text-sm leading-relaxed text-pretty">
+        {project.description}
+      </p>
+    </>
+  );
+}
 
 // One tile. Videos only spin while pointed at — eleven autoplaying loops
 // would cost battery for something mostly off-screen.
@@ -30,7 +46,7 @@ function Tile({
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${project.title} — ${project.role}`}
+      aria-label={`${project.title} — ${project.role}. ${project.description}`}
       aria-hidden={duplicate || undefined}
       tabIndex={duplicate ? -1 : undefined}
       onMouseEnter={() => {
@@ -129,31 +145,33 @@ export function ProjectMarquee({ projects }: { projects: Project[] }) {
       {/* What the hovered project actually was. It has to sit outside the
           marquee — that container clips its overflow so the loop's ends can
           be masked, which would swallow anything revealed beneath a tile.
-          The height is reserved so arriving and leaving text can't shift
-          the sections below it. */}
+
+          Every project renders into the same grid cell and only the hovered
+          one is opaque. A reserved min-height doesn't work here: the idle
+          floor was 72px and a filled row 86px, so every hover pushed the
+          sections below down 14px. Stacking makes the height the tallest
+          entry's, at any width, with no magic number to keep in sync.
+
+          aria-hidden because it duplicates what each tile's own label
+          already announces. */}
       <div className={`${SHELL} ${PAGE_X} hidden lg:block`}>
         <div
-          aria-live="polite"
-          className="mt-8 min-h-[4.5rem] border-t border-[color:var(--panel-border)] pt-5"
+          aria-hidden
+          className="mt-8 border-t border-[color:var(--panel-border)] pt-5"
         >
-          <div
-            className={`max-w-[64ch] transition-[opacity,transform] duration-[280ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
-              hovered
-                ? "translate-y-0 opacity-100"
-                : "pointer-events-none translate-y-1.5 opacity-0"
-            }`}
-          >
-            <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1">
-              <p className="font-mono text-2xs font-medium uppercase tracking-tight opacity-50">
-                {hovered?.title ?? NBSP}
-              </p>
-              <p className="font-mono text-2xs font-medium uppercase tracking-tight opacity-35">
-                {hovered ? formatTechnologies(hovered.technologies) : NBSP}
-              </p>
-            </div>
-            <p className="pt-2 font-sans text-sm leading-relaxed text-pretty">
-              {hovered?.description ?? NBSP}
-            </p>
+          <div className="grid max-w-[64ch]">
+            {projects.map((project) => (
+              <div
+                key={project.url}
+                className={`[grid-area:1/1] transition-[opacity,transform] duration-[280ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                  hovered?.url === project.url
+                    ? "translate-y-0 opacity-100"
+                    : "pointer-events-none translate-y-1.5 opacity-0"
+                }`}
+              >
+                <PanelBody project={project} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
