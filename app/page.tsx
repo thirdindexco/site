@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   },
 };
 
-const HERO_LEAD = "Frontend development for ambitious design.";
+const HERO_LEAD = "Design engineering and creative technology.";
 const HERO_SUPPORT =
-  "Interfaces, systems, and motion\u2014with the full-stack depth to carry ideas through production.";
+  "A studio building software, interfaces, and motion for the web.";
 
 const FOCUS_AREAS: { title: string; description: string }[] = [
   {
@@ -156,10 +156,13 @@ export default function HomePage() {
         id="studio"
         className={`scroll-mt-20 lg:scroll-mt-14 ${FLUID_GRID}`}
       >
-        <div className="col-span-12 md:col-span-10">
+        {/* Full twelve columns: the h1's own max-w is what sets the measure,
+            and a 10-column wrapper was narrower than that between roughly
+            1024 and 1090, breaking the support line early. */}
+        <div className="col-span-12">
           <h1
             data-anim="hero"
-            className="max-w-[38ch] font-sans text-xl font-medium leading-[1.25] tracking-tight md:text-2xl lg:text-3xl"
+            className="max-w-[45ch] font-sans text-xl font-medium leading-[1.25] tracking-tight md:text-2xl lg:text-3xl"
           >
             {/* The masthead line holds its own row. Left inline it fits
                 the measure with ~3px to spare, which is just enough for
