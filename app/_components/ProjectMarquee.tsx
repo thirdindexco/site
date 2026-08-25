@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { formatTechnologies } from "../_lib/format";
-import { FULL_BLEED, PAGE_X, SHELL } from "../_lib/layout";
+import { FULL_BLEED } from "../_lib/layout";
 import type { Project } from "../_lib/projects";
 
 // One project's line in the reveal panel. Rendered once per project, all
@@ -111,7 +111,7 @@ export function ProjectMarquee({ projects }: { projects: Project[] }) {
       id="work"
       className="scroll-mt-24 pt-20 md:pt-28 lg:scroll-mt-20 lg:pt-36"
     >
-      <div className={`${SHELL} ${PAGE_X}`}>
+      <div>
         <h2
           data-anim="body"
           className="font-mono text-2xs font-medium uppercase tracking-tight opacity-50"
@@ -154,7 +154,7 @@ export function ProjectMarquee({ projects }: { projects: Project[] }) {
 
           aria-hidden because it duplicates what each tile's own label
           already announces. */}
-      <div className={`${SHELL} ${PAGE_X} hidden lg:block`}>
+      <div className="hidden lg:block">
         <div
           aria-hidden
           className="mt-8 border-t border-[color:var(--panel-border)] pt-5"
