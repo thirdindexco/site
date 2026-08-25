@@ -9,7 +9,7 @@ export function StudioLine({ className = "", ...rest }: React.ComponentProps<"p"
       className={`font-sans text-xs leading-[1.6] text-balance ${className}`}
     >
       <span className="font-semibold">THIRD INDEX</span> is an independent
-      digital studio led by{" "}
+      studio led by{" "}
       <a
         href="https://relli.cc"
         target="_blank"
@@ -18,7 +18,7 @@ export function StudioLine({ className = "", ...rest }: React.ComponentProps<"p"
       >
         Michael Ciccarelli
       </a>{" "}
-      in the Mojave Desert. We work with brands, studios, and product teams.
+      in the Mojave Desert.
     </p>
   );
 }

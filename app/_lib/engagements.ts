@@ -31,15 +31,14 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "frontend build",
     meta: "from $5k/week · 1–3 weeks",
     description:
-      "a finished design turned into responsive, production-ready frontend code. one week covers a focused piece — a landing page, a product flow, a checkout; three is a full sprint.",
+      "finished design in code. one week for a page or flow; three for a sprint.",
     href: "/sprint",
   },
   {
     slug: "prototype",
     title: "prototype",
     meta: "$6–10k · 1–2 weeks",
-    description:
-      "a loose idea turned into a clickable, deployed prototype — real interface, core flows, a url you can put in front of people.",
+    description: "a deployed prototype — interface, core flows, a url.",
     href: "/prototype",
   },
   {
@@ -47,7 +46,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "design-system foundation",
     meta: "from $10k · two weeks",
     description:
-      "your designs turned into a coded, documented component system — tokens, reusable components, and a browsable playground.",
+      "a coded component system — tokens, documentation, a playground.",
     href: "/systems",
   },
   {
@@ -55,7 +54,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "fractional design engineering",
     meta: "from $10k/month · two days a week",
     description:
-      "senior design engineering embedded in your team — two days a week at the base rate, three when you need them. three month minimum.",
+      "embedded with your team. two days a week, three if needed. three month minimum.",
     href: "/fractional",
   },
 ];

@@ -19,7 +19,7 @@
         "title": "Legend.xyz",
         "role": "Frontend Development",
         "url": "https://legend-xyz.vercel.app",
-        "description": "marketing site for an embedded smart contract wallet built on open defi protocols. custom webgl moments and scroll-driven sequences across the homepage and product pages.",
+        "description": "marketing site for an embedded smart contract wallet. webgl and scroll-driven sequences on the homepage and product pages.",
         "technologies": "Next.js, Tailwind, WebGL",
         "thumbnail": "/projects/legend.jpg"
     },
@@ -27,7 +27,7 @@
         "title": "Amazon: The Bar",
         "role": "Frontend Development",
         "url": "https://amazonthe.bar",
-        "description": "site for a creative agency that builds for amazon. custom animation, editorial layouts, typography that carries the brand. nothing off the shelf.",
+        "description": "site for a creative agency that builds for amazon. custom animation, editorial layouts, typography.",
         "technologies": "Next.js, Sanity, Tailwind, Motion",
         "thumbnail": "/projects/the-bar.jpg",
         "video": "/projects/amazonthebar.mp4"
@@ -36,7 +36,7 @@
         "title": "One/Of",
         "role": "Design & Development",
         "url": "https://shoponeof.com",
-        "description": "commerce for a made-to-order fashion label. custom booking flow for in-person fittings, headless shopify checkout for ready-to-ship pieces. two purchase models, one buying system.",
+        "description": "commerce for a made-to-order fashion label. custom booking for in-person fittings, headless shopify for ready-to-ship.",
         "technologies": "Shopify (Headless), Next.js, Sanity, Cal.com",
         "thumbnail": "/projects/one-of.jpg"
     },
@@ -44,7 +44,7 @@
         "title": "Modern Treasury",
         "role": "Frontend Development",
         "url": "https://moderntreasury.com",
-        "description": "ui and component work for a fintech platform processing over a billion dollars in payments annually. marketing surfaces and in-app patterns built against a shared design system.",
+        "description": "ui and component work for a payments platform. marketing surfaces and in-app patterns against a shared design system.",
         "technologies": "Next.js, Sanity, Tailwind",
         "thumbnail": "/projects/mt.jpg"
     },
@@ -52,7 +52,7 @@
         "title": "elara.world",
         "role": "Full-stack Development",
         "url": "https://elara.world",
-        "description": "community platform pairing editorial content with a merchandise store. publishing and commerce running on the same frontend, with one shared design language.",
+        "description": "community platform pairing editorial with a store. publishing and commerce on one frontend.",
         "technologies": "Next.js, Sanity, Shopify",
         "thumbnail": "/projects/elara.jpg",
         "video": "/projects/elara.mp4"
@@ -69,7 +69,7 @@
         "title": "Kelvon Agee",
         "role": "Design & Development",
         "url": "https://kelvonagee.com",
-        "description": "portfolio for a photographer. full-bleed imagery, ruthless image optimization, typography kept out of the way. the work stays in front.",
+        "description": "portfolio for a photographer. full-bleed imagery, image optimization, typography kept out of the way.",
         "technologies": "Next.js, Cloudinary",
         "thumbnail": "/projects/kelvon.jpg"
     },
@@ -85,7 +85,7 @@
         "title": "El Dorado",
         "role": "Frontend Development",
         "url": "https://eldo.us/",
-        "description": "architecture studio portfolio. project pages built around process — drawings, material studies, site photography — not just finished shots. the site reads like a monograph.",
+        "description": "architecture studio portfolio. project pages built around process — drawings, material studies, site photography.",
         "technologies": "Next.js, Contentful",
         "thumbnail": "/projects/eldo.jpg"
     },
@@ -93,7 +93,7 @@
         "title": "VICE",
         "role": "Lead Frontend Development",
         "url": "https://vice.com",
-        "description": "editorial platform serving millions of readers. real-time content delivery, ad integration, and a frontend that had to hold up under breaking-news traffic spikes.",
+        "description": "editorial platform. real-time content, ad integration, and a frontend built for traffic spikes.",
         "technologies": "React.js, Redux, Node.js",
         "thumbnail": "/projects/vice.jpg"
     }

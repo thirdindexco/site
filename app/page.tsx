@@ -46,32 +46,31 @@ const FOCUS_AREAS: { title: string; description: string }[] = [
   {
     title: "product interfaces",
     description:
-      "application ui built to design quality — component architecture, states, accessibility, and the interaction detail that makes it feel finished.",
+      "application ui — architecture, states, accessibility, interaction.",
   },
   {
     title: "design systems",
     description:
-      "tokens, primitives, and documentation that keep shipped product consistent with design intent — in figma and in code.",
+      "tokens, primitives, and documentation, in figma and in code.",
   },
   {
     title: "websites & rebuilds",
     description:
-      "marketing, editorial, and commerce surfaces — built new or rebuilt, with architecture and navigation reworked rather than restyled. fast and findable because they're built that way.",
+      "marketing, editorial, and commerce — new or rebuilt, with architecture and navigation reworked rather than restyled.",
   },
   {
     title: "cms systemization",
     description:
-      "content models, editing experience, and page-building components wired up so your team can ship pages without calling us.",
+      "content models, editing experience, and page-building components.",
   },
   {
     title: "creative development",
-    description:
-      "webgl, canvas, scroll choreography, and motion moments that earn their place instead of decorating the page.",
+    description: "webgl, canvas, scroll choreography, and motion.",
   },
   {
     title: "frontend architecture",
     description:
-      "app structure, rendering strategy, performance budgets, and migration paths for codebases that need a senior pass.",
+      "app structure, rendering strategy, performance, and migrations.",
   },
 ];
 
@@ -207,20 +206,9 @@ export default function HomePage() {
 
       {/* Engagement shapes — the only links that leave this page. */}
       <Section id="engagements" label="engagements">
-        <div data-anim="body">
-          <p className="max-w-[56ch] font-sans text-sm font-medium leading-relaxed text-pretty">
-            senior frontend development for teams whose builds need to match
-            the ambition of their designs.
-          </p>
-          <p className="max-w-[56ch] pt-3 font-sans text-sm leading-relaxed text-pretty text-foreground/65">
-            backed by full-stack capability, product judgment, motion, systems
-            thinking, and the design sense to close gaps without supervision.
-          </p>
-        </div>
-
         <ul
           data-anim="body"
-          className="mt-6 border-t border-[color:var(--panel-border)]"
+          className="border-t border-[color:var(--panel-border)]"
         >
           {ENGAGEMENTS.map((engagement) => (
             <li
@@ -283,8 +271,7 @@ export default function HomePage() {
           data-anim="body"
           className="max-w-[52ch] pt-5 font-sans text-sm leading-relaxed text-foreground/65"
         >
-          stack is flexible — these are the defaults, not the boundary. if
-          you&apos;re on something unusual, ask.
+          defaults, not a boundary.
         </p>
       </Section>
 
@@ -292,9 +279,7 @@ export default function HomePage() {
       <Section id="inquiry" label="inquiries">
         <div data-anim="body">
           <p className="max-w-[44ch] font-sans text-sm font-medium leading-[1.6] tracking-tight text-pretty md:text-base md:leading-[1.5]">
-            have a project in mind? taking on project-based and fractional
-            engagements — single build weeks, fixed-scope sprints, and
-            embedded work.
+            open to new work — project-based or fractional.
           </p>
           <InquiryCTA />
         </div>
