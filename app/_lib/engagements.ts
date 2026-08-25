@@ -31,7 +31,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
     title: "frontend build",
     meta: "from $5k/week · 1–3 weeks",
     description:
-      "a finished design turned into responsive, production-ready frontend code. one week buys one surface; three is a full sprint.",
+      "a finished design turned into responsive, production-ready frontend code. one week covers a focused piece — a landing page, a product flow, a checkout; three is a full sprint.",
     href: "/sprint",
   },
   {

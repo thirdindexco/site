@@ -1,20 +1,27 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { formatTechnologies } from "../_lib/format";
 import { FULL_BLEED, PAGE_X, SHELL } from "../_lib/layout";
 import type { Project } from "../_lib/projects";
+
+// Non-breaking space. The panel keeps its rows rendered when nothing is
+// hovered so the reserved height holds; a plain space would collapse and
+// the block would jump as text arrives and leaves.
+const NBSP = "\u00a0";
 
 // One tile. Videos only spin while pointed at — eleven autoplaying loops
 // would cost battery for something mostly off-screen.
 function Tile({
   project,
   duplicate,
+  onHover,
 }: {
   project: Project;
   // The second copy exists only so the loop can be seamless. Hidden from
   // assistive tech and skipped by the tab order, or the list reads twice.
   duplicate?: boolean;
+  onHover: (project: Project | null) => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -26,8 +33,12 @@ function Tile({
       aria-label={`${project.title} — ${project.role}`}
       aria-hidden={duplicate || undefined}
       tabIndex={duplicate ? -1 : undefined}
-      onMouseEnter={() => videoRef.current?.play().catch(() => {})}
+      onMouseEnter={() => {
+        onHover(project);
+        videoRef.current?.play().catch(() => {});
+      }}
       onMouseLeave={() => videoRef.current?.pause()}
+      onFocus={() => onHover(project)}
       className="marquee-tile group/tile block w-[300px] shrink-0 outline-none focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-[color:var(--accent)] md:w-[400px] lg:w-[480px]"
     >
       <span className="block aspect-[16/10] w-full overflow-hidden bg-[color:var(--secondary)]">
@@ -56,8 +67,17 @@ function Tile({
         <span>{project.title}</span>
         <span className="opacity-50">{project.role}</span>
       </span>
-      <span className="block pt-1 font-mono text-2xs font-medium uppercase tracking-tight opacity-35">
+      {/* Below lg the stack rides in the tile: there is no hover, so the
+          reveal panel can never fire. On desktop both stack and description
+          live in the panel and the tile stays a picture. */}
+      <span className="block pt-1 font-mono text-2xs font-medium uppercase tracking-tight opacity-35 lg:hidden">
         {formatTechnologies(project.technologies)}
+      </span>
+
+      {/* Touch screens have no hover, so the reveal below the band can never
+          fire there. Carry the description inside the tile instead. */}
+      <span className="block max-w-[46ch] pt-3 font-sans text-xs leading-[1.6] text-pretty text-foreground/60 lg:hidden">
+        {project.description}
       </span>
     </a>
   );
@@ -68,6 +88,8 @@ function Tile({
 // one copy's width, so the loop is seamless; the CSS in globals.css pauses
 // it on hover or focus and stands it down entirely for reduced motion.
 export function ProjectMarquee({ projects }: { projects: Project[] }) {
+  const [hovered, setHovered] = useState<Project | null>(null);
+
   return (
     <section
       id="work"
@@ -82,7 +104,10 @@ export function ProjectMarquee({ projects }: { projects: Project[] }) {
         </h2>
       </div>
 
-      <div className={`${FULL_BLEED} marquee mt-8 md:mt-10`}>
+      <div
+        className={`${FULL_BLEED} marquee mt-8 md:mt-10`}
+        onMouseLeave={() => setHovered(null)}
+      >
         {/* The trailing padding matches the gap on purpose. Without it the
             track is 2n tiles and 2n-1 gaps, so translating one half-width
             lands 12px short of where the second copy begins and the loop
@@ -95,8 +120,41 @@ export function ProjectMarquee({ projects }: { projects: Project[] }) {
               key={`${project.url}-${i}`}
               project={project}
               duplicate={i >= projects.length}
+              onHover={setHovered}
             />
           ))}
+        </div>
+      </div>
+
+      {/* What the hovered project actually was. It has to sit outside the
+          marquee — that container clips its overflow so the loop's ends can
+          be masked, which would swallow anything revealed beneath a tile.
+          The height is reserved so arriving and leaving text can't shift
+          the sections below it. */}
+      <div className={`${SHELL} ${PAGE_X} hidden lg:block`}>
+        <div
+          aria-live="polite"
+          className="mt-8 min-h-[4.5rem] border-t border-[color:var(--panel-border)] pt-5"
+        >
+          <div
+            className={`max-w-[64ch] transition-[opacity,transform] duration-[280ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+              hovered
+                ? "translate-y-0 opacity-100"
+                : "pointer-events-none translate-y-1.5 opacity-0"
+            }`}
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1">
+              <p className="font-mono text-2xs font-medium uppercase tracking-tight opacity-50">
+                {hovered?.title ?? NBSP}
+              </p>
+              <p className="font-mono text-2xs font-medium uppercase tracking-tight opacity-35">
+                {hovered ? formatTechnologies(hovered.technologies) : NBSP}
+              </p>
+            </div>
+            <p className="pt-2 font-sans text-sm leading-relaxed text-pretty">
+              {hovered?.description ?? NBSP}
+            </p>
+          </div>
         </div>
       </div>
     </section>

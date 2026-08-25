@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 const HERO_LEAD = "Frontend development for ambitious design.";
 const HERO_SUPPORT =
-  "Interfaces, systems, and motion\u2014with the full-stack depth to take ideas all the way to production.";
+  "Interfaces, systems, and motion\u2014with the full-stack depth to carry ideas through production.";
 
 const FOCUS_AREAS: { title: string; description: string }[] = [
   {
@@ -208,13 +208,12 @@ export default function HomePage() {
       <Section id="engagements" label="engagements">
         <div data-anim="body">
           <p className="max-w-[56ch] font-sans text-sm font-medium leading-relaxed text-pretty">
-            senior frontend development for teams with ambitious designs and
-            nobody available to build them properly.
+            senior frontend development for teams whose builds need to match
+            the ambition of their designs.
           </p>
           <p className="max-w-[56ch] pt-3 font-sans text-sm leading-relaxed text-pretty text-foreground/65">
             backed by full-stack capability, product judgment, motion, systems
-            thinking, and enough design ability to close the gaps without
-            supervision.
+            thinking, and the design sense to close gaps without supervision.
           </p>
         </div>
 
@@ -293,8 +292,8 @@ export default function HomePage() {
         <div data-anim="body">
           <p className="max-w-[44ch] font-sans text-sm font-medium leading-[1.6] tracking-tight text-pretty md:text-base md:leading-[1.5]">
             have a project in mind? taking on project-based and fractional
-            engagements — one-week audits, fixed-scope sprints, and embedded
-            work.
+            engagements — single build weeks, fixed-scope sprints, and
+            embedded work.
           </p>
           <InquiryCTA />
         </div>

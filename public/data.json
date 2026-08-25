@@ -50,7 +50,7 @@
     },
     {
         "title": "elara.world",
-        "role": "Fullstack Development",
+        "role": "Full-stack Development",
         "url": "https://elara.world",
         "description": "community platform pairing editorial content with a merchandise store. publishing and commerce running on the same frontend, with one shared design language.",
         "technologies": "Next.js, Sanity, Shopify",
@@ -59,7 +59,7 @@
     },
     {
         "title": "Revolve Law",
-        "role": "Fullstack Development",
+        "role": "Full-stack Development",
         "url": "https://revolvelawgroup.com",
         "description": "site for a law firm that wanted to look like neither a law firm nor a tech company. restrained type, quiet motion, a contact flow that gets people to the right place in two clicks.",
         "technologies": "Next.js, Tailwind, Sanity",
@@ -75,7 +75,7 @@
     },
     {
         "title": "The Well",
-        "role": "Fullstack Development",
+        "role": "Full-stack Development",
         "url": "https://the-well.com",
         "description": "wellness platform combining e-commerce, appointment booking, and member access. shopify for products, custom scheduling for services, member state shared across all of it.",
         "technologies": "Vue.js, Sanity, Shopify",
