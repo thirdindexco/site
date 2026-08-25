@@ -19,7 +19,7 @@ export function SiteHeader({
   return (
     <header className="sticky top-0 z-30 bg-[color:var(--background)]/85 backdrop-blur-md">
       <div
-        className={`${SHELL} ${PAGE_X} flex items-center justify-between gap-8 py-4`}
+        className={`${SHELL} ${PAGE_X} flex items-center justify-between gap-8 py-6 lg:py-10`}
       >
         <Link
           href="/"
