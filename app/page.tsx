@@ -39,9 +39,8 @@ export const metadata: Metadata = {
   },
 };
 
-const HERO_LEAD = "Design engineering and creative technology.";
-const HERO_SUPPORT =
-  "A studio building software, interfaces, and motion for the web.";
+const HERO_LEAD = "Interfaces, systems, and motion.";
+const HERO_SUPPORT = "A studio for design engineering on the web.";
 
 const FOCUS_AREAS: { title: string; description: string }[] = [
   {
@@ -164,11 +163,10 @@ export default function HomePage() {
             data-anim="hero"
             className="max-w-[45ch] font-sans text-xl font-medium leading-[1.25] tracking-tight md:text-2xl lg:text-3xl"
           >
-            {/* The masthead line holds its own row. Left inline it fits
-                the measure with ~3px to spare, which is just enough for
-                "Twenty" to ride up and strand it from "years" — and
-                text-pretty can't rebalance it, since every word here is an
-                atomic inline-block for the cascade. */}
+            {/* The masthead line holds its own row so the support can
+                wrap underneath it. text-pretty can't rebalance this
+                headline: every word is an atomic inline-block for the
+                cascade. */}
             <span className="block">{heroWords(HERO_LEAD)}</span>
             <span className="text-foreground/45">
               {heroWords(HERO_SUPPORT)}
