@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Fragment } from "react";
-import { ArrowRight } from "lucide-react";
 import { InquiryCTA } from "./_components/InquiryCTA";
 import { PageChrome } from "./_components/PageChrome";
-import { ProjectMarquee } from "./_components/ProjectMarquee";
-import { ENGAGEMENTS } from "./_lib/engagements";
+import { ProjectIndex } from "./_components/ProjectIndex";
+import { EngagementCards } from "./_components/EngagementCards";
+import { StackMarquee } from "./_components/StackMarquee";
 import { FLUID_GRID } from "./_lib/layout";
 import { projects } from "./_lib/projects";
 
@@ -72,17 +71,6 @@ const FOCUS_AREAS: { title: string; description: string }[] = [
     description:
       "app structure, rendering strategy, performance, and migrations.",
   },
-];
-
-const STACK: { group: string; items: string }[] = [
-  { group: "frontend", items: "typescript · react · next.js · tailwind" },
-  { group: "motion", items: "gsap · motion · three.js / webgl" },
-  { group: "backend & data", items: "node.js · postgresql · supabase" },
-  {
-    group: "commerce & content",
-    items: "shopify (headless) · sanity · stripe",
-  },
-  { group: "tooling", items: "figma · claude code · cursor · vercel" },
 ];
 
 // Words are wrapped individually so AnimRoot can cascade the reveal. The
@@ -178,9 +166,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Selected work — a full-bleed moving band, so it sits outside
-          Section's label grid and carries its own heading. */}
-      <ProjectMarquee projects={projects} />
+      {/* Selected work — full-bleed table, so it sits outside Section's
+          label grid and carries its own heading. */}
+      <ProjectIndex projects={projects} />
 
       {/* Focus areas */}
       <Section id="focus" label="focus">
@@ -206,73 +194,12 @@ export default function HomePage() {
 
       {/* Engagement shapes — the only links that leave this page. */}
       <Section id="engagements" label="engagements">
-        <ul
-          data-anim="body"
-          className="border-t border-[color:var(--panel-border)]"
-        >
-          {ENGAGEMENTS.map((engagement) => (
-            <li
-              key={engagement.slug}
-              className="border-b border-[color:var(--panel-border)]"
-            >
-              <Link
-                href={engagement.href}
-                className="group/tier block py-5 outline-none focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-[color:var(--accent)]"
-              >
-                <div className="grid gap-2 md:grid-cols-3 md:gap-6">
-                  <div>
-                    <h3 className="font-sans text-sm font-semibold leading-tight tracking-tight">
-                      {engagement.title}
-                    </h3>
-                    <p className="pt-1.5 font-mono text-2xs font-medium uppercase tracking-tight opacity-50">
-                      {engagement.meta}
-                    </p>
-                  </div>
-                  <div className="md:col-span-2">
-                    <p className="max-w-[52ch] font-sans text-sm leading-relaxed text-pretty text-foreground/65">
-                      {engagement.description}
-                    </p>
-                    <span className="inline-flex items-center gap-1.5 pt-3 font-mono text-2xs font-medium uppercase tracking-tight opacity-50 transition-opacity duration-200 group-hover/tier:opacity-100 group-focus-visible/tier:opacity-100">
-                      learn more
-                      <ArrowRight
-                        aria-hidden
-                        className="h-3 w-3 transition-transform duration-200 group-hover/tier:translate-x-0.5 group-focus-visible/tier:translate-x-0.5"
-                      />
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <EngagementCards />
       </Section>
 
       {/* Stack */}
       <Section id="stack" label="stack">
-        <dl
-          data-anim="body"
-          className="border-t border-[color:var(--panel-border)]"
-        >
-          {STACK.map((row) => (
-            <div
-              key={row.group}
-              className="grid gap-1 border-b border-[color:var(--panel-border)] py-3.5 md:grid-cols-3 md:gap-6"
-            >
-              <dt className="font-mono text-2xs font-medium uppercase tracking-tight opacity-50">
-                {row.group}
-              </dt>
-              <dd className="font-sans text-sm leading-relaxed md:col-span-2">
-                {row.items}
-              </dd>
-            </div>
-          ))}
-        </dl>
-        <p
-          data-anim="body"
-          className="max-w-[52ch] pt-5 font-sans text-sm leading-relaxed text-foreground/65"
-        >
-          defaults, not a boundary.
-        </p>
+        <StackMarquee />
       </Section>
 
       {/* Way in */}

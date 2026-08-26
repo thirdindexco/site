@@ -18,8 +18,8 @@ import { SiteHeader } from "./SiteHeader";
 import { ThemeShortcuts } from "./ThemeShortcuts";
 
 // Shared shell for every page: one centered measure with a sticky bar above
-// it and the colophon below. Full-bleed rows escape the measure with
-// FULL_BLEED rather than by living outside the container.
+// it and the colophon below. Full-bleed rows cancel PAGE_X with BLEED_X
+// rather than by living outside the container.
 //
 // There is no mobile nav drawer. With the section index gone the drawer had
 // one link left in it, which isn't worth a fullscreen overlay — so the bar
