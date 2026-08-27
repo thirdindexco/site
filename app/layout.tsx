@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "./_components/Providers";
 import "./globals.css";
@@ -17,6 +18,29 @@ const sans = Inter({
   style: ["normal", "italic"],
   variable: "--font-sans",
   display: "swap",
+});
+
+const ldSerif = localFont({
+  src: [
+    {
+      path: "../fonts/LD-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/LD-LightItalic.woff2",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../fonts/LD-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-serif",
+  display: "swap",
+  adjustFontFallback: "Times New Roman",
 });
 
 const siteTitle = "THIRD INDEX";
@@ -132,7 +156,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${mono.variable} ${sans.variable}`}
+      className={`${mono.variable} ${sans.variable} ${ldSerif.variable}`}
       suppressHydrationWarning
     >
       <head>

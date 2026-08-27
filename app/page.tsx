@@ -148,14 +148,14 @@ export default function HomePage() {
         <div className="col-span-12">
           <h1
             data-anim="hero"
-            className="max-w-[45ch] font-sans text-xl font-medium leading-[1.25] tracking-tight md:text-2xl lg:text-3xl"
+            className="hero-serif max-w-[45ch] font-serif text-xl font-light leading-[1.25] tracking-[-0.018em] md:text-2xl lg:text-3xl"
           >
             {/* The masthead line holds its own row so the support can
                 wrap underneath it. text-pretty can't rebalance this
                 headline: every word is an atomic inline-block for the
                 cascade. */}
             <span className="block">{heroWords(HERO_LEAD)}</span>
-            <span className="text-foreground/45">
+            <span className="hero-serif-support">
               {heroWords(HERO_SUPPORT)}
             </span>
           </h1>

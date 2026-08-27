@@ -47,7 +47,27 @@ body {
 
 body {
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+/* Hero display cut. geometricPrecision skips hinting so the outline
+   stays true at 24–30px; grayscale AA keeps Light from fringing on
+   dark. liga/calt/kern are the features this family actually ships.
+   Avoid -webkit-text-stroke here — it thickens and halos on canvas. */
+.hero-serif {
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: normal;
+  font-synthesis: none;
+  font-variant-ligatures: common-ligatures contextual;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+/* Opaque mix, not alpha: translucent glyphs rasterize soft. */
+.hero-serif-support {
+  color: color-mix(in srgb, var(--foreground) 58%, var(--background));
 }
 
 /* FOUC guard for the desktop intro. Elements stay hidden until GSAP takes
