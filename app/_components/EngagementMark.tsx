@@ -97,50 +97,40 @@ function PrototypeMark() {
 }
 
 function SystemsMark() {
+  const cell = 16;
+  const gap = 4;
+  const x0 = 10;
+  const y0 = 8;
+  const cells = [
+    { x: x0, y: y0, filled: true },
+    { x: x0 + cell + gap, y: y0, delay: "0ms" },
+    { x: x0, y: y0 + cell + gap, delay: "60ms" },
+    { x: x0 + cell + gap, y: y0 + cell + gap, delay: "120ms" },
+  ];
+
   return (
     <svg
       viewBox="0 0 96 52"
       aria-hidden
       className="engagement-mark h-[52px] w-[96px]"
     >
-      {/* Type scale on a baseline — tokens, not a component collage. */}
-      <line
-        x1="10"
-        y1="40"
-        x2="86"
-        y2="40"
-        stroke="currentColor"
-        strokeWidth="0.75"
-        opacity="0.4"
-      />
-      <rect
-        className="mark-token"
-        x="12"
-        y="32"
-        width="8"
-        height="8"
-      />
-      <rect
-        className="mark-token"
-        x="28"
-        y="26"
-        width="12"
-        height="14"
-      />
-      <rect
-        className="mark-token"
-        x="48"
-        y="18"
-        width="16"
-        height="22"
-      />
-      <rect
-        className="mark-token"
-        x="72"
-        y="10"
-        width="14"
-        height="30"
-      />
+      {/* Four primitives in a kit. One is present; the rest fill in on
+          hover, same as the other marks assembling. */}
+      {cells.map((c, i) => (
+        <rect
+          key={i}
+          x={c.x}
+          y={c.y}
+          width={cell}
+          height={cell}
+          fill={c.filled ? "currentColor" : "none"}
+          stroke="currentColor"
+          strokeWidth="0.75"
+          opacity={c.filled ? 0.85 : undefined}
+          className={c.filled ? undefined : "mark-cell"}
+          style={c.delay ? { transitionDelay: c.delay } : undefined}
+        />
+      ))}
     </svg>
   );
 }

@@ -192,15 +192,36 @@ export default function HomePage() {
         </ul>
       </Section>
 
-      {/* Engagement shapes — the only links that leave this page. */}
-      <Section id="engagements" label="engagements">
+      {/* Engagement shapes — full-bleed on the 12-col measure, so the
+          cards sit on the same columns the grid overlay draws. */}
+      <section
+        id="engagements"
+        className={`scroll-mt-20 pt-20 md:pt-28 lg:scroll-mt-14 lg:pt-36 ${FLUID_GRID}`}
+      >
+        <h2
+          data-anim="body"
+          className="col-span-12 font-mono text-2xs font-medium uppercase tracking-tight opacity-50"
+        >
+          engagements
+        </h2>
         <EngagementCards />
-      </Section>
+      </section>
 
-      {/* Stack */}
-      <Section id="stack" label="stack">
-        <StackMarquee />
-      </Section>
+      {/* Stack — same full-width measure as the cards above. */}
+      <section
+        id="stack"
+        className={`scroll-mt-20 pt-20 md:pt-28 lg:scroll-mt-14 lg:pt-36 ${FLUID_GRID}`}
+      >
+        <h2
+          data-anim="body"
+          className="col-span-12 font-mono text-2xs font-medium uppercase tracking-tight opacity-50"
+        >
+          stack
+        </h2>
+        <div className="col-span-12">
+          <StackMarquee />
+        </div>
+      </section>
 
       {/* Way in */}
       <Section id="inquiry" label="inquiries">

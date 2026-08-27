@@ -5,9 +5,12 @@ import { EngagementMark } from "./EngagementMark";
 
 export function EngagementCards() {
   return (
-    <ul data-anim="body" className="grid gap-4 sm:grid-cols-2 sm:gap-5">
+    <ul
+      data-anim="body"
+      className="col-span-12 grid grid-cols-12 gap-6"
+    >
       {ENGAGEMENTS.map((engagement) => (
-        <li key={engagement.slug}>
+          <li key={engagement.slug} className="col-span-12 md:col-span-6">
           <Link
             href={engagement.href}
             className="group/tier flex h-full flex-col border border-[color:var(--panel-border)] p-5 outline-none transition-colors duration-200 hover:border-[color:color-mix(in_srgb,var(--foreground)_28%,transparent)] focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-[color:var(--accent)]"

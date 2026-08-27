@@ -114,20 +114,6 @@ html[data-theme="dark"] .dither-field {
   opacity: 0.32;
 }
 
-.engagement-mark .mark-token {
-  fill: currentColor;
-  stroke: currentColor;
-  stroke-width: 0.75;
-  opacity: 0.2;
-  transform-box: fill-box;
-  transform-origin: center bottom;
-  transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-[data-engagement-card]:hover .mark-token,
-[data-engagement-card]:focus-visible .mark-token {
-  transform: translateY(-3px);
-}
-
 .engagement-mark .mark-dot {
   transform-box: fill-box;
   transform-origin: center;
@@ -161,15 +147,28 @@ html[data-theme="dark"] .dither-field {
   opacity: 0.28;
 }
 
+.engagement-mark .mark-cell {
+  fill: none;
+  opacity: 0.55;
+  transition:
+    fill 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-engagement-card]:hover .mark-cell,
+[data-engagement-card]:focus-visible .mark-cell {
+  fill: currentColor;
+  opacity: 0.28;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .engagement-mark .mark-fill {
     transform: scaleX(1);
     opacity: 0.28;
     transition: none;
   }
-  .engagement-mark .mark-token,
   .engagement-mark .mark-dot,
-  .engagement-mark .mark-third {
+  .engagement-mark .mark-third,
+  .engagement-mark .mark-cell {
     animation: none;
     transition: none;
     transform: none;
