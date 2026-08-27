@@ -43,7 +43,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
   },
   {
     slug: "systems",
-    title: "design-system foundation",
+    title: "design system foundation",
     meta: "from $10k · two weeks",
     description:
       "a coded component system — tokens, documentation, a playground.",

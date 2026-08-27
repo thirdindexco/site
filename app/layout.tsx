@@ -45,7 +45,7 @@ const ldSerif = localFont({
 
 const siteTitle = "THIRD INDEX";
 const siteDescription =
-  "Design engineering studio in Las Vegas building web apps, product interfaces, and high-craft websites. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
+  "Independent software engineering studio in Las Vegas specializing in custom web development — websites, web applications, product interfaces, and digital platforms. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
 
 const siteUrl = "https://thirdindex.co";
 
@@ -68,21 +68,20 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   applicationName: siteTitle,
   keywords: [
-    "design engineering studio",
-    "design engineering agency",
-    "frontend development studio",
+    "software engineering studio",
+    "custom web development",
     "custom web application development",
+    "frontend engineering",
     "product interface development",
-    "user interface engineering",
+    "web application development",
     "design system development",
     "design system sprint",
     "prototype development",
     "frontend architecture",
-    "creative web development",
-    "web animation development",
     "headless commerce development",
-    "fractional design engineer",
+    "fractional software engineer",
     "senior frontend consulting",
+    "independent software engineering practice",
   ],
   authors: [{ name: "Michael Ciccarelli", url: "https://relli.cc" }],
   creator: "Michael Ciccarelli",
@@ -100,7 +99,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "THIRD INDEX — design engineering studio for web apps, product interfaces, and design systems",
+        alt: "THIRD INDEX — software engineering studio specializing in custom web development",
       },
     ],
   },

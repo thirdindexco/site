@@ -1,16 +1,18 @@
 # THIRD INDEX
 
-> Principal-led design engineering studio building custom web apps, product interfaces, design systems, and high-craft websites.
+> Independent software engineering studio specializing in custom web development.
 
-THIRD INDEX is based in Las Vegas, led by Michael Ciccarelli, and works with brands, creative agencies, founders, and product teams worldwide. The studio combines interface design judgment with production engineering so design intent survives implementation.
+THIRD INDEX is based in Las Vegas, led by Michael Ciccarelli, and works with brands, agencies, founders, and product teams worldwide. The practice builds websites, web applications, product interfaces, and digital platforms.
 
-Core capabilities include product interfaces, design systems, creative frontend development, custom websites, web applications, frontend architecture, motion, WebGL, editorial platforms, and headless commerce.
+It is a principal-led software engineering studio: custom development, technical judgment, and production implementation. Not a design studio, branding shop, or marketing agency.
+
+Core capabilities include product interfaces, design system implementation, custom websites, web applications, frontend architecture, motion, WebGL, editorial platforms, and headless commerce.
 
 ## Primary pages
 
-- [Home](https://thirdindex.co/): Single landing page covering the studio overview, selected work, capabilities, technology stack, clients, ways to work together, and contact entry points.
+- [Home](https://thirdindex.co/): Single landing page covering the practice, selected work, capabilities, technology stack, clients, ways to work together, and contact entry points.
 - [Selected work](https://thirdindex.co/#work): Representative product, platform, website, commerce, and editorial projects.
-- [Studio and capabilities](https://thirdindex.co/#studio): Who runs the studio, focus areas, clients, and stack.
+- [Studio and capabilities](https://thirdindex.co/#studio): Who leads the practice, focus areas, clients, and technology stack.
 
 ## Ways to work together
 
@@ -18,15 +20,15 @@ Engagements are listed cheapest first. The build is priced by the week, so a sin
 
 - [Frontend build](https://thirdindex.co/sprint): Senior frontend development by the week, from $5k/week over one to three weeks. A finished design turned into responsive, production-ready code — one week for a single surface, three for a full sprint.
 - [Prototype](https://thirdindex.co/prototype): $6–10k over one to two weeks, turning a loose idea into a clickable, deployed prototype — real interface, core flows, and a shareable URL.
-- [Design-system foundation](https://thirdindex.co/systems): From $10k over two weeks, turning existing designs into a coded, documented component system — tokens, reusable components, and a Storybook-style playground. No original design work; the design stays with the client's team.
-- [Fractional design engineering](https://thirdindex.co/fractional): From $10k/month for two days a week, embedded with a product team, three-month minimum. Three days a week from $14k/month.
+- [Design system foundation](https://thirdindex.co/systems): From $10k over two weeks, turning existing designs into a coded, documented component system — tokens, reusable components, and a Storybook-style playground. No original design work; the design stays with the client's team.
+- [Fractional engineering](https://thirdindex.co/fractional): From $10k/month for two days a week, embedded with a product team, three-month minimum. Three days a week from $14k/month.
 
 ## Capabilities
 
 - Product interface development and application UI
-- Design systems, tokens, components, and documentation
+- Design systems, tokens, components, and documentation (implementation, not original visual design)
 - Custom websites, campaigns, and web applications
-- Website rebuilds and redesigns, including information architecture, navigation, and technical SEO
+- Website rebuilds, including information architecture, navigation, and technical SEO
 - CMS systemization: content modeling, editing experience, and page-building components
 - Creative frontend development, motion, canvas, and WebGL
 - Frontend architecture, performance, accessibility, and migrations
@@ -42,9 +44,11 @@ Representative names include Modern Treasury, VICE, Amazon, Condé Nast, Pentagr
 
 ## Fit
 
-THIRD INDEX is first and foremost senior frontend development for teams with ambitious designs and nobody available to build them properly, supported by full-stack capability, product judgment, motion, systems thinking, and enough design ability to close gaps without supervision. It is a strong fit for teams shipping ambitious web products and brand surfaces where interface craft, accessibility, maintainability, and senior technical judgment matter — and for design studios and designers who need a technical partner to execute and systematize their designs. Engagements may be project-based or fractional.
+THIRD INDEX is first and foremost custom web development and senior frontend engineering — websites, web applications, product interfaces, and digital platforms — supported by full-stack capability, product judgment, motion, and systems thinking. Design ability is enough to close gaps without supervision; it is not a standalone design offering.
 
-The studio is not focused on pure backend infrastructure, visual design without implementation, or native iOS and Android development.
+A strong fit for teams shipping web products and brand surfaces where engineering craft, accessibility, maintainability, and senior technical judgment matter — and for design studios and designers who need a technical partner to execute and systematize their work. Engagements may be project-based or fractional.
+
+The studio is not focused on pure backend infrastructure, visual design without implementation, branding or marketing production, or native iOS and Android development.
 
 ## Contact
 

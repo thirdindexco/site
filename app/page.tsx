@@ -8,9 +8,9 @@ import { StackMarquee } from "./_components/StackMarquee";
 import { FLUID_GRID } from "./_lib/layout";
 import { projects } from "./_lib/projects";
 
-const pageTitle = "THIRD INDEX — Design Engineering Studio";
+const pageTitle = "THIRD INDEX — Software Engineering Studio";
 const pageDescription =
-  "Design engineering studio in Las Vegas building web apps, product interfaces, design systems, and high-craft websites. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
+  "Independent software engineering studio in Las Vegas specializing in custom web development — websites, web applications, product interfaces, and digital platforms. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "THIRD INDEX — design engineering studio for web apps, product interfaces, and design systems",
+        alt: "THIRD INDEX — software engineering studio specializing in custom web development",
       },
     ],
   },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 };
 
 const HERO_LEAD = "Interfaces, systems, and motion.";
-const HERO_SUPPORT = "A studio for design engineering on the web.";
+const HERO_SUPPORT = "An independent software engineering studio for the web.";
 
 const FOCUS_AREAS: { title: string; description: string }[] = [
   {
@@ -207,7 +207,7 @@ export default function HomePage() {
         <EngagementCards />
       </section>
 
-      {/* Stack — same full-width measure as the cards above. */}
+      {/* Technology stack — same full-width measure as the cards above. */}
       <section
         id="stack"
         className={`scroll-mt-20 pt-20 md:pt-28 lg:scroll-mt-14 lg:pt-36 ${FLUID_GRID}`}
@@ -216,7 +216,7 @@ export default function HomePage() {
           data-anim="body"
           className="col-span-12 font-mono text-2xs font-medium uppercase tracking-tight opacity-50"
         >
-          stack
+          technology stack
         </h2>
         <div className="col-span-12">
           <StackMarquee />

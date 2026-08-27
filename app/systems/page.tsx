@@ -9,7 +9,7 @@ import { GRID } from "../_lib/layout";
 
 const pageTitle = "Design System Sprint — THIRD INDEX";
 const pageDescription =
-  "A two-week design engineering sprint that turns your designs into a coded, documented component system — tokens, reusable components, and a browsable playground.";
+  "A two-week sprint that turns your designs into a coded, documented component system — tokens, reusable components, and a browsable playground.";
 
 export const metadata: Metadata = {
   title: pageTitle,

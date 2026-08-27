@@ -199,6 +199,8 @@ html[data-theme="dark"] .dither-field {
    matches the gap so each half is an exact copy and the loop doesn't jump. */
 .stack-marquee {
   overflow: hidden;
+  /* Room under the marks for the name chip — the track clips otherwise. */
+  padding-bottom: 2rem;
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0,

@@ -9,7 +9,7 @@ export function StudioLine({ className = "", ...rest }: React.ComponentProps<"p"
       className={`font-sans text-xs leading-[1.6] text-balance ${className}`}
     >
       <span className="font-semibold">THIRD INDEX</span> is an independent
-      studio led by{" "}
+      practice led by{" "}
       <a
         href="https://relli.cc"
         target="_blank"

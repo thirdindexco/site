@@ -57,7 +57,7 @@ const archetypes: { title: string; description: string }[] = [
   {
     title: "product polish",
     description:
-      "one focused product area, or the priorities surfaced by a design-system foundation.",
+      "one focused product area, or the priorities surfaced by a design system foundation.",
   },
   {
     title: "product build",
