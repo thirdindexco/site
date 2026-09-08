@@ -38,8 +38,9 @@ export const metadata: Metadata = {
   },
 };
 
-const HERO_LEAD = "Interfaces, systems, and motion.";
-const HERO_SUPPORT = "An independent software engineering studio for the web.";
+const HERO_LEAD = "An independent engineering studio for the web.";
+const HERO_SUPPORT =
+  "Building websites, interfaces, and the systems behind them.";
 
 const FOCUS_AREAS: { title: string; description: string }[] = [
   {
@@ -155,7 +156,7 @@ export default function HomePage() {
                 headline: every word is an atomic inline-block for the
                 cascade. */}
             <span className="block">{heroWords(HERO_LEAD)}</span>
-            <span className="hero-serif-support">
+            <span className="hero-serif-support block">
               {heroWords(HERO_SUPPORT)}
             </span>
           </h1>
