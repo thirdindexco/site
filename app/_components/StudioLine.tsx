@@ -1,7 +1,6 @@
-// The studio's standing description. It lives in the rail on desktop —
-// below lg there is no rail, so the landing page renders this same block
-// inline instead. One copy, two placements, and no client boundary: it's
-// static text either way.
+// The studio's standing description, rendered in the footer. Kept as its
+// own component so the copy has one home; no client boundary, since it's
+// static text.
 export function StudioLine({ className = "", ...rest }: React.ComponentProps<"p">) {
   return (
     <p

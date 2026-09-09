@@ -149,14 +149,17 @@ export default function HomePage() {
         <div className="col-span-12">
           <h1
             data-anim="hero"
-            className="hero-serif max-w-[45ch] font-serif text-xl font-light leading-[1.25] tracking-[-0.018em] md:text-2xl lg:text-3xl"
+            className="max-w-[45ch] font-sans text-xl font-medium leading-[1.25] tracking-tight md:text-2xl lg:text-3xl"
           >
-            {/* The masthead line holds its own row so the support can
-                wrap underneath it. text-pretty can't rebalance this
-                headline: every word is an atomic inline-block for the
-                cascade. */}
-            <span className="block">{heroWords(HERO_LEAD)}</span>
-            <span className="hero-serif-support block">
+            {/* From md the masthead line holds its own row so the support
+                wraps underneath it at the sentence boundary. Below md the
+                lead doesn't fit one line, and forcing the break stranded
+                "the web." as an 81px orphan — so there both spans flow as
+                one paragraph and the browser balances three lines instead.
+                text-pretty can't do this itself: every word is an atomic
+                inline-block for the cascade. */}
+            <span className="md:block">{heroWords(HERO_LEAD)}</span>{" "}
+            <span className="hero-support md:block">
               {heroWords(HERO_SUPPORT)}
             </span>
           </h1>

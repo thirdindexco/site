@@ -71,7 +71,6 @@ export default {
       fontFamily: {
         mono: ["var(--font-mono)", "monospace"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        serif: ["var(--font-serif)", "Times New Roman", "serif"],
       },
       fontSize: {
         "3xs": ["9px", { lineHeight: "1.16" }],
