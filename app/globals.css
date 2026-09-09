@@ -52,9 +52,11 @@ body {
 }
 
 /* Hero support line. An opaque mix rather than an alpha channel:
-   translucent glyphs rasterize soft, and at display size it shows. */
+   translucent glyphs rasterize soft, and at display size it shows. 62%
+   rather than the ~50% a medium weight took — the light cut's thin strokes
+   need more ink to hold a clear second tone. */
 .hero-support {
-  color: color-mix(in srgb, var(--foreground) 52%, var(--background));
+  color: color-mix(in srgb, var(--foreground) 62%, var(--background));
 }
 
 /* FOUC guard for the desktop intro. Elements stay hidden until GSAP takes

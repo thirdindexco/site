@@ -149,7 +149,7 @@ export default function HomePage() {
         <div className="col-span-12">
           <h1
             data-anim="hero"
-            className="max-w-[45ch] font-sans text-xl font-medium leading-[1.25] tracking-tight md:text-2xl lg:text-3xl"
+            className="max-w-[45ch] font-sans text-2xl font-light leading-[1.15] tracking-[-0.02em] md:text-3xl lg:text-4xl"
           >
             {/* From md the masthead line holds its own row so the support
                 wraps underneath it at the sentence boundary. Below md the
