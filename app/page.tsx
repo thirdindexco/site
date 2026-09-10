@@ -4,7 +4,6 @@ import { InquiryCTA } from "./_components/InquiryCTA";
 import { PageChrome } from "./_components/PageChrome";
 import { ProjectIndex } from "./_components/ProjectIndex";
 import { EngagementCards } from "./_components/EngagementCards";
-import { StackMarquee } from "./_components/StackMarquee";
 import { FLUID_GRID } from "./_lib/layout";
 import { projects } from "./_lib/projects";
 
@@ -209,22 +208,6 @@ export default function HomePage() {
           engagements
         </h2>
         <EngagementCards />
-      </section>
-
-      {/* Technology stack — same full-width measure as the cards above. */}
-      <section
-        id="stack"
-        className={`scroll-mt-20 pt-20 md:pt-28 lg:scroll-mt-14 lg:pt-36 ${FLUID_GRID}`}
-      >
-        <h2
-          data-anim="body"
-          className="col-span-12 font-mono text-2xs font-medium uppercase tracking-tight opacity-50"
-        >
-          technology stack
-        </h2>
-        <div className="col-span-12">
-          <StackMarquee />
-        </div>
       </section>
 
       {/* Way in */}
