@@ -143,16 +143,6 @@ export default function HomePage() {
         id="studio"
         className={`scroll-mt-20 lg:scroll-mt-14 ${FLUID_GRID}`}
       >
-        {/* Availability as an eyebrow. It's in the mark's animation group,
-            not the body's, so it drops in first and the headline cascades
-            beneath it — reading order and reveal order agree. */}
-        <p
-          data-anim="logo"
-          className="col-span-12 font-mono text-2xs font-medium uppercase tracking-tight opacity-50"
-        >
-          open to new work — project-based or fractional
-        </p>
-
         {/* Full twelve columns: the h1's own max-w is what sets the measure,
             and a 10-column wrapper was narrower than that between roughly
             1024 and 1090, breaking the support line early. */}
@@ -177,6 +167,12 @@ export default function HomePage() {
 
         <div data-anim="body" className="col-span-12">
           <InquiryCTA />
+          {/* Availability as a footnote to the buttons, not a headline
+              above them — the smallest label on the page, dimmed, so it
+              reads as a status line rather than a claim. */}
+          <p className="pt-5 font-mono text-3xs font-medium uppercase tracking-tight opacity-40">
+            open to new work — project-based or fractional
+          </p>
         </div>
       </section>
 
