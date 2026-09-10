@@ -34,6 +34,14 @@ export function SiteFooter({ onContact }: { onContact: () => void }) {
             >
               contact
             </button>
+            <a
+              href="https://cal.com/thirdindex/intro"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={LINK}
+            >
+              book a call
+            </a>
             <a href="/llms.txt" className={LINK}>
               llms.txt
             </a>

@@ -223,10 +223,24 @@ export function InquiryDrawer() {
                     clear
                   </button>
                 ) : null}
+                {/* A quiet way out of the form on every step — someone who
+                    opened this and would rather just talk shouldn't have to
+                    go hunting in the footer for the calendar. Persistent
+                    rather than in the left slot, which back/clear already
+                    contest. */}
+                <div className="ml-auto flex items-center gap-5">
+                  <a
+                    href="https://cal.com/thirdindex/intro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono font-medium text-3xs uppercase tracking-tight opacity-60 transition-opacity hover:opacity-100 outline-none focus-visible:opacity-100"
+                  >
+                    or book a call
+                  </a>
                 <button
                   type="submit"
                   disabled={!stepValid || submitting}
-                  className="group/next ml-auto inline-flex items-center gap-1.5 bg-accent px-3 py-2 font-mono font-medium text-3xs uppercase tracking-tight text-white transition-colors duration-200 hover:bg-accent-hover outline-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+                  className="group/next inline-flex items-center gap-1.5 bg-accent px-3 py-2 font-mono font-medium text-3xs uppercase tracking-tight text-white transition-colors duration-200 hover:bg-accent-hover outline-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
                 >
                   {submitting ? "sending…" : isLast ? "send inquiry" : "next"}
                   {!submitting && (
@@ -236,6 +250,7 @@ export function InquiryDrawer() {
                     />
                   )}
                 </button>
+                </div>
               </div>
             </form>
           )}
