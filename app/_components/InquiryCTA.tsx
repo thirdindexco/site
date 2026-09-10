@@ -13,7 +13,7 @@ export function InquiryCTA() {
         onClick={() => setOpen(true)}
         className="group/cta inline-flex min-h-11 cursor-pointer items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2 font-mono text-3xs font-medium uppercase tracking-tight text-white outline-none transition-colors duration-200 hover:bg-accent-hover focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--foreground)]"
       >
-        start an inquiry
+        project inquiry
         <ArrowRight
           aria-hidden
           className="h-3 w-3 transition-transform duration-200 group-hover/cta:translate-x-0.5"

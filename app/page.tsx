@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fragment } from "react";
+import { ContactMethods } from "./_components/ContactMethods";
 import { InquiryCTA } from "./_components/InquiryCTA";
 import { PageChrome } from "./_components/PageChrome";
 import { ProjectIndex } from "./_components/ProjectIndex";
@@ -142,6 +143,16 @@ export default function HomePage() {
         id="studio"
         className={`scroll-mt-20 lg:scroll-mt-14 ${FLUID_GRID}`}
       >
+        {/* Availability as an eyebrow. It's in the mark's animation group,
+            not the body's, so it drops in first and the headline cascades
+            beneath it — reading order and reveal order agree. */}
+        <p
+          data-anim="logo"
+          className="col-span-12 font-mono text-2xs font-medium uppercase tracking-tight opacity-50"
+        >
+          open to new work — project-based or fractional
+        </p>
+
         {/* Full twelve columns: the h1's own max-w is what sets the measure,
             and a 10-column wrapper was narrower than that between roughly
             1024 and 1090, breaking the support line early. */}
@@ -210,13 +221,12 @@ export default function HomePage() {
         <EngagementCards />
       </section>
 
-      {/* Way in */}
-      <Section id="inquiry" label="inquiries">
+      {/* Contact — every way in, as an index rather than a pitch. The
+          availability line that used to open this is the hero eyebrow now.
+          The id stays "inquiry" so nothing that ever linked here breaks. */}
+      <Section id="inquiry" label="contact">
         <div data-anim="body">
-          <p className="max-w-[44ch] font-sans text-sm font-medium leading-[1.6] tracking-tight text-pretty md:text-base md:leading-[1.5]">
-            open to new work — project-based or fractional.
-          </p>
-          <InquiryCTA />
+          <ContactMethods />
         </div>
       </Section>
     </PageChrome>

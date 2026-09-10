@@ -87,7 +87,7 @@ export function ContactPanel({
             }}
             className="group/inq inline-flex min-h-11 cursor-pointer items-center gap-1.5 font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
           >
-            start an inquiry
+            project inquiry
             <ArrowRight
               aria-hidden
               className="h-3 w-3 transition-transform duration-200 group-hover/inq:translate-x-0.5"
