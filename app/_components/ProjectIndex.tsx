@@ -71,17 +71,18 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
     return () => section.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Video loops only spin while their row is hovered.
+  // Video loops only spin while their row is hovered — and not when that
+  // row is open, since the inline copy in the expanded row is playing.
   useEffect(() => {
     videoRefs.current.forEach((video, i) => {
       if (!video) return;
-      if (i === hoverIndex) {
+      if (i === hoverIndex && i !== openIndex) {
         video.play().catch(() => {});
       } else {
         video.pause();
       }
     });
-  }, [hoverIndex]);
+  }, [hoverIndex, openIndex]);
 
   // Scroll-in reveal for the rows. Initial hidden state is applied here (not
   // inline) so reduced-motion and no-JS render the list as-is.
@@ -132,7 +133,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
             key={project.url}
             className={`absolute left-4 transition-opacity duration-300 ${
               i < Math.ceil(projects.length / 2) ? "top-4" : "bottom-4"
-            } ${hoverIndex === i ? "opacity-100" : "opacity-0"}`}
+            } ${hoverIndex === i && openIndex !== i ? "opacity-100" : "opacity-0"}`}
             style={{ width: FOLLOWER_W }}
           >
             {project.video ? (
@@ -221,8 +222,11 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                     className="overflow-hidden"
                   >
                     <div className={`${FLUID_GRID} pb-8 pt-4 md:pb-10`}>
-                      {/* Mobile — no follower, media renders inline */}
-                      <div className="col-span-12 md:hidden">
+                      {/* The still, at the row's full content width. The
+                          follower is a 420px tease; a product screenshot
+                          only reads at this size. Starts on the title column
+                          so it sits with the text beneath it. */}
+                      <div className="col-span-12 md:col-span-10 md:col-start-3">
                         {project.video ? (
                           <video
                             src={project.video}
