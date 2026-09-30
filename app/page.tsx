@@ -4,7 +4,8 @@ import { ContactMethods } from "./_components/ContactMethods";
 import { InquiryCTA } from "./_components/InquiryCTA";
 import { PageChrome } from "./_components/PageChrome";
 import { ProjectIndex } from "./_components/ProjectIndex";
-import { EngagementCards } from "./_components/EngagementCards";
+import { EngagementList } from "./_components/EngagementList";
+import { FocusMark, type FocusMarkKey } from "./_components/FocusMark";
 import { FLUID_GRID } from "./_lib/layout";
 import { projects } from "./_lib/projects";
 
@@ -42,32 +43,42 @@ const HERO_LEAD = "An independent engineering studio for the web.";
 const HERO_SUPPORT =
   "Building websites, interfaces, and the systems behind them.";
 
-const FOCUS_AREAS: { title: string; description: string }[] = [
+const FOCUS_AREAS: {
+  mark: FocusMarkKey;
+  title: string;
+  description: string;
+}[] = [
   {
+    mark: "interfaces",
     title: "product interfaces",
     description:
       "application ui — architecture, states, accessibility, interaction.",
   },
   {
+    mark: "systems",
     title: "design systems",
     description:
       "tokens, primitives, and documentation, in figma and in code.",
   },
   {
+    mark: "websites",
     title: "websites & rebuilds",
     description:
       "marketing, editorial, and commerce — new or rebuilt, with architecture and navigation reworked rather than restyled.",
   },
   {
+    mark: "cms",
     title: "cms systemization",
     description:
       "content models, editing experience, and page-building components.",
   },
   {
+    mark: "creative",
     title: "creative development",
     description: "webgl, canvas, scroll choreography, and motion.",
   },
   {
+    mark: "architecture",
     title: "frontend architecture",
     description:
       "app structure, rendering strategy, performance, and migrations.",
@@ -149,7 +160,7 @@ export default function HomePage() {
         <div className="col-span-12">
           <h1
             data-anim="hero"
-            className="max-w-[45ch] font-sans text-2xl font-light leading-[1.15] tracking-[-0.02em] md:text-3xl lg:text-4xl"
+            className="max-w-[45ch] font-sans text-2xl font-medium leading-[1.1] tracking-tighter md:text-3xl lg:text-4xl"
           >
             {/* From md the masthead line holds its own row so the support
                 wraps underneath it at the sentence boundary. Below md the
@@ -167,12 +178,6 @@ export default function HomePage() {
 
         <div data-anim="body" className="col-span-12">
           <InquiryCTA />
-          {/* Availability as a footnote to the buttons, not a headline
-              above them — the smallest label on the page, dimmed, so it
-              reads as a status line rather than a claim. */}
-          <p className="pt-5 font-mono text-3xs font-medium uppercase tracking-tight opacity-40">
-            open to new work — project-based or fractional
-          </p>
         </div>
       </section>
 
@@ -180,42 +185,36 @@ export default function HomePage() {
           label grid and carries its own heading. */}
       <ProjectIndex projects={projects} />
 
-      {/* Focus areas */}
-      <Section id="focus" label="focus">
+      {/* Focus areas — no label; the marks and titles say what it is.
+          Full twelve columns, a tiled grid rather than rows, so it doesn't
+          read as the same index as the engagements below. The 1px gap over
+          the border colour draws the hairlines. */}
+      <section
+        id="focus"
+        className={`scroll-mt-20 pt-20 md:pt-28 lg:scroll-mt-14 lg:pt-36 ${FLUID_GRID}`}
+      >
         <ul
           data-anim="body"
-          className="border-t border-[color:var(--panel-border)]"
+          className="col-span-12 grid gap-px border border-[color:var(--panel-border)] bg-[color:var(--panel-border)] sm:grid-cols-2 lg:grid-cols-3"
         >
           {FOCUS_AREAS.map((area) => (
-            <li
-              key={area.title}
-              className="grid gap-2 border-b border-[color:var(--panel-border)] py-5 md:grid-cols-3 md:gap-6"
-            >
-              <h3 className="font-sans text-sm font-semibold leading-tight tracking-tight">
+            <li key={area.title} className="group/focus bg-background p-5">
+              <FocusMark mark={area.mark} />
+              <h3 className="pt-5 font-sans text-sm font-semibold leading-tight tracking-tight">
                 {area.title}
               </h3>
-              <p className="font-sans text-sm leading-relaxed text-pretty text-foreground/65 md:col-span-2">
+              <p className="max-w-[44ch] pt-2 font-sans text-sm leading-relaxed text-pretty text-foreground/65">
                 {area.description}
               </p>
             </li>
           ))}
         </ul>
-      </Section>
-
-      {/* Engagement shapes — full-bleed on the 12-col measure, so the
-          cards sit on the same columns the grid overlay draws. */}
-      <section
-        id="engagements"
-        className={`scroll-mt-20 pt-20 md:pt-28 lg:scroll-mt-14 lg:pt-36 ${FLUID_GRID}`}
-      >
-        <h2
-          data-anim="body"
-          className="col-span-12 font-mono text-2xs font-medium uppercase tracking-tight opacity-50"
-        >
-          engagements
-        </h2>
-        <EngagementCards />
       </section>
+
+      {/* Engagement shapes — terms only; each row opens its own page. */}
+      <Section id="engagements" label="engagements">
+        <EngagementList />
+      </Section>
 
       {/* Contact — every way in, as an index rather than a pitch. The
           availability line that used to open this is the hero eyebrow now.

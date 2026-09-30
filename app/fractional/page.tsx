@@ -55,7 +55,7 @@ const tiers: [string, string][] = [
 const faqs: FaqItem[] = [
   {
     q: "can you do less than 2 days/week?",
-    a: "not at this tier. lighter work is usually a sprint or a design system sprint.",
+    a: "not at this tier. lighter work is usually a frontend build or a design system.",
   },
   {
     q: "do you work with multiple embedded clients?",
@@ -103,11 +103,12 @@ export default function EmbeddedPage() {
               senior design engineering, embedded.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
-              2–3 days a week for teams that need senior frontend architecture,
-              interface judgment, and production momentum.
+              part of your team and your sprint cycles, for teams that need
+              senior frontend architecture, interface judgment, and production
+              momentum.
             </p>
             <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
-              from $10k/month · two days a week · 3-month minimum · remote
+              from $10k/month · embedded in your team · 3-month minimum · remote
             </p>
             <div className="pt-6 md:pt-8">
               <StartConversationButton />
@@ -128,9 +129,9 @@ export default function EmbeddedPage() {
               systems, inconsistent polish, product and marketing out of sync.
             </p>
             <p className="pt-4 font-sans text-sm leading-relaxed text-pretty md:text-base">
-              embedded means 2–3 days a week in your tools: repo, slack,
-              standups, reviews. hands on the work, close to the team, clean
-              exit at agreed milestones.
+              embedded means working in your tools and on your cadence: repo,
+              slack, standups, reviews. hands on the work, close to the team,
+              clean exit at agreed milestones.
             </p>
           </div>
         </section>

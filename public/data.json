@@ -88,14 +88,6 @@
         "description": "architecture studio portfolio. project pages built around process — drawings, material studies, site photography.",
         "technologies": "Next.js, Contentful",
         "thumbnail": "/projects/eldo.jpg"
-    },
-    {
-        "title": "VICE",
-        "role": "Lead Frontend Development",
-        "url": "https://vice.com",
-        "description": "editorial platform. real-time content, ad integration, and a frontend built for traffic spikes.",
-        "technologies": "React.js, Redux, Node.js",
-        "thumbnail": "/projects/vice.jpg"
     }
 	]
 }

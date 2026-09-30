@@ -7,7 +7,7 @@ import { PageChrome } from "../_components/PageChrome";
 import { RelatedEngagements } from "../_components/RelatedEngagements";
 import { GRID } from "../_lib/layout";
 
-const pageTitle = "Prototype Sprint — THIRD INDEX";
+const pageTitle = "Prototype — THIRD INDEX";
 const pageDescription =
   "A one-to-two-week sprint that turns a loose idea into a clickable, deployed prototype — real interface, core flows, and a shareable URL for users and investors.";
 
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "Prototype sprint by THIRD INDEX",
+        alt: "Prototype by THIRD INDEX",
       },
     ],
   },
@@ -78,7 +78,7 @@ const schedule: [string, string][] = [
 const faqs: FaqItem[] = [
   {
     q: "do i need designs first?",
-    a: "no. the prototype sprint includes interface design — a sketch or a conversation is enough to start.",
+    a: "no. the prototype includes interface design — a sketch or a conversation is enough to start.",
   },
   {
     q: "can it become the real product?",
@@ -188,7 +188,7 @@ export default function PrototypePage() {
               not production code — and priced accordingly. the prototype
               optimizes for speed of learning: some of it can carry into the
               real build, but plan for the production version to be built
-              properly. when the idea is validated, that&apos;s a sprint.
+              properly. when the idea is validated, that&apos;s a frontend build.
             </p>
           </div>
         </section>

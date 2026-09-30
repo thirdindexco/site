@@ -29,7 +29,7 @@ export const ENGAGEMENTS: readonly Engagement[] = [
   {
     slug: "sprint",
     title: "frontend build",
-    meta: "from $5k/week · 1–3 weeks",
+    meta: "1–3 weeks, from $5k/week",
     description:
       "finished design in code. one week for a page or flow; three for a sprint.",
     href: "/sprint",
@@ -37,24 +37,24 @@ export const ENGAGEMENTS: readonly Engagement[] = [
   {
     slug: "prototype",
     title: "prototype",
-    meta: "$6–10k · 1–2 weeks",
+    meta: "1–2 weeks, $6–10k",
     description: "a deployed prototype — interface, core flows, a url.",
     href: "/prototype",
   },
   {
     slug: "systems",
-    title: "design system foundation",
-    meta: "from $10k · two weeks",
+    title: "design system",
+    meta: "2 weeks, from $10k",
     description:
       "a coded component system — tokens, documentation, a playground.",
     href: "/systems",
   },
   {
     slug: "fractional",
-    title: "fractional design engineering",
-    meta: "from $10k/month · two days a week",
+    title: "fractional",
+    meta: "embedded in your team, from $10k/month",
     description:
-      "embedded with your team. two days a week, three if needed. three month minimum.",
+      "embedded with your team — in your tools, your product, your sprint cycles. three month minimum.",
     href: "/fractional",
   },
 ];

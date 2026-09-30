@@ -7,7 +7,7 @@ import { PageChrome } from "../_components/PageChrome";
 import { RelatedEngagements } from "../_components/RelatedEngagements";
 import { GRID } from "../_lib/layout";
 
-const pageTitle = "Design System Sprint — THIRD INDEX";
+const pageTitle = "Design System — THIRD INDEX";
 const pageDescription =
   "A two-week sprint that turns your designs into a coded, documented component system — tokens, reusable components, and a browsable playground.";
 
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "Design system sprint by THIRD INDEX",
+        alt: "Design system by THIRD INDEX",
       },
     ],
   },
@@ -87,7 +87,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "our frontend was mostly ai-generated. is that a fit?",
-    a: "very. ai-assisted codebases ship fast and drift fast — duplicated patterns, one-off components, missing states. the sprint replaces that drift with a system.",
+    a: "very. ai-assisted codebases ship fast and drift fast — duplicated patterns, one-off components, missing states. this replaces that drift with a system.",
   },
   {
     q: "what if our design files are messy?",
@@ -99,7 +99,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "can you keep going after the two weeks?",
-    a: "yes. more flows and surfaces can be scoped as a sprint, and ongoing evolution as fractional work.",
+    a: "yes. more flows and surfaces can be scoped as a frontend build, and ongoing evolution as fractional work.",
   },
 ];
 
@@ -194,7 +194,7 @@ export default function SystemsPage() {
               no speculative rebrand. no redesigning your product. no abstract
               component library disconnected from what&apos;s shipped. if it
               isn&apos;t designed yet, this isn&apos;t the package — that&apos;s
-              a prototype or a sprint.
+              a prototype.
             </p>
           </div>
         </section>
@@ -238,7 +238,7 @@ export default function SystemsPage() {
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
               from $10,000, fixed, paid up front. two weeks, one project at a
               time. continuation — more flows, more components, ongoing
-              evolution — can be scoped as a sprint or fractional work.
+              evolution — can be scoped as a frontend build or fractional work.
             </p>
           </div>
         </section>
