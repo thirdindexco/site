@@ -7,6 +7,9 @@ export type Project = {
   description: string;
   technologies: string;
   thumbnail?: string;
+  // Stills for the expanded row, stepped through as a gallery. The
+  // thumbnail stays the hover follower.
+  images?: string[];
   video?: string;
 };
 

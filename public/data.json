@@ -13,7 +13,14 @@
         "url": "https://bkrl.app",
         "description": "bankroll management for poker players. log sessions in natural language, track variance and ROI, and see which games and stakes are actually profitable.",
         "technologies": "Next.js, Tailwind, Base UI, Supabase",
-        "thumbnail": "/projects/bkrl.png"
+        "thumbnail": "/projects/bkrl-dashboard@2x.png",
+        "images": [
+            "/projects/bkrl-dashboard@2x.png",
+            "/projects/bkrl-dashboard-ai@2x.png",
+            "/projects/bkrl-ledger@2x.png",
+            "/projects/bkrl-ledger-modal@2x.png",
+            "/projects/bkrl-insights@2x.png"
+        ]
     },
     {
         "title": "Legend.xyz",

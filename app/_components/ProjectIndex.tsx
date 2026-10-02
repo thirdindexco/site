@@ -9,6 +9,7 @@ import { playClickThrottled } from "../_lib/click-sound";
 import { formatTechnologies } from "../_lib/format";
 import { BLEED_X, FLUID_GRID } from "../_lib/layout";
 import type { Project } from "../_lib/projects";
+import { ProjectGallery } from "./ProjectGallery";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -227,7 +228,12 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                           only reads at this size. Starts on the title column
                           so it sits with the text beneath it. */}
                       <div className="col-span-12 md:col-span-10 md:col-start-3">
-                        {project.video ? (
+                        {project.images && project.images.length > 1 ? (
+                          <ProjectGallery
+                            images={project.images}
+                            title={project.title}
+                          />
+                        ) : project.video ? (
                           <video
                             src={project.video}
                             autoPlay
