@@ -26,13 +26,9 @@ export function InquiryCTA() {
           person. */}
       <a
         href="mailto:info@thirdindex.co"
-        className="group/mail inline-flex min-h-11 items-center gap-1.5 font-mono text-2xs font-medium tracking-tight opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
+        className="inline-flex min-h-11 items-center font-mono text-2xs font-medium tracking-tight opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
       >
         info@thirdindex.co
-        <ArrowRight
-          aria-hidden
-          className="h-3 w-3 transition-transform duration-200 group-hover/mail:translate-x-0.5"
-        />
       </a>
     </div>
   );
