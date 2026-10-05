@@ -9,9 +9,9 @@ import { FocusMark, type FocusMarkKey } from "./_components/FocusMark";
 import { FLUID_GRID } from "./_lib/layout";
 import { projects } from "./_lib/projects";
 
-const pageTitle = "THIRD INDEX — Software Engineering Studio";
+const pageTitle = "THIRD INDEX — Technology Studio";
 const pageDescription =
-  "Independent software engineering studio in Las Vegas specializing in custom web development — websites, web applications, product interfaces, and digital platforms. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
+  "Independent technology studio in Las Vegas designing and building custom web applications, storefronts, and product interfaces. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "THIRD INDEX — software engineering studio specializing in custom web development",
+        alt: "THIRD INDEX — technology studio designing and building for the web",
       },
     ],
   },
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   },
 };
 
-const HERO_LEAD = "An independent engineering studio for the web.";
+const HERO_LEAD = "A technology studio for the web.";
 const HERO_SUPPORT =
-  "Building websites, interfaces, and the systems behind them.";
+  "We design and build applications, storefronts, and product interfaces.";
 
 const FOCUS_AREAS: {
   mark: FocusMarkKey;

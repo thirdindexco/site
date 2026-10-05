@@ -21,7 +21,7 @@ const sans = Inter({
 
 const siteTitle = "THIRD INDEX";
 const siteDescription =
-  "Independent software engineering studio in Las Vegas specializing in custom web development — websites, web applications, product interfaces, and digital platforms. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
+  "Independent technology studio in Las Vegas designing and building custom web applications, storefronts, and product interfaces. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
 
 const siteUrl = "https://thirdindex.co";
 
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   applicationName: siteTitle,
   keywords: [
-    "software engineering studio",
+    "technology studio",
     "custom web development",
     "custom web application development",
     "frontend engineering",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "THIRD INDEX — software engineering studio specializing in custom web development",
+        alt: "THIRD INDEX — technology studio designing and building for the web",
       },
     ],
   },

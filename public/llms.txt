@@ -1,10 +1,10 @@
 # THIRD INDEX
 
-> Independent software engineering studio specializing in custom web development.
+> Independent technology studio designing and building custom web applications, storefronts, and product interfaces.
 
-THIRD INDEX is based in Las Vegas, led by Michael Ciccarelli, and works with brands, agencies, founders, and product teams worldwide. The practice builds websites, web applications, product interfaces, and digital platforms.
+THIRD INDEX is based in Las Vegas, led by Michael Ciccarelli, and works with brands, agencies, founders, and product teams worldwide. The practice designs and builds web applications, storefronts, product interfaces, and websites.
 
-It is a principal-led software engineering studio: custom development, technical judgment, and production implementation. Not a design studio, branding shop, or marketing agency.
+It is a principal-led technology studio: product design, custom development, technical judgment, and production implementation. Not a branding shop or marketing agency.
 
 Core capabilities include product interfaces, design system implementation, custom websites, web applications, frontend architecture, motion, WebGL, editorial platforms, and headless commerce.
 
