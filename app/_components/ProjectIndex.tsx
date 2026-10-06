@@ -231,6 +231,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                         {project.images && project.images.length > 1 ? (
                           <ProjectGallery
                             images={project.images}
+                            video={project.video}
                             title={project.title}
                           />
                         ) : project.video ? (

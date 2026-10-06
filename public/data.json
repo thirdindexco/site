@@ -86,14 +86,13 @@
         "url": "https://spread.now",
         "description": "a live board of u.s. poker and sports, styled like an airport departures sign. card rooms, cash games, and tournament schedules across ten cities, plus live scores and lines.",
         "technologies": "Next.js, TypeScript, Postgres, GSAP",
-        "thumbnail": "/projects/spread-ui-home.png",
+        "thumbnail": "/projects/stream-ui-home.png",
+        "video": "/projects/spread-ui.mp4",
         "images": [
-            "/projects/spread-ui-home.png",
-            "/projects/spread-ui-tournaments.png",
-            "/projects/spread-ui-rooms.png",
-            "/projects/spread-ui-wynn.png",
-            "/projects/spread-ui-locations.png",
-            "/projects/spread-ui-locations-map.png"
+            "/projects/stream-ui-home.png",
+            "/projects/stream-ui-poker-list.png",
+            "/projects/stream-ui-poker-map.png",
+            "/projects/stream-ui-poker-lv-map.png"
         ]
     },
     {
