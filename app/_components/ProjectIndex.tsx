@@ -137,7 +137,9 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
             } ${hoverIndex === i && openIndex !== i ? "opacity-100" : "opacity-0"}`}
             style={{ width: FOLLOWER_W }}
           >
-            {project.video ? (
+            {/* A project with a gallery keeps its video for the open row,
+                where it leads the slides; its hover is the still. */}
+            {project.video && !project.images?.length ? (
               <video
                 ref={(el) => {
                   videoRefs.current[i] = el;

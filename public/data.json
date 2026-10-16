@@ -8,6 +8,29 @@
 	],
 	"projects": [
     {
+        "title": "Kelvon Agee",
+        "role": "Design & Development",
+        "url": "https://kelvonagee.com",
+        "description": "portfolio for a producer, director, and dp. frames from past shoots laid out on a canvas you drag, pan, and zoom through, with the reel and bio a click away.",
+        "technologies": "Next.js, Cloudinary",
+        "thumbnail": "/projects/kelvon-agee.jpg"
+    },
+    {
+        "title": "spread.now",
+        "role": "Design & Development",
+        "url": "https://spread.now",
+        "description": "a live board of u.s. poker and sports, styled like an airport departures sign. card rooms, cash games, and tournament schedules across ten cities, plus live scores and lines.",
+        "technologies": "Next.js, TypeScript, Postgres, GSAP",
+        "thumbnail": "/projects/stream-ui-thumb.jpg",
+        "video": "/projects/spread-ui.mp4",
+        "images": [
+            "/projects/stream-ui-home.png",
+            "/projects/stream-ui-poker-list.png",
+            "/projects/stream-ui-poker-map.png",
+            "/projects/stream-ui-poker-lv-map.png"
+        ]
+    },
+    {
         "title": "bkrl.app",
         "role": "Design & Development",
         "url": "https://bkrl.app",
@@ -31,6 +54,14 @@
         "thumbnail": "/projects/legend.jpg"
     },
     {
+        "title": "One/Of",
+        "role": "Design & Development",
+        "url": "https://shoponeof.com",
+        "description": "commerce for a made-to-order fashion label. custom booking for in-person fittings, headless shopify for ready-to-ship.",
+        "technologies": "Shopify (Headless), Next.js, Sanity, Cal.com",
+        "thumbnail": "/projects/one-of.jpg"
+    },
+    {
         "title": "Amazon: The Bar",
         "role": "Frontend Development",
         "url": "https://amazonthe.bar",
@@ -38,14 +69,6 @@
         "technologies": "Next.js, Sanity, Tailwind, Motion",
         "thumbnail": "/projects/the-bar.jpg",
         "video": "/projects/amazonthebar.mp4"
-    },
-    {
-        "title": "One/Of",
-        "role": "Design & Development",
-        "url": "https://shoponeof.com",
-        "description": "commerce for a made-to-order fashion label. custom booking for in-person fittings, headless shopify for ready-to-ship.",
-        "technologies": "Shopify (Headless), Next.js, Sanity, Cal.com",
-        "thumbnail": "/projects/one-of.jpg"
     },
     {
         "title": "Modern Treasury",
@@ -73,29 +96,6 @@
         "thumbnail": "/projects/revolve.jpg"
     },
     {
-        "title": "Kelvon Agee",
-        "role": "Design & Development",
-        "url": "https://kelvonagee.com",
-        "description": "portfolio for a photographer. full-bleed imagery, image optimization, typography kept out of the way.",
-        "technologies": "Next.js, Cloudinary",
-        "thumbnail": "/projects/kelvon.jpg"
-    },
-    {
-        "title": "spread.now",
-        "role": "Design & Development",
-        "url": "https://spread.now",
-        "description": "a live board of u.s. poker and sports, styled like an airport departures sign. card rooms, cash games, and tournament schedules across ten cities, plus live scores and lines.",
-        "technologies": "Next.js, TypeScript, Postgres, GSAP",
-        "thumbnail": "/projects/stream-ui-home.png",
-        "video": "/projects/spread-ui.mp4",
-        "images": [
-            "/projects/stream-ui-home.png",
-            "/projects/stream-ui-poker-list.png",
-            "/projects/stream-ui-poker-map.png",
-            "/projects/stream-ui-poker-lv-map.png"
-        ]
-    },
-    {
         "title": "El Dorado",
         "role": "Frontend Development",
         "url": "https://eldo.us/",
@@ -103,5 +103,5 @@
         "technologies": "Next.js, Contentful",
         "thumbnail": "/projects/eldo.jpg"
     }
-	]
+]
 }
