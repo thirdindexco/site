@@ -16,13 +16,10 @@ Core capabilities include product interfaces, design system implementation, cust
 
 ## Ways to work together
 
-Engagements are listed cheapest first. The build is priced by the week, so a single week is a low-risk way to start and the same engagement extends when the work warrants it.
+There are two engagement shapes: a scoped project priced by the week, or embedded work priced by the month.
 
-- [Frontend audit](https://thirdindex.co/frontend-audit): $5k fixed over one week. A senior review of an existing frontend — architecture, performance, accessibility, and design system health — delivered as a written report and ranked roadmap. Advisory only; no code ships during the audit.
-- [Frontend build](https://thirdindex.co/sprint): Senior frontend development by the week, from $5k/week over one to three weeks. A finished design turned into responsive, production-ready code — one week for a single surface, three for a full sprint.
-- [Prototype](https://thirdindex.co/prototype): $6–10k over one to two weeks, turning a loose idea into a clickable, deployed prototype — real interface, core flows, and a shareable URL.
-- [Design system foundation](https://thirdindex.co/systems): From $10k over two weeks, turning existing designs into a coded, documented component system — tokens, reusable components, and a Storybook-style playground. No original design work; the design stays with the client's team.
-- [Fractional engineering](https://thirdindex.co/fractional): From $10k/month for two days a week, embedded with a product team, three-month minimum. Three days a week from $14k/month.
+- [Project](https://thirdindex.co/project): From $5k/week, usually one to three weeks, with scope and price fixed before work starts. Common projects: a frontend audit (one week — a senior review of architecture, performance, accessibility, and design system health, delivered as a written, ranked plan), a prototype (one to two weeks — a clickable, deployed prototype of the core flows), a frontend build (one to three weeks — finished designs turned into production code), or a design system (two weeks — existing designs turned into a coded, documented component library).
+- [Embedded (fractional engineering)](https://thirdindex.co/fractional): From $10k/month for two days a week, embedded with a product team, three-month minimum. Three days a week from $14k/month.
 
 ## Capabilities
 

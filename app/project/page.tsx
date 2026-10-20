@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Faq, type FaqItem } from "../_components/Faq";
 import { PageChrome } from "../_components/PageChrome";
 import { RelatedEngagements } from "../_components/RelatedEngagements";
 import { GRID } from "../_lib/layout";
 
-const pageTitle = "Frontend Build — THIRD INDEX";
+const pageTitle = "Project — THIRD INDEX";
 const pageDescription =
-  "Senior frontend development by the week. A finished design turned into responsive, production-ready code — one week for a single surface, up to three for a full sprint.";
+  "Senior design and engineering by the week — frontend audits, prototypes, frontend builds, and design systems. One to three weeks, fixed scope, fixed price.";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  alternates: { canonical: "/sprint" },
+  alternates: { canonical: "/project" },
   openGraph: {
     type: "website",
-    url: "/sprint",
+    url: "/project",
     title: pageTitle,
     description: pageDescription,
     images: [
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 600,
-        alt: "Frontend build by THIRD INDEX",
+        alt: "Project work by THIRD INDEX",
       },
     ],
   },
@@ -38,30 +39,32 @@ export const metadata: Metadata = {
 const START_URL = "https://cal.com/thirdindex/sprint";
 const SCOPE_URL = "https://cal.com/thirdindex/sprint";
 
-const archetypes: { title: string; description: string }[] = [
+// What a week-priced project usually turns out to be. Not separate offers —
+// one rate, one shape — just the common answers to "what would we do?".
+const archetypes: { title: string; length: string; description: string }[] = [
   {
-    title: "one week, one surface",
+    title: "frontend audit",
+    length: "1 week",
     description:
-      "a finished design converted to responsive, production-ready frontend code. the smallest way to find out what working together is like.",
+      "a senior read on an existing frontend — architecture, performance, accessibility, system health — ending in a written, ranked plan. no code ships; the output is judgment, written down.",
   },
   {
-    title: "design execution",
+    title: "prototype",
+    length: "1–2 weeks",
     description:
-      "your team's designs, built as designed — motion and interaction included. more surfaces, more weeks.",
+      "a loose idea turned into a clickable, deployed prototype — real interface, core flows, and a url you can put in front of users and investors.",
   },
   {
-    title: "brand site",
+    title: "frontend build",
+    length: "1–3 weeks",
     description:
-      "landing page, full site, or a rebuild of the one you have — built with motion and interaction craft.",
+      "finished designs built properly — a single surface, a brand site, a product area, or a new feature end-to-end, motion and interaction included.",
   },
   {
-    title: "product polish",
+    title: "design system",
+    length: "2 weeks",
     description:
-      "one focused product area, or the priorities surfaced by a design system foundation.",
-  },
-  {
-    title: "product build",
-    description: "new feature or product surface, designed and built end-to-end.",
+      "your designs turned into a coded, documented component library — tokens, components, a playground, and one real flow built on it.",
   },
 ];
 
@@ -83,20 +86,32 @@ const schedule: [string, string][] = [
 
 const faqs: FaqItem[] = [
   {
-    q: "what if scope changes mid-build?",
+    q: "do we need designs first?",
+    a: "depends on the work. prototypes and product builds include interface design; a design system starts from yours; an audit needs only the repo.",
+  },
+  {
+    q: "what if scope changes mid-project?",
     a: "small changes are absorbed. larger changes get a written adjustment before work continues.",
   },
   {
     q: "do you work with our existing designers / engineers?",
-    a: "yes. most builds happen in your repo, alongside your team. collaborators can join when needed.",
+    a: "yes. most projects happen in your repo, alongside your team. collaborators can join when needed.",
   },
   {
     q: "what tech stacks?",
     a: "fastest in typescript on next.js and vercel. react, motion, gsap, webgl, sanity, stripe, and headless shopify when needed. if you're on something unusual, ask.",
   },
   {
-    q: "what about ongoing maintenance after?",
-    a: "not included by default. for ongoing work, fractional is the better shape.",
+    q: "who owns the work?",
+    a: "you do. code, deploys, and documents transfer at the end.",
+  },
+  {
+    q: "what about ongoing work after?",
+    a: "not included by default. for ongoing work, embedded is the better shape.",
+  },
+  {
+    q: "do you sign ndas?",
+    a: "yes.",
   },
 ];
 
@@ -108,7 +123,7 @@ function StartBuildButton() {
       rel="noopener noreferrer"
       className="group/cta inline-flex items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-mono text-3xs font-medium uppercase tracking-tight text-white outline-none transition-colors duration-200 hover:bg-accent-hover"
     >
-      start a build
+      start a project
       <ArrowRight
         aria-hidden
         className="h-3 w-3 transition-transform duration-200 group-hover/cta:translate-x-0.5"
@@ -117,7 +132,7 @@ function StartBuildButton() {
   );
 }
 
-export default function SprintPage() {
+export default function ProjectPage() {
   return (
     <PageChrome>
         <section className={`pt-2 md:pt-6 lg:pt-4 ${GRID}`}>
@@ -126,15 +141,15 @@ export default function SprintPage() {
             className="col-span-12"
           >
             <p className="font-mono text-3xs font-medium uppercase tracking-tight opacity-60">
-              build
+              project
             </p>
             <h1 className="pt-3 font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
-              ambitious designs, built properly.
+              scoped work, priced by the week.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
-              senior frontend development by the week. one week turns a
-              finished design into a shipped surface; three is a full sprint.
-              fixed scope, fixed price, production code.
+              one to three weeks of senior design and engineering, scoped to
+              the problem — an audit, a prototype, a build, or a design
+              system. fixed scope, fixed price, agreed before anything starts.
             </p>
             <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
               from $5k/week · 1–3 weeks · remote
@@ -148,12 +163,12 @@ export default function SprintPage() {
         <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
           <div className="col-span-12 md:col-span-3 md:col-start-1">
             <div className="font-mono text-3xs font-medium uppercase tracking-tight">
-              what a build looks like
+              what a project looks like
             </div>
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              for teams with designs ready and nobody free to build them:
+              most projects are one of these — same rate, different length:
             </p>
             <ul className="mt-8">
               {archetypes.map((a) => (
@@ -161,9 +176,14 @@ export default function SprintPage() {
                   key={a.title}
                   className="-mx-3 px-3 py-5 transition-colors duration-200 hover:bg-foreground/[0.04]"
                 >
-                  <h2 className="font-sans text-base font-medium leading-tight md:text-lg">
-                    {a.title}
-                  </h2>
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h2 className="font-sans text-base font-medium leading-tight md:text-lg">
+                      {a.title}
+                    </h2>
+                    <span className="shrink-0 font-mono text-3xs font-medium uppercase tracking-tight opacity-60">
+                      {a.length}
+                    </span>
+                  </div>
                   <p className="pt-2 font-sans text-sm leading-relaxed text-foreground/70">
                     {a.description}
                   </p>
@@ -171,8 +191,9 @@ export default function SprintPage() {
               ))}
             </ul>
             <p className="pt-8 font-sans text-sm leading-relaxed text-pretty md:text-base">
-              includes scope confirmation, daily async progress, shipped code,
-              walkthrough, and one revision pass.
+              every project includes scope confirmation, daily async
+              progress, the deliverables in your hands, a walkthrough, and
+              one revision pass.
             </p>
           </div>
         </section>
@@ -214,9 +235,9 @@ export default function SprintPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              $5k for the first week and the same rate for each week after —
-              most work lands between one and three. scope and price are
-              agreed and fixed before anything starts.
+              $5k a week, whatever the work — most projects land between one
+              and three. scope and price are agreed and fixed before anything
+              starts.
             </p>
           </div>
         </section>
@@ -233,6 +254,31 @@ export default function SprintPage() {
               momentum — and a single week is a cheap way to try it before
               committing to more.
             </p>
+          </div>
+        </section>
+
+        <section className={`pt-20 md:pt-28 ${GRID}`}>
+          <div className="col-span-12 md:col-span-3 md:col-start-1">
+            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+              why me
+            </div>
+          </div>
+          <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
+            <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
+              two decades designing and building for the web. work for modern
+              treasury, vice, amazon, condé nast. the same person scopes the
+              project, does the work, and walks you through it.
+            </p>
+            <Link
+              href="/#work"
+              className="group/work mt-6 inline-flex items-center gap-1.5 font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity hover:opacity-100"
+            >
+              see selected work
+              <ArrowRight
+                aria-hidden
+                className="h-3 w-3 transition-transform duration-200 group-hover/work:translate-x-0.5"
+              />
+            </Link>
           </div>
         </section>
 
@@ -270,7 +316,7 @@ export default function SprintPage() {
           </div>
         </section>
 
-        <RelatedEngagements currentSlug="sprint" />
+        <RelatedEngagements currentSlug="project" />
     </PageChrome>
   );
 }

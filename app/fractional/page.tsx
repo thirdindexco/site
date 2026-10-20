@@ -55,7 +55,7 @@ const tiers: [string, string][] = [
 const faqs: FaqItem[] = [
   {
     q: "can you do less than 2 days/week?",
-    a: "not at this tier. lighter work is usually a frontend build or a design system.",
+    a: "not at this tier. lighter work is usually a project, priced by the week.",
   },
   {
     q: "do you work with multiple embedded clients?",

@@ -4,13 +4,34 @@ const nextConfig: NextConfig = {
   devIndicators: false,
   allowedDevOrigins: ["192.168.*"],
   // Retired routes, kept alive so inbound links and search equity survive.
-  // The audit became the design system sprint; information and projects
+  // The separate engagement tiers (audit, build, prototype, design system)
+  // collapsed into one week-priced project page; information and projects
   // were folded into the single landing page.
   async redirects() {
     return [
       {
         source: "/audit",
-        destination: "/systems",
+        destination: "/project",
+        permanent: true,
+      },
+      {
+        source: "/sprint",
+        destination: "/project",
+        permanent: true,
+      },
+      {
+        source: "/prototype",
+        destination: "/project",
+        permanent: true,
+      },
+      {
+        source: "/systems",
+        destination: "/project",
+        permanent: true,
+      },
+      {
+        source: "/frontend-audit",
+        destination: "/project",
         permanent: true,
       },
       {

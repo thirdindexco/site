@@ -1,9 +1,4 @@
-export type EngagementSlug =
-  | "audit"
-  | "sprint"
-  | "prototype"
-  | "systems"
-  | "fractional";
+export type EngagementSlug = "project" | "fractional";
 
 export type Engagement = {
   slug: EngagementSlug;
@@ -13,57 +8,31 @@ export type Engagement = {
   href: string;
 };
 
-// Source of truth for the productized service tiers. Consumed by the
-// landing page's engagement section and the cross-link block on each
-// service page.
+// Source of truth for the engagement shapes. Consumed by the landing page's
+// engagement section and the cross-link block on each engagement page.
 //
-// Ordered by commitment, cheapest first. The audit leads: a fixed week of
-// judgment rather than output, for teams that want a read before they
-// commit to a build — and the usual way into one. The build is priced by the week so
-// one offer covers the whole range: a single week is a low-risk way for a
-// studio or founder to find out what working together is like, and the same
-// engagement extends to three when the work warrants it — no second SKU for
-// what is really one motion at two lengths.
+// Two shapes, split by how the work is bought: a scoped project priced by
+// the week, or embedded time priced by the month. Audits, prototypes, builds,
+// and design systems are all just projects of different lengths — listing
+// them as separate tiers drew no inquiries and made the choice look harder
+// than it is. The project page shows them as examples instead.
 //
-// Ranges hold at current demand. Don't raise them speculatively; if
+// Rates hold at current demand. Don't raise them speculatively; if
 // inquiries are lost on price, cut the opening scope rather than the rate.
-// Every tier clears the ~$5k/week floor.
+// Both shapes clear the ~$5k/week floor.
 export const ENGAGEMENTS: readonly Engagement[] = [
   {
-    slug: "audit",
-    title: "frontend audit",
-    meta: "1 week, $5k",
+    slug: "project",
+    title: "project",
+    meta: "by the week, from $5k/week",
     description:
-      "a written read on your frontend — architecture, performance, accessibility, system health — and a ranked plan.",
-    href: "/frontend-audit",
-  },
-  {
-    slug: "sprint",
-    title: "frontend build",
-    meta: "1–3 weeks, from $5k/week",
-    description:
-      "finished design in code. one week for a page or flow; three for a sprint.",
-    href: "/sprint",
-  },
-  {
-    slug: "prototype",
-    title: "prototype",
-    meta: "1–2 weeks, $6–10k",
-    description: "a deployed prototype — interface, core flows, a url.",
-    href: "/prototype",
-  },
-  {
-    slug: "systems",
-    title: "design system",
-    meta: "2 weeks, from $10k",
-    description:
-      "a coded component system — tokens, documentation, a playground.",
-    href: "/systems",
+      "scoped work, one to three weeks — an audit, a prototype, a build, or a design system.",
+    href: "/project",
   },
   {
     slug: "fractional",
-    title: "fractional",
-    meta: "embedded in your team, from $10k/month",
+    title: "embedded",
+    meta: "by the month, from $10k/month",
     description:
       "embedded with your team — in your tools, your product, your sprint cycles. three month minimum.",
     href: "/fractional",
