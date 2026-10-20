@@ -4,7 +4,7 @@
 
 THIRD INDEX is based in Las Vegas, led by Michael Ciccarelli, and works with brands, agencies, founders, and product teams worldwide. The practice designs and builds web applications, storefronts, product interfaces, and websites.
 
-It is a principal-led technology studio: product design, custom development, technical judgment, and production implementation. Not a branding shop or marketing agency.
+It is a principal-led technology studio: product design, custom development, frontend consulting and audits, and production implementation. Not a branding shop or marketing agency.
 
 Core capabilities include product interfaces, design system implementation, custom websites, web applications, frontend architecture, motion, WebGL, editorial platforms, and headless commerce.
 
@@ -18,6 +18,7 @@ Core capabilities include product interfaces, design system implementation, cust
 
 Engagements are listed cheapest first. The build is priced by the week, so a single week is a low-risk way to start and the same engagement extends when the work warrants it.
 
+- [Frontend audit](https://thirdindex.co/frontend-audit): $5k fixed over one week. A senior review of an existing frontend — architecture, performance, accessibility, and design system health — delivered as a written report and ranked roadmap. Advisory only; no code ships during the audit.
 - [Frontend build](https://thirdindex.co/sprint): Senior frontend development by the week, from $5k/week over one to three weeks. A finished design turned into responsive, production-ready code — one week for a single surface, three for a full sprint.
 - [Prototype](https://thirdindex.co/prototype): $6–10k over one to two weeks, turning a loose idea into a clickable, deployed prototype — real interface, core flows, and a shareable URL.
 - [Design system foundation](https://thirdindex.co/systems): From $10k over two weeks, turning existing designs into a coded, documented component system — tokens, reusable components, and a Storybook-style playground. No original design work; the design stays with the client's team.

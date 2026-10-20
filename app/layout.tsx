@@ -21,7 +21,7 @@ const sans = Inter({
 
 const siteTitle = "THIRD INDEX";
 const siteDescription =
-  "Independent technology studio in Las Vegas designing and building custom web applications, storefronts, and product interfaces. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
+  "Independent technology studio in Las Vegas — design, engineering, and frontend consulting for custom web applications, storefronts, and product interfaces. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
 
 const siteUrl = "https://thirdindex.co";
 
@@ -57,6 +57,10 @@ export const metadata: Metadata = {
     "headless commerce development",
     "fractional software engineer",
     "senior frontend consulting",
+    "frontend consulting",
+    "frontend audit",
+    "next.js consultant",
+    "design system consultant",
     "independent software engineering practice",
   ],
   authors: [{ name: "Michael Ciccarelli", url: "https://relli.cc" }],

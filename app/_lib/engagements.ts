@@ -1,4 +1,5 @@
 export type EngagementSlug =
+  | "audit"
   | "sprint"
   | "prototype"
   | "systems"
@@ -16,7 +17,9 @@ export type Engagement = {
 // landing page's engagement section and the cross-link block on each
 // service page.
 //
-// Ordered by commitment, cheapest first. The build is priced by the week so
+// Ordered by commitment, cheapest first. The audit leads: a fixed week of
+// judgment rather than output, for teams that want a read before they
+// commit to a build — and the usual way into one. The build is priced by the week so
 // one offer covers the whole range: a single week is a low-risk way for a
 // studio or founder to find out what working together is like, and the same
 // engagement extends to three when the work warrants it — no second SKU for
@@ -26,6 +29,14 @@ export type Engagement = {
 // inquiries are lost on price, cut the opening scope rather than the rate.
 // Every tier clears the ~$5k/week floor.
 export const ENGAGEMENTS: readonly Engagement[] = [
+  {
+    slug: "audit",
+    title: "frontend audit",
+    meta: "1 week, $5k",
+    description:
+      "a written read on your frontend — architecture, performance, accessibility, system health — and a ranked plan.",
+    href: "/frontend-audit",
+  },
   {
     slug: "sprint",
     title: "frontend build",

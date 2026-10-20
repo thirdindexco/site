@@ -4,6 +4,7 @@ const BASE_URL = "https://thirdindex.co";
 
 const ROUTES = [
   "",
+  "/frontend-audit",
   "/prototype",
   "/systems",
   "/sprint",

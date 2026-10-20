@@ -11,7 +11,7 @@ import { projects } from "./_lib/projects";
 
 const pageTitle = "THIRD INDEX — Technology Studio";
 const pageDescription =
-  "Independent technology studio in Las Vegas designing and building custom web applications, storefronts, and product interfaces. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
+  "Independent technology studio in Las Vegas — design, engineering, and frontend consulting for custom web applications, storefronts, and product interfaces. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -70,7 +70,7 @@ const FOCUS_AREAS: {
     mark: "cms",
     title: "cms systemization",
     description:
-      "content models, editing experience, and page-building components.",
+      "content modeling and platform choice, editing experience, and page-building components.",
   },
   {
     mark: "creative",
@@ -81,7 +81,7 @@ const FOCUS_AREAS: {
     mark: "architecture",
     title: "frontend architecture",
     description:
-      "app structure, rendering strategy, performance, and migrations.",
+      "audits, app structure, rendering strategy, performance, and migration plans.",
   },
 ];
 
