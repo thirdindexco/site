@@ -67,6 +67,53 @@ body {
   }
 }
 
+/* Load cover (IntroCover). Off unless the head script set data-intro, so
+   no-JS and reduced-motion visitors never see it. Duration and delay come
+   inline from _lib/intro.ts; the ease is front-loaded, so most of the fade
+   happens in its first few frames. */
+.intro-cover {
+  display: none;
+}
+
+html[data-intro] .intro-cover {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  animation-name: intro-out;
+  animation-timing-function: cubic-bezier(0, 0.95, 0.44, 1);
+  animation-fill-mode: forwards;
+}
+
+html[data-intro="blue"] .intro-cover {
+  background: var(--accent);
+  color: #fafafa;
+}
+
+html[data-intro="grey"] .intro-cover {
+  background: #9b9b9b;
+  color: #0b0b0b;
+}
+
+.intro-cover > * {
+  animation: intro-text-in 0.4s ease-out both;
+}
+
+@keyframes intro-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes intro-text-in {
+  from {
+    opacity: 0;
+  }
+}
+
 ::selection {
   background: var(--primary);
   color: var(--primary-foreground);

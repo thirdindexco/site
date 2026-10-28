@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { IntroCover } from "./_components/IntroCover";
 import { Providers } from "./_components/Providers";
 import "./globals.css";
 
@@ -117,6 +118,8 @@ const jsonLd = {
 
 // Runs before hydration; sets data-theme from localStorage, falling back to
 // the system preference. Prevents a flash of the wrong theme on reload.
+// Also picks the load cover's colour (data-intro), which is what turns the
+// cover on at all — skipped under reduced motion.
 const themeInitScript = `
 try {
   var stored = localStorage.getItem('theme');
@@ -124,6 +127,9 @@ try {
     ? stored
     : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', theme);
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.setAttribute('data-intro', Math.random() < 0.5 ? 'blue' : 'grey');
+  }
 } catch (e) {}
 `;
 
@@ -152,6 +158,7 @@ export default function RootLayout({
         </noscript>
       </head>
       <body className="font-sans antialiased">
+        <IntroCover />
         <Providers>
           {children}
           <Analytics />

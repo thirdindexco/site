@@ -3,6 +3,7 @@
 import { useRef, type ReactNode } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { INTRO_REVEAL_AT_S } from "../_lib/intro";
 
 // Thin client wrapper that owns the GSAP timeline + ref scope for the
 // desktop intro choreography. Animated targets are addressed by data-anim
@@ -62,9 +63,26 @@ export function AnimRoot({
             return nodes.length ? nodes : null;
           };
 
+          // On a full load the IntroCover sits over the page, so hold the
+          // cascade until the cover is fading. The cover's CSS clock starts
+          // at first paint, not navigation start, so read its animation's
+          // own start time (same timeline as performance.now). Later
+          // client-side navigations are long past that point, so they get
+          // no extra delay.
+          let introDelay = 0;
+          if (document.documentElement.hasAttribute("data-intro")) {
+            const cover = document.querySelector(".intro-cover");
+            const start = cover?.getAnimations?.()[0]?.startTime;
+            const coverStartS = start == null ? 0 : Number(start) / 1000;
+            introDelay = Math.max(
+              0,
+              coverStartS + INTRO_REVEAL_AT_S - performance.now() / 1000,
+            );
+          }
+
           const tl = gsap.timeline({
             defaults: { ease: "power2.out" },
-            delay: 0.02,
+            delay: 0.02 + introDelay,
           });
 
           // Start and end states are both stated outright rather than
