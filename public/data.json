@@ -8,6 +8,19 @@
 	],
 	"projects": [
     {
+        "title": "halloran.app",
+        "role": "Design & Development",
+        "url": "https://halloran.app",
+        "description": "a few good tools for poker players. a ledger for sessions, bets, and bankroll, an ai assistant built on claude that logs and answers from it, and a directory of u.s. poker rooms and tournament series.",
+        "technologies": "Next.js, Tailwind, Base UI, Supabase, Claude",
+        "thumbnail": "/projects/halloran-thumb.jpg",
+        "images": [
+            "/projects/halloran-ui-ai-panel-start.png",
+            "/projects/halloran-ui-ledger.png",
+            "/projects/halloran-ui-poker-rooms.png"
+        ]
+    },
+    {
         "title": "spread.now",
         "role": "Design & Development",
         "url": "https://spread.now",
@@ -20,21 +33,6 @@
             "/projects/stream-ui-poker-list.png",
             "/projects/stream-ui-poker-map.png",
             "/projects/stream-ui-poker-lv-map.png"
-        ]
-    },
-    {
-        "title": "bkrl.app",
-        "role": "Design & Development",
-        "url": "https://bkrl.app",
-        "description": "bankroll management for poker players. log sessions in natural language, track variance and ROI, and see which games and stakes are actually profitable.",
-        "technologies": "Next.js, Tailwind, Base UI, Supabase",
-        "thumbnail": "/projects/bkrl-dashboard@2x.png",
-        "images": [
-            "/projects/bkrl-dashboard@2x.png",
-            "/projects/bkrl-dashboard-ai@2x.png",
-            "/projects/bkrl-ledger@2x.png",
-            "/projects/bkrl-ledger-modal@2x.png",
-            "/projects/bkrl-insights@2x.png"
         ]
     },
     {
