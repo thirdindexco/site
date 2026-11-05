@@ -21,6 +21,14 @@
         ]
     },
     {
+        "title": "Legend.xyz",
+        "role": "Frontend Development",
+        "url": "https://legend-xyz.vercel.app",
+        "description": "marketing site for an embedded smart contract wallet. webgl and scroll-driven sequences on the homepage and product pages.",
+        "technologies": "Next.js, Tailwind, WebGL",
+        "thumbnail": "/projects/legend.jpg"
+    },
+    {
         "title": "spread.now",
         "role": "Design & Development",
         "url": "https://spread.now",
@@ -34,14 +42,6 @@
             "/projects/stream-ui-poker-map.png",
             "/projects/stream-ui-poker-lv-map.png"
         ]
-    },
-    {
-        "title": "Legend.xyz",
-        "role": "Frontend Development",
-        "url": "https://legend-xyz.vercel.app",
-        "description": "marketing site for an embedded smart contract wallet. webgl and scroll-driven sequences on the homepage and product pages.",
-        "technologies": "Next.js, Tailwind, WebGL",
-        "thumbnail": "/projects/legend.jpg"
     },
     {
         "title": "Kelvon Agee",
