@@ -16,7 +16,7 @@ export function MobileProjectList({ projects }: { projects: Project[] }) {
                 <span className="font-sans text-sm font-bold tracking-tight leading-tight">
                   {project.title}
                 </span>
-                <span className="shrink-0 font-sans text-sm opacity-50">
+                <span className="shrink-0 font-sans text-xs opacity-50">
                   {String(index + 1).padStart(2, "0")}
                 </span>
               </Collapsible.Trigger>
@@ -25,7 +25,7 @@ export function MobileProjectList({ projects }: { projects: Project[] }) {
                   <p className="font-sans text-sm leading-tight">
                     {project.description}
                   </p>
-                  <div className="pt-4 font-sans text-sm opacity-70">
+                  <div className="pt-4 font-sans text-xs opacity-70">
                     <p className="font-medium">{project.role}</p>
                     <p className="pt-1 font-light">
                       {formatTechnologies(project.technologies)}
@@ -35,7 +35,7 @@ export function MobileProjectList({ projects }: { projects: Project[] }) {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/visit mt-4 inline-flex items-center gap-1.5 font-sans text-sm underline decoration-solid underline-offset-2 transition-colors hover:text-accent"
+                    className="group/visit mt-4 inline-flex items-center gap-1.5 font-sans text-xs underline decoration-solid underline-offset-2 transition-colors hover:text-accent"
                   >
                     visit
                     <ArrowUpRight

@@ -114,8 +114,8 @@ const jsonLd = {
 
 // Runs before hydration; sets data-theme from localStorage, falling back to
 // the system preference. Prevents a flash of the wrong theme on reload.
-// Also picks the load sequence's colour (data-intro), which is what turns
-// the sequence on at all — skipped under reduced motion.
+// Also sets data-intro, which is what turns the load sequence on at all —
+// skipped under reduced motion. The field is always the flat grey.
 const themeInitScript = `
 try {
   var stored = localStorage.getItem('theme');
@@ -124,7 +124,7 @@ try {
     : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', theme);
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.setAttribute('data-intro', Math.random() < 0.5 ? 'blue' : 'grey');
+    document.documentElement.setAttribute('data-intro', 'grey');
   }
 } catch (e) {}
 `;

@@ -5,8 +5,8 @@ import { Settings2 } from "lucide-react";
 import { PAGE_X, SHELL } from "../_lib/layout";
 import { MonogramMark } from "./MonogramMark";
 
-// Sticky bar, and deliberately almost nothing: a mark home and the settings
-// panel. The section index that used to live here was navigation for a page
+// Fixed bar, and deliberately almost nothing: a mark home and the settings
+// panel, reachable from anywhere on the page. <main> pads for its height. The section index that used to live here was navigation for a page
 // that is one uninterrupted scroll — the sections are short enough that
 // jumping between them was never worth the row of links.
 export function SiteHeader({
@@ -17,7 +17,7 @@ export function SiteHeader({
   settingsOpen: boolean;
 }) {
   return (
-    <header className="site-header sticky top-0 z-30 bg-[color:var(--background)]/85 backdrop-blur-md">
+    <header className="site-header fixed inset-x-0 top-0 z-30 bg-[color:var(--background)]/85 backdrop-blur-md">
       <div
         className={`${SHELL} ${PAGE_X} flex items-center justify-between gap-8 py-4 md:py-5 lg:py-6`}
       >

@@ -93,7 +93,7 @@ export function ProjectGallery({
         })}
       </button>
 
-      <div className="flex items-center justify-between pt-3 font-sans text-sm tabular-nums">
+      <div className="flex items-center justify-between pt-3 font-sans text-xs tabular-nums">
         <span aria-live="polite" className="opacity-50">
           {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
         </span>

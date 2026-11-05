@@ -190,7 +190,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                     : ""
                 }`}
               >
-                <span className="col-span-2 font-sans text-sm tabular-nums opacity-50">
+                <span className="col-span-2 font-sans text-xs tabular-nums opacity-50">
                   {String(index + 1).padStart(3, "0")}
                 </span>
                 <span className="col-span-9 font-sans text-sm font-bold leading-tight md:col-span-8 md:col-start-4">
@@ -253,7 +253,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                         <p className="font-sans text-sm leading-tight text-pretty">
                           {project.description}
                         </p>
-                        <div className="flex flex-col gap-1 pt-3 font-sans text-sm opacity-60">
+                        <div className="flex flex-col gap-1 pt-3 font-sans text-xs opacity-60">
                           <span>{project.role}</span>
                           <span>
                             {formatTechnologies(project.technologies)}
@@ -266,7 +266,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                           href={project.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/visit inline-flex items-center gap-1.5 font-sans text-sm opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100"
+                          className="group/visit inline-flex items-center gap-1.5 font-sans text-xs opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100"
                         >
                           visit
                           <ArrowRight

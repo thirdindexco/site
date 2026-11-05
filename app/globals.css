@@ -83,30 +83,20 @@ h3 {
 }
 
 /* Load sequence (see _lib/intro.ts). While html[data-intro] is set the
-   page is a field of colour: the accent blue or a flat grey, with the hero
-   recoloured to sit on it and everything else held invisible. Removing the
+   page is a field of flat grey, with the hero recoloured to sit on it and
+   everything else held invisible. Removing the
    attribute turns the field into the page; html[data-intro-out] is on for
    that moment so the change is a transition rather than a cut. Nothing
    here runs without the head script, so no-JS and reduced-motion visitors
    get the page straight away. */
-html[data-intro="blue"],
-html[data-intro="blue"] body {
-  background: var(--accent);
-}
-html[data-intro="grey"],
-html[data-intro="grey"] body {
+html[data-intro],
+html[data-intro] body {
   background: #9b9b9b;
 }
-html[data-intro="blue"] #studio h1 {
-  color: #fafafa;
-}
-html[data-intro="blue"] #studio .hero-support {
-  color: color-mix(in srgb, #fafafa 62%, var(--accent));
-}
-html[data-intro="grey"] #studio h1 {
+html[data-intro] #studio h1 {
   color: #0b0b0b;
 }
-html[data-intro="grey"] #studio .hero-support {
+html[data-intro] #studio .hero-support {
   color: color-mix(in srgb, #0b0b0b 62%, #9b9b9b);
 }
 html[data-intro] :is(header, footer, main > :not(#studio), #studio [data-anim="body"]) {

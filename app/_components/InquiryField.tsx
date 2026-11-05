@@ -19,7 +19,7 @@ export function InquiryField({
 }: Props) {
   return (
     <div>
-      <label className="block font-sans text-sm pb-2">
+      <label className="block font-sans text-xs pb-2">
         {field.label}
       </label>
       {field.type === "select" ? (
@@ -32,7 +32,7 @@ export function InquiryField({
                 type="button"
                 onClick={() => onChange(o)}
                 disabled={disabled}
-                className={`font-sans text-sm px-3 py-1.5 border transition-colors cursor-pointer disabled:cursor-not-allowed whitespace-nowrap outline-none ${
+                className={`font-sans text-xs px-3 py-1.5 border transition-colors cursor-pointer disabled:cursor-not-allowed whitespace-nowrap outline-none ${
                   selected
                     ? "bg-foreground text-background border-foreground"
                     : "text-foreground border-foreground/30 hover:border-foreground/60"

@@ -1,6 +1,6 @@
 // The load sequence. The head script in layout.tsx sets html[data-intro]
-// to "blue" or "grey" before first paint; while it is set, the page is a
-// field of that colour with only the hero on it (globals.css). The hero
+// before first paint; while it is set, the page is a field of flat grey
+// with only the hero on it (globals.css). The hero
 // writes itself in, holds for INTRO_HOLD_S, then leaveIntro() turns the
 // field into the page: html[data-intro-out] arms the colour transitions,
 // data-intro comes off on the next frame, and the rest of the page fades

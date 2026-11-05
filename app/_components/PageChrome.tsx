@@ -17,8 +17,9 @@ import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 import { ThemeShortcuts } from "./ThemeShortcuts";
 
-// Shared shell for every page: one centered measure with a sticky bar above
-// it and the colophon below. Full-bleed rows cancel PAGE_X with BLEED_X
+// Shared shell for every page: the viewport-wide measure under a fixed bar,
+// with the colophon below. The bar is out of flow, so <main> carries its
+// height in its top padding. Full-bleed rows cancel PAGE_X with BLEED_X
 // rather than by living outside the container.
 //
 // There is no mobile nav drawer. With the section index gone the drawer had
@@ -71,7 +72,7 @@ export function PageChrome({ children }: { children: ReactNode }) {
 
       <main
         onClickCapture={dismissPanelsFromPage}
-        className={`${SHELL} ${PAGE_X} flex-1 pb-24 pt-10 lg:pb-32 lg:pt-16`}
+        className={`${SHELL} ${PAGE_X} flex-1 pb-24 pt-24 lg:pb-32 lg:pt-32`}
       >
         {children}
       </main>
