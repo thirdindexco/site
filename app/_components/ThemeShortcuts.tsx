@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useAtom } from "jotai";
-import { cycleTheme, themeAtom } from "../_lib/theme-state";
+import { cycleTheme, themeAtom, themeSourceAtom } from "../_lib/theme-state";
 
 // Mounted once under AnimRoot. Owns everything that must run a single time
 // per page: hydrating the atom from the pre-hydration <html data-theme>
@@ -11,6 +11,7 @@ import { cycleTheme, themeAtom } from "../_lib/theme-state";
 // duplicating listeners or racing on DOM writes.
 export function ThemeShortcuts() {
   const [, setTheme] = useAtom(themeAtom);
+  const [, setSource] = useAtom(themeSourceAtom);
 
   // Hydrate from the pre-hydration script's value, then follow system
   // color-scheme changes until the user explicitly picks a theme.
@@ -19,6 +20,9 @@ export function ThemeShortcuts() {
     if (attr === "light" || attr === "dark") {
       setTheme(attr);
     }
+    try {
+      setSource(localStorage.getItem("theme") ? "manual" : "system");
+    } catch {}
 
     const mql = window.matchMedia("(prefers-color-scheme: dark)");
     const onChange = (e: MediaQueryListEvent) => {
@@ -29,10 +33,10 @@ export function ThemeShortcuts() {
     };
     mql.addEventListener("change", onChange);
     return () => mql.removeEventListener("change", onChange);
-  }, [setTheme]);
+  }, [setTheme, setSource]);
 
   // T cycles the theme. Routes through the same cycleTheme used by the
-  // rail's toggle so sound, haptic, and dedupe lock stay consistent.
+  // settings panel so the dedupe lock stays consistent.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "t" && e.key !== "T") return;

@@ -3,7 +3,7 @@
 import { useRef, type ReactNode } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { INTRO_REVEAL_AT_S } from "../_lib/intro";
+import { INTRO_HOLD_S, INTRO_MOBILE_MS, leaveIntro } from "../_lib/intro";
 
 // Thin client wrapper that owns the GSAP timeline + ref scope for the
 // desktop intro choreography. Animated targets are addressed by data-anim
@@ -20,9 +20,13 @@ export function AnimRoot({
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
+      // matchMedia only invokes the callback when at least one condition
+      // matches, so the narrow range is listed too — otherwise a phone with
+      // motion enabled would never reach the hand-off timer below.
       mm.add(
         {
           isDesktop: "(min-width: 1024px)",
+          isNarrow: "(max-width: 1023px)",
           reduceMotion: "(prefers-reduced-motion: reduce)",
         },
         (ctx) => {
@@ -30,11 +34,18 @@ export function AnimRoot({
             isDesktop: boolean;
             reduceMotion: boolean;
           };
-          if (!isDesktop) return;
+          // Below the desktop breakpoint there is no cascade: the hero fades
+          // up by CSS on the colour field, and the hand-off to the page runs
+          // on a timer.
+          if (!isDesktop) {
+            const t = window.setTimeout(leaveIntro, INTRO_MOBILE_MS);
+            return () => window.clearTimeout(t);
+          }
 
           // Reduced motion: reveal everything immediately, skip the timeline.
           if (reduceMotion) {
             gsap.set("[data-anim]", { autoAlpha: 1, visibility: "visible" });
+            leaveIntro();
             return;
           }
 
@@ -63,26 +74,9 @@ export function AnimRoot({
             return nodes.length ? nodes : null;
           };
 
-          // On a full load the IntroCover sits over the page, so hold the
-          // cascade until the cover is fading. The cover's CSS clock starts
-          // at first paint, not navigation start, so read its animation's
-          // own start time (same timeline as performance.now). Later
-          // client-side navigations are long past that point, so they get
-          // no extra delay.
-          let introDelay = 0;
-          if (document.documentElement.hasAttribute("data-intro")) {
-            const cover = document.querySelector(".intro-cover");
-            const start = cover?.getAnimations?.()[0]?.startTime;
-            const coverStartS = start == null ? 0 : Number(start) / 1000;
-            introDelay = Math.max(
-              0,
-              coverStartS + INTRO_REVEAL_AT_S - performance.now() / 1000,
-            );
-          }
-
           const tl = gsap.timeline({
             defaults: { ease: "power2.out" },
-            delay: 0.02 + introDelay,
+            delay: 0.02,
           });
 
           // Start and end states are both stated outright rather than
@@ -90,34 +84,78 @@ export function AnimRoot({
           // under StrictMode's double-mounted effect a from() tween can
           // capture the first run's leftover opacity:0 as its *end* value
           // and strand the page invisible.
+          //
+          // Each target fades up to its own resting opacity, read from its
+          // Tailwind opacity-NN class, and the inline value is cleared at
+          // the end so the class governs again. Tweening everything to 1
+          // left labels styled at 50–60% sitting at full ink on desktop
+          // while mobile, which skips the timeline, showed them as styled.
+          const restingOpacity = (el: Element) => {
+            const cls =
+              typeof el.className === "string"
+                ? el.className
+                : (el.getAttribute("class") ?? "");
+            const m = /\bopacity-(\d+)\b/.exec(cls);
+            return m ? Number(m[1]) / 100 : 1;
+          };
           const reveal = (
             targets: Element[],
             from: gsap.TweenVars,
             to: gsap.TweenVars,
             position?: string,
           ) => {
+            const clear = [
+              "opacity",
+              ...(typeof to.clearProps === "string"
+                ? to.clearProps.split(",")
+                : []),
+            ].join(",");
             tl.set(targets, { autoAlpha: 0, ...from }, position);
-            tl.to(targets, { autoAlpha: 1, ...to }, position);
+            tl.to(
+              targets,
+              {
+                ...to,
+                autoAlpha: (_i: number, el: Element) => restingOpacity(el),
+                clearProps: clear,
+              },
+              position,
+            );
           };
 
-          // Order of the cascade: the mark, then the hero statement word by
-          // word, then everything else in view.
-          const logo = pick("[data-anim='logo']");
-          if (logo) {
-            reveal(logo, { y: -2 }, { y: 0, duration: 0.24 });
-          }
-
+          // Order: the hero writes itself in on the colour field; a short
+          // hold; the field becomes the page (leaveIntro); then the mark and
+          // everything else in view fade in around the hero.
           // Hero: if the headline is split into .hero-word spans, cascade
           // word-by-word with a blur settle; otherwise reveal as one block.
           const heroWords = pick("[data-anim='hero'] .hero-word");
           const hero = pick("[data-anim='hero']");
           if (heroWords) {
-            // The h1 itself is unhidden at time 0 — it's only a container
-            // for the word spans, which carry the cascade.
-            if (hero) tl.set(hero, { autoAlpha: 1 }, 0);
+            const wordStart = { y: 14, filter: "blur(8px)" };
+            // The words take their hidden start state now, synchronously,
+            // before anything unhides their container. Setting it on the
+            // timeline instead left a gap: the h1 was unhidden at time 0
+            // but the words weren't hidden until their own tween's
+            // position, so the whole headline painted for a few frames,
+            // vanished, and only then cascaded in.
+            gsap.set(heroWords, { autoAlpha: 0, ...wordStart });
+
+            // Hero elements split two ways: containers of word spans are
+            // only unhidden (the words carry the cascade); anything else
+            // marked hero — the availability eyebrow — reveals as a block
+            // alongside the first words.
+            const containers = (hero ?? []).filter((el) =>
+              el.querySelector(".hero-word"),
+            );
+            const blocks = (hero ?? []).filter(
+              (el) => !el.querySelector(".hero-word"),
+            );
+            if (containers.length) tl.set(containers, { autoAlpha: 1 }, 0);
+            if (blocks.length) {
+              reveal(blocks, { y: 4 }, { y: 0, duration: 0.28 }, "-=0.1");
+            }
             reveal(
               heroWords,
-              { y: 14, filter: "blur(8px)" },
+              wordStart,
               {
                 y: 0,
                 filter: "blur(0px)",
@@ -129,10 +167,25 @@ export function AnimRoot({
                 // which blocks subpixel antialiasing on the final text.
                 clearProps: "filter,transform",
               },
-              "-=0.1",
+              blocks.length ? "<" : undefined,
             );
           } else if (hero) {
-            reveal(hero, { y: 4 }, { y: 0, duration: 0.28 }, "-=0.1");
+            reveal(hero, { y: 4 }, { y: 0, duration: 0.28 });
+          }
+
+          // The field becomes the page. On a client-side navigation there is
+          // no data-intro, so this is a no-op and the rest follows at once.
+          const hasIntro = document.documentElement.hasAttribute("data-intro");
+          tl.call(leaveIntro, [], hasIntro ? `+=${INTRO_HOLD_S}` : undefined);
+
+          const logo = pick("[data-anim='logo']");
+          if (logo) {
+            reveal(
+              logo,
+              { y: -2 },
+              { y: 0, duration: 0.24 },
+              hasIntro ? "+=0.25" : undefined,
+            );
           }
 
           const body = pick("[data-anim='body']");

@@ -77,7 +77,7 @@ function StartConversationButton() {
       href={START_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="group/cta inline-flex items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-mono text-3xs font-medium uppercase tracking-tight text-white outline-none transition-colors duration-200 hover:bg-accent-hover"
+      className="group/cta inline-flex items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-sans text-sm font-bold text-white outline-none transition-colors duration-200 hover:bg-accent-hover"
     >
       start a conversation
       <ArrowRight
@@ -91,44 +91,47 @@ function StartConversationButton() {
 export default function EmbeddedPage() {
   return (
     <PageChrome>
-        <section className={`pt-2 md:pt-6 lg:pt-4 ${GRID}`}>
-          <div
+        <section className={`pt-20 md:pt-36 lg:pt-48 ${GRID}`}>
+          <p
             data-anim="hero"
-            className="col-span-12"
+            className="col-span-12 font-sans text-sm opacity-50 md:col-span-2"
           >
-            <p className="font-mono text-3xs font-medium uppercase tracking-tight opacity-60">
-              stay close
-            </p>
-            <h1 className="pt-3 font-sans text-3xl font-bold leading-[0.95] tracking-[-0.04em] text-pretty md:text-5xl">
-              senior design engineering, embedded.
+            stay close
+          </p>
+          <div className="col-span-12 pt-5 md:col-span-6 md:col-start-4 md:pt-0">
+            <h1
+              data-anim="hero"
+              className="max-w-[62ch] font-sans text-sm font-bold leading-tight tracking-tight text-pretty"
+            >
+              senior design engineering, embedded.{" "}
+              <span className="hero-support">
+                part of your team and your sprint cycles, for teams that need senior frontend architecture, interface judgment, and production momentum.
+              </span>
             </h1>
-            <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
-              part of your team and your sprint cycles, for teams that need
-              senior frontend architecture, interface judgment, and production
-              momentum.
-            </p>
-            <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
+            <div data-anim="body">
+            <p className="pt-10 font-sans text-sm opacity-50 md:pt-12">
               from $10k/month · embedded in your team · 3-month minimum · remote
             </p>
-            <div className="pt-6 md:pt-8">
+            <div className="pt-4">
               <StartConversationButton />
+            </div>
             </div>
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
-          <div className="col-span-12 md:col-span-3 md:col-start-1">
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-2 md:col-start-1">
+            <div className="font-sans text-sm opacity-50">
               what embedded looks like
             </div>
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
-            <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
+            <p className="max-w-[60ch] font-sans text-sm leading-tight text-pretty">
               for teams with real product velocity and a visible gap between
               design intent and shipped interface: rough interactions, drifting
               systems, inconsistent polish, product and marketing out of sync.
             </p>
-            <p className="pt-4 font-sans text-sm leading-relaxed text-pretty md:text-base">
+            <p className="max-w-[60ch] pt-4 font-sans text-sm leading-tight text-pretty">
               embedded means working in your tools and on your cadence: repo,
               slack, standups, reviews. hands on the work, close to the team,
               clean exit at agreed milestones.
@@ -136,9 +139,9 @@ export default function EmbeddedPage() {
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 ${GRID}`}>
-          <div className="col-span-12 md:col-span-3 md:col-start-1">
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-2 md:col-start-1">
+            <div className="font-sans text-sm opacity-50">
               what i typically own
             </div>
           </div>
@@ -147,7 +150,7 @@ export default function EmbeddedPage() {
               {ownership.map((item, i) => (
                 <li
                   key={item}
-                  className={`py-3 font-sans text-sm leading-relaxed ${
+                  className={`py-3 font-sans text-sm leading-tight ${
                     i > 0
                       ? "border-t border-[color:var(--panel-border)]"
                       : ""
@@ -160,26 +163,26 @@ export default function EmbeddedPage() {
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 ${GRID}`}>
-          <div className="col-span-12 md:col-span-3 md:col-start-1">
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-2 md:col-start-1">
+            <div className="font-sans text-sm opacity-50">
               how it works
             </div>
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
-            <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
+            <p className="max-w-[60ch] font-sans text-sm leading-tight text-pretty">
               30-min intro call → 60-min scoping call → 2-week paid trial
               sprint → embedded engagement begins.
             </p>
-            <p className="pt-4 font-sans text-sm leading-relaxed text-pretty text-foreground/70 md:text-base">
+            <p className="max-w-[60ch] pt-4 font-sans text-sm leading-tight text-pretty text-foreground/70">
               the trial sprint confirms fit before a 3-month contract.
             </p>
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 ${GRID}`}>
-          <div className="col-span-12 md:col-span-3 md:col-start-1">
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-2 md:col-start-1">
+            <div className="font-sans text-sm opacity-50">
               pricing
             </div>
           </div>
@@ -197,22 +200,22 @@ export default function EmbeddedPage() {
                   <dt className="col-span-6 self-baseline font-sans text-sm font-bold leading-tight md:col-span-4">
                     {tier}
                   </dt>
-                  <dd className="col-span-6 self-baseline text-right font-mono text-3xs font-medium uppercase tracking-tight opacity-80 md:col-span-8">
+                  <dd className="col-span-6 self-baseline text-right font-sans text-sm opacity-80 md:col-span-8">
                     {price}
                   </dd>
                 </div>
               ))}
             </dl>
-            <p className="pt-4 font-sans text-sm leading-relaxed text-foreground/70">
+            <p className="max-w-[60ch] pt-4 font-sans text-sm leading-tight text-foreground/70">
               month-to-month after the 3-month minimum. invoiced monthly in
               advance.
             </p>
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 ${GRID}`}>
-          <div className="col-span-12 md:col-span-3 md:col-start-1">
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-2 md:col-start-1">
+            <div className="font-sans text-sm opacity-50">
               faq
             </div>
           </div>
@@ -221,14 +224,14 @@ export default function EmbeddedPage() {
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
-          <div className="col-span-12">
-            <p className="font-sans text-3xl font-bold leading-[0.95] tracking-[-0.04em] text-pretty md:text-5xl">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-6 md:col-start-4">
+            <p className="font-sans text-sm font-bold leading-tight tracking-tight text-pretty">
               bring software and design engineering closer.
             </p>
             <div className="flex flex-col items-start gap-4 pt-8 md:pt-10">
               <StartConversationButton />
-              <p className="font-mono text-3xs font-medium uppercase tracking-tight opacity-70">
+              <p className="font-sans text-sm opacity-70">
                 or{" "}
                 <a
                   href={`mailto:${EMAIL}`}

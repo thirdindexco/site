@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { PAGE_X, SHELL } from "../_lib/layout";
 
-// The site's gap-6 gutter in px.
-const GUTTER = 24;
+// The site's gap-5 gutter in px.
+const GUTTER = 20;
 const COLUMNS = 12;
 
 // Overlay of the grid every page lays content on. It composes the same
@@ -59,7 +59,7 @@ export function GridDebugger({ enabled }: { enabled: boolean }) {
       <div className={`${SHELL} ${PAGE_X} h-full`}>
         <div
           ref={gridRef}
-          className="relative grid h-full w-full grid-cols-12 gap-6"
+          className="relative grid h-full w-full grid-cols-12 gap-5"
         >
           <div className="absolute inset-y-0 left-0 w-px bg-pink-500/70" />
           <div className="absolute inset-y-0 right-0 w-px bg-pink-500/70" />

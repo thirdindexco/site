@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { playClickThrottled } from "../_lib/click-sound";
 
 // Stepped stills for the expanded project row, led by the video loop when
 // the project has one. Every slide sits in the same grid cell and
@@ -37,7 +36,6 @@ export function ProjectGallery({
 
   const step = (delta: number) => {
     setIndex((i) => (i + delta + count) % count);
-    playClickThrottled(70, 0, 0.6);
   };
 
   return (
@@ -95,7 +93,7 @@ export function ProjectGallery({
         })}
       </button>
 
-      <div className="flex items-center justify-between pt-3 font-mono text-3xs font-medium uppercase tabular-nums tracking-tight">
+      <div className="flex items-center justify-between pt-3 font-sans text-sm tabular-nums">
         <span aria-live="polite" className="opacity-50">
           {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
         </span>

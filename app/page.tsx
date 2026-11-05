@@ -42,11 +42,11 @@ export const metadata: Metadata = {
 const HERO_LEAD = "A technology studio for product teams and brands.";
 const HERO_SUPPORT =
   "We design and build applications, storefronts, and product interfaces.";
-// The proof, read before anyone scrolls: names only. The person and the
-// way of working belong to the studio block further down, so the two
-// don't say the same thing twice.
+// The proof runs on from the support line inside the same block. The person
+// and the way of working belong to the studio block further down, so the
+// two don't say the same thing twice.
 const HERO_PROOF =
-  "Two decades of design and engineering for Pentagram, Grey, Amazon, VICE, and Condé Nast, and for the founders and labels in the index below.";
+  "Two decades working with independent founders and global names including Pentagram, Amazon, VICE, and Condé Nast.";
 // Availability is a lead lever for a one-person practice. Keep it true.
 const HERO_AVAILABILITY = "available · new projects from december 2026";
 
@@ -133,11 +133,11 @@ function Section({
   return (
     <section
       id={id}
-      className={`scroll-mt-20 pt-20 md:pt-28 lg:scroll-mt-14 lg:pt-36 ${FLUID_GRID}`}
+      className={`scroll-mt-20 pt-28 md:pt-40 lg:scroll-mt-14 lg:pt-56 ${FLUID_GRID}`}
     >
       <h2
         data-anim="body"
-        className="col-span-12 font-mono text-2xs font-medium uppercase tracking-tight opacity-50 md:col-span-2"
+        className="col-span-12 font-sans text-sm opacity-50 md:col-span-2"
       >
         {label}
       </h2>
@@ -157,39 +157,31 @@ export default function HomePage() {
       {/* Studio — a masthead and the way in, nothing else. The footer's
           standing description carries the plain-English gloss, so this
           doesn't explain itself. */}
+      {/* One block at text size, well down the viewport, in the content
+          column every section below uses. The statement is in ink, the
+          support and the proof run on in the second tone, and availability
+          sits as a label directly over the buttons. The hierarchy is
+          whitespace, not scale. */}
       <section
         id="studio"
-        className={`scroll-mt-20 lg:scroll-mt-14 ${FLUID_GRID}`}
+        className={`scroll-mt-20 pt-20 md:pt-36 lg:scroll-mt-14 lg:pt-48 ${FLUID_GRID}`}
       >
-        {/* Full twelve columns: the h1's own max-w is what sets the measure,
-            and a 10-column wrapper was narrower than that between roughly
-            1024 and 1090, breaking the support line early. */}
-        <div className="col-span-12">
-          <p
-            data-anim="hero"
-            className="pb-5 font-mono text-3xs font-medium uppercase tracking-tight opacity-60 md:pb-6"
-          >
-            {HERO_AVAILABILITY}
-          </p>
+        <div className="col-span-12 md:col-span-6 md:col-start-4">
           <h1
             data-anim="hero"
-            className="font-sans text-3xl font-bold leading-[0.95] tracking-[-0.04em] md:text-4xl xl:text-5xl"
+            className="max-w-[50ch] font-sans text-sm font-bold leading-tight tracking-tight"
           >
-            {/* Lead and support flow as one paragraph at every width: at
-                display size each sentence on its own row ran to four lines,
-                and the tone change already marks the boundary. text-pretty
-                can't balance this itself: every word is an atomic
-                inline-block for the cascade. */}
             <span>{heroWords(HERO_LEAD)}</span>{" "}
-            <span className="hero-support">{heroWords(HERO_SUPPORT)}</span>
+            <span className="hero-support">
+              {heroWords(HERO_SUPPORT)} {heroWords(HERO_PROOF)}
+            </span>
           </h1>
-        </div>
-
-        <div data-anim="body" className="col-span-12">
-          <p className="max-w-[70ch] pt-6 font-sans text-sm leading-relaxed text-pretty text-foreground/65 md:pt-8 md:text-base">
-            {HERO_PROOF}
-          </p>
-          <InquiryCTA />
+          <div data-anim="body" className="pt-10 md:pt-12">
+            <p className="font-sans text-sm opacity-50">
+              {HERO_AVAILABILITY}
+            </p>
+            <InquiryCTA className="pt-4" />
+          </div>
         </div>
       </section>
 
@@ -197,63 +189,55 @@ export default function HomePage() {
           label grid and carries its own heading. */}
       <ProjectIndex projects={projects} />
 
-      {/* Focus areas — no label; the marks and titles say what it is.
-          Full twelve columns, a tiled grid rather than rows, so it doesn't
-          read as the same index as the engagements below. The 1px gap over
-          the border colour draws the hairlines. */}
-      <section
-        id="focus"
-        className={`scroll-mt-20 pt-20 md:pt-28 lg:scroll-mt-14 lg:pt-36 ${FLUID_GRID}`}
-      >
+      {/* Focus areas — open columns, no boxes: the mark, a bold title, and
+          a line of description, three to a row across the content columns. */}
+      <Section id="focus" label="focus">
         <ul
           data-anim="body"
-          className="col-span-12 grid gap-px border border-[color:var(--panel-border)] bg-[color:var(--panel-border)] sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"
         >
           {FOCUS_AREAS.map((area) => (
-            <li key={area.title} className="group/focus bg-background p-5">
+            <li key={area.title} className="group/focus">
               <FocusMark mark={area.mark} />
-              <h3 className="pt-5 font-sans text-sm font-bold leading-tight tracking-tight">
+              <h3 className="pt-4 font-sans text-sm font-bold leading-tight tracking-tight">
                 {area.title}
               </h3>
-              <p className="max-w-[44ch] pt-2 font-sans text-sm leading-relaxed text-pretty text-foreground/65">
+              <p className="max-w-[32ch] pt-1 font-sans text-sm leading-tight text-pretty text-foreground/65">
                 {area.description}
               </p>
             </li>
           ))}
         </ul>
-      </section>
+      </Section>
 
       {/* The person. A one-person studio at this rate is bought as a person,
           so the page says who, in their own voice, before it says what it
           costs. */}
       <Section id="about" label="studio">
-        <div
-          data-anim="body"
-          className="grid gap-6 border-t border-[color:var(--panel-border)] pt-5 md:grid-cols-3"
-        >
+        <div data-anim="body" className="grid gap-5 md:grid-cols-9">
           <img
             src="/portrait.webp"
             alt="Michael Ciccarelli"
             width={960}
             height={1200}
             loading="lazy"
-            className="aspect-[4/5] w-full max-w-[240px] object-cover md:max-w-none"
+            className="aspect-[4/5] w-full max-w-[200px] object-cover md:col-span-2 md:max-w-none"
           />
-          <div className="md:col-span-2">
+          <div className="md:col-span-4 md:col-start-4">
             <h3 className="font-sans text-sm font-bold leading-tight tracking-tight">
               Michael Ciccarelli
             </h3>
-            <p className="max-w-[56ch] pt-3 font-sans text-sm leading-relaxed text-pretty text-foreground/65">
+            <p className="max-w-[40ch] pt-3 font-sans text-sm leading-tight text-pretty text-foreground/65">
               third index is one person. i scope the project, do the work,
               and walk you through it, with no handoff to a junior team and
               no account manager in between. the background is agencies and
               product teams; the index above is the recent work, for labels,
               studios, and founders.
             </p>
-            <p className="max-w-[56ch] pt-3 font-sans text-sm leading-relaxed text-pretty text-foreground/65">
+            <p className="max-w-[40ch] pt-3 font-sans text-sm leading-tight text-pretty text-foreground/65">
               based in las vegas, working with teams anywhere.
             </p>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-5 font-mono text-2xs font-medium tracking-tight">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-5 font-sans text-sm">
               <a
                 href="mailto:mc@thirdindex.co"
                 className="opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100"

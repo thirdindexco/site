@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, Plus } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { playClickThrottled } from "../_lib/click-sound";
 import { formatTechnologies } from "../_lib/format";
 import { BLEED_X, FLUID_GRID } from "../_lib/layout";
 import type { Project } from "../_lib/projects";
@@ -118,7 +117,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
     <section
       ref={sectionRef}
       id="work"
-      className="relative scroll-mt-20 pt-20 md:pt-28 lg:scroll-mt-14 lg:pt-36"
+      className="relative scroll-mt-20 pt-28 md:pt-40 lg:scroll-mt-14 lg:pt-56"
     >
       {/* Desktop cursor-following media. Early rows open below the cursor so
           their media stays clear of the viewport top; later rows open above
@@ -165,7 +164,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
       <div className={FLUID_GRID}>
         <h2
           data-anim="body"
-          className="col-span-12 font-mono text-2xs font-medium uppercase tracking-tight opacity-50"
+          className="col-span-12 font-sans text-sm opacity-50 md:col-span-2"
         >
           selected work
         </h2>
@@ -183,23 +182,18 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                 type="button"
                 aria-expanded={isOpen}
                 onClick={() => setOpenIndex(isOpen ? null : index)}
-                onMouseEnter={() => {
-                  setHoverIndex(index);
-                  // Same mech click as the toggles, quieter and throttled
-                  // so sweeping the list reads as discrete ticks.
-                  playClickThrottled(70, 0, 0.6);
-                }}
+                onMouseEnter={() => setHoverIndex(index)}
                 onMouseLeave={() => setHoverIndex(null)}
-                className={`relative z-10 grid min-h-11 cursor-pointer grid-cols-12 items-center gap-6 py-3 text-left outline-none transition-colors duration-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:-outline-offset-[1.5px] focus-visible:outline-[color:var(--accent)] md:min-h-0 md:py-[3px] ${BLEED_X} ${
+                className={`relative z-10 grid min-h-11 cursor-pointer grid-cols-12 items-center gap-5 py-3 text-left outline-none transition-colors duration-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:-outline-offset-[1.5px] focus-visible:outline-[color:var(--accent)] md:min-h-0 md:py-[3px] ${BLEED_X} ${
                   isHovered || isOpen
                     ? "bg-foreground text-background"
                     : ""
                 }`}
               >
-                <span className="col-span-2 font-mono text-2xs font-medium tabular-nums tracking-tight opacity-50 md:col-span-1">
+                <span className="col-span-2 font-sans text-sm tabular-nums opacity-50">
                   {String(index + 1).padStart(3, "0")}
                 </span>
-                <span className="col-span-9 font-mono text-2xs font-medium uppercase leading-tight tracking-tight md:col-span-9 md:col-start-3">
+                <span className="col-span-9 font-sans text-sm font-bold leading-tight md:col-span-8 md:col-start-4">
                   {project.title}
                 </span>
                 <span className="col-span-1 col-start-12 flex justify-end">
@@ -227,9 +221,9 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                     <div className={`${FLUID_GRID} pb-8 pt-4 md:pb-10`}>
                       {/* The still, at the row's full content width. The
                           follower is a 420px tease; a product screenshot
-                          only reads at this size. Starts on the title column
-                          so it sits with the text beneath it. */}
-                      <div className="col-span-12 md:col-span-10 md:col-start-3">
+                          only reads at this size. Starts on the content
+                          column, like every section's content. */}
+                      <div className="col-span-12 md:col-span-9 md:col-start-4">
                         {project.images && project.images.length > 1 ? (
                           <ProjectGallery
                             images={project.images}
@@ -255,11 +249,11 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                         )}
                       </div>
 
-                      <div className="col-span-12 pt-4 md:col-span-5 md:col-start-3 md:max-w-[52ch] md:pt-0">
-                        <p className="font-sans text-sm leading-relaxed text-pretty">
+                      <div className="col-span-12 pt-4 md:col-span-4 md:col-start-4 md:pt-0">
+                        <p className="font-sans text-sm leading-tight text-pretty">
                           {project.description}
                         </p>
-                        <div className="flex flex-col gap-1 pt-3 font-mono text-3xs font-medium uppercase tracking-tight opacity-60">
+                        <div className="flex flex-col gap-1 pt-3 font-sans text-sm opacity-60">
                           <span>{project.role}</span>
                           <span>
                             {formatTechnologies(project.technologies)}
@@ -272,7 +266,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                           href={project.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/visit inline-flex items-center gap-1.5 font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100"
+                          className="group/visit inline-flex items-center gap-1.5 font-sans text-sm opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100"
                         >
                           visit
                           <ArrowRight

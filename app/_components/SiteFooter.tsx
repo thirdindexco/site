@@ -1,6 +1,6 @@
 "use client";
 
-import { PAGE_X, SHELL } from "../_lib/layout";
+import { FLUID_GRID, PAGE_X, SHELL } from "../_lib/layout";
 import { FooterWeather } from "./FooterWeather";
 import { StudioLine } from "./StudioLine";
 
@@ -20,12 +20,13 @@ export function SiteFooter({ onContact }: { onContact: () => void }) {
 
   return (
     <footer className="border-t border-[color:var(--panel-border)]">
-      <div
-        className={`${SHELL} ${PAGE_X} flex flex-col gap-8 py-12 md:flex-row md:items-end md:justify-between md:gap-16`}
-      >
-        <StudioLine className="max-w-[46ch]" />
+      <div className={`${SHELL} ${PAGE_X} py-12`}>
+        {/* Same columns as the page: the standing line on the label
+            columns, links and the meta line across the content columns. */}
+        <div className={`${FLUID_GRID} items-end`}>
+        <StudioLine className="col-span-12 max-w-[46ch] md:col-span-3" />
 
-        <div className="flex flex-col gap-3 md:items-end">
+        <div className="col-span-12 flex flex-col gap-3 md:col-span-9 md:col-start-4 md:flex-row md:items-baseline md:justify-between">
           <div className="flex items-center gap-4">
             <button
               type="button"
@@ -62,6 +63,7 @@ export function SiteFooter({ onContact }: { onContact: () => void }) {
             </span>
             <p>© 2026 third index llc</p>
           </div>
+        </div>
         </div>
       </div>
     </footer>

@@ -1,29 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
-import { IntroCover } from "./_components/IntroCover";
 import { Providers } from "./_components/Providers";
 import "./globals.css";
 
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-mono",
-  display: "swap",
-});
-
-// Helvetica, self-hosted from public/fonts as "sans". Three weights: the
-// type system runs on bold for anything that names something and regular
-// for anything that explains it; light is there for the odd display cut.
+// One typeface, one weight: AL Book, self-hosted from public/fonts. The
+// page gets its hierarchy from tone and position, so no bold cut is loaded
+// and font-synthesis is off in globals.css — a font-bold class renders at
+// the same weight rather than a faux bold.
 const sans = localFont({
   src: [
-    { path: "../public/fonts/sans-light.woff2", weight: "300", style: "normal" },
-    { path: "../public/fonts/sans-light-italic.woff2", weight: "300", style: "italic" },
-    { path: "../public/fonts/sans-regular.woff2", weight: "400", style: "normal" },
-    { path: "../public/fonts/sans-italic.woff2", weight: "400", style: "italic" },
-    { path: "../public/fonts/sans-bold.woff2", weight: "700", style: "normal" },
-    { path: "../public/fonts/sans-bold-italic.woff2", weight: "700", style: "italic" },
+    { path: "../public/fonts/AL-Book.woff2", weight: "400", style: "normal" },
   ],
   variable: "--font-sans",
   display: "swap",
@@ -127,8 +114,8 @@ const jsonLd = {
 
 // Runs before hydration; sets data-theme from localStorage, falling back to
 // the system preference. Prevents a flash of the wrong theme on reload.
-// Also picks the load cover's colour (data-intro), which is what turns the
-// cover on at all — skipped under reduced motion.
+// Also picks the load sequence's colour (data-intro), which is what turns
+// the sequence on at all — skipped under reduced motion.
 const themeInitScript = `
 try {
   var stored = localStorage.getItem('theme');
@@ -150,7 +137,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${mono.variable} ${sans.variable}`}
+      className={sans.variable}
       suppressHydrationWarning
     >
       <head>
@@ -167,7 +154,6 @@ export default function RootLayout({
         </noscript>
       </head>
       <body className="font-sans antialiased">
-        <IntroCover />
         <Providers>
           {children}
           <Analytics />

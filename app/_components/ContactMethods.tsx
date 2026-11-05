@@ -5,11 +5,11 @@ import { ArrowRight } from "lucide-react";
 import { inquiryOpenAtom } from "../_lib/inquiry-state";
 
 const ROW =
-  "grid gap-2 border-b border-[color:var(--panel-border)] py-5 md:grid-cols-3 md:gap-6";
+  "grid gap-2 border-b border-[color:var(--panel-border)] py-5 md:grid-cols-3 md:gap-5";
 const METHOD = "font-sans text-sm font-bold leading-tight tracking-tight";
 const LINK =
-  "group/m inline-flex items-center gap-1.5 font-mono text-2xs font-medium tracking-tight opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]";
-const NOTE = "pt-1.5 font-sans text-sm leading-relaxed text-pretty text-foreground/65";
+  "group/m inline-flex items-center gap-1.5 font-sans text-sm opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]";
+const NOTE = "pt-1.5 font-sans text-sm leading-tight text-pretty text-foreground/65";
 
 function Arrow() {
   return (
@@ -46,7 +46,7 @@ export function ContactMethods() {
           <button
             type="button"
             onClick={() => setInquiryOpen(true)}
-            className={`${LINK} cursor-pointer uppercase`}
+            className={`${LINK} cursor-pointer`}
           >
             open the form
             <Arrow />
@@ -64,7 +64,7 @@ export function ContactMethods() {
             href="https://cal.com/thirdindex/intro"
             target="_blank"
             rel="noopener noreferrer"
-            className={`${LINK} uppercase`}
+            className={LINK}
           >
             fifteen-minute intro
             <Arrow />

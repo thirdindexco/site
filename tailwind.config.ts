@@ -69,12 +69,20 @@ export default {
         "accent-hover": "var(--accent-hover)",
       },
       fontFamily: {
-        mono: ["var(--font-mono)", "monospace"],
+        // Only the debug overlays set mono now; the page is one family.
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
+      // The sans runs small across the whole page — the references the
+      // owner set are one small size with hierarchy from whitespace.
+      // Overriding the stock steps here keeps every text-sm/base/xs call
+      // site in place while shrinking them together.
       fontSize: {
         "3xs": ["9px", { lineHeight: "1.16" }],
         "2xs": ["10px", { lineHeight: "1.16" }],
+        xs: ["12px", { lineHeight: "1.25" }],
+        sm: ["14px", { lineHeight: "1.25" }],
+        base: ["15px", { lineHeight: "1.25" }],
       },
       maxWidth: {
         canvas: "1600px",

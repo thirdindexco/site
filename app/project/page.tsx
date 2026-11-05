@@ -121,7 +121,7 @@ function StartBuildButton() {
       href={START_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="group/cta inline-flex items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-mono text-3xs font-medium uppercase tracking-tight text-white outline-none transition-colors duration-200 hover:bg-accent-hover"
+      className="group/cta inline-flex items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-sans text-sm font-bold text-white outline-none transition-colors duration-200 hover:bg-accent-hover"
     >
       start a project
       <ArrowRight
@@ -135,39 +135,42 @@ function StartBuildButton() {
 export default function ProjectPage() {
   return (
     <PageChrome>
-        <section className={`pt-2 md:pt-6 lg:pt-4 ${GRID}`}>
-          <div
+        <section className={`pt-20 md:pt-36 lg:pt-48 ${GRID}`}>
+          <p
             data-anim="hero"
-            className="col-span-12"
+            className="col-span-12 font-sans text-sm opacity-50 md:col-span-2"
           >
-            <p className="font-mono text-3xs font-medium uppercase tracking-tight opacity-60">
-              project
-            </p>
-            <h1 className="pt-3 font-sans text-3xl font-bold leading-[0.95] tracking-[-0.04em] text-pretty md:text-5xl">
-              scoped work, priced by the week.
+            project
+          </p>
+          <div className="col-span-12 pt-5 md:col-span-6 md:col-start-4 md:pt-0">
+            <h1
+              data-anim="hero"
+              className="max-w-[62ch] font-sans text-sm font-bold leading-tight tracking-tight text-pretty"
+            >
+              scoped work, priced by the week.{" "}
+              <span className="hero-support">
+                one to three weeks of senior design and engineering, scoped to the problem — an audit, a prototype, a build, or a design system. fixed scope, fixed price, agreed before anything starts.
+              </span>
             </h1>
-            <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
-              one to three weeks of senior design and engineering, scoped to
-              the problem — an audit, a prototype, a build, or a design
-              system. fixed scope, fixed price, agreed before anything starts.
-            </p>
-            <p className="pt-6 font-mono text-3xs font-medium uppercase tracking-tight md:pt-8">
+            <div data-anim="body">
+            <p className="pt-10 font-sans text-sm opacity-50 md:pt-12">
               from $5k/week · 1–3 weeks · remote
             </p>
-            <div className="pt-6 md:pt-8">
+            <div className="pt-4">
               <StartBuildButton />
+            </div>
             </div>
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
-          <div className="col-span-12 md:col-span-3 md:col-start-1">
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-2 md:col-start-1">
+            <div className="font-sans text-sm opacity-50">
               what a project looks like
             </div>
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
-            <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
+            <p className="max-w-[60ch] font-sans text-sm leading-tight text-pretty">
               most projects are one of these — same rate, different length:
             </p>
             <ul className="mt-8">
@@ -177,20 +180,20 @@ export default function ProjectPage() {
                   className="-mx-3 px-3 py-5 transition-colors duration-200 hover:bg-foreground/[0.04]"
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <h2 className="font-sans text-base font-bold leading-tight md:text-lg">
+                    <h2 className="font-sans text-sm font-bold leading-tight">
                       {a.title}
                     </h2>
-                    <span className="shrink-0 font-mono text-3xs font-medium uppercase tracking-tight opacity-60">
+                    <span className="shrink-0 font-sans text-sm opacity-60">
                       {a.length}
                     </span>
                   </div>
-                  <p className="pt-2 font-sans text-sm leading-relaxed text-foreground/70">
+                  <p className="max-w-[60ch] pt-2 font-sans text-sm leading-tight text-foreground/70">
                     {a.description}
                   </p>
                 </li>
               ))}
             </ul>
-            <p className="pt-8 font-sans text-sm leading-relaxed text-pretty md:text-base">
+            <p className="max-w-[60ch] pt-8 font-sans text-sm leading-tight text-pretty">
               every project includes scope confirmation, daily async
               progress, the deliverables in your hands, a walkthrough, and
               one revision pass.
@@ -198,9 +201,9 @@ export default function ProjectPage() {
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 ${GRID}`}>
-          <div className="col-span-12 md:col-span-3 md:col-start-1">
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-2 md:col-start-1">
+            <div className="font-sans text-sm opacity-50">
               how it works
             </div>
           </div>
@@ -215,10 +218,10 @@ export default function ProjectPage() {
                       : ""
                   }`}
                 >
-                  <dt className="col-span-12 self-baseline font-mono text-3xs font-medium uppercase tracking-tight md:col-span-3">
+                  <dt className="col-span-12 self-baseline font-sans text-sm md:col-span-3">
                     {phase}
                   </dt>
-                  <dd className="col-span-12 font-sans text-sm leading-relaxed md:col-span-9">
+                  <dd className="col-span-12 font-sans text-sm leading-tight md:col-span-9">
                     {desc}
                   </dd>
                 </div>
@@ -227,14 +230,14 @@ export default function ProjectPage() {
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 ${GRID}`}>
-          <div className="col-span-12 md:col-span-3 md:col-start-1">
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-2 md:col-start-1">
+            <div className="font-sans text-sm opacity-50">
               what it costs
             </div>
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
-            <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
+            <p className="max-w-[60ch] font-sans text-sm leading-tight text-pretty">
               $5k a week, whatever the work — most projects land between one
               and three. scope and price are agreed and fixed before anything
               starts.
@@ -242,14 +245,14 @@ export default function ProjectPage() {
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 ${GRID}`}>
-          <div className="col-span-12 md:col-span-3 md:col-start-1">
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-2 md:col-start-1">
+            <div className="font-sans text-sm opacity-50">
               why by the week instead of hourly?
             </div>
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
-            <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
+            <p className="max-w-[60ch] font-sans text-sm leading-tight text-pretty">
               fixed scope, fixed fee, shipped code. less clock-watching, more
               momentum — and a single week is a cheap way to try it before
               committing to more.
@@ -257,21 +260,21 @@ export default function ProjectPage() {
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 ${GRID}`}>
-          <div className="col-span-12 md:col-span-3 md:col-start-1">
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-2 md:col-start-1">
+            <div className="font-sans text-sm opacity-50">
               why me
             </div>
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
-            <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
+            <p className="max-w-[60ch] font-sans text-sm leading-tight text-pretty">
               two decades designing and building for the web. work for pentagram,
               grey, amazon, vice, and condé nast. the same person scopes the
               project, does the work, and walks you through it.
             </p>
             <Link
               href="/#work"
-              className="group/work mt-6 inline-flex items-center gap-1.5 font-mono text-3xs font-medium uppercase tracking-tight opacity-70 outline-none transition-opacity hover:opacity-100"
+              className="group/work mt-6 inline-flex items-center gap-1.5 font-sans text-sm opacity-70 outline-none transition-opacity hover:opacity-100"
             >
               see selected work
               <ArrowRight
@@ -282,9 +285,9 @@ export default function ProjectPage() {
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 ${GRID}`}>
-          <div className="col-span-12 md:col-span-3 md:col-start-1">
-            <div className="font-mono text-3xs font-medium uppercase tracking-tight">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-2 md:col-start-1">
+            <div className="font-sans text-sm opacity-50">
               faq
             </div>
           </div>
@@ -293,14 +296,14 @@ export default function ProjectPage() {
           </div>
         </section>
 
-        <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
-          <div className="col-span-12">
-            <p className="font-sans text-3xl font-bold leading-[0.95] tracking-[-0.04em] text-pretty md:text-5xl">
+        <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
+          <div className="col-span-12 md:col-span-6 md:col-start-4">
+            <p className="font-sans text-sm font-bold leading-tight tracking-tight text-pretty">
               start with a week.
             </p>
             <div className="flex flex-col items-start gap-4 pt-8 md:pt-10">
               <StartBuildButton />
-              <p className="font-mono text-3xs font-medium uppercase tracking-tight opacity-70">
+              <p className="font-sans text-sm opacity-70">
                 or{" "}
                 <a
                   href={SCOPE_URL}

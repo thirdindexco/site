@@ -17,9 +17,9 @@ export function SiteHeader({
   settingsOpen: boolean;
 }) {
   return (
-    <header className="sticky top-0 z-30 bg-[color:var(--background)]/85 backdrop-blur-md">
+    <header className="site-header sticky top-0 z-30 bg-[color:var(--background)]/85 backdrop-blur-md">
       <div
-        className={`${SHELL} ${PAGE_X} flex items-center justify-between gap-8 py-6 lg:py-10`}
+        className={`${SHELL} ${PAGE_X} flex items-center justify-between gap-8 py-4 md:py-5 lg:py-6`}
       >
         <Link
           href="/"
@@ -27,7 +27,7 @@ export function SiteHeader({
           data-anim="logo"
           className="shrink-0 outline-none focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[6px] focus-visible:outline-[color:var(--accent)]"
         >
-          <MonogramMark className="h-4 w-auto" />
+          <MonogramMark className="h-5 w-auto" />
         </Link>
 
         <button

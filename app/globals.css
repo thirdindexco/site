@@ -53,14 +53,17 @@ body {
      on anything bold or large via the tracking utilities. Mono labels set
      their own tracking, so this never reaches them. */
   letter-spacing: -0.012em;
+  /* One weight is loaded. Without this, every font-bold would be drawn
+     as a smeared synthetic bold. */
+  font-synthesis: none;
 }
 
-/* Display cuts hold their counters at tight tracking; what they lose is
-   the lowercase-to-lowercase gap, which is the point. */
+/* Headings are set at text size as short paragraphs, so they take the
+   paragraph wrap rule rather than balance. */
 h1,
 h2,
 h3 {
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 /* Hero support line. An opaque mix rather than an alpha channel:
@@ -79,45 +82,59 @@ h3 {
   }
 }
 
-/* Load cover (IntroCover). Off unless the head script set data-intro, so
-   no-JS and reduced-motion visitors never see it. Duration and delay come
-   inline from _lib/intro.ts; the ease is front-loaded, so most of the fade
-   happens in its first few frames. */
-.intro-cover {
-  display: none;
-}
-
-html[data-intro] .intro-cover {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-  animation-name: intro-out;
-  animation-timing-function: cubic-bezier(0, 0.95, 0.44, 1);
-  animation-fill-mode: forwards;
-}
-
-html[data-intro="blue"] .intro-cover {
+/* Load sequence (see _lib/intro.ts). While html[data-intro] is set the
+   page is a field of colour: the accent blue or a flat grey, with the hero
+   recoloured to sit on it and everything else held invisible. Removing the
+   attribute turns the field into the page; html[data-intro-out] is on for
+   that moment so the change is a transition rather than a cut. Nothing
+   here runs without the head script, so no-JS and reduced-motion visitors
+   get the page straight away. */
+html[data-intro="blue"],
+html[data-intro="blue"] body {
   background: var(--accent);
+}
+html[data-intro="grey"],
+html[data-intro="grey"] body {
+  background: #9b9b9b;
+}
+html[data-intro="blue"] #studio h1 {
   color: #fafafa;
 }
-
-html[data-intro="grey"] .intro-cover {
-  background: #9b9b9b;
+html[data-intro="blue"] #studio .hero-support {
+  color: color-mix(in srgb, #fafafa 62%, var(--accent));
+}
+html[data-intro="grey"] #studio h1 {
   color: #0b0b0b;
 }
-
-.intro-cover > * {
-  animation: intro-text-in 0.4s ease-out both;
+html[data-intro="grey"] #studio .hero-support {
+  color: color-mix(in srgb, #0b0b0b 62%, #9b9b9b);
 }
-
-@keyframes intro-out {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
+html[data-intro] :is(header, footer, main > :not(#studio), #studio [data-anim="body"]) {
+  visibility: hidden;
+  opacity: 0;
+}
+/* Below the desktop breakpoint the hero isn't cascaded by GSAP, so it
+   fades up on its own. */
+html[data-intro] #studio h1 {
+  animation: intro-text-in 0.5s ease-out both;
+}
+/* The sticky bar's tint is for scrolling under content; during the hand-off
+   it would paint a pale band over the colour field as it fades in. */
+html[data-intro] .site-header,
+html[data-intro-out] .site-header {
+  background: transparent;
+  backdrop-filter: none;
+}
+html[data-intro-out],
+html[data-intro-out] body {
+  transition: background-color 0.6s ease;
+}
+html[data-intro-out] #studio h1,
+html[data-intro-out] #studio .hero-support {
+  transition: color 0.6s ease;
+}
+html[data-intro-out] :is(header, footer, main > :not(#studio), #studio [data-anim="body"]) {
+  transition: opacity 0.5s ease;
 }
 
 @keyframes intro-text-in {

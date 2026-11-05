@@ -21,13 +21,13 @@ export function Faq({ items }: { items: FaqItem[] }) {
               </span>
               <span
                 aria-hidden
-                className="shrink-0 select-none font-mono text-base leading-none opacity-60 transition-transform duration-200 group-data-[panel-open]/q:rotate-45"
+                className="shrink-0 select-none font-sans text-base leading-none opacity-60 transition-transform duration-200 group-data-[panel-open]/q:rotate-45"
               >
                 +
               </span>
             </Collapsible.Trigger>
             <Collapsible.Panel className="collapsible-panel">
-              <p className="max-w-[60ch] pb-5 pr-1 font-sans text-sm leading-relaxed text-foreground/70">
+              <p className="max-w-[60ch] pb-5 pr-1 font-sans text-sm leading-tight text-foreground/70">
                 {item.a}
               </p>
             </Collapsible.Panel>

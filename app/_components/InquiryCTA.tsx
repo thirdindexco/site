@@ -4,14 +4,14 @@ import { useSetAtom } from "jotai";
 import { ArrowRight } from "lucide-react";
 import { inquiryOpenAtom } from "../_lib/inquiry-state";
 
-export function InquiryCTA() {
+export function InquiryCTA({ className = "pt-8" }: { className?: string }) {
   const setOpen = useSetAtom(inquiryOpenAtom);
   return (
-    <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-8">
+    <div className={`flex flex-wrap items-center gap-x-6 gap-y-3 ${className}`}>
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group/cta inline-flex min-h-11 cursor-pointer items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2 font-mono text-3xs font-medium uppercase tracking-tight text-white outline-none transition-colors duration-200 hover:bg-accent-hover focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--foreground)]"
+        className="group/cta inline-flex min-h-11 cursor-pointer items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2 font-sans text-sm font-bold text-white outline-none transition-colors duration-200 hover:bg-accent-hover focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--foreground)]"
       >
         project inquiry
         <ArrowRight
@@ -26,7 +26,7 @@ export function InquiryCTA() {
           person. */}
       <a
         href="mailto:info@thirdindex.co"
-        className="inline-flex min-h-11 items-center font-mono text-2xs font-medium tracking-tight opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
+        className="inline-flex min-h-11 items-center font-sans text-sm opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
       >
         info@thirdindex.co
       </a>
