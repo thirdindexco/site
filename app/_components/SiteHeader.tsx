@@ -36,6 +36,7 @@ export function SiteHeader({
           aria-expanded={settingsOpen}
           aria-label="settings"
           title="settings"
+          data-anim="logo"
           className="-mr-3 inline-flex h-11 w-11 cursor-pointer items-center justify-center opacity-55 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:-outline-offset-[13px] focus-visible:outline-[color:var(--accent)] lg:-mr-1 lg:h-5 lg:w-5 lg:focus-visible:-outline-offset-[2px]"
         >
           <Settings2 aria-hidden className="h-3 w-3" strokeWidth={1.5} />

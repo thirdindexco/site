@@ -178,23 +178,36 @@ export function AnimRoot({
           const hasIntro = document.documentElement.hasAttribute("data-intro");
           tl.call(leaveIntro, [], hasIntro ? `+=${INTRO_HOLD_S}` : undefined);
 
+          // After the switch: the mark and the settings icon, the hero's own
+          // body (availability + CTA) in the same breath, then the remaining
+          // in-view body elements, timed to land with the CSS fade of the
+          // rows below (INTRO_REST_DELAY_S after the switch).
           const logo = pick("[data-anim='logo']");
+          const body = pick("[data-anim='body']") ?? [];
+          const heroBody = body.filter((el) => el.closest("#studio"));
+          const restBody = body.filter((el) => !el.closest("#studio"));
           if (logo) {
             reveal(
               logo,
               { y: -2 },
               { y: 0, duration: 0.24 },
-              hasIntro ? "+=0.25" : undefined,
+              hasIntro ? "+=0.15" : undefined,
             );
           }
-
-          const body = pick("[data-anim='body']");
-          if (body) {
+          if (heroBody.length) {
             reveal(
-              body,
+              heroBody,
               { y: 4 },
               { y: 0, duration: 0.26, stagger: 0.03 },
-              "-=0.16",
+              logo ? "<0.08" : undefined,
+            );
+          }
+          if (restBody.length) {
+            reveal(
+              restBody,
+              { y: 4 },
+              { y: 0, duration: 0.26, stagger: 0.03 },
+              hasIntro ? "-=0.1" : "-=0.16",
             );
           }
         },

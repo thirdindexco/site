@@ -133,8 +133,21 @@ html[data-intro-out] #studio h1,
 html[data-intro-out] #studio .hero-support {
   transition: color 0.6s ease;
 }
-html[data-intro-out] :is(header, footer, main > :not(#studio), #studio [data-anim="body"]) {
-  transition: opacity 0.5s ease;
+/* Order after the switch: the bar (and with it the mark) at once, then the
+   hero's CTA, then everything below the hero after a beat. On desktop the
+   mark and the CTA are GSAP's (data-anim), so they take no CSS transition
+   there; below 1024px the CTA fades by CSS in the first wave. The 0.7s
+   delay is INTRO_REST_DELAY_S in _lib/intro.ts. */
+html[data-intro-out] header {
+  transition: opacity 0.25s ease;
+}
+html[data-intro-out] :is(footer, main > :not(#studio)) {
+  transition: opacity 0.5s ease 0.7s;
+}
+@media (max-width: 1023px) {
+  html[data-intro-out] #studio [data-anim="body"] {
+    transition: opacity 0.4s ease 0.1s;
+  }
 }
 
 @keyframes intro-text-in {
