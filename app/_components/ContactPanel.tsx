@@ -45,7 +45,7 @@ export function ContactPanel({
           </button>
         </div>
   
-        <h2 className="pt-10 font-sans text-xl font-semibold leading-tight tracking-tight">
+        <h2 className="pt-10 font-sans text-xl font-bold leading-tight tracking-tighter">
           let&apos;s build something.
         </h2>
   

@@ -143,7 +143,7 @@ export default function ProjectPage() {
             <p className="font-mono text-3xs font-medium uppercase tracking-tight opacity-60">
               project
             </p>
-            <h1 className="pt-3 font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
+            <h1 className="pt-3 font-sans text-3xl font-bold leading-[0.95] tracking-[-0.04em] text-pretty md:text-5xl">
               scoped work, priced by the week.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
@@ -177,7 +177,7 @@ export default function ProjectPage() {
                   className="-mx-3 px-3 py-5 transition-colors duration-200 hover:bg-foreground/[0.04]"
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <h2 className="font-sans text-base font-medium leading-tight md:text-lg">
+                    <h2 className="font-sans text-base font-bold leading-tight md:text-lg">
                       {a.title}
                     </h2>
                     <span className="shrink-0 font-mono text-3xs font-medium uppercase tracking-tight opacity-60">
@@ -265,8 +265,8 @@ export default function ProjectPage() {
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
             <p className="font-sans text-sm leading-relaxed text-pretty md:text-base">
-              two decades designing and building for the web. work for modern
-              treasury, vice, amazon, condé nast. the same person scopes the
+              two decades designing and building for the web. work for pentagram,
+              grey, amazon, vice, and condé nast. the same person scopes the
               project, does the work, and walks you through it.
             </p>
             <Link
@@ -295,7 +295,7 @@ export default function ProjectPage() {
 
         <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
           <div className="col-span-12">
-            <p className="font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
+            <p className="font-sans text-3xl font-bold leading-[0.95] tracking-[-0.04em] text-pretty md:text-5xl">
               start with a week.
             </p>
             <div className="flex flex-col items-start gap-4 pt-8 md:pt-10">

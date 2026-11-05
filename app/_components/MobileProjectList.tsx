@@ -13,7 +13,7 @@ export function MobileProjectList({ projects }: { projects: Project[] }) {
           <li key={project.url}>
             <Collapsible.Root className="group/project">
               <Collapsible.Trigger className="flex w-full cursor-pointer items-baseline justify-between gap-4 py-4 text-left outline-none">
-                <span className="font-sans text-2xl font-semibold tracking-tight leading-tight">
+                <span className="font-sans text-2xl font-bold tracking-tighter leading-none">
                   {project.title}
                 </span>
                 <span className="shrink-0 font-mono text-3xs uppercase tracking-tight opacity-50">

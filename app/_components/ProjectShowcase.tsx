@@ -153,7 +153,7 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
                   <ProjectMedia project={project} />
                   <div className="mt-5 md:hidden">
                     <div className="flex items-baseline justify-between gap-4">
-                      <p className="font-sans text-base font-semibold leading-tight tracking-tight">
+                      <p className="font-sans text-base font-bold leading-tight tracking-tight">
                         {project.title}
                       </p>
                       <span className="shrink-0 font-mono text-3xs uppercase tracking-tight opacity-50">

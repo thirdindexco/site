@@ -26,7 +26,7 @@ export function RelatedEngagements({
           }`}
         >
           <div className="flex h-full flex-col border-t border-[color:var(--panel-border)] pt-5">
-            <h3 className="font-sans text-xl font-semibold leading-tight tracking-tight">
+            <h3 className="font-sans text-xl font-bold leading-tight tracking-tighter">
               {engagement.title}
             </h3>
             <p className="pt-2 font-mono text-3xs font-medium uppercase tracking-tight opacity-70">

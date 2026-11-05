@@ -99,7 +99,7 @@ export default function EmbeddedPage() {
             <p className="font-mono text-3xs font-medium uppercase tracking-tight opacity-60">
               stay close
             </p>
-            <h1 className="pt-3 font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
+            <h1 className="pt-3 font-sans text-3xl font-bold leading-[0.95] tracking-[-0.04em] text-pretty md:text-5xl">
               senior design engineering, embedded.
             </h1>
             <p className="max-w-[60ch] pt-4 font-sans text-sm leading-relaxed text-foreground/65 md:pt-5 md:text-base">
@@ -194,7 +194,7 @@ export default function EmbeddedPage() {
                       : ""
                   }`}
                 >
-                  <dt className="col-span-6 self-baseline font-sans text-sm font-medium leading-tight md:col-span-4">
+                  <dt className="col-span-6 self-baseline font-sans text-sm font-bold leading-tight md:col-span-4">
                     {tier}
                   </dt>
                   <dd className="col-span-6 self-baseline text-right font-mono text-3xs font-medium uppercase tracking-tight opacity-80 md:col-span-8">
@@ -223,7 +223,7 @@ export default function EmbeddedPage() {
 
         <section className={`pt-20 md:pt-28 lg:pt-32 ${GRID}`}>
           <div className="col-span-12">
-            <p className="font-sans text-2xl font-semibold leading-tight tracking-tight text-pretty md:text-3xl">
+            <p className="font-sans text-3xl font-bold leading-[0.95] tracking-[-0.04em] text-pretty md:text-5xl">
               bring software and design engineering closer.
             </p>
             <div className="flex flex-col items-start gap-4 pt-8 md:pt-10">

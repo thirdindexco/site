@@ -16,7 +16,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
         >
           <Collapsible.Root>
             <Collapsible.Trigger className="group/q flex w-full cursor-pointer items-baseline justify-between gap-5 py-4 text-left opacity-75 outline-none transition-opacity duration-200 hover:opacity-100 data-[panel-open]:opacity-100">
-              <span className="font-sans text-sm font-medium leading-tight">
+              <span className="font-sans text-sm font-bold leading-tight">
                 {item.q}
               </span>
               <span

@@ -122,7 +122,7 @@ export function InquiryDrawer() {
 
           {sent ? (
             <div className="flex-1 overflow-y-auto px-6 md:px-10 pb-10">
-              <h2 className="font-sans text-2xl font-semibold tracking-tight leading-tight pb-4 md:text-3xl">
+              <h2 className="font-sans text-2xl font-bold tracking-tighter leading-tight pb-4 md:text-3xl">
                 inquiry sent.
               </h2>
               <p className="font-sans text-sm leading-relaxed text-foreground/60">

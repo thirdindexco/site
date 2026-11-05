@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import { IntroCover } from "./_components/IntroCover";
 import { Providers } from "./_components/Providers";
@@ -12,17 +13,25 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-const sans = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
+// Helvetica, self-hosted from public/fonts as "sans". Three weights: the
+// type system runs on bold for anything that names something and regular
+// for anything that explains it; light is there for the odd display cut.
+const sans = localFont({
+  src: [
+    { path: "../public/fonts/sans-light.woff2", weight: "300", style: "normal" },
+    { path: "../public/fonts/sans-light-italic.woff2", weight: "300", style: "italic" },
+    { path: "../public/fonts/sans-regular.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/sans-italic.woff2", weight: "400", style: "italic" },
+    { path: "../public/fonts/sans-bold.woff2", weight: "700", style: "normal" },
+    { path: "../public/fonts/sans-bold-italic.woff2", weight: "700", style: "italic" },
+  ],
   variable: "--font-sans",
   display: "swap",
 });
 
 const siteTitle = "THIRD INDEX";
 const siteDescription =
-  "Independent technology studio in Las Vegas — design, engineering, and frontend consulting for custom web applications, storefronts, and product interfaces. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
+  "Independent technology studio in Las Vegas — design, engineering, and frontend consulting for custom web applications, storefronts, and product interfaces. Work for Pentagram, Grey, Amazon, VICE, and Condé Nast.";
 
 const siteUrl = "https://thirdindex.co";
 

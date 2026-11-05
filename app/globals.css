@@ -49,14 +49,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Helvetica is set tight across the board: a touch at text size, more
+     on anything bold or large via the tracking utilities. Mono labels set
+     their own tracking, so this never reaches them. */
+  letter-spacing: -0.012em;
+}
+
+/* Display cuts hold their counters at tight tracking; what they lose is
+   the lowercase-to-lowercase gap, which is the point. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
 }
 
 /* Hero support line. An opaque mix rather than an alpha channel:
-   translucent glyphs rasterize soft, and at display size it shows. 62%
-   rather than the ~50% a medium weight took — the light cut's thin strokes
-   need more ink to hold a clear second tone. */
+   translucent glyphs rasterize soft, and at display size it shows. The
+   bold cut carries plenty of ink, so the second tone can sit lower than
+   a light cut needed and still read. */
 .hero-support {
-  color: color-mix(in srgb, var(--foreground) 62%, var(--background));
+  color: color-mix(in srgb, var(--foreground) 50%, var(--background));
 }
 
 /* FOUC guard for the desktop intro. Elements stay hidden until GSAP takes

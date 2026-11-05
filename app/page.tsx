@@ -11,7 +11,7 @@ import { projects } from "./_lib/projects";
 
 const pageTitle = "THIRD INDEX — Technology Studio";
 const pageDescription =
-  "Independent technology studio in Las Vegas — design, engineering, and frontend consulting for custom web applications, storefronts, and product interfaces. Work for Modern Treasury, VICE, Amazon, and Condé Nast.";
+  "Independent technology studio in Las Vegas — design, engineering, and frontend consulting for custom web applications, storefronts, and product interfaces. Work for Pentagram, Grey, Amazon, VICE, and Condé Nast.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -39,9 +39,16 @@ export const metadata: Metadata = {
   },
 };
 
-const HERO_LEAD = "A technology studio for the web.";
+const HERO_LEAD = "A technology studio for product teams and brands.";
 const HERO_SUPPORT =
   "We design and build applications, storefronts, and product interfaces.";
+// The proof, read before anyone scrolls: names only. The person and the
+// way of working belong to the studio block further down, so the two
+// don't say the same thing twice.
+const HERO_PROOF =
+  "Two decades of design and engineering for Pentagram, Grey, Amazon, VICE, and Condé Nast, and for the founders and labels in the index below.";
+// Availability is a lead lever for a one-person practice. Keep it true.
+const HERO_AVAILABILITY = "available · new projects from december 2026";
 
 const FOCUS_AREAS: {
   mark: FocusMarkKey;
@@ -158,25 +165,30 @@ export default function HomePage() {
             and a 10-column wrapper was narrower than that between roughly
             1024 and 1090, breaking the support line early. */}
         <div className="col-span-12">
+          <p
+            data-anim="hero"
+            className="pb-5 font-mono text-3xs font-medium uppercase tracking-tight opacity-60 md:pb-6"
+          >
+            {HERO_AVAILABILITY}
+          </p>
           <h1
             data-anim="hero"
-            className="max-w-[45ch] font-sans text-2xl font-medium leading-[1.1] tracking-tighter md:text-3xl lg:text-4xl"
+            className="font-sans text-3xl font-bold leading-[0.95] tracking-[-0.04em] md:text-4xl xl:text-5xl"
           >
-            {/* From md the masthead line holds its own row so the support
-                wraps underneath it at the sentence boundary. Below md the
-                lead doesn't fit one line, and forcing the break stranded
-                "the web." as an 81px orphan — so there both spans flow as
-                one paragraph and the browser balances three lines instead.
-                text-pretty can't do this itself: every word is an atomic
+            {/* Lead and support flow as one paragraph at every width: at
+                display size each sentence on its own row ran to four lines,
+                and the tone change already marks the boundary. text-pretty
+                can't balance this itself: every word is an atomic
                 inline-block for the cascade. */}
-            <span className="md:block">{heroWords(HERO_LEAD)}</span>{" "}
-            <span className="hero-support md:block">
-              {heroWords(HERO_SUPPORT)}
-            </span>
+            <span>{heroWords(HERO_LEAD)}</span>{" "}
+            <span className="hero-support">{heroWords(HERO_SUPPORT)}</span>
           </h1>
         </div>
 
         <div data-anim="body" className="col-span-12">
+          <p className="max-w-[70ch] pt-6 font-sans text-sm leading-relaxed text-pretty text-foreground/65 md:pt-8 md:text-base">
+            {HERO_PROOF}
+          </p>
           <InquiryCTA />
         </div>
       </section>
@@ -200,7 +212,7 @@ export default function HomePage() {
           {FOCUS_AREAS.map((area) => (
             <li key={area.title} className="group/focus bg-background p-5">
               <FocusMark mark={area.mark} />
-              <h3 className="pt-5 font-sans text-sm font-semibold leading-tight tracking-tight">
+              <h3 className="pt-5 font-sans text-sm font-bold leading-tight tracking-tight">
                 {area.title}
               </h3>
               <p className="max-w-[44ch] pt-2 font-sans text-sm leading-relaxed text-pretty text-foreground/65">
@@ -210,6 +222,56 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+
+      {/* The person. A one-person studio at this rate is bought as a person,
+          so the page says who, in their own voice, before it says what it
+          costs. */}
+      <Section id="about" label="studio">
+        <div
+          data-anim="body"
+          className="grid gap-6 border-t border-[color:var(--panel-border)] pt-5 md:grid-cols-3"
+        >
+          <img
+            src="/portrait.webp"
+            alt="Michael Ciccarelli"
+            width={960}
+            height={1200}
+            loading="lazy"
+            className="aspect-[4/5] w-full max-w-[240px] object-cover md:max-w-none"
+          />
+          <div className="md:col-span-2">
+            <h3 className="font-sans text-sm font-bold leading-tight tracking-tight">
+              Michael Ciccarelli
+            </h3>
+            <p className="max-w-[56ch] pt-3 font-sans text-sm leading-relaxed text-pretty text-foreground/65">
+              third index is one person. i scope the project, do the work,
+              and walk you through it, with no handoff to a junior team and
+              no account manager in between. the background is agencies and
+              product teams; the index above is the recent work, for labels,
+              studios, and founders.
+            </p>
+            <p className="max-w-[56ch] pt-3 font-sans text-sm leading-relaxed text-pretty text-foreground/65">
+              based in las vegas, working with teams anywhere.
+            </p>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-5 font-mono text-2xs font-medium tracking-tight">
+              <a
+                href="mailto:mc@thirdindex.co"
+                className="opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100"
+              >
+                mc@thirdindex.co
+              </a>
+              <a
+                href="https://relli.cc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100"
+              >
+                relli.cc
+              </a>
+            </div>
+          </div>
+        </div>
+      </Section>
 
       {/* Engagement shapes — terms only; each row opens its own page. */}
       <Section id="engagements" label="engagements">

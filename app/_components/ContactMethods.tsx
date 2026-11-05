@@ -6,7 +6,7 @@ import { inquiryOpenAtom } from "../_lib/inquiry-state";
 
 const ROW =
   "grid gap-2 border-b border-[color:var(--panel-border)] py-5 md:grid-cols-3 md:gap-6";
-const METHOD = "font-sans text-sm font-semibold leading-tight tracking-tight";
+const METHOD = "font-sans text-sm font-bold leading-tight tracking-tight";
 const LINK =
   "group/m inline-flex items-center gap-1.5 font-mono text-2xs font-medium tracking-tight opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]";
 const NOTE = "pt-1.5 font-sans text-sm leading-relaxed text-pretty text-foreground/65";
