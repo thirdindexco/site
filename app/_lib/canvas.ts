@@ -21,20 +21,18 @@ export const STUDIO_SUPPORT =
   "We design and build applications, storefronts, and product interfaces.";
 export const STUDIO_PROOF =
   "Two decades working with independent founders and global names including Pentagram, Amazon, VICE, and Condé Nast.";
-// Availability is a lead lever for a one-person practice. Keep it true.
-export const STUDIO_AVAILABILITY = "Available for new projects from December 2026";
+// Availability is a lead lever for a one-person practice. It names the
+// calendar's next month, so it is always a date that is still open.
+export function availabilityFrom(now: Date = new Date()) {
+  const next = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+  const month = next.toLocaleString("en-US", { month: "long" });
+  return `Available for new projects from ${month} ${next.getFullYear()}`;
+}
 
 export const CONTACT = {
   email: "info@thirdindex.co",
   call: "https://cal.com/thirdindex/intro",
 };
-
-// The rates, as the sheet states them. Two shapes, split by how the work
-// is bought. The terms live in _lib/engagements.ts; these are the lines.
-export const RATES = [
-  { label: "Project from $5k a week", href: "/project" },
-  { label: "Embedded from $10k a month", href: "/fractional" },
-];
 
 export const ENGAGEMENT_SHAPES = [
   {
@@ -42,14 +40,14 @@ export const ENGAGEMENT_SHAPES = [
     href: "/project",
     terms: "By the week, from $5k a week.",
     description:
-      "One to three weeks. Scope and price fixed before work starts.",
+      "Scope and price fixed before work starts.",
   },
   {
     title: "Embedded",
     href: "/fractional",
     terms: "By the month, from $10k a month.",
     description:
-      "Two days a week with your team, in your repo. Three-month minimum.",
+      "Senior engineering inside your team. Three-month minimum.",
   },
 ];
 

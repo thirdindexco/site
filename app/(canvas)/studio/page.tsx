@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Availability } from "../../_components/Availability";
 import { DocSection, Document } from "../../_components/Document";
 import {
   CLIENTS,
@@ -8,7 +9,6 @@ import {
   ENGAGEMENT_SHAPES,
   FOCUS_AREAS,
   LINK,
-  STUDIO_AVAILABILITY,
   STUDIO_LEAD,
   STUDIO_PROOF,
   STUDIO_SUPPORT,
@@ -108,7 +108,9 @@ export default function StudioPage() {
                 Book a call
               </a>
             </p>
-            <p className="pt-[13px] opacity-50">{STUDIO_AVAILABILITY}</p>
+            <p className="pt-[13px] opacity-50">
+              <Availability />
+            </p>
           </div>
         </DocSection>
     </Document>

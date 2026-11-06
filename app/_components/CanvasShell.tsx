@@ -15,8 +15,6 @@ import {
   LINE_TOP,
   LINK,
   LINK_MUTED,
-  RATES,
-  STUDIO_AVAILABILITY,
   STUDIO_LEAD,
   indexNumber,
 } from "../_lib/canvas";
@@ -26,8 +24,8 @@ import { CanvasClock } from "./CanvasClock";
 
 // The sheet the home routes share. A fixed layer, an eight-pixel margin
 // all round: the centre line with the name, the navigation and the
-// studio's clock; the six selected works as index numbers; the rates and
-// the theme toggle along the bottom. The routes draw their content on the
+// studio's clock; the six selected works as index numbers; llms.txt, the
+// copyright and the theme toggle along the bottom. The routes draw their content on the
 // same sheet underneath it, so the line never moves between views and
 // every view has a URL of its own. The engagement pages and the inquiry
 // are documents on the same sheet.
@@ -214,26 +212,18 @@ export function CanvasShell({
           </span>
         </div>
 
-        {/* The bottom line: the rates on the left, llms.txt and the theme
-            toggle on the right. */}
+        {/* The bottom line: llms.txt on the left, the copyright in the
+            middle, the theme toggle on the right. */}
         <div
           className={`canvas-ready absolute inset-x-0 bottom-0 flex items-end justify-between whitespace-nowrap ${
             band ? "bg-background pt-[13px]" : ""
           }`}
         >
-          <p className="flex gap-6">
-            {RATES.map((r) => (
-              <Link key={r.href} href={r.href} className={LINK_MUTED}>
-                {r.label}
-              </Link>
-            ))}
-          </p>
-          <p className="flex gap-6">
-            <a href="/llms.txt" className={LINK_MUTED}>
-              llms.txt
-            </a>
-            <ThemeToggle />
-          </p>
+          <a href="/llms.txt" className={LINK_MUTED}>
+            llms.txt
+          </a>
+          <Copyright className="absolute left-1/2 -translate-x-1/2 opacity-50" />
+          <ThemeToggle />
         </div>
       </div>
 
@@ -275,20 +265,11 @@ export function CanvasShell({
       <main className="flex-1 md:flex-none">{children}</main>
 
       <div className="flex items-end justify-between gap-6 p-3 md:hidden">
-        <p className="flex flex-col">
-          {RATES.map((r) => (
-            <Link key={r.href} href={r.href} className={LINK_MUTED}>
-              {r.label}
-            </Link>
-          ))}
-          <span className="pt-[13px] opacity-50">{STUDIO_AVAILABILITY}</span>
-        </p>
-        <p className="flex flex-col items-end">
-          <a href="/llms.txt" className={LINK_MUTED}>
-            llms.txt
-          </a>
-          <ThemeToggle />
-        </p>
+        <a href="/llms.txt" className={LINK_MUTED}>
+          llms.txt
+        </a>
+        <Copyright className="opacity-50" />
+        <ThemeToggle />
       </div>
     </div>
   );
@@ -344,6 +325,14 @@ function Numeral({
 
 // Names the mode a click switches to, as a button should: "Light" while
 // the page is dark.
+function Copyright({ className = "" }: { className?: string }) {
+  return (
+    <span className={className} suppressHydrationWarning>
+      © {new Date().getFullYear()} Third Index LLC
+    </span>
+  );
+}
+
 function ThemeToggle() {
   const theme = useAtomValue(themeAtom);
   const next = theme === "dark" ? "Light" : "Dark";
