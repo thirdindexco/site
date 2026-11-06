@@ -71,18 +71,19 @@ export default {
       fontFamily: {
         // Only the debug overlays set mono now; the page is one family.
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "Times New Roman", "serif"],
       },
-      // The sans runs small across the whole page — the references the
-      // owner set are one small size with hierarchy from whitespace.
-      // Overriding the stock steps here keeps every text-sm/base/xs call
-      // site in place while shrinking them together.
+      // The serif runs small across the whole page, after the reference:
+      // twelve on thirteen for everything, a step up for the one statement
+      // on the about view. Overriding the stock steps here keeps every
+      // text-sm/base/xs call site in place while shrinking them together.
       fontSize: {
-        "3xs": ["9px", { lineHeight: "1.16" }],
-        "2xs": ["10px", { lineHeight: "1.16" }],
-        xs: ["12px", { lineHeight: "1.25" }],
-        sm: ["14px", { lineHeight: "1.25" }],
-        base: ["15px", { lineHeight: "1.25" }],
+        "3xs": ["9px", { lineHeight: "10px" }],
+        "2xs": ["10px", { lineHeight: "11px" }],
+        xs: ["11px", { lineHeight: "12px" }],
+        sm: ["12px", { lineHeight: "13px" }],
+        base: ["13px", { lineHeight: "14px" }],
+        lg: ["20px", { lineHeight: "1.15" }],
       },
       maxWidth: {
         canvas: "1600px",

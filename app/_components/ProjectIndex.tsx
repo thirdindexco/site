@@ -164,7 +164,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
       <div className={FLUID_GRID}>
         <h2
           data-anim="body"
-          className="col-span-12 font-sans text-sm opacity-50 md:col-span-2"
+          className="col-span-12 font-serif text-sm opacity-50 md:col-span-2"
         >
           selected work
         </h2>
@@ -190,10 +190,10 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                     : ""
                 }`}
               >
-                <span className="col-span-2 font-sans text-xs tabular-nums opacity-50">
+                <span className="col-span-2 font-serif text-xs tabular-nums opacity-50">
                   {String(index + 1).padStart(3, "0")}
                 </span>
-                <span className="col-span-9 font-sans text-sm font-bold leading-tight md:col-span-8 md:col-start-4">
+                <span className="col-span-9 font-serif text-sm font-bold leading-tight md:col-span-8 md:col-start-4">
                   {project.title}
                 </span>
                 <span className="col-span-1 col-start-12 flex justify-end">
@@ -250,10 +250,10 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                       </div>
 
                       <div className="col-span-12 pt-4 md:col-span-4 md:col-start-4 md:pt-0">
-                        <p className="font-sans text-sm leading-tight text-pretty">
+                        <p className="font-serif text-sm leading-tight text-pretty">
                           {project.description}
                         </p>
-                        <div className="flex flex-col gap-1 pt-3 font-sans text-xs opacity-60">
+                        <div className="flex flex-col gap-1 pt-3 font-serif text-xs opacity-60">
                           <span>{project.role}</span>
                           <span>
                             {formatTechnologies(project.technologies)}
@@ -266,7 +266,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                           href={project.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/visit inline-flex items-center gap-1.5 font-sans text-xs opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100"
+                          className="group/visit inline-flex items-center gap-1.5 font-serif text-xs opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100"
                         >
                           visit
                           <ArrowRight

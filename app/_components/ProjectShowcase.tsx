@@ -118,7 +118,7 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
   return (
     <section id="selected-work" className="scroll-mt-12 pt-12 md:pt-24 lg:pt-32">
       <div className={GRID}>
-        <div className="col-span-12 font-sans text-sm md:col-span-10 md:col-start-2">
+        <div className="col-span-12 font-serif text-sm md:col-span-10 md:col-start-2">
           selected work
         </div>
       </div>
@@ -153,17 +153,17 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
                   <ProjectMedia project={project} />
                   <div className="mt-5 md:hidden">
                     <div className="flex items-baseline justify-between gap-4">
-                      <p className="font-sans text-base font-bold leading-tight tracking-tight">
+                      <p className="font-serif text-base font-bold leading-tight">
                         {project.title}
                       </p>
-                      <span className="shrink-0 font-sans text-sm opacity-50">
+                      <span className="shrink-0 font-serif text-sm opacity-50">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                     </div>
-                    <p className="pt-3 font-sans text-sm leading-tight text-pretty">
+                    <p className="pt-3 font-serif text-sm leading-tight text-pretty">
                       {project.description}
                     </p>
-                    <div className="flex flex-col gap-1 pt-4 font-sans text-sm opacity-60">
+                    <div className="flex flex-col gap-1 pt-4 font-serif text-sm opacity-60">
                       <p className="font-medium">{project.role}</p>
                       <p>{formatTechnologies(project.technologies)}</p>
                     </div>
@@ -172,7 +172,7 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
               ))}
             </div>
 
-            <div className="mt-6 flex items-center justify-center gap-4 font-sans text-sm lg:mt-8">
+            <div className="mt-6 flex items-center justify-center gap-4 font-serif text-sm lg:mt-8">
               <CarouselNav
                 label="previous project"
                 onClick={() => handleNav(-1)}

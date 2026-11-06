@@ -31,17 +31,17 @@ export function ProjectHoverTooltip({
       }}
     >
       <div className="flex items-start justify-between gap-4">
-        <p className="font-sans text-sm">
+        <p className="font-serif text-sm">
           {project.title}
         </p>
-        <span className="shrink-0 font-sans text-sm text-zinc-500">
+        <span className="shrink-0 font-serif text-sm text-zinc-500">
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>
-      <p className="pt-2 font-sans text-xs leading-tight text-zinc-200">
+      <p className="pt-2 font-serif text-xs leading-tight text-zinc-200">
         {project.description}
       </p>
-      <div className="flex flex-col gap-1 pt-3 font-sans text-sm text-zinc-500">
+      <div className="flex flex-col gap-1 pt-3 font-serif text-sm text-zinc-500">
         <p className="font-medium">{project.role}</p>
         <p>{formatTechnologies(project.technologies)}</p>
       </div>

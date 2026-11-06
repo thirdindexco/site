@@ -49,11 +49,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  /* Helvetica is set tight across the board: a touch at text size, more
-     on anything bold or large via the tracking utilities. Mono labels set
-     their own tracking, so this never reaches them. */
-  letter-spacing: -0.012em;
-  /* One weight is loaded. Without this, every font-bold would be drawn
+  /* No bold cut is loaded. Without this, every font-bold would be drawn
      as a smeared synthetic bold. */
   font-synthesis: none;
 }
@@ -66,14 +62,6 @@ h3 {
   text-wrap: pretty;
 }
 
-/* Hero support line. An opaque mix rather than an alpha channel:
-   translucent glyphs rasterize soft, and at display size it shows. The
-   bold cut carries plenty of ink, so the second tone can sit lower than
-   a light cut needed and still read. */
-.hero-support {
-  color: color-mix(in srgb, var(--foreground) 50%, var(--background));
-}
-
 /* FOUC guard for the desktop intro. Elements stay hidden until GSAP takes
    control in AnimRoot; scoped to ≥1024px since mobile skips the timeline. */
 @media (min-width: 1024px) {
@@ -82,65 +70,33 @@ h3 {
   }
 }
 
-/* Load sequence (see _lib/intro.ts). While html[data-intro] is set the
-   page is a field of flat grey, with the hero recoloured to sit on it and
-   everything else held invisible. Removing the
-   attribute turns the field into the page; html[data-intro-out] is on for
-   that moment so the change is a transition rather than a cut. Nothing
-   here runs without the head script, so no-JS and reduced-motion visitors
-   get the page straight away. */
-html[data-intro],
-html[data-intro] body {
-  background: #9b9b9b;
-}
-html[data-intro] #studio h1 {
-  color: #0b0b0b;
-}
-html[data-intro] #studio .hero-support {
-  color: color-mix(in srgb, #0b0b0b 62%, #9b9b9b);
-}
-html[data-intro] :is(header, footer, main > :not(#studio), #studio [data-anim="body"]) {
+/* Load sequence (home canvas, see _components/CanvasShell.tsx). The head script
+   in layout.tsx sets html[data-intro] before first paint. While it is set
+   the canvas is its centre line alone — the name, the studio in one
+   sentence, and a count to 100 — and everything else on the canvas is held
+   invisible. The counter finishing flips to html[data-intro-out] for the
+   hand-off, so the loader line fades and the rest fades in around it, the
+   numerals in order. Nothing here runs without the head script, so no-JS
+   and reduced-motion visitors get the canvas straight away. */
+html[data-intro] .canvas-ready {
   visibility: hidden;
   opacity: 0;
 }
-/* Below the desktop breakpoint the hero isn't cascaded by GSAP, so it
-   fades up on its own. */
-html[data-intro] #studio h1 {
-  animation: intro-text-in 0.5s ease-out both;
+html:not([data-intro]) .canvas-loader {
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0.3s;
 }
-/* The sticky bar's tint is for scrolling under content; during the hand-off
-   it would paint a pale band over the colour field as it fades in. */
-html[data-intro] .site-header,
-html[data-intro-out] .site-header {
-  background: transparent;
-  backdrop-filter: none;
+html[data-intro-out] .canvas-ready {
+  transition: opacity 0.5s ease 0.15s;
 }
-html[data-intro-out],
-html[data-intro-out] body {
-  transition: background-color 0.6s ease;
-}
-html[data-intro-out] #studio h1,
-html[data-intro-out] #studio .hero-support {
-  transition: color 0.6s ease;
-}
-/* Order after the switch: the bar (and with it the mark) at once, then the
-   hero's CTA, then everything below the hero after a beat. On desktop the
-   mark and the CTA are GSAP's (data-anim), so they take no CSS transition
-   there; below 1024px the CTA fades by CSS in the first wave. The 0.7s
-   delay is INTRO_REST_DELAY_S in _lib/intro.ts. */
-html[data-intro-out] header {
-  transition: opacity 0.25s ease;
-}
-html[data-intro-out] :is(footer, main > :not(#studio)) {
-  transition: opacity 0.5s ease 0.7s;
-}
-@media (max-width: 1023px) {
-  html[data-intro-out] #studio [data-anim="body"] {
-    transition: opacity 0.4s ease 0.1s;
-  }
+html[data-intro-out] .canvas-numeral {
+  transition-delay: calc(0.3s + var(--i, 0) * 70ms);
 }
 
-@keyframes intro-text-in {
+@keyframes canvas-in {
   from {
     opacity: 0;
   }

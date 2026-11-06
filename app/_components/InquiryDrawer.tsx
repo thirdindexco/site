@@ -112,20 +112,20 @@ export function InquiryDrawer() {
         <Dialog.Popup className="fixed inset-y-0 right-0 z-50 w-full md:w-[520px] flex flex-col overflow-hidden border-l border-[color:var(--panel-border)] bg-background text-foreground transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] data-[starting-style]:translate-x-full data-[ending-style]:translate-x-full">
           {/* Header */}
           <div className="flex items-center justify-between px-4 md:px-6 pt-5 pb-8">
-            <Dialog.Title className="font-sans text-xs">
+            <Dialog.Title className="font-serif text-xs">
               inquiry · {sent ? "sent" : `${step + 1} / ${inquirySteps.length}`}
             </Dialog.Title>
-            <Dialog.Close className="font-sans text-xs transition-colors hover:text-accent outline-none cursor-pointer">
+            <Dialog.Close className="font-serif text-xs transition-colors hover:text-accent outline-none cursor-pointer">
               close
             </Dialog.Close>
           </div>
 
           {sent ? (
             <div className="flex-1 overflow-y-auto px-4 md:px-6 pb-10">
-              <h2 className="font-sans text-sm font-bold tracking-tight leading-tight pb-4">
+              <h2 className="font-serif text-sm font-bold leading-tight pb-4">
                 inquiry sent.
               </h2>
-              <p className="font-sans text-sm leading-tight text-foreground/60">
+              <p className="font-serif text-sm leading-tight text-foreground/60">
                 thanks — response within 48 hours.
               </p>
             </div>
@@ -137,7 +137,7 @@ export function InquiryDrawer() {
               <div className="flex min-h-0 flex-1 flex-col">
                 {/* Form body */}
                 <div className="flex-1 overflow-y-auto px-4 md:px-6 pb-8">
-                  <h2 className="font-sans text-xs pb-5">
+                  <h2 className="font-serif text-xs pb-5">
                     {current.title}
                   </h2>
                   <div key={step} className="flex flex-col gap-4">
@@ -155,33 +155,33 @@ export function InquiryDrawer() {
 
                   {isLast && (
                     <div className="mt-10 pt-6 border-t border-foreground/20 space-y-3">
-                      <p className="font-sans text-xs">
+                      <p className="font-serif text-xs">
                         summary
                       </p>
-                      <dl className="grid grid-cols-[auto_1fr] items-baseline gap-x-5 gap-y-1.5 font-sans text-sm leading-tight">
-                        <dt className="font-sans text-xs opacity-70">
+                      <dl className="grid grid-cols-[auto_1fr] items-baseline gap-x-5 gap-y-1.5 font-serif text-sm leading-tight">
+                        <dt className="font-serif text-xs opacity-70">
                           project
                         </dt>
                         <dd>{form.description || "—"}</dd>
-                        <dt className="font-sans text-xs opacity-70">
+                        <dt className="font-serif text-xs opacity-70">
                           timeline
                         </dt>
                         <dd>{form.timeline || "—"}</dd>
-                        <dt className="font-sans text-xs opacity-70">
+                        <dt className="font-serif text-xs opacity-70">
                           budget
                         </dt>
                         <dd>{form.budget || "—"}</dd>
-                        <dt className="font-sans text-xs opacity-70">
+                        <dt className="font-serif text-xs opacity-70">
                           name
                         </dt>
                         <dd>{form.name || "—"}</dd>
-                        <dt className="font-sans text-xs opacity-70">
+                        <dt className="font-serif text-xs opacity-70">
                           email
                         </dt>
                         <dd>{form.email || "—"}</dd>
                         {form.company && (
                           <>
-                            <dt className="font-sans text-xs opacity-70">
+                            <dt className="font-serif text-xs opacity-70">
                               company
                             </dt>
                             <dd>{form.company}</dd>
@@ -192,7 +192,7 @@ export function InquiryDrawer() {
                   )}
 
                   {error && (
-                    <p className="pt-6 font-sans text-xs text-accent">
+                    <p className="pt-6 font-serif text-xs text-accent">
                       {error}
                     </p>
                   )}
@@ -208,7 +208,7 @@ export function InquiryDrawer() {
                     type="button"
                     onClick={back}
                     disabled={submitting}
-                    className="inline-flex items-center gap-1.5 font-sans text-xs transition-colors hover:text-accent outline-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+                    className="inline-flex items-center gap-1.5 font-serif text-xs transition-colors hover:text-accent outline-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     <ArrowLeft aria-hidden className="h-3 w-3" />
                     back
@@ -218,7 +218,7 @@ export function InquiryDrawer() {
                     type="button"
                     onClick={clearAll}
                     disabled={submitting}
-                    className="font-sans text-xs opacity-60 transition-opacity hover:opacity-100 outline-none cursor-pointer disabled:cursor-not-allowed"
+                    className="font-serif text-xs opacity-60 transition-opacity hover:opacity-100 outline-none cursor-pointer disabled:cursor-not-allowed"
                   >
                     clear
                   </button>
@@ -233,14 +233,14 @@ export function InquiryDrawer() {
                     href="https://cal.com/thirdindex/intro"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-sans text-xs opacity-60 transition-opacity hover:opacity-100 outline-none focus-visible:opacity-100"
+                    className="font-serif text-xs opacity-60 transition-opacity hover:opacity-100 outline-none focus-visible:opacity-100"
                   >
                     or book a call
                   </a>
                 <button
                   type="submit"
                   disabled={!stepValid || submitting}
-                  className="group/next inline-flex items-center gap-1.5 bg-accent px-3 py-2 font-sans font-bold text-xs text-white transition-colors duration-200 hover:bg-accent-hover outline-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+                  className="group/next inline-flex items-center gap-1.5 bg-accent px-3 py-2 font-serif font-bold text-xs text-white transition-colors duration-200 hover:bg-accent-hover outline-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
                 >
                   {submitting ? "sending…" : isLast ? "send inquiry" : "next"}
                   {!submitting && (

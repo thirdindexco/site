@@ -29,7 +29,7 @@ function RadioOption({
       role="radio"
       aria-checked={checked}
       onClick={onSelect}
-      className="flex min-h-11 w-full cursor-pointer items-center gap-2 py-1 font-sans text-xs opacity-60 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)] aria-checked:opacity-100"
+      className="flex min-h-11 w-full cursor-pointer items-center gap-2 py-1 font-serif text-xs opacity-60 outline-none transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)] aria-checked:opacity-100"
     >
       <span
         aria-hidden
@@ -52,7 +52,7 @@ function ToggleSwitch({
   onCheckedChange: (checked: boolean) => void;
 }) {
   return (
-    <label className="flex min-h-11 items-center justify-between gap-2 font-sans text-xs opacity-60 transition-opacity hover:opacity-100 has-[[data-checked]]:opacity-100">
+    <label className="flex min-h-11 items-center justify-between gap-2 font-serif text-xs opacity-60 transition-opacity hover:opacity-100 has-[[data-checked]]:opacity-100">
       <span>{label}</span>
       <Switch.Root
         checked={checked}
@@ -67,7 +67,7 @@ function ToggleSwitch({
 
 function SectionLabel({ children }: { children: string }) {
   return (
-    <div className="font-sans text-xs opacity-40">
+    <div className="font-serif text-xs opacity-40">
       {children}
     </div>
   );
@@ -105,7 +105,7 @@ export function SettingsPanel({
         settingsOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
-      <div className="flex items-center justify-between font-sans text-xs">
+      <div className="flex items-center justify-between font-serif text-xs">
         <span>settings</span>
         <button
           type="button"

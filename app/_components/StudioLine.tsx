@@ -5,7 +5,7 @@ export function StudioLine({ className = "", ...rest }: React.ComponentProps<"p"
   return (
     <p
       {...rest}
-      className={`font-sans text-xs leading-[1.6] text-balance ${className}`}
+      className={`font-serif text-xs leading-[1.6] text-balance ${className}`}
     >
       <span className="font-bold">THIRD INDEX</span> is an independent
       practice led by{" "}

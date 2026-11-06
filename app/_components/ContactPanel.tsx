@@ -33,7 +33,7 @@ export function ContactPanel({
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between font-sans text-xs">
+        <div className="flex items-center justify-between font-serif text-xs">
           <span>contact</span>
           <button
             type="button"
@@ -44,23 +44,23 @@ export function ContactPanel({
           </button>
         </div>
   
-        <h2 className="pt-10 font-sans text-sm font-bold leading-tight tracking-tight">
+        <h2 className="pt-10 font-serif text-sm font-bold leading-tight">
           let&apos;s build something.
         </h2>
   
         <div className="pt-8">
-          <p className="font-sans text-xs opacity-60">
+          <p className="font-serif text-xs opacity-60">
             new business
           </p>
           <a
             href="mailto:info@thirdindex.co"
-            className="mt-1 inline-block font-sans text-sm underline decoration-transparent underline-offset-2 outline-none transition-colors hover:decoration-current focus-visible:decoration-current"
+            className="mt-1 inline-block font-serif text-sm underline decoration-transparent underline-offset-2 outline-none transition-colors hover:decoration-current focus-visible:decoration-current"
           >
             info@thirdindex.co
           </a>
         </div>
   
-        <p className="max-w-[44ch] pt-6 font-sans text-sm leading-tight text-foreground/70">
+        <p className="max-w-[44ch] pt-6 font-serif text-sm leading-tight text-foreground/70">
           start with a 15-minute intro call — no prep needed. share a brief, or
           write directly. i reply within two business days.
         </p>
@@ -70,7 +70,7 @@ export function ContactPanel({
             href="https://cal.com/thirdindex/intro"
             target="_blank"
             rel="noopener noreferrer"
-            className="group/call inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-sans text-xs font-bold text-white outline-none transition-colors duration-200 hover:bg-accent-hover focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--foreground)]"
+            className="group/call inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-serif text-xs font-bold text-white outline-none transition-colors duration-200 hover:bg-accent-hover focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--foreground)]"
           >
             book a call
             <ArrowRight
@@ -84,7 +84,7 @@ export function ContactPanel({
               onClose();
               setInquiryOpen(true);
             }}
-            className="group/inq inline-flex min-h-11 cursor-pointer items-center gap-1.5 font-sans text-xs opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
+            className="group/inq inline-flex min-h-11 cursor-pointer items-center gap-1.5 font-serif text-xs opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
           >
             project inquiry
             <ArrowRight
@@ -94,7 +94,7 @@ export function ContactPanel({
           </button>
         </div>
 
-        <div className="mt-auto font-sans text-xs opacity-60">
+        <div className="mt-auto font-serif text-xs opacity-60">
           <p>based in the mojave desert</p>
           <p>working worldwide</p>
         </div>

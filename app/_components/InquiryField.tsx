@@ -19,7 +19,7 @@ export function InquiryField({
 }: Props) {
   return (
     <div>
-      <label className="block font-sans text-xs pb-2">
+      <label className="block font-serif text-xs pb-2">
         {field.label}
       </label>
       {field.type === "select" ? (
@@ -32,7 +32,7 @@ export function InquiryField({
                 type="button"
                 onClick={() => onChange(o)}
                 disabled={disabled}
-                className={`font-sans text-xs px-3 py-1.5 border transition-colors cursor-pointer disabled:cursor-not-allowed whitespace-nowrap outline-none ${
+                className={`font-serif text-xs px-3 py-1.5 border transition-colors cursor-pointer disabled:cursor-not-allowed whitespace-nowrap outline-none ${
                   selected
                     ? "bg-foreground text-background border-foreground"
                     : "text-foreground border-foreground/30 hover:border-foreground/60"
@@ -51,7 +51,7 @@ export function InquiryField({
           rows={4}
           disabled={disabled}
           autoFocus={autoFocus}
-          className="w-full bg-transparent border-b border-foreground/25 focus:border-foreground outline-none font-sans text-sm leading-tight pb-2 resize-none placeholder:opacity-60 disabled:opacity-50 transition-colors"
+          className="w-full bg-transparent border-b border-foreground/25 focus:border-foreground outline-none font-serif text-sm leading-tight pb-2 resize-none placeholder:opacity-60 disabled:opacity-50 transition-colors"
         />
       ) : (
         <input
@@ -61,7 +61,7 @@ export function InquiryField({
           placeholder={field.placeholder}
           disabled={disabled}
           autoFocus={autoFocus}
-          className="w-full bg-transparent border-b border-foreground/25 focus:border-foreground outline-none font-sans text-sm leading-tight pb-2 placeholder:opacity-60 disabled:opacity-50 transition-colors"
+          className="w-full bg-transparent border-b border-foreground/25 focus:border-foreground outline-none font-serif text-sm leading-tight pb-2 placeholder:opacity-60 disabled:opacity-50 transition-colors"
         />
       )}
     </div>

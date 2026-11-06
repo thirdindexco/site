@@ -11,7 +11,7 @@ export function InquiryCTA({ className = "pt-8" }: { className?: string }) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group/cta inline-flex min-h-11 cursor-pointer items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2 font-sans text-sm font-bold text-white outline-none transition-colors duration-200 hover:bg-accent-hover focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--foreground)]"
+        className="group/cta inline-flex min-h-11 cursor-pointer items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2 font-serif text-sm font-bold text-white outline-none transition-colors duration-200 hover:bg-accent-hover focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--foreground)]"
       >
         project inquiry
         <ArrowRight
@@ -26,7 +26,7 @@ export function InquiryCTA({ className = "pt-8" }: { className?: string }) {
           person. */}
       <a
         href="mailto:info@thirdindex.co"
-        className="inline-flex min-h-11 items-center font-sans text-sm opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
+        className="inline-flex min-h-11 items-center font-serif text-sm opacity-70 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]"
       >
         info@thirdindex.co
       </a>

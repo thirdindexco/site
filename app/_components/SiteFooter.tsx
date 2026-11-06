@@ -5,7 +5,7 @@ import { FooterWeather } from "./FooterWeather";
 import { StudioLine } from "./StudioLine";
 
 const LINK =
-  "inline-flex w-fit items-center font-sans text-[11px] leading-[1.5] opacity-55 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]";
+  "inline-flex w-fit items-center font-serif text-[11px] leading-[1.5] opacity-55 outline-none transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-[3px] focus-visible:outline-[color:var(--accent)]";
 
 // The colophon, plus the contact panel's only remaining door — the header is
 // down to a mark and settings, so this is where reaching us lives. The
@@ -56,7 +56,7 @@ export function SiteFooter({ onContact }: { onContact: () => void }) {
           </div>
           {/* Day, time, weather and the copyright run as one line from md
               up; they only stack where the column is too narrow for it. */}
-          <div className="flex flex-col gap-2 font-sans text-[11px] leading-[1.5] opacity-40 md:flex-row md:items-baseline md:gap-0">
+          <div className="flex flex-col gap-2 font-serif text-[11px] leading-[1.5] opacity-40 md:flex-row md:items-baseline md:gap-0">
             <FooterWeather />
             <span aria-hidden className="hidden px-1.5 opacity-60 md:inline">
               ·

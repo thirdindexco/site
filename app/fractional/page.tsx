@@ -77,7 +77,7 @@ function StartConversationButton() {
       href={START_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="group/cta inline-flex items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-sans text-sm font-bold text-white outline-none transition-colors duration-200 hover:bg-accent-hover"
+      className="group/cta inline-flex items-center gap-1.5 whitespace-nowrap bg-accent px-4 py-2.5 font-serif text-sm font-bold text-white outline-none transition-colors duration-200 hover:bg-accent-hover"
     >
       start a conversation
       <ArrowRight
@@ -94,14 +94,14 @@ export default function EmbeddedPage() {
         <section className={`pt-20 md:pt-36 lg:pt-48 ${GRID}`}>
           <p
             data-anim="hero"
-            className="col-span-12 font-sans text-sm opacity-50 md:col-span-2"
+            className="col-span-12 font-serif text-sm opacity-50 md:col-span-2"
           >
             stay close
           </p>
           <div className="col-span-12 pt-5 md:col-span-6 md:col-start-4 md:pt-0">
             <h1
               data-anim="hero"
-              className="max-w-[62ch] font-sans text-sm font-bold leading-tight tracking-tight text-pretty"
+              className="max-w-[62ch] font-serif text-sm font-bold leading-tight text-pretty"
             >
               senior design engineering, embedded.{" "}
               <span className="hero-support">
@@ -109,7 +109,7 @@ export default function EmbeddedPage() {
               </span>
             </h1>
             <div data-anim="body">
-            <p className="pt-10 font-sans text-sm opacity-50 md:pt-12">
+            <p className="pt-10 font-serif text-sm opacity-50 md:pt-12">
               from $10k/month · embedded in your team · 3-month minimum · remote
             </p>
             <div className="pt-4">
@@ -121,17 +121,17 @@ export default function EmbeddedPage() {
 
         <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
           <div className="col-span-12 md:col-span-2 md:col-start-1">
-            <div className="font-sans text-sm opacity-50">
+            <div className="font-serif text-sm opacity-50">
               what embedded looks like
             </div>
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
-            <p className="max-w-[60ch] font-sans text-sm leading-tight text-pretty">
+            <p className="max-w-[60ch] font-serif text-sm leading-tight text-pretty">
               for teams with real product velocity and a visible gap between
               design intent and shipped interface: rough interactions, drifting
               systems, inconsistent polish, product and marketing out of sync.
             </p>
-            <p className="max-w-[60ch] pt-4 font-sans text-sm leading-tight text-pretty">
+            <p className="max-w-[60ch] pt-4 font-serif text-sm leading-tight text-pretty">
               embedded means working in your tools and on your cadence: repo,
               slack, standups, reviews. hands on the work, close to the team,
               clean exit at agreed milestones.
@@ -141,7 +141,7 @@ export default function EmbeddedPage() {
 
         <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
           <div className="col-span-12 md:col-span-2 md:col-start-1">
-            <div className="font-sans text-sm opacity-50">
+            <div className="font-serif text-sm opacity-50">
               what i typically own
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function EmbeddedPage() {
               {ownership.map((item, i) => (
                 <li
                   key={item}
-                  className={`py-3 font-sans text-sm leading-tight ${
+                  className={`py-3 font-serif text-sm leading-tight ${
                     i > 0
                       ? "border-t border-[color:var(--panel-border)]"
                       : ""
@@ -165,16 +165,16 @@ export default function EmbeddedPage() {
 
         <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
           <div className="col-span-12 md:col-span-2 md:col-start-1">
-            <div className="font-sans text-sm opacity-50">
+            <div className="font-serif text-sm opacity-50">
               how it works
             </div>
           </div>
           <div className="col-span-12 pt-6 md:col-span-9 md:col-start-4 md:pt-0">
-            <p className="max-w-[60ch] font-sans text-sm leading-tight text-pretty">
+            <p className="max-w-[60ch] font-serif text-sm leading-tight text-pretty">
               30-min intro call → 60-min scoping call → 2-week paid trial
               sprint → embedded engagement begins.
             </p>
-            <p className="max-w-[60ch] pt-4 font-sans text-sm leading-tight text-pretty text-foreground/70">
+            <p className="max-w-[60ch] pt-4 font-serif text-sm leading-tight text-pretty text-foreground/70">
               the trial sprint confirms fit before a 3-month contract.
             </p>
           </div>
@@ -182,7 +182,7 @@ export default function EmbeddedPage() {
 
         <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
           <div className="col-span-12 md:col-span-2 md:col-start-1">
-            <div className="font-sans text-sm opacity-50">
+            <div className="font-serif text-sm opacity-50">
               pricing
             </div>
           </div>
@@ -197,16 +197,16 @@ export default function EmbeddedPage() {
                       : ""
                   }`}
                 >
-                  <dt className="col-span-6 self-baseline font-sans text-sm font-bold leading-tight md:col-span-4">
+                  <dt className="col-span-6 self-baseline font-serif text-sm font-bold leading-tight md:col-span-4">
                     {tier}
                   </dt>
-                  <dd className="col-span-6 self-baseline text-right font-sans text-sm opacity-80 md:col-span-8">
+                  <dd className="col-span-6 self-baseline text-right font-serif text-sm opacity-80 md:col-span-8">
                     {price}
                   </dd>
                 </div>
               ))}
             </dl>
-            <p className="max-w-[60ch] pt-4 font-sans text-sm leading-tight text-foreground/70">
+            <p className="max-w-[60ch] pt-4 font-serif text-sm leading-tight text-foreground/70">
               month-to-month after the 3-month minimum. invoiced monthly in
               advance.
             </p>
@@ -215,7 +215,7 @@ export default function EmbeddedPage() {
 
         <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
           <div className="col-span-12 md:col-span-2 md:col-start-1">
-            <div className="font-sans text-sm opacity-50">
+            <div className="font-serif text-sm opacity-50">
               faq
             </div>
           </div>
@@ -226,12 +226,12 @@ export default function EmbeddedPage() {
 
         <section className={`pt-28 md:pt-40 lg:pt-56 ${GRID}`}>
           <div className="col-span-12 md:col-span-6 md:col-start-4">
-            <p className="font-sans text-sm font-bold leading-tight tracking-tight text-pretty">
+            <p className="font-serif text-sm font-bold leading-tight text-pretty">
               bring software and design engineering closer.
             </p>
             <div className="flex flex-col items-start gap-4 pt-8 md:pt-10">
               <StartConversationButton />
-              <p className="font-sans text-sm opacity-70">
+              <p className="font-serif text-sm opacity-70">
                 or{" "}
                 <a
                   href={`mailto:${EMAIL}`}

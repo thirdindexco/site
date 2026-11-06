@@ -16,10 +16,10 @@ export function EngagementList() {
             href={engagement.href}
             className="group/tier grid items-baseline gap-2 border-b border-[color:var(--panel-border)] py-5 outline-none focus-visible:outline focus-visible:outline-[1.5px] focus-visible:outline-offset-4 focus-visible:outline-[color:var(--accent)] md:grid-cols-3 md:gap-5"
           >
-            <h3 className="font-sans text-sm font-bold leading-tight tracking-tight">
+            <h3 className="font-serif text-sm font-bold leading-tight">
               {engagement.title}
             </h3>
-            <p className="flex items-baseline justify-between gap-4 font-sans text-sm leading-tight tabular-nums text-foreground/65 transition-colors duration-200 group-hover/tier:text-foreground group-focus-visible/tier:text-foreground md:col-span-2">
+            <p className="flex items-baseline justify-between gap-4 font-serif text-sm leading-tight tabular-nums text-foreground/65 transition-colors duration-200 group-hover/tier:text-foreground group-focus-visible/tier:text-foreground md:col-span-2">
               {engagement.meta}
               <ArrowRight
                 aria-hidden
