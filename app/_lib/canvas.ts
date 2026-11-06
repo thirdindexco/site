@@ -42,7 +42,7 @@ export const ENGAGEMENT_SHAPES = [
     href: "/project",
     terms: "By the week, from $5k a week.",
     description:
-      "Scoped work, one to three weeks: an audit, a prototype, a build, or a design system. Scope and price are fixed before work starts.",
+      "Scoped work, one to three weeks: a storefront, an editorial site, a payments flow, a dapp interface, or a product feature. Scope and price are fixed before work starts.",
   },
   {
     title: "Embedded",
@@ -53,31 +53,44 @@ export const ENGAGEMENT_SHAPES = [
   },
 ];
 
-// What a week-priced project usually turns out to be.
+// What a week-priced project usually is: the kinds of product the studio
+// builds, same rate, different length.
 export const COMMON_PROJECTS = [
   {
-    title: "Frontend audit",
-    length: "1 week",
+    title: "Storefronts",
+    length: "2–3 weeks",
     description:
-      "A senior read on an existing frontend: architecture, performance, accessibility, system health, ending in a written, ranked plan. No code ships; the output is judgment, written down.",
+      "Headless commerce: a Shopify or custom catalogue, editorial curation through a CMS, and a checkout built to the brand rather than the theme.",
   },
   {
-    title: "Prototype",
-    length: "1–2 weeks",
-    description:
-      "A loose idea turned into a clickable, deployed prototype: real interface, core flows, and a URL you can put in front of users and investors.",
-  },
-  {
-    title: "Frontend build",
+    title: "Editorial and portfolio sites",
     length: "1–3 weeks",
     description:
-      "Finished designs built properly: a single surface, a brand site, a product area, or a new feature end to end, motion and interaction included.",
+      "Publications, studios, and portfolios: a CMS the editors can run, pages built from components, and the reading and viewing experience tuned.",
   },
   {
-    title: "Design system",
-    length: "2 weeks",
+    title: "Fintech and payments",
+    length: "2–3 weeks",
     description:
-      "Your designs turned into a coded, documented component library: tokens, components, a playground, and one real flow built on it.",
+      "Onboarding, ledgers, transfers, and statements: the interfaces of a financial product, built on Stripe or your own rails, with the states and edge cases handled.",
+  },
+  {
+    title: "DeFi and dapp interfaces",
+    length: "2–3 weeks",
+    description:
+      "The UI layer over a smart contract: wallet connection, signing flows, positions, and swaps, with on-chain state made legible.",
+  },
+  {
+    title: "AI workflow dashboards",
+    length: "2–3 weeks",
+    description:
+      "An internal dashboard that runs AI-enabled workflows across teams: shared context, prompts and runs, approvals, token usage and cost, on whichever models and stack you already use.",
+  },
+  {
+    title: "Product interfaces",
+    length: "1–3 weeks",
+    description:
+      "A product area or a new feature end to end: application UI with its architecture, states, accessibility, and motion, in your repo.",
   },
 ];
 

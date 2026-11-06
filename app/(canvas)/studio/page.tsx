@@ -74,7 +74,7 @@ export default function StudioPage() {
             </ul>
             <div>
               <p className="opacity-50">Common projects</p>
-              <ul className="grid grid-cols-2 gap-x-5 gap-y-[13px] pt-[13px] md:grid-cols-4">
+              <ul className="grid grid-cols-2 gap-x-5 gap-y-[13px] pt-[13px] md:grid-cols-3">
                 {COMMON_PROJECTS.map((c) => (
                   <li key={c.title}>
                     <h4>

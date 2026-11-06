@@ -18,7 +18,7 @@ Core capabilities include product interfaces, design system implementation, cust
 
 There are two engagement shapes: a scoped project priced by the week, or embedded work priced by the month.
 
-- [Project](https://thirdindex.co/project): From $5k/week, usually one to three weeks, with scope and price fixed before work starts. Common projects: a frontend audit (one week — a senior review of architecture, performance, accessibility, and design system health, delivered as a written, ranked plan), a prototype (one to two weeks — a clickable, deployed prototype of the core flows), a frontend build (one to three weeks — finished designs turned into production code), or a design system (two weeks — existing designs turned into a coded, documented component library).
+- [Project](https://thirdindex.co/project): From $5k/week, usually one to three weeks, with scope and price fixed before work starts. Common projects: headless storefronts with CMS curation and a custom checkout, editorial and portfolio sites, fintech and payments interfaces, DeFi and dapp interfaces over smart contracts, AI workflow dashboards for teams (shared context, runs, token usage and cost), and product interfaces or new features built end to end.
 - [Embedded (fractional engineering)](https://thirdindex.co/fractional): From $10k/month for two days a week, embedded with a product team, three-month minimum. Three days a week from $14k/month.
 
 ## Capabilities

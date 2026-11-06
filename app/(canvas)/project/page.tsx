@@ -5,7 +5,7 @@ import { COMMON_PROJECTS, CONTACT, LINK } from "../../_lib/canvas";
 
 const pageTitle = "Project — THIRD INDEX";
 const pageDescription =
-  "Senior design and engineering by the week: frontend audits, prototypes, frontend builds, and design systems. One to three weeks, fixed scope, fixed price, from $5k a week.";
+  "Senior design and engineering by the week: storefronts, editorial sites, fintech and payments interfaces, dapp interfaces, AI workflow dashboards, and product features. One to three weeks, fixed scope, fixed price, from $5k a week.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -43,7 +43,7 @@ const schedule: [string, string][] = [
 const questions = [
   {
     q: "Do we need designs first?",
-    a: "Depends on the work. Prototypes and product builds include interface design; a design system starts from yours; an audit needs only the repo.",
+    a: "Depends on the work. Most projects include interface design; if you have designs or a design system, the build starts from them.",
   },
   {
     q: "What if scope changes mid-project?",
@@ -73,7 +73,7 @@ export default function ProjectPage() {
   return (
     <Document
       lead="Scoped work, priced by the week."
-      support="One to three weeks of senior design and engineering, scoped to the problem: an audit, a prototype, a build, or a design system. Fixed scope, fixed price, agreed before anything starts."
+      support="One to three weeks of senior design and engineering, scoped to the problem: a storefront, an editorial site, a payments flow, a dapp interface, or a product feature. Fixed scope, fixed price, agreed before anything starts."
     >
       <DocSection id="terms" label="Terms">
         <p>From $5k a week · one to three weeks · remote</p>
@@ -91,7 +91,7 @@ export default function ProjectPage() {
         <p className="max-w-[60ch] text-pretty">
           Most projects are one of these, same rate, different length.
         </p>
-        <ul className="grid grid-cols-2 gap-x-5 gap-y-[26px] pt-[26px] md:grid-cols-4">
+        <ul className="grid grid-cols-2 gap-x-5 gap-y-[26px] pt-[26px] md:grid-cols-3">
           {COMMON_PROJECTS.map((c) => (
             <li key={c.title}>
               <h3>
