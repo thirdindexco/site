@@ -149,8 +149,8 @@ export default function StudioPage() {
               <p className="pt-[13px] text-pretty opacity-50">{STUDIO_PERSON}</p>
               <p className="pt-[13px] opacity-50">{STUDIO_BASE}</p>
               <p className="flex gap-6 pt-[13px] opacity-50">
-                <a href={`mailto:${CONTACT.email}`} className={A}>
-                  {CONTACT.email}
+                <a href={`mailto:${CONTACT.principal}`} className={A}>
+                  {CONTACT.principal}
                 </a>
                 <a
                   href={CONTACT.elsewhere}

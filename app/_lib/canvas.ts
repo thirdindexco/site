@@ -28,8 +28,11 @@ export const STUDIO_PERSON =
   "Third Index is one person. I scope the project, do the work, and walk you through it, with no handoff to a junior team and no account manager in between. The background is agencies and product teams; the index is the recent work, for labels, studios, and founders.";
 export const STUDIO_BASE = "Based in Las Vegas, working with teams anywhere.";
 
+// The studio's address everywhere; the principal's own only in the block
+// about him.
 export const CONTACT = {
-  email: "mc@thirdindex.co",
+  email: "info@thirdindex.co",
+  principal: "mc@thirdindex.co",
   call: "https://cal.com/thirdindex/intro",
   elsewhere: "https://relli.cc",
 };
