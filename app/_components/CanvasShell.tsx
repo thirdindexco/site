@@ -331,16 +331,19 @@ function Numeral({
   );
 }
 
+// Names the mode a click switches to, as a button should: "Light" while
+// the page is dark.
 function ThemeToggle() {
   const theme = useAtomValue(themeAtom);
+  const next = theme === "dark" ? "Light" : "Dark";
   return (
     <button
       type="button"
       onClick={cycleTheme}
-      title="Toggle theme (T)"
+      title={`Switch to ${next.toLowerCase()} (T)`}
       className={LINK_MUTED}
     >
-      {theme === "dark" ? "Dark" : "Light"}
+      {next}
     </button>
   );
 }
