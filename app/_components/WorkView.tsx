@@ -105,7 +105,7 @@ export function WorkView({
           <div className="col-span-3">
             <h1 className="sr-only">{project.title}</h1>
             <p className="text-pretty">{project.description}</p>
-            <p className="pt-[13px] opacity-50">
+            <p className="pt-[13px] text-muted-foreground">
               {project.role}
               <br />
               {formatTechnologies(project.technologies)}
@@ -120,7 +120,7 @@ export function WorkView({
                 Visit site
               </a>
               {slides.length > 1 ? (
-                <span className="tabular-nums opacity-50">
+                <span className="tabular-nums text-muted-foreground">
                   {i + 1} / {slides.length}
                 </span>
               ) : null}
@@ -140,7 +140,7 @@ export function WorkView({
         </button>
         <p className="pt-4">{project.title}</p>
         <p className="pt-[13px] text-pretty">{project.description}</p>
-        <p className="pt-[13px] opacity-50">
+        <p className="pt-[13px] text-muted-foreground">
           {project.role}
           <br />
           {formatTechnologies(project.technologies)}

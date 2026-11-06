@@ -49,12 +49,12 @@ export default function HomePage() {
       <h1 className="max-w-[40ch] text-pretty">
         {STUDIO_LEAD} {STUDIO_SUPPORT}
       </h1>
-      <p className="max-w-[40ch] text-pretty opacity-50">{STUDIO_PROOF}</p>
+      <p className="max-w-[40ch] text-pretty text-muted-foreground">{STUDIO_PROOF}</p>
       <ul className="grid grid-cols-2 gap-x-5 gap-y-6 pt-12">
         {projects.slice(0, 6).map((p, i) => (
           <li key={p.url}>
             <Link href={workHref(p)} className={`${LINK} block`}>
-              <span className="tabular-nums opacity-50">{indexNumber(i)}</span>
+              <span className="tabular-nums text-muted-foreground">{indexNumber(i)}</span>
               <br />
               {p.title}
             </Link>

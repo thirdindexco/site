@@ -122,7 +122,7 @@ export default function EmbeddedPage() {
 
       <DocSection id="pricing" label="Pricing">
         <Rows items={tiers} />
-        <p className="max-w-[60ch] pt-[13px] opacity-50">
+        <p className="max-w-[60ch] pt-[13px] text-muted-foreground">
           Month to month after the three-month minimum. Invoiced monthly in
           advance.
         </p>
@@ -141,7 +141,7 @@ export default function EmbeddedPage() {
           <a href={`mailto:${CONTACT.email}`} className={LINK}>
             Email directly
           </a>
-          <Link href="/project" className={`${LINK} opacity-50 hover:opacity-100`}>
+          <Link href="/project" className={`${LINK} text-muted-foreground`}>
             Or a project, by the week
           </Link>
         </p>

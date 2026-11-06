@@ -69,7 +69,7 @@ export function InquiryForm({
     >
       <h2
         id={`inquiry-${s.id}`}
-        className="pb-[13px] opacity-50 md:col-span-2 md:pb-0"
+        className="pb-[13px] text-muted-foreground md:col-span-2 md:pb-0"
       >
         {s.title}
       </h2>
@@ -91,7 +91,7 @@ export function InquiryForm({
     return (
       <Document lead={lead} support={support}>
         <section className="md:grid md:grid-cols-12 md:gap-x-5">
-          <h2 className="pb-[13px] opacity-50 md:col-span-2 md:pb-0">Sent</h2>
+          <h2 className="pb-[13px] text-muted-foreground md:col-span-2 md:pb-0">Sent</h2>
           <p className="md:col-span-6 md:col-start-4">
             Thank you. Response within 48 hours.
           </p>
@@ -106,7 +106,7 @@ export function InquiryForm({
         {inquirySections.map(section)}
 
         <section className="md:grid md:grid-cols-12 md:gap-x-5">
-          <h2 className="pb-[13px] opacity-50 md:col-span-2 md:pb-0">Send</h2>
+          <h2 className="pb-[13px] text-muted-foreground md:col-span-2 md:pb-0">Send</h2>
           <div className="md:col-span-6 md:col-start-4">
             <p className="flex gap-6">
               <button
@@ -120,7 +120,7 @@ export function InquiryForm({
                 href={CONTACT.call}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${LINK} opacity-50 hover:opacity-100`}
+                className={`${LINK} text-muted-foreground`}
               >
                 Or book a call
               </a>
@@ -152,7 +152,7 @@ function Field({
     <div>
       <label htmlFor={id} className="block pb-[3px]">
         {field.label}
-        {field.required ? null : <span className="opacity-50"> optional</span>}
+        {field.required ? null : <span className="text-muted-foreground"> optional</span>}
       </label>
       {field.type === "select" ? (
         <div role="radiogroup" aria-labelledby={id} className="flex flex-wrap gap-x-6 gap-y-[3px]">
@@ -166,8 +166,8 @@ function Field({
                 aria-checked={selected}
                 onClick={() => onChange(o)}
                 disabled={disabled}
-                className={`cursor-pointer outline-none transition-[color,opacity] duration-200 hover:text-accent focus-visible:text-accent disabled:cursor-default ${
-                  selected ? "text-accent" : "opacity-50 hover:opacity-100"
+                className={`cursor-pointer outline-none transition-colors duration-200 hover:text-accent focus-visible:text-accent disabled:cursor-default ${
+                  selected ? "text-accent" : "text-muted-foreground"
                 }`}
               >
                 {o}

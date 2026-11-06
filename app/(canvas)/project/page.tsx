@@ -96,9 +96,9 @@ export default function ProjectPage() {
             <li key={c.title}>
               <h3>
                 {c.title}
-                <span className="opacity-50"> {c.length}</span>
+                <span className="text-muted-foreground"> {c.length}</span>
               </h3>
-              <p className="text-pretty opacity-50">{c.description}</p>
+              <p className="text-pretty text-muted-foreground">{c.description}</p>
             </li>
           ))}
         </ul>
@@ -117,7 +117,7 @@ export default function ProjectPage() {
           $5k a week, whatever the work. Most projects land between one and
           three. Scope and price are agreed and fixed before anything starts.
         </p>
-        <p className="max-w-[60ch] pt-[13px] text-pretty opacity-50">
+        <p className="max-w-[60ch] pt-[13px] text-pretty text-muted-foreground">
           Why by the week instead of hourly: fixed scope, fixed fee, shipped
           code. Less clock-watching, more momentum, and a single week is a
           cheap way to try it before committing to more.
@@ -150,7 +150,7 @@ export default function ProjectPage() {
           <a href={CONTACT.call} target="_blank" rel="noopener noreferrer" className={LINK}>
             Book a call
           </a>
-          <Link href="/fractional" className={`${LINK} opacity-50 hover:opacity-100`}>
+          <Link href="/fractional" className={`${LINK} text-muted-foreground`}>
             Or embedded, by the month
           </Link>
         </p>

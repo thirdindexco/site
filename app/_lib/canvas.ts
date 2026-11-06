@@ -7,7 +7,7 @@
 export const LINK =
   "cursor-pointer text-left outline-none transition-colors duration-200 hover:text-accent focus-visible:text-accent";
 export const LINK_MUTED =
-  "cursor-pointer text-left opacity-50 outline-none transition-[opacity,color] duration-200 hover:text-accent hover:opacity-100 focus-visible:text-accent focus-visible:opacity-100";
+  "cursor-pointer text-left text-muted-foreground outline-none transition-colors duration-200 hover:text-accent focus-visible:text-accent";
 export const FADE = "animate-[canvas-in_0.4s_ease]";
 // The centre line: one text line, centred on the viewport.
 export const LINE_TOP = "top-[calc(50%-7px)]";

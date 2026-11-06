@@ -48,7 +48,7 @@ export default function StudioPage() {
             {FOCUS_AREAS.map((f) => (
               <li key={f.title}>
                 <h3>{f.title}</h3>
-                <p className="text-pretty opacity-50">{f.description}</p>
+                <p className="text-pretty text-muted-foreground">{f.description}</p>
               </li>
             ))}
           </ul>
@@ -66,13 +66,13 @@ export default function StudioPage() {
                   </h3>
                   <p className="text-pretty md:col-span-5">
                     {e.terms}{" "}
-                    <span className="opacity-50">{e.description}</span>
+                    <span className="text-muted-foreground">{e.description}</span>
                   </p>
                 </li>
               ))}
             </ul>
             <div>
-              <p className="opacity-50">Common projects</p>
+              <p className="text-muted-foreground">Common projects</p>
               <ul className="grid grid-cols-2 gap-x-5 pt-[13px] md:grid-cols-3">
                 {COMMON_PROJECTS.map((c) => (
                   <li key={c.title}>{c.title}</li>
@@ -108,7 +108,7 @@ export default function StudioPage() {
                 Book a call
               </a>
             </p>
-            <p className="pt-[13px] opacity-50">
+            <p className="pt-[13px] text-muted-foreground">
               <Availability />
             </p>
           </div>

@@ -1,5 +1,6 @@
 export type InquiryForm = {
   description: string;
+  scope: string;
   timeline: string;
   budget: string;
   name: string;
@@ -10,6 +11,7 @@ export type InquiryForm = {
 
 export const initialInquiryForm: InquiryForm = {
   description: "",
+  scope: "",
   timeline: "",
   budget: "",
   name: "",
@@ -46,6 +48,13 @@ export const inquirySections: InquirySection[] = [
         label: "What are you looking to build?",
         type: "textarea",
         placeholder: "What you are building, and what you need help with",
+        required: true,
+      },
+      {
+        key: "scope",
+        label: "What do you need?",
+        type: "select",
+        options: ["Design and development", "Development only"],
         required: true,
       },
       {

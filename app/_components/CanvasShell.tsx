@@ -11,6 +11,7 @@ import {
 } from "react";
 import { useAtomValue } from "jotai";
 import {
+  CONTACT,
   FADE,
   LINE_TOP,
   LINK,
@@ -188,7 +189,11 @@ export function CanvasShell({
             </div>
 
             <div className="canvas-ready col-span-4 col-start-9 flex items-start justify-end gap-6 whitespace-nowrap">
-              {atHome || view === "inquire" ? null : (
+              {atHome ? null : view === "inquire" ? (
+                <a href={`mailto:${CONTACT.email}`} className={LINK}>
+                  {CONTACT.email}
+                </a>
+              ) : (
                 <Link href="/inquire" className={LINK}>
                   Inquire
                 </Link>
@@ -251,7 +256,11 @@ export function CanvasShell({
               <Link href="/" className={LINK}>
                 Close
               </Link>
-              {view === "inquire" ? null : (
+              {view === "inquire" ? (
+                <a href={`mailto:${CONTACT.email}`} className={LINK}>
+                  {CONTACT.email}
+                </a>
+              ) : (
                 <Link href="/inquire" className={LINK}>
                   Inquire
                 </Link>

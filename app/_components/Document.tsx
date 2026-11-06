@@ -20,7 +20,7 @@ export function Document({
       {/* The statement, one paragraph, top left. */}
       <header className="max-w-[48ch] text-pretty md:absolute md:left-2 md:top-2">
         <h1 className="inline">{lead}</h1>
-        {support ? <span className="opacity-50"> {support}</span> : null}
+        {support ? <span className="text-muted-foreground"> {support}</span> : null}
       </header>
       {/* The sections start a way under the line, so the first one shows
           the document continues and the page asks to be scrolled. */}
@@ -44,7 +44,7 @@ export function DocSection({
 }) {
   return (
     <section className="md:grid md:grid-cols-12 md:gap-x-5" aria-labelledby={id}>
-      <h2 id={id} className="pb-[13px] opacity-50 md:col-span-2 md:pb-0">
+      <h2 id={id} className="pb-[13px] text-muted-foreground md:col-span-2 md:pb-0">
         {label}
       </h2>
       <div className={`md:col-span-9 md:col-start-4 ${className}`}>{children}</div>
@@ -60,7 +60,7 @@ export function Questions({ items }: { items: { q: string; a: string }[] }) {
       {items.map((item) => (
         <div key={item.q} className="md:grid md:grid-cols-9 md:gap-x-5">
           <dt className="md:col-span-3">{item.q}</dt>
-          <dd className="text-pretty opacity-50 md:col-span-5">{item.a}</dd>
+          <dd className="text-pretty text-muted-foreground md:col-span-5">{item.a}</dd>
         </div>
       ))}
     </dl>

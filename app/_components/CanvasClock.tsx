@@ -28,7 +28,7 @@ export function CanvasClock() {
     return () => window.clearInterval(id);
   }, []);
   return (
-    <time className="tabular-nums opacity-50" suppressHydrationWarning>
+    <time className="tabular-nums text-muted-foreground" suppressHydrationWarning>
       {text}
     </time>
   );
