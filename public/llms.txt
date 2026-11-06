@@ -38,7 +38,7 @@ Primary tools include TypeScript, React, Next.js, Tailwind CSS, GSAP, Motion, Th
 
 ## Representative clients and work
 
-Representative names include Pentagram, Grey, Amazon, VICE, Condé Nast, Modern Treasury, Legend, One/Of, Elara, Revolve Law, Kelvon Agee, The Well, and El Dorado.
+Representative names include Pentagram, Grey, Amazon, VICE, Condé Nast, Modern Treasury, Legend, One/Of, Elara, Revolve Law, and Kelvon Agee.
 
 ## Fit
 
