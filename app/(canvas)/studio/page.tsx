@@ -46,14 +46,8 @@ const A = LINK;
 
 export default function StudioPage() {
   return (
-    <Document
-      lead={`${STUDIO_LEAD} ${STUDIO_SUPPORT}`}
-      support={STUDIO_PROOF}
-      above={
-        <section aria-labelledby="focus">
-          <h2 id="focus" className="sr-only">
-            Focus
-          </h2>
+    <Document lead={`${STUDIO_LEAD} ${STUDIO_SUPPORT}`} support={STUDIO_PROOF}>
+        <DocSection id="focus" label="Focus">
           <ul className="grid grid-cols-2 gap-x-5 gap-y-[26px] md:grid-cols-3">
             {FOCUS_AREAS.map((f) => (
               <li key={f.title}>
@@ -62,9 +56,8 @@ export default function StudioPage() {
               </li>
             ))}
           </ul>
-        </section>
-      }
-    >
+        </DocSection>
+
         <DocSection id="engagements" label="Engagements">
           <div className="flex flex-col gap-y-[26px]">
             <ul className="flex flex-col gap-y-[13px]">

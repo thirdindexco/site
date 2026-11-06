@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { CONTACT, LINK } from "../_lib/canvas";
+import { Document } from "./Document";
 import {
   initialInquiryForm,
   inquirySections,
@@ -9,10 +10,17 @@ import {
   type InquiryForm as Form,
 } from "../_lib/inquiry-state";
 
-// The inquiry as one form on the sheet: three sections on the grid, bare
-// underlined fields, the options as words, and a line to send it. Posts
-// to /api/inquiry, as the drawer did.
-export function InquiryForm() {
+// The inquiry as one form on the sheet: three sections under the line,
+// bare underlined fields, the options as words, and a line to send it.
+// The form wraps the document frame. Posts to /api/inquiry, as the drawer
+// did.
+export function InquiryForm({
+  lead,
+  support,
+}: {
+  lead: ReactNode;
+  support?: ReactNode;
+}) {
   const [form, setForm] = useState<Form>(initialInquiryForm);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -53,68 +61,74 @@ export function InquiryForm() {
     }
   };
 
+  const section = (s: (typeof inquirySections)[number]) => (
+    <section
+      key={s.id}
+      className="md:grid md:grid-cols-12 md:gap-x-5"
+      aria-labelledby={`inquiry-${s.id}`}
+    >
+      <h2
+        id={`inquiry-${s.id}`}
+        className="pb-[13px] opacity-50 md:col-span-2 md:pb-0"
+      >
+        {s.title}
+      </h2>
+      <div className="flex flex-col gap-y-[26px] md:col-span-6 md:col-start-4">
+        {s.fields.map((f) => (
+          <Field
+            key={f.key}
+            field={f}
+            value={form[f.key]}
+            onChange={(v) => update(f.key, v)}
+            disabled={submitting}
+          />
+        ))}
+      </div>
+    </section>
+  );
+
   if (sent) {
     return (
-      <section className="md:grid md:grid-cols-12 md:gap-x-5">
-        <h2 className="pb-[13px] opacity-50 md:col-span-2 md:pb-0">Sent</h2>
-        <p className="md:col-span-6 md:col-start-4">
-          Thank you. Response within 48 hours.
-        </p>
-      </section>
+      <Document lead={lead} support={support}>
+        <section className="md:grid md:grid-cols-12 md:gap-x-5">
+          <h2 className="pb-[13px] opacity-50 md:col-span-2 md:pb-0">Sent</h2>
+          <p className="md:col-span-6 md:col-start-4">
+            Thank you. Response within 48 hours.
+          </p>
+        </section>
+      </Document>
     );
   }
 
   return (
-    <form onSubmit={submit} className="contents">
-      {inquirySections.map((s) => (
-        <section
-          key={s.id}
-          className="md:grid md:grid-cols-12 md:gap-x-5"
-          aria-labelledby={`inquiry-${s.id}`}
-        >
-          <h2
-            id={`inquiry-${s.id}`}
-            className="pb-[13px] opacity-50 md:col-span-2 md:pb-0"
-          >
-            {s.title}
-          </h2>
-          <div className="flex flex-col gap-y-[26px] md:col-span-6 md:col-start-4">
-            {s.fields.map((f) => (
-              <Field
-                key={f.key}
-                field={f}
-                value={form[f.key]}
-                onChange={(v) => update(f.key, v)}
-                disabled={submitting}
-              />
-            ))}
+    <form onSubmit={submit}>
+      <Document lead={lead} support={support}>
+        {inquirySections.map(section)}
+
+        <section className="md:grid md:grid-cols-12 md:gap-x-5">
+          <h2 className="pb-[13px] opacity-50 md:col-span-2 md:pb-0">Send</h2>
+          <div className="md:col-span-6 md:col-start-4">
+            <p className="flex gap-6">
+              <button
+                type="submit"
+                disabled={!valid || submitting}
+                className={`${LINK} disabled:cursor-default disabled:opacity-30 disabled:hover:text-foreground`}
+              >
+                {submitting ? "Sending…" : "Send inquiry"}
+              </button>
+              <a
+                href={CONTACT.call}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${LINK} opacity-50 hover:opacity-100`}
+              >
+                Or book a call
+              </a>
+            </p>
+            {error ? <p className="pt-[13px] text-accent">{error}</p> : null}
           </div>
         </section>
-      ))}
-
-      <section className="md:grid md:grid-cols-12 md:gap-x-5">
-        <h2 className="pb-[13px] opacity-50 md:col-span-2 md:pb-0">Send</h2>
-        <div className="md:col-span-6 md:col-start-4">
-          <p className="flex gap-6">
-            <button
-              type="submit"
-              disabled={!valid || submitting}
-              className={`${LINK} disabled:cursor-default disabled:opacity-30 disabled:hover:text-foreground`}
-            >
-              {submitting ? "Sending…" : "Send inquiry"}
-            </button>
-            <a
-              href={CONTACT.call}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${LINK} opacity-50 hover:opacity-100`}
-            >
-              Or book a call
-            </a>
-          </p>
-          {error ? <p className="pt-[13px] text-accent">{error}</p> : null}
-        </div>
-      </section>
+      </Document>
     </form>
   );
 }

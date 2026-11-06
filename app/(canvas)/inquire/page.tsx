@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Document } from "../../_components/Document";
 import { InquiryForm } from "../../_components/InquiryForm";
 import { CONTACT, LINK } from "../../_lib/canvas";
 
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function InquirePage() {
   return (
-    <Document
+    <InquiryForm
       lead="Tell us about the project."
       support={
         <>
@@ -44,8 +43,6 @@ export default function InquirePage() {
           .
         </>
       }
-    >
-      <InquiryForm />
-    </Document>
+    />
   );
 }
