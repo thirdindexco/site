@@ -12,12 +12,11 @@ import {
   STUDIO_LEAD,
   STUDIO_PROOF,
   STUDIO_SUPPORT,
-  TECHNOLOGY,
 } from "../../_lib/canvas";
 
 const pageTitle = "Studio — THIRD INDEX";
 const pageDescription =
-  "Independent technology studio in Las Vegas led by Michael Ciccarelli: product interfaces, design systems, websites and rebuilds, CMS systemization, creative development, and frontend architecture. Project work from $5k a week; embedded frontend engineering from $10k a month.";
+  "Independent technology studio in Las Vegas led by Michael Ciccarelli: product interfaces, design systems, websites, CMS systemization, creative development, and frontend architecture. Projects from $5k a week; embedded engineering from $10k a month.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -74,15 +73,9 @@ export default function StudioPage() {
             </ul>
             <div>
               <p className="opacity-50">Common projects</p>
-              <ul className="grid grid-cols-2 gap-x-5 gap-y-[13px] pt-[13px] md:grid-cols-3">
+              <ul className="grid grid-cols-2 gap-x-5 pt-[13px] md:grid-cols-3">
                 {COMMON_PROJECTS.map((c) => (
-                  <li key={c.title}>
-                    <h4>
-                      {c.title}
-                      <span className="opacity-50"> {c.length}</span>
-                    </h4>
-                    <p className="text-pretty opacity-50">{c.description}</p>
-                  </li>
+                  <li key={c.title}>{c.title}</li>
                 ))}
               </ul>
             </div>
@@ -95,19 +88,6 @@ export default function StudioPage() {
               <li key={c}>{c}</li>
             ))}
           </ul>
-        </DocSection>
-
-        <DocSection id="technology" label="Technology">
-          <div>
-            <ul className="grid grid-cols-2 gap-x-5 md:grid-cols-3">
-              {TECHNOLOGY.map((t) => (
-                <li key={t}>{t}</li>
-              ))}
-            </ul>
-            <p className="pt-[13px] opacity-50">
-              The stack is chosen to fit each engagement.
-            </p>
-          </div>
         </DocSection>
 
         <DocSection id="contact" label="Contact">
