@@ -2,8 +2,8 @@
 // studio's copy, kept in one place so the shell, the pages and the
 // metadata say the same thing.
 
-// Links turn the signature blue on hover and focus; nothing else on the
-// sheet uses the colour, so the one blue word is always the live one.
+// Links turn the signature red on hover and focus; nothing else on the
+// sheet uses the colour, so the one red word is always the live one.
 export const LINK =
   "cursor-pointer text-left outline-none transition-colors duration-200 hover:text-accent focus-visible:text-accent";
 export const LINK_MUTED =
@@ -24,17 +24,9 @@ export const STUDIO_PROOF =
 // Availability is a lead lever for a one-person practice. Keep it true.
 export const STUDIO_AVAILABILITY = "Available for new projects from December 2026";
 
-export const STUDIO_PERSON =
-  "Third Index is one person. I scope the project, do the work, and walk you through it, with no handoff to a junior team and no account manager in between. The background is agencies and product teams; the index is the recent work, for labels, studios, and founders.";
-export const STUDIO_BASE = "Based in Las Vegas, working with teams anywhere.";
-
-// The studio's address everywhere; the principal's own only in the block
-// about him.
 export const CONTACT = {
   email: "info@thirdindex.co",
-  principal: "mc@thirdindex.co",
   call: "https://cal.com/thirdindex/intro",
-  elsewhere: "https://relli.cc",
 };
 
 // The rates, as the sheet states them. Two shapes, split by how the work

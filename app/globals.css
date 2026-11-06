@@ -11,10 +11,10 @@
   --secondary: #e8e5e0; /* surface */
   --muted: #e8e5e0;
   --muted-foreground: #6b6b6b;
-  /* Signature blue — kept in HSL so the hover variant can shift lightness
-     cleanly without re-quantizing through hex. */
-  --accent: hsl(240 100% 50%);
-  --accent-hover: hsl(240 100% 62%);
+  /* Signature red, a vermilion that holds on both canvases. Kept in HSL so
+     the hover variant can shift lightness cleanly. */
+  --accent: hsl(6 100% 50%);
+  --accent-hover: hsl(6 100% 60%);
   /* Subtle panel/drawer outline. Lower alpha in dark mode since light
      pixels on a dark canvas read more prominently than the reverse. */
   --panel-border: color-mix(in srgb, var(--foreground) 10%, transparent);
@@ -30,8 +30,8 @@ html[data-theme="dark"] {
   --secondary: #1a1a1a;
   --muted: #1a1a1a;
   --muted-foreground: #9b9b9b;
-  --accent: hsl(240 100% 50%);
-  --accent-hover: hsl(240 100% 62%);
+  --accent: hsl(6 100% 50%);
+  --accent-hover: hsl(6 100% 60%);
   --panel-border: color-mix(in srgb, var(--foreground) 5%, transparent);
 }
 

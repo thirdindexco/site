@@ -63,7 +63,7 @@ export default {
           dark: "#9b9b9b",
         },
 
-        // signature (accent) — blue in light/dark, ink in accent mode.
+        // signature (accent) — red in light and dark.
         // -hover variant is a brighter sibling for primary CTA hover.
         accent: "var(--accent)",
         "accent-hover": "var(--accent-hover)",

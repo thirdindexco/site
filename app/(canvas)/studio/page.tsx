@@ -9,9 +9,7 @@ import {
   FOCUS_AREAS,
   LINK,
   STUDIO_AVAILABILITY,
-  STUDIO_BASE,
   STUDIO_LEAD,
-  STUDIO_PERSON,
   STUDIO_PROOF,
   STUDIO_SUPPORT,
   TECHNOLOGY,
@@ -41,7 +39,6 @@ export const metadata: Metadata = {
 };
 
 // The studio, as a document on the sheet (see _components/Document.tsx).
-// The practice first; the person last, small, after the ways in.
 const A = LINK;
 
 export default function StudioPage() {
@@ -132,39 +129,6 @@ export default function StudioPage() {
               </a>
             </p>
             <p className="pt-[13px] opacity-50">{STUDIO_AVAILABILITY}</p>
-          </div>
-        </DocSection>
-        <DocSection id="principal" label="Principal">
-          <div className="md:grid md:grid-cols-9 md:gap-x-5">
-            <img
-              src="/portrait.webp"
-              alt="Michael Ciccarelli"
-              width={960}
-              height={1200}
-              loading="lazy"
-              className="aspect-[4/5] w-[64px] object-cover md:col-span-1"
-            />
-            <div className="max-w-[48ch] pt-[13px] md:col-span-5 md:col-start-2 md:pt-0">
-              <p>Michael Ciccarelli</p>
-              <p className="pt-[13px] text-pretty opacity-50">{STUDIO_PERSON}</p>
-              <p className="pt-[13px] opacity-50">{STUDIO_BASE}</p>
-              <p className="flex gap-6 pt-[13px] opacity-50">
-                <a href={`mailto:${CONTACT.principal}`} className={A}>
-                  {CONTACT.principal}
-                </a>
-                <a
-                  href={CONTACT.elsewhere}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={A}
-                >
-                  relli.cc
-                </a>
-                <a href="/llms.txt" className={A}>
-                  llms.txt
-                </a>
-              </p>
-            </div>
           </div>
         </DocSection>
     </Document>

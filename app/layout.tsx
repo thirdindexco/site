@@ -30,11 +30,11 @@ const siteDescription =
 const siteUrl = "https://thirdindex.co";
 
 // Tints browser chrome (Safari URL bar, Chrome Android tab bar) with the
-// accent blue. Doesn't affect the page background — that stays canvas/ink
+// accent red. Doesn't affect the page background — that stays canvas/ink
 // via the CSS variables. Same value for light and dark so the chrome
 // identity is consistent regardless of mode.
 export const viewport: Viewport = {
-  themeColor: "#0000ff",
+  themeColor: "#ff1a00",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,

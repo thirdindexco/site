@@ -22,10 +22,11 @@ import {
 } from "../_lib/canvas";
 import { workHref, type Project } from "../_lib/projects";
 import { cycleTheme, themeAtom } from "../_lib/theme-state";
+import { CanvasClock } from "./CanvasClock";
 
 // The sheet the home routes share. A fixed layer, an eight-pixel margin
 // all round: the centre line with the name, the navigation and the
-// availability; the six selected works as index numbers; the rates and
+// studio's clock; the six selected works as index numbers; the rates and
 // the theme toggle along the bottom. The routes draw their content on the
 // same sheet underneath it, so the line never moves between views and
 // every view has a URL of its own. The engagement pages and the inquiry
@@ -194,13 +195,13 @@ export function CanvasShell({
                   Inquire
                 </Link>
               )}
-              <span className="opacity-50">{STUDIO_AVAILABILITY}</span>
+              <CanvasClock />
             </div>
           </div>
         </div>
 
         {/* The load line: the studio in one sentence where the links will
-            be, and a count to 100 where the availability will be. */}
+            be, and a count to 100 where the clock will be. */}
         <div
           aria-hidden
           className={`canvas-loader absolute inset-x-0 ${LINE_TOP} flex items-start justify-end`}
@@ -213,8 +214,8 @@ export function CanvasShell({
           </span>
         </div>
 
-        {/* The bottom line: the rates on the left, the theme toggle on the
-            right. */}
+        {/* The bottom line: the rates on the left, llms.txt and the theme
+            toggle on the right. */}
         <div
           className={`canvas-ready absolute inset-x-0 bottom-0 flex items-end justify-between whitespace-nowrap ${
             band ? "bg-background pt-[13px]" : ""
@@ -227,7 +228,12 @@ export function CanvasShell({
               </Link>
             ))}
           </p>
-          <ThemeToggle />
+          <p className="flex gap-6">
+            <a href="/llms.txt" className={LINK_MUTED}>
+              llms.txt
+            </a>
+            <ThemeToggle />
+          </p>
         </div>
       </div>
 
@@ -277,7 +283,12 @@ export function CanvasShell({
           ))}
           <span className="pt-[13px] opacity-50">{STUDIO_AVAILABILITY}</span>
         </p>
-        <ThemeToggle />
+        <p className="flex flex-col items-end">
+          <a href="/llms.txt" className={LINK_MUTED}>
+            llms.txt
+          </a>
+          <ThemeToggle />
+        </p>
       </div>
     </div>
   );
@@ -286,7 +297,7 @@ export function CanvasShell({
 // ---------------------------------------------------------------------
 
 // One of the six: its index number at its grid position, the still and
-// the title beside it while hovered, blue while its project is open.
+// the title beside it while hovered, red while its project is open.
 function Numeral({
   project,
   i,
