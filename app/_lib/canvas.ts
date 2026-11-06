@@ -2,8 +2,8 @@
 // studio's copy, kept in one place so the shell, the pages and the
 // metadata say the same thing.
 
-// Links turn the signature red on hover and focus; nothing else on the
-// sheet uses the colour, so the one red word is always the live one.
+// Links turn the signature orange on hover and focus; nothing else on the
+// sheet uses the colour, so the one orange word is always the live one.
 export const LINK =
   "cursor-pointer text-left outline-none transition-colors duration-200 hover:text-accent focus-visible:text-accent";
 export const LINK_MUTED =

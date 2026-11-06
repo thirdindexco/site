@@ -2,37 +2,54 @@
 @config "../tailwind.config.ts";
 
 :root {
-  --background: #fafafa; /* canvas */
-  --foreground: #0b0b0b; /* ink */
-  --card: #fafafa;
-  --popover: #fafafa;
-  --primary: #0b0b0b;
-  --primary-foreground: #fafafa;
-  --secondary: #e8e5e0; /* surface */
-  --muted: #e8e5e0;
-  --muted-foreground: #6b6b6b;
-  /* Signature red, a vermilion that holds on both canvases. Kept in HSL so
-     the hover variant can shift lightness cleanly. */
-  --accent: hsl(6 100% 50%);
-  --accent-hover: hsl(6 100% 60%);
-  /* Subtle panel/drawer outline. Lower alpha in dark mode since light
-     pixels on a dark canvas read more prominently than the reverse. */
-  --panel-border: color-mix(in srgb, var(--foreground) 10%, transparent);
+  /* The palette: warm neutrals and one orange. The scale is kept whole;
+     the page reads the semantic names below it. */
+  --n-100: #faf9f7; /* page background */
+  --n-200: #f2f0ec; /* hover, subtle fills */
+  --n-300: #e8e5e0; /* surface */
+  --n-400: #c9c5bf; /* borders, dividers */
+  --n-500: #8a8782; /* placeholder, disabled, tertiary */
+  --n-600: #6b6965; /* secondary text */
+  --n-700: #3a3936; /* strong secondary, dark borders */
+  --n-800: #1c1b19; /* dark surface */
+  --n-900: #0b0b0b; /* primary text, dark background */
+  --accent-100: #ffede3; /* tint backgrounds, selection */
+  --accent-500: #ff4f00; /* default */
+  --accent-600: #c73b00; /* text and links on light */
+  --accent-700: #9e2e00; /* hover and pressed on light */
+  --error: #b8001f;
+  --success: #1f7a4d;
+  --warning: #c73b00;
+
+  --background: var(--n-100); /* canvas */
+  --foreground: var(--n-900); /* ink */
+  --card: var(--n-100);
+  --popover: var(--n-100);
+  --primary: var(--n-900);
+  --primary-foreground: var(--n-100);
+  --secondary: var(--n-300); /* surface */
+  --muted: var(--n-300);
+  --muted-foreground: var(--n-600);
+  /* The accent marks the live thing: the hovered link, the open number,
+     the loader count, a focused field. */
+  --accent: var(--accent-500);
+  --accent-hover: var(--accent-700);
+  --panel-border: var(--n-400);
 }
 
 html[data-theme="dark"] {
-  --background: #0b0b0b;
-  --foreground: #fafafa;
-  --card: #0b0b0b;
-  --popover: #0b0b0b;
-  --primary: #fafafa;
-  --primary-foreground: #0b0b0b;
-  --secondary: #1a1a1a;
-  --muted: #1a1a1a;
-  --muted-foreground: #9b9b9b;
-  --accent: hsl(6 100% 50%);
-  --accent-hover: hsl(6 100% 60%);
-  --panel-border: color-mix(in srgb, var(--foreground) 5%, transparent);
+  --background: var(--n-900);
+  --foreground: var(--n-100);
+  --card: var(--n-900);
+  --popover: var(--n-900);
+  --primary: var(--n-100);
+  --primary-foreground: var(--n-900);
+  --secondary: var(--n-800);
+  --muted: var(--n-800);
+  --muted-foreground: #a8a5a0;
+  --accent: var(--accent-500);
+  --accent-hover: #ff7033;
+  --panel-border: var(--n-700);
 }
 
 html,

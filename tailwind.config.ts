@@ -11,24 +11,24 @@ export default {
         // canvas / ink
         background: {
           DEFAULT: "var(--background)",
-          light: "#fafafa",
+          light: "#faf9f7",
           dark: "#0b0b0b",
         },
         foreground: {
           DEFAULT: "var(--foreground)",
           light: "#0b0b0b",
-          dark: "#fafafa",
+          dark: "#faf9f7",
         },
 
         // cards / popovers mirror canvas
         card: {
           DEFAULT: "var(--card)",
-          light: "#fafafa",
+          light: "#faf9f7",
           dark: "#0b0b0b",
         },
         popover: {
           DEFAULT: "var(--popover)",
-          light: "#fafafa",
+          light: "#faf9f7",
           dark: "#0b0b0b",
         },
 
@@ -36,12 +36,12 @@ export default {
         primary: {
           DEFAULT: "var(--primary)",
           light: "#0b0b0b",
-          dark: "#fafafa",
+          dark: "#faf9f7",
           foreground: "var(--primary-foreground)",
         },
         "primary-foreground": {
           DEFAULT: "var(--primary-foreground)",
-          light: "#fafafa",
+          light: "#faf9f7",
           dark: "#0b0b0b",
         },
 
@@ -49,21 +49,21 @@ export default {
         secondary: {
           DEFAULT: "var(--secondary)",
           light: "#e8e5e0",
-          dark: "#1a1a1a",
+          dark: "#1c1b19",
         },
         muted: {
           DEFAULT: "var(--muted)",
           light: "#e8e5e0",
-          dark: "#1a1a1a",
+          dark: "#1c1b19",
           foreground: "var(--muted-foreground)",
         },
         "muted-foreground": {
           DEFAULT: "var(--muted-foreground)",
-          light: "#6b6b6b",
-          dark: "#9b9b9b",
+          light: "#6b6965",
+          dark: "#a8a5a0",
         },
 
-        // signature (accent) — red in light and dark.
+        // signature (accent) — the orange in light and dark.
         // -hover variant is a brighter sibling for primary CTA hover.
         accent: "var(--accent)",
         "accent-hover": "var(--accent-hover)",

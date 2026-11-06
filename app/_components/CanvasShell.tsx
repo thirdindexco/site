@@ -276,7 +276,7 @@ export function CanvasShell({
 // ---------------------------------------------------------------------
 
 // One of the six: its index number at its grid position, the still and
-// the title beside it while hovered, red while its project is open.
+// the title beside it while hovered, orange while its project is open.
 function Numeral({
   project,
   i,
