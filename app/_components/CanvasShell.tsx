@@ -78,7 +78,10 @@ export function CanvasShell({
     : null;
   const next = open ? projects[(openIndex + 1) % projects.length] : null;
   const featured = projects.slice(0, 6);
-  const scrolls = DOCUMENTS.includes(view);
+  // The line and the bottom line get a band of background wherever
+  // something passes behind them: the documents, and the media of an open
+  // project.
+  const band = DOCUMENTS.includes(view) || view === "work";
 
   const pctRef = useRef<HTMLSpanElement>(null);
   useIntro(pctRef);
@@ -111,9 +114,9 @@ export function CanvasShell({
       {/* ------------------------------------------------------------ */}
       <div className="pointer-events-none fixed inset-2 z-10 hidden md:block [&_a,&_button]:pointer-events-auto">
         {/* The selected work, numbered, on a three-by-two grid, each with
-            its still beside it on hover. The index and the studio have the
-            sheet to themselves. */}
-        {atHome &&
+            its still beside it on hover. Only on the home sheet: an open
+            project's media takes the right half. */}
+        {view === "home" &&
           featured.map((p, i) => (
             <Numeral key={p.url} project={p} i={i} active={openIndex === i} />
           ))}
@@ -145,7 +148,7 @@ export function CanvasShell({
             carries a band of background, so the document passes behind. */}
         <div
           className={`absolute inset-x-0 top-[calc(50%-20px)] h-10 pt-[13px] ${
-            scrolls ? "bg-background" : ""
+            band ? "bg-background" : ""
           }`}
         >
           <div className="relative grid grid-cols-12 items-start gap-x-5">
@@ -214,7 +217,7 @@ export function CanvasShell({
             right. */}
         <div
           className={`canvas-ready absolute inset-x-0 bottom-0 flex items-end justify-between whitespace-nowrap ${
-            scrolls ? "bg-background pt-[13px]" : ""
+            band ? "bg-background pt-[13px]" : ""
           }`}
         >
           <p className="flex gap-6">

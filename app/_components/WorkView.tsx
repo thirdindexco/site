@@ -20,6 +20,11 @@ function useSlides(project: Project) {
   return { slides, i, next };
 }
 
+// One slide filling its cell. Stills cover the cell from the top. Videos
+// are assumed 16:9 and turned on their side, sized from the cell with
+// container units so the turned frame covers it. None of this needs to be
+// legible: the media is there to tag the project visually; the way to see
+// the work is the link to the live site.
 function Slide({
   project,
   src,
@@ -40,20 +45,29 @@ function Slide({
       loop
       playsInline
       preload="metadata"
-      className="max-h-full max-w-full object-contain object-left-bottom"
+      className="absolute left-1/2 top-1/2 h-[100cqw] w-[100cqh] max-w-none -translate-x-1/2 -translate-y-1/2 rotate-90 object-cover"
     />
   ) : (
     <img
       key={src}
       src={src}
       alt={`${project.title}, ${i + 1} of ${count}`}
-      className="max-h-full max-w-full object-contain object-left-bottom"
+      className="absolute inset-0 h-full w-full object-cover object-top"
     />
   );
 }
 
-// A project, open. On the sheet: its media in the right columns above the
-// centre line, its particulars under the name below it. On the narrow
+// Where each slide sits on the two-by-two field: the whole right half, or
+// one of its cells, by turn. The left half stays for the line and the
+// particulars.
+const CELLS = [
+  "col-start-2 row-start-1 row-span-2",
+  "col-start-2 row-start-1",
+  "col-start-2 row-start-2",
+];
+
+// A project, open. On the sheet: its media on the right of a two-by-two
+// field, its particulars under the name below the line. On the narrow
 // page: the media, then the particulars, then the way on.
 export function WorkView({
   project,
@@ -72,12 +86,16 @@ export function WorkView({
   return (
     <>
       <div className={`${FADE} fixed inset-2 hidden md:block`}>
-        <div className="absolute inset-x-0 bottom-[calc(50%+20px)] top-[calc(18%+32px)] grid grid-cols-12 gap-5">
+        {/* The field: two columns, two rows, the centre line between the
+            rows. The shell paints a band of background along the line and
+            the bottom line while a project is open, so they read over the
+            media. */}
+        <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-x-5">
           <button
             type="button"
             onClick={step}
             aria-label={label}
-            className={`col-span-4 col-start-7 flex h-full items-end justify-start outline-none ${cursor}`}
+            className={`relative overflow-hidden outline-none [container-type:size] ${CELLS[i % CELLS.length]} ${cursor}`}
           >
             <Slide project={project} src={src} i={i} count={slides.length} />
           </button>
@@ -116,7 +134,7 @@ export function WorkView({
           type="button"
           onClick={step}
           aria-label={label}
-          className={`w-full outline-none ${cursor}`}
+          className={`relative aspect-[4/5] w-full overflow-hidden outline-none [container-type:size] ${cursor}`}
         >
           <Slide project={project} src={src} i={i} count={slides.length} />
         </button>

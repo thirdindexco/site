@@ -2,24 +2,38 @@ import type { ReactNode } from "react";
 import { FADE } from "../_lib/canvas";
 
 // A document on the sheet: the statement in the top half, where the home
-// has nothing, and the sections under the centre line on the twelve-column
+// has nothing, with room beside it for one section, and the rest under the centre line on the twelve-column
 // grid, a label in the first two columns and the content from the fourth.
 // The sections scroll up behind the line; the shell gives it a band of
 // background on these routes. On the narrow page everything stacks.
 export function Document({
   lead,
   support,
+  above,
   children,
 }: {
   lead: ReactNode;
   support?: ReactNode;
+  // Content for the top half beside the statement, in the content columns,
+  // so a document's first section can balance the sheet above the line.
+  above?: ReactNode;
   children: ReactNode;
 }) {
   return (
     <article className={`${FADE} p-3 md:relative md:min-h-svh md:p-2`}>
-      <header className="max-w-[48ch] text-pretty md:absolute md:left-2 md:top-2">
-        <h1>{lead}</h1>
-        {support ? <p className="opacity-50">{support}</p> : null}
+      <header>
+        {/* The statement, one paragraph, top left. */}
+        <div className="max-w-[48ch] text-pretty md:absolute md:left-2 md:top-2">
+          <h1 className="inline">{lead}</h1>
+          {support ? <span className="opacity-50"> {support}</span> : null}
+        </div>
+        {/* The section above the line sits on the bottom of the top half,
+            in the content columns, clear of the statement. */}
+        {above ? (
+          <div className="pt-12 md:absolute md:inset-x-2 md:top-[calc(50svh-20px)] md:grid md:-translate-y-full md:grid-cols-12 md:gap-x-5 md:pt-0">
+            <div className="md:col-span-9 md:col-start-4">{above}</div>
+          </div>
+        ) : null}
       </header>
       <div className="flex flex-col gap-y-[52px] pt-12 md:pb-[52px] md:pt-[calc(50svh+12px)]">
         {children}
