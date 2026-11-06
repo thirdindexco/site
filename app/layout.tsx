@@ -154,12 +154,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* The desktop FOUC guard in globals.css hides [data-anim] until
-            AnimRoot reveals it. With scripting off nothing ever would, and
-            the whole page would render blank. */}
-        <noscript>
-          <style>{`@media (min-width: 1024px) { [data-anim] { visibility: visible !important; } }`}</style>
-        </noscript>
       </head>
       <body className="font-serif antialiased">
         <Providers>

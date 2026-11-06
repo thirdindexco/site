@@ -62,14 +62,6 @@ h3 {
   text-wrap: pretty;
 }
 
-/* FOUC guard for the desktop intro. Elements stay hidden until GSAP takes
-   control in AnimRoot; scoped to ≥1024px since mobile skips the timeline. */
-@media (min-width: 1024px) {
-  [data-anim] {
-    visibility: hidden;
-  }
-}
-
 /* Load sequence (home canvas, see _components/CanvasShell.tsx). The head script
    in layout.tsx sets html[data-intro] before first paint. While it is set
    the canvas is its centre line alone — the name, the studio in one
@@ -106,37 +98,3 @@ html[data-intro-out] .canvas-numeral {
   background: var(--primary);
   color: var(--primary-foreground);
 }
-
-.dither-field {
-  background-image: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--foreground) 16%, transparent) 0.7px,
-    transparent 0.8px
-  );
-  background-size: 8px 8px;
-  opacity: 0.34;
-}
-
-html[data-theme="dark"] .dither-field {
-  opacity: 0.22;
-}
-
-/* Base UI Collapsible — height animation via --collapsible-panel-height */
-.collapsible-panel {
-  overflow: hidden;
-  height: var(--collapsible-panel-height);
-  transition-property: height;
-  transition-duration: 280ms;
-  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-}
-.collapsible-panel[data-starting-style],
-.collapsible-panel[data-ending-style] {
-  height: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .collapsible-panel {
-    transition-duration: 0ms;
-  }
-}
-

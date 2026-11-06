@@ -22,24 +22,41 @@ import {
 } from "../_lib/canvas";
 import { workHref, type Project } from "../_lib/projects";
 import { cycleTheme, themeAtom } from "../_lib/theme-state";
-import { InquireLink } from "./InquireLink";
 
 // The sheet the home routes share. A fixed layer, an eight-pixel margin
 // all round: the centre line with the name, the navigation and the
 // availability; the six selected works as index numbers; the rates and
 // the theme toggle along the bottom. The routes draw their content on the
 // same sheet underneath it, so the line never moves between views and
-// every view has a URL of its own.
+// every view has a URL of its own. The engagement pages and the inquiry
+// are documents on the same sheet.
 //
 // Desktop (md and up) is the fixed sheet. Below that the same furniture
 // runs as a bar at the top and a footer, and the pages flow between them.
 
-type View = "home" | "work" | "select" | "studio";
+type View =
+  | "home"
+  | "work"
+  | "select"
+  | "studio"
+  | "inquire"
+  | "project"
+  | "fractional";
+
+// The documents scroll under the line; the other views fit the sheet.
+const DOCUMENTS: View[] = ["studio", "inquire", "project", "fractional"];
 
 function viewOf(pathname: string): View {
   if (pathname.startsWith("/work/")) return "work";
-  if (pathname === "/select") return "select";
-  if (pathname === "/studio") return "studio";
+  const top = pathname.split("/")[1];
+  if (
+    top === "select" ||
+    top === "studio" ||
+    top === "inquire" ||
+    top === "project" ||
+    top === "fractional"
+  )
+    return top;
   return "home";
 }
 
@@ -61,9 +78,7 @@ export function CanvasShell({
     : null;
   const next = open ? projects[(openIndex + 1) % projects.length] : null;
   const featured = projects.slice(0, 6);
-  // The studio is a document and scrolls under the line; the other views
-  // fit the sheet.
-  const scrolls = view === "studio";
+  const scrolls = DOCUMENTS.includes(view);
 
   const pctRef = useRef<HTMLSpanElement>(null);
   useIntro(pctRef);
@@ -138,16 +153,16 @@ export function CanvasShell({
               <Link href="/" className={LINK}>
                 Third Index
               </Link>
-              {view === "studio" ? (
+              {atHome || view === "select" ? null : (
                 <Link href="/select" className={LINK}>
                   Select
                 </Link>
-              ) : null}
-              {view === "select" ? (
+              )}
+              {atHome || view === "studio" ? null : (
                 <Link href="/studio" className={LINK}>
                   Studio
                 </Link>
-              ) : null}
+              )}
             </div>
 
             <div className="canvas-ready absolute left-1/2 top-0 flex -translate-x-1/2 gap-6 whitespace-nowrap">
@@ -159,7 +174,9 @@ export function CanvasShell({
                   <Link href="/studio" className={LINK}>
                     Studio
                   </Link>
-                  <InquireLink className={LINK} />
+                  <Link href="/inquire" className={LINK}>
+                    Inquire
+                  </Link>
                 </>
               ) : (
                 <Link href="/" className={LINK}>
@@ -169,7 +186,11 @@ export function CanvasShell({
             </div>
 
             <div className="canvas-ready col-span-4 col-start-9 flex items-start justify-end gap-6 whitespace-nowrap">
-              {atHome ? null : <InquireLink className={LINK} />}
+              {atHome || view === "inquire" ? null : (
+                <Link href="/inquire" className={LINK}>
+                  Inquire
+                </Link>
+              )}
               <span className="opacity-50">{STUDIO_AVAILABILITY}</span>
             </div>
           </div>
@@ -223,14 +244,20 @@ export function CanvasShell({
               <Link href="/studio" className={LINK}>
                 Studio
               </Link>
-              <InquireLink className={LINK} />
+              <Link href="/inquire" className={LINK}>
+                Inquire
+              </Link>
             </>
           ) : (
             <>
               <Link href="/" className={LINK}>
                 Close
               </Link>
-              <InquireLink className={LINK} />
+              {view === "inquire" ? null : (
+                <Link href="/inquire" className={LINK}>
+                  Inquire
+                </Link>
+              )}
             </>
           )}
         </nav>

@@ -1,7 +1,3 @@
-"use client";
-
-import { atom } from "jotai";
-
 export type InquiryForm = {
   description: string;
   timeline: string;
@@ -32,84 +28,67 @@ export type InquiryField = {
   required?: boolean;
 };
 
-export type InquiryStep = {
+export type InquirySection = {
+  id: string;
   title: string;
   fields: InquiryField[];
 };
 
-export const inquirySteps: InquiryStep[] = [
+// The inquiry, as three sections of one form on /inquire. The API route
+// in app/api/inquiry reads the same keys.
+export const inquirySections: InquirySection[] = [
   {
-    title: "the project",
+    id: "project",
+    title: "The project",
     fields: [
       {
         key: "description",
-        label: "what are you looking to build?",
+        label: "What are you looking to build?",
         type: "textarea",
-        placeholder: "what are you building, and what do you need help with?",
+        placeholder: "What you are building, and what you need help with",
         required: true,
       },
       {
         key: "timeline",
-        label: "timeline",
+        label: "Timeline",
         type: "select",
-        options: ["asap", "next month", "next quarter", "exploring"],
+        options: ["As soon as possible", "Next month", "Next quarter", "Exploring"],
         required: true,
       },
       {
         key: "budget",
-        label: "budget",
+        label: "Budget",
         type: "select",
-        options: ["<$10k", "$10–25k", "$25–50k", "$50k+", "not sure"],
+        options: ["Under $10k", "$10–25k", "$25–50k", "$50k+", "Not sure"],
         required: true,
       },
     ],
   },
   {
-    title: "you",
+    id: "you",
+    title: "You",
     fields: [
-      {
-        key: "name",
-        label: "name",
-        type: "input",
-        inputType: "text",
-        required: true,
-      },
-      {
-        key: "email",
-        label: "email",
-        type: "input",
-        inputType: "email",
-        required: true,
-      },
+      { key: "name", label: "Name", type: "input", inputType: "text", required: true },
+      { key: "email", label: "Email", type: "input", inputType: "email", required: true },
       {
         key: "company",
-        label: "company",
+        label: "Company",
         type: "input",
         inputType: "text",
-        placeholder: "company or organization (optional)",
+        placeholder: "Company or organization, optional",
       },
     ],
   },
   {
-    title: "anything else",
+    id: "notes",
+    title: "Anything else",
     fields: [
       {
         key: "notes",
-        label: "notes (optional)",
+        label: "Notes",
         type: "textarea",
-        placeholder: "anything else we should know? (optional)",
+        placeholder: "Anything else we should know, optional",
       },
     ],
   },
 ];
-
-// Global atoms so the form and current step survive the drawer closing.
-// Kept in-memory only (no atomWithStorage) — a hard reload is the stronger
-// "fresh start" signal. Cleared explicitly on successful submit or via the
-// drawer's clear action.
-export const inquiryFormAtom = atom<InquiryForm>(initialInquiryForm);
-export const inquiryStepAtom = atom<number>(0);
-
-// Global open state — single drawer instance is mounted once at the page
-// root, any CTA on the page flips this atom to open it.
-export const inquiryOpenAtom = atom<boolean>(false);

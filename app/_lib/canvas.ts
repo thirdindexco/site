@@ -64,7 +64,7 @@ export const COMMON_PROJECTS = [
     title: "Frontend audit",
     length: "1 week",
     description:
-      "A senior read on an existing frontend: architecture, performance, accessibility, system health, ending in a written, ranked plan.",
+      "A senior read on an existing frontend: architecture, performance, accessibility, system health, ending in a written, ranked plan. No code ships; the output is judgment, written down.",
   },
   {
     title: "Prototype",

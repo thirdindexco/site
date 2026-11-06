@@ -1,5 +1,4 @@
 import { CanvasShell } from "../_components/CanvasShell";
-import { InquiryDrawerMount } from "../_components/InquiryDrawerMount";
 import { ThemeShortcuts } from "../_components/ThemeShortcuts";
 import { projects } from "../_lib/projects";
 
@@ -16,7 +15,6 @@ export default function CanvasLayout({
   return (
     <>
       <ThemeShortcuts />
-      <InquiryDrawerMount />
       <CanvasShell projects={projects}>{children}</CanvasShell>
     </>
   );

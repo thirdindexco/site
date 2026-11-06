@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { InquireLink } from "../../_components/InquireLink";
+import { DocSection, Document } from "../../_components/Document";
 import {
   CLIENTS,
   COMMON_PROJECTS,
   CONTACT,
   ENGAGEMENT_SHAPES,
-  FADE,
   FOCUS_AREAS,
   LINK,
   STUDIO_AVAILABILITY,
@@ -41,32 +40,14 @@ export const metadata: Metadata = {
   },
 };
 
-// The studio, as a document on the twelve-column grid: a label in the
-// first two columns, the content from the fourth. The statement sits in
-// the top half of the sheet where the home has nothing; the sections
-// start under the centre line and scroll up behind it.
-const SECTION = "md:grid md:grid-cols-12 md:gap-x-5";
-const LABEL = "pb-[13px] opacity-50 md:col-span-2 md:pb-0";
-const CONTENT = "md:col-span-9 md:col-start-4";
-const A =
-  "outline-none transition-colors duration-200 hover:text-accent focus-visible:text-accent";
+// The studio, as a document on the sheet (see _components/Document.tsx).
+const A = LINK;
 
 export default function StudioPage() {
   return (
-    <article className={`${FADE} p-3 md:relative md:min-h-svh md:p-2`}>
-      <header className="max-w-[48ch] text-pretty md:absolute md:left-2 md:top-2">
-        <h1>
-          {STUDIO_LEAD} {STUDIO_SUPPORT}
-        </h1>
-        <p className="opacity-50">{STUDIO_PROOF}</p>
-      </header>
-
-      <div className="flex flex-col gap-y-[52px] pt-12 md:pb-[52px] md:pt-[calc(50svh+12px)]">
-        <section className={SECTION} aria-labelledby="studio">
-          <h2 id="studio" className={LABEL}>
-            Studio
-          </h2>
-          <div className={`${CONTENT} md:grid md:grid-cols-9 md:gap-x-5`}>
+    <Document lead={`${STUDIO_LEAD} ${STUDIO_SUPPORT}`} support={STUDIO_PROOF}>
+        <DocSection id="studio" label="Studio">
+          <div className="md:grid md:grid-cols-9 md:gap-x-5">
             <img
               src="/portrait.webp"
               alt="Michael Ciccarelli"
@@ -97,15 +78,10 @@ export default function StudioPage() {
               </p>
             </div>
           </div>
-        </section>
+        </DocSection>
 
-        <section className={SECTION} aria-labelledby="focus">
-          <h2 id="focus" className={LABEL}>
-            Focus
-          </h2>
-          <ul
-            className={`${CONTENT} grid grid-cols-2 gap-x-5 gap-y-[26px] md:grid-cols-3`}
-          >
+        <DocSection id="focus" label="Focus">
+          <ul className="grid grid-cols-2 gap-x-5 gap-y-[26px] md:grid-cols-3">
             {FOCUS_AREAS.map((f) => (
               <li key={f.title}>
                 <h3>{f.title}</h3>
@@ -113,13 +89,10 @@ export default function StudioPage() {
               </li>
             ))}
           </ul>
-        </section>
+        </DocSection>
 
-        <section className={SECTION} aria-labelledby="engagements">
-          <h2 id="engagements" className={LABEL}>
-            Engagements
-          </h2>
-          <div className={`${CONTENT} flex flex-col gap-y-[26px]`}>
+        <DocSection id="engagements" label="Engagements">
+          <div className="flex flex-col gap-y-[26px]">
             <ul className="flex flex-col gap-y-[13px]">
               {ENGAGEMENT_SHAPES.map((e) => (
                 <li key={e.href} className="md:grid md:grid-cols-9 md:gap-x-5">
@@ -150,26 +123,18 @@ export default function StudioPage() {
               </ul>
             </div>
           </div>
-        </section>
+        </DocSection>
 
-        <section className={SECTION} aria-labelledby="clients">
-          <h2 id="clients" className={LABEL}>
-            Clients
-          </h2>
-          <ul
-            className={`${CONTENT} grid grid-cols-2 gap-x-5 md:grid-cols-3`}
-          >
+        <DocSection id="clients" label="Clients">
+          <ul className="grid grid-cols-2 gap-x-5 md:grid-cols-3">
             {CLIENTS.map((c) => (
               <li key={c}>{c}</li>
             ))}
           </ul>
-        </section>
+        </DocSection>
 
-        <section className={SECTION} aria-labelledby="technology">
-          <h2 id="technology" className={LABEL}>
-            Technology
-          </h2>
-          <div className={CONTENT}>
+        <DocSection id="technology" label="Technology">
+          <div>
             <ul className="grid grid-cols-2 gap-x-5 md:grid-cols-3">
               {TECHNOLOGY.map((t) => (
                 <li key={t}>{t}</li>
@@ -179,18 +144,17 @@ export default function StudioPage() {
               The stack is chosen to fit each engagement.
             </p>
           </div>
-        </section>
+        </DocSection>
 
-        <section className={SECTION} aria-labelledby="contact">
-          <h2 id="contact" className={LABEL}>
-            Contact
-          </h2>
-          <div className={CONTENT}>
+        <DocSection id="contact" label="Contact">
+          <div>
             <p className="flex flex-col items-start">
               <a href={`mailto:${CONTACT.email}`} className={A}>
                 {CONTACT.email}
               </a>
-              <InquireLink className={LINK}>Project inquiry</InquireLink>
+              <Link href="/inquire" className={LINK}>
+                Project inquiry
+              </Link>
               <a
                 href={CONTACT.call}
                 target="_blank"
@@ -202,8 +166,7 @@ export default function StudioPage() {
             </p>
             <p className="pt-[13px] opacity-50">{STUDIO_AVAILABILITY}</p>
           </div>
-        </section>
-      </div>
-    </article>
+        </DocSection>
+    </Document>
   );
 }
