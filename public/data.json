@@ -9,6 +9,7 @@
 	"projects": [
     {
         "title": "halloran.app",
+        "year": 2026,
         "role": "Design & Development",
         "url": "https://halloran.app",
         "description": "a few good tools for poker players. a ledger for sessions, bets, and bankroll, an ai assistant built on claude that logs and answers from it, and a directory of u.s. poker rooms and tournament series.",
@@ -21,15 +22,8 @@
         ]
     },
     {
-        "title": "Legend.xyz",
-        "role": "Frontend Development",
-        "url": "https://legend-xyz.vercel.app",
-        "description": "marketing site for an embedded smart contract wallet. webgl and scroll-driven sequences on the homepage and product pages.",
-        "technologies": "Next.js, Tailwind, WebGL",
-        "thumbnail": "/projects/legend.jpg"
-    },
-    {
         "title": "spread.now",
+        "year": 2026,
         "role": "Design & Development",
         "url": "https://spread.now",
         "description": "a live board of u.s. poker and sports, styled like an airport departures sign. card rooms, cash games, and tournament schedules across ten cities, plus live scores and lines.",
@@ -44,15 +38,30 @@
         ]
     },
     {
+        "title": "Legend.xyz",
+        "year": 2025,
+        "role": "Frontend Development",
+        "url": "https://legend-xyz.vercel.app",
+        "description": "marketing site for an embedded smart contract wallet. webgl and scroll-driven sequences on the homepage and product pages.",
+        "technologies": "Next.js, Tailwind, WebGL",
+        "thumbnail": "/projects/legend.jpg"
+    },
+    {
         "title": "Kelvon Agee",
+        "year": 2025,
         "role": "Design & Development",
         "url": "https://kelvonagee.com",
         "description": "portfolio for a producer, director, and dp. frames from past shoots laid out on a canvas you drag, pan, and zoom through, with the reel and bio a click away.",
         "technologies": "Next.js, Cloudinary",
-        "thumbnail": "/projects/kelvon-agee.jpg"
+        "thumbnail": "/projects/kelvon-agee-thumb.jpg",
+        "images": [
+            "/projects/kelvon-agee-1.jpg",
+            "/projects/kelvon-agee-2.jpg"
+        ]
     },
     {
         "title": "One/Of",
+        "year": 2024,
         "role": "Design & Development",
         "url": "https://shoponeof.com",
         "description": "commerce for a made-to-order fashion label. custom booking for in-person fittings, headless shopify for ready-to-ship.",
@@ -60,7 +69,17 @@
         "thumbnail": "/projects/one-of.jpg"
     },
     {
+        "title": "Modern Treasury",
+        "year": 2024,
+        "role": "Frontend Development",
+        "url": "https://moderntreasury.com",
+        "description": "ui and component work for a payments platform. marketing surfaces and in-app patterns against a shared design system.",
+        "technologies": "Next.js, Sanity, Tailwind",
+        "thumbnail": "/projects/mt.jpg"
+    },
+    {
         "title": "Amazon: The Bar",
+        "year": 2023,
         "role": "Frontend Development",
         "url": "https://amazonthe.bar",
         "description": "site for a creative agency that builds for amazon. custom animation, editorial layouts, typography.",
@@ -69,15 +88,8 @@
         "video": "/projects/amazonthebar.mp4"
     },
     {
-        "title": "Modern Treasury",
-        "role": "Frontend Development",
-        "url": "https://moderntreasury.com",
-        "description": "ui and component work for a payments platform. marketing surfaces and in-app patterns against a shared design system.",
-        "technologies": "Next.js, Sanity, Tailwind",
-        "thumbnail": "/projects/mt.jpg"
-    },
-    {
         "title": "elara.world",
+        "year": 2022,
         "role": "Full-stack Development",
         "url": "https://elara.world",
         "description": "community platform pairing editorial with a store. publishing and commerce on one frontend.",
@@ -87,6 +99,7 @@
     },
     {
         "title": "Revolve Law",
+        "year": 2021,
         "role": "Full-stack Development",
         "url": "https://revolvelawgroup.com",
         "description": "site for a law firm that wanted to look like neither a law firm nor a tech company. restrained type, quiet motion, a contact flow that gets people to the right place in two clicks.",
@@ -95,11 +108,12 @@
     },
     {
         "title": "El Dorado",
+        "year": 2020,
         "role": "Frontend Development",
         "url": "https://eldo.us/",
         "description": "architecture studio portfolio. project pages built around process — drawings, material studies, site photography.",
         "technologies": "Next.js, Contentful",
         "thumbnail": "/projects/eldo.jpg"
     }
-]
+  ]
 }

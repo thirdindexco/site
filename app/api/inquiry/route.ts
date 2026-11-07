@@ -11,6 +11,7 @@ const TO = "hello@thirdindex.co";
 
 type Payload = {
   description?: string;
+  scope?: string;
   timeline?: string;
   budget?: string;
   name?: string;
@@ -34,7 +35,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "invalid json" }, { status: 400 });
   }
 
-  const { description, timeline, budget, name, email, company, notes } = body;
+  const { description, scope, timeline, budget, name, email, company, notes } = body;
 
   if (
     !name?.trim() ||
@@ -54,7 +55,9 @@ export async function POST(req: Request) {
     `Email: ${email}`,
   ];
   if (company?.trim()) lines.push(`Company: ${company}`);
-  lines.push("", `Timeline: ${timeline}`, `Budget: ${budget}`, "", "Project:", description);
+  lines.push("");
+  if (scope?.trim()) lines.push(`Scope: ${scope}`);
+  lines.push(`Timeline: ${timeline}`, `Budget: ${budget}`, "", "Project:", description);
   if (notes?.trim()) lines.push("", "Notes:", notes);
 
   try {

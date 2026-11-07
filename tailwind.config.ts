@@ -8,81 +8,47 @@ export default {
   theme: {
     extend: {
       colors: {
-        // canvas / ink
+        // The five roles from globals.css: canvas, ink, surface, subdued
+        // text, and the one orange.
         background: {
           DEFAULT: "var(--background)",
-          light: "#fafafa",
+          light: "#faf9f7",
           dark: "#0b0b0b",
         },
         foreground: {
           DEFAULT: "var(--foreground)",
           light: "#0b0b0b",
-          dark: "#fafafa",
-        },
-
-        // cards / popovers mirror canvas
-        card: {
-          DEFAULT: "var(--card)",
-          light: "#fafafa",
-          dark: "#0b0b0b",
-        },
-        popover: {
-          DEFAULT: "var(--popover)",
-          light: "#fafafa",
-          dark: "#0b0b0b",
-        },
-
-        // primary (ink-on-canvas, inverted between modes)
-        primary: {
-          DEFAULT: "var(--primary)",
-          light: "#0b0b0b",
-          dark: "#fafafa",
-          foreground: "var(--primary-foreground)",
-        },
-        "primary-foreground": {
-          DEFAULT: "var(--primary-foreground)",
-          light: "#fafafa",
-          dark: "#0b0b0b",
-        },
-
-        // surface (secondary / muted)
-        secondary: {
-          DEFAULT: "var(--secondary)",
-          light: "#e8e5e0",
-          dark: "#1a1a1a",
+          dark: "#faf9f7",
         },
         muted: {
           DEFAULT: "var(--muted)",
           light: "#e8e5e0",
-          dark: "#1a1a1a",
+          dark: "#1c1b19",
           foreground: "var(--muted-foreground)",
         },
         "muted-foreground": {
           DEFAULT: "var(--muted-foreground)",
-          light: "#6b6b6b",
-          dark: "#9b9b9b",
+          light: "#6b6965",
+          dark: "#a8a5a0",
         },
-
-        // signature (accent) — blue in light/dark, ink in accent mode.
-        // -hover variant is a brighter sibling for primary CTA hover.
         accent: "var(--accent)",
-        "accent-hover": "var(--accent-hover)",
       },
       fontFamily: {
         // Only the debug overlays set mono now; the page is one family.
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "Times New Roman", "serif"],
       },
-      // The sans runs small across the whole page — the references the
-      // owner set are one small size with hierarchy from whitespace.
-      // Overriding the stock steps here keeps every text-sm/base/xs call
-      // site in place while shrinking them together.
+      // The serif runs small across the whole page, after the reference:
+      // twelve on thirteen for everything, a step up for the one statement
+      // on the about view. Overriding the stock steps here keeps every
+      // text-sm/base/xs call site in place while shrinking them together.
       fontSize: {
-        "3xs": ["9px", { lineHeight: "1.16" }],
-        "2xs": ["10px", { lineHeight: "1.16" }],
-        xs: ["12px", { lineHeight: "1.25" }],
-        sm: ["14px", { lineHeight: "1.25" }],
-        base: ["15px", { lineHeight: "1.25" }],
+        "3xs": ["9px", { lineHeight: "10px" }],
+        "2xs": ["10px", { lineHeight: "11px" }],
+        xs: ["11px", { lineHeight: "12px" }],
+        sm: ["12px", { lineHeight: "13px" }],
+        base: ["13px", { lineHeight: "14px" }],
+        lg: ["20px", { lineHeight: "1.15" }],
       },
       maxWidth: {
         canvas: "1600px",

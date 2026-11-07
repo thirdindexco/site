@@ -4,15 +4,22 @@ import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "./_components/Providers";
 import "./globals.css";
 
-// One typeface, one weight: AL Book, self-hosted from public/fonts. The
-// page gets its hierarchy from tone and position, so no bold cut is loaded
-// and font-synthesis is off in globals.css — a font-bold class renders at
-// the same weight rather than a faux bold.
-const sans = localFont({
+// One typeface: the LD serif, self-hosted from public/fonts, in its light,
+// light italic and regular cuts. The page is set small and gets its
+// hierarchy from tone and position, so there is no bold cut and
+// font-synthesis is off in globals.css — a font-bold class renders at the
+// regular weight rather than a faux bold.
+const serif = localFont({
   src: [
-    { path: "../public/fonts/AL-Book.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/LD-Light.woff2", weight: "300", style: "normal" },
+    {
+      path: "../public/fonts/LD-LightItalic.woff2",
+      weight: "300",
+      style: "italic",
+    },
+    { path: "../public/fonts/LD-Regular.woff2", weight: "400", style: "normal" },
   ],
-  variable: "--font-sans",
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -23,11 +30,11 @@ const siteDescription =
 const siteUrl = "https://thirdindex.co";
 
 // Tints browser chrome (Safari URL bar, Chrome Android tab bar) with the
-// accent blue. Doesn't affect the page background — that stays canvas/ink
+// accent orange. Doesn't affect the page background — that stays canvas/ink
 // via the CSS variables. Same value for light and dark so the chrome
 // identity is consistent regardless of mode.
 export const viewport: Viewport = {
-  themeColor: "#0000ff",
+  themeColor: "#ff4f00",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -115,7 +122,8 @@ const jsonLd = {
 // Runs before hydration; sets data-theme from localStorage, falling back to
 // the system preference. Prevents a flash of the wrong theme on reload.
 // Also sets data-intro, which is what turns the load sequence on at all —
-// skipped under reduced motion. The field is always the flat grey.
+// skipped under reduced motion. While it is set the home canvas shows only
+// its centre line with a count to 100 (see _components/CanvasShell.tsx).
 const themeInitScript = `
 try {
   var stored = localStorage.getItem('theme');
@@ -124,7 +132,7 @@ try {
     : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', theme);
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.setAttribute('data-intro', 'grey');
+    document.documentElement.setAttribute('data-intro', '');
   }
 } catch (e) {}
 `;
@@ -137,7 +145,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={sans.variable}
+      className={serif.variable}
       suppressHydrationWarning
     >
       <head>
@@ -146,14 +154,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* The desktop FOUC guard in globals.css hides [data-anim] until
-            AnimRoot reveals it. With scripting off nothing ever would, and
-            the whole page would render blank. */}
-        <noscript>
-          <style>{`@media (min-width: 1024px) { [data-anim] { visibility: visible !important; } }`}</style>
-        </noscript>
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-serif antialiased">
         <Providers>
           {children}
           <Analytics />
