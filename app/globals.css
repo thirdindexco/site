@@ -104,6 +104,38 @@ html[data-intro-out] .canvas-ready {
 html[data-intro-out] .canvas-numeral {
   transition-delay: calc(0.3s + var(--i, 0) * 70ms);
 }
+/* The centre line arrives a word at a time, each rising a little as it
+   fades in. During the count (html[data-intro-run], set by the intro hook
+   once the fonts are ready, so the serif never swaps mid-reveal) the name
+   and the lead come in; at the hand-off (html[data-intro-out]) the links
+   and the clock follow, continuing the stagger. The line containers are
+   only held hidden, not faded, so the words carry the whole motion. */
+html[data-intro] .canvas-word,
+html[data-intro] .canvas-ready-word {
+  opacity: 0;
+}
+html[data-intro] .canvas-line {
+  visibility: hidden;
+}
+html[data-intro-run] .canvas-word {
+  animation: canvas-word 0.6s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+  animation-delay: calc(var(--w, 0) * 50ms);
+}
+html[data-intro-out] .canvas-ready-word {
+  animation: canvas-word 0.6s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+  animation-delay: calc(0.15s + var(--w, 0) * 50ms);
+}
+
+@keyframes canvas-word {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 
 @keyframes canvas-in {
   from {

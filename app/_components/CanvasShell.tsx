@@ -19,6 +19,10 @@ import {
   STUDIO_LEAD,
   indexNumber,
 } from "../_lib/canvas";
+
+// The stagger index for the load sequence: each word on the centre line
+// rises in turn (see .canvas-word in globals.css).
+const w = (i: number) => ({ "--w": i }) as CSSProperties;
 import { workHref, type Project } from "../_lib/projects";
 import { cycleTheme, themeAtom } from "../_lib/theme-state";
 import { CanvasClock } from "./CanvasClock";
@@ -153,52 +157,54 @@ export function CanvasShell({
         >
           <div className="relative grid grid-cols-12 items-start gap-x-5">
             <div className="col-span-2 flex items-start gap-6 whitespace-nowrap">
-              <Link href="/" className={LINK}>
+              <Link href="/" className={`${LINK} canvas-word`} style={w(0)}>
                 Third Index
               </Link>
               {atHome || view === "select" ? null : (
-                <Link href="/select" className={LINK}>
+                <Link href="/select" className={`${LINK} canvas-ready-word`} style={w(0)}>
                   Select
                 </Link>
               )}
               {atHome || view === "studio" ? null : (
-                <Link href="/studio" className={LINK}>
+                <Link href="/studio" className={`${LINK} canvas-ready-word`} style={w(1)}>
                   Studio
                 </Link>
               )}
             </div>
 
-            <div className="canvas-ready absolute left-1/2 top-0 flex -translate-x-1/2 gap-6 whitespace-nowrap">
+            <div className="canvas-line absolute left-1/2 top-0 flex -translate-x-1/2 gap-6 whitespace-nowrap">
               {atHome ? (
                 <>
-                  <Link href="/select" className={LINK}>
+                  <Link href="/select" className={`${LINK} canvas-ready-word`} style={w(0)}>
                     {open ? open.title : "Select"}
                   </Link>
-                  <Link href="/studio" className={LINK}>
+                  <Link href="/studio" className={`${LINK} canvas-ready-word`} style={w(1)}>
                     Studio
                   </Link>
-                  <Link href="/inquire" className={LINK}>
+                  <Link href="/inquire" className={`${LINK} canvas-ready-word`} style={w(2)}>
                     Inquire
                   </Link>
                 </>
               ) : (
-                <Link href="/" className={LINK}>
+                <Link href="/" className={`${LINK} canvas-ready-word`} style={w(0)}>
                   Close
                 </Link>
               )}
             </div>
 
-            <div className="canvas-ready col-span-4 col-start-9 flex items-start justify-end gap-6 whitespace-nowrap">
+            <div className="canvas-line col-span-4 col-start-9 flex items-start justify-end gap-6 whitespace-nowrap">
               {atHome ? null : view === "inquire" ? (
-                <a href={`mailto:${CONTACT.email}`} className={LINK}>
+                <a href={`mailto:${CONTACT.email}`} className={`${LINK} canvas-ready-word`} style={w(3)}>
                   {CONTACT.email}
                 </a>
               ) : (
-                <Link href="/inquire" className={LINK}>
+                <Link href="/inquire" className={`${LINK} canvas-ready-word`} style={w(3)}>
                   Inquire
                 </Link>
               )}
-              <CanvasClock />
+              <span className="canvas-ready-word" style={w(4)}>
+                <CanvasClock />
+              </span>
             </div>
           </div>
         </div>
@@ -210,7 +216,16 @@ export function CanvasShell({
           className={`canvas-loader absolute inset-x-0 ${LINE_TOP} flex items-start justify-end`}
         >
           <p className="absolute left-1/2 top-0 -translate-x-1/2 whitespace-nowrap">
-            {STUDIO_LEAD}
+            {STUDIO_LEAD.split(" ").map((word, i) => (
+              <span
+                key={i}
+                className="canvas-word inline-block"
+                style={w(i)}
+              >
+                {word}
+                {i < STUDIO_LEAD.split(" ").length - 1 ? "\u00a0" : null}
+              </span>
+            ))}
           </p>
           <span ref={pctRef} className="tabular-nums text-accent">
             0%
@@ -364,11 +379,13 @@ function useIntro(pctRef: RefObject<HTMLSpanElement | null>) {
       html.setAttribute("data-intro-out", "");
       requestAnimationFrame(() => {
         html.removeAttribute("data-intro");
+        html.removeAttribute("data-intro-run");
         window.setTimeout(() => html.removeAttribute("data-intro-out"), 1500);
       });
     };
     const run = () => {
       if (cancelled) return;
+      html.setAttribute("data-intro-run", "");
       const start = performance.now();
       const tick = (now: number) => {
         const t = Math.min(1, (now - start) / DURATION_MS);
