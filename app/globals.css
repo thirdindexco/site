@@ -1,55 +1,30 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
+/* The palette: six warm neutrals and one orange. The sheet reads the
+   five roles below; nothing else on the page names a colour. */
 :root {
-  /* The palette: warm neutrals and one orange. The scale is kept whole;
-     the page reads the semantic names below it. */
-  --n-100: #faf9f7; /* page background */
-  --n-200: #f2f0ec; /* hover, subtle fills */
-  --n-300: #e8e5e0; /* surface */
-  --n-400: #c9c5bf; /* borders, dividers */
-  --n-500: #8a8782; /* placeholder, disabled, tertiary */
-  --n-600: #6b6965; /* secondary text */
-  --n-700: #3a3936; /* strong secondary, dark borders */
-  --n-800: #1c1b19; /* dark surface */
-  --n-900: #0b0b0b; /* primary text, dark background */
-  --accent-100: #ffede3; /* tint backgrounds, selection */
-  --accent-500: #ff4f00; /* default */
-  --accent-600: #c73b00; /* text and links on light */
-  --accent-700: #9e2e00; /* hover and pressed on light */
-  --error: #b8001f;
-  --success: #1f7a4d;
-  --warning: #c73b00;
+  --n-100: #faf9f7; /* page background (light) · ink (dark) */
+  --n-300: #e8e5e0; /* surface (light) */
+  --n-500: #a8a5a0; /* secondary text (dark) */
+  --n-600: #6b6965; /* secondary text (light) */
+  --n-800: #1c1b19; /* surface (dark) */
+  --n-900: #0b0b0b; /* ink (light) · page background (dark) */
+  --accent: #ff4f00; /* the one orange */
 
-  --background: var(--n-100); /* canvas */
-  --foreground: var(--n-900); /* ink */
-  --card: var(--n-100);
-  --popover: var(--n-100);
-  --primary: var(--n-900);
-  --primary-foreground: var(--n-100);
-  --secondary: var(--n-300); /* surface */
-  --muted: var(--n-300);
-  --muted-foreground: var(--n-600);
+  --background: var(--n-100); /* canvas; selection inverts it with the ink */
+  --foreground: var(--n-900); /* ink; borders are this at 25% */
+  --muted: var(--n-300); /* secondary surface, reserved */
+  --muted-foreground: var(--n-600); /* subdued text */
   /* The accent marks the live thing: the hovered link, the open number,
-     the loader count, a focused field. */
-  --accent: var(--accent-500);
-  --accent-hover: var(--accent-700);
-  --panel-border: var(--n-400);
+     the loader count, a focused field. Same in both modes. */
 }
 
 html[data-theme="dark"] {
   --background: var(--n-900);
   --foreground: var(--n-100);
-  --card: var(--n-900);
-  --popover: var(--n-900);
-  --primary: var(--n-100);
-  --primary-foreground: var(--n-900);
-  --secondary: var(--n-800);
   --muted: var(--n-800);
-  --muted-foreground: #a8a5a0;
-  --accent: var(--accent-500);
-  --accent-hover: #ff7033;
-  --panel-border: var(--n-700);
+  --muted-foreground: var(--n-500);
 }
 
 html,
@@ -144,6 +119,6 @@ html[data-intro-out] .canvas-ready-word {
 }
 
 ::selection {
-  background: var(--primary);
-  color: var(--primary-foreground);
+  background: var(--foreground);
+  color: var(--background);
 }

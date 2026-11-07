@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        // canvas / ink
+        // The five roles from globals.css: canvas, ink, surface, subdued
+        // text, and the one orange.
         background: {
           DEFAULT: "var(--background)",
           light: "#faf9f7",
@@ -18,38 +19,6 @@ export default {
           DEFAULT: "var(--foreground)",
           light: "#0b0b0b",
           dark: "#faf9f7",
-        },
-
-        // cards / popovers mirror canvas
-        card: {
-          DEFAULT: "var(--card)",
-          light: "#faf9f7",
-          dark: "#0b0b0b",
-        },
-        popover: {
-          DEFAULT: "var(--popover)",
-          light: "#faf9f7",
-          dark: "#0b0b0b",
-        },
-
-        // primary (ink-on-canvas, inverted between modes)
-        primary: {
-          DEFAULT: "var(--primary)",
-          light: "#0b0b0b",
-          dark: "#faf9f7",
-          foreground: "var(--primary-foreground)",
-        },
-        "primary-foreground": {
-          DEFAULT: "var(--primary-foreground)",
-          light: "#faf9f7",
-          dark: "#0b0b0b",
-        },
-
-        // surface (secondary / muted)
-        secondary: {
-          DEFAULT: "var(--secondary)",
-          light: "#e8e5e0",
-          dark: "#1c1b19",
         },
         muted: {
           DEFAULT: "var(--muted)",
@@ -62,11 +31,7 @@ export default {
           light: "#6b6965",
           dark: "#a8a5a0",
         },
-
-        // signature (accent) — the orange in light and dark.
-        // -hover variant is a brighter sibling for primary CTA hover.
         accent: "var(--accent)",
-        "accent-hover": "var(--accent-hover)",
       },
       fontFamily: {
         // Only the debug overlays set mono now; the page is one family.
